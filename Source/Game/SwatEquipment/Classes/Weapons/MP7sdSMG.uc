@@ -1,0 +1,1 @@
+class MP7sdSMG extends SubMachineGun;

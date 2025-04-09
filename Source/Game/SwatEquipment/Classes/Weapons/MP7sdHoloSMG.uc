@@ -1,0 +1,1 @@
+class MP7sdHoloSMG extends MP7SMG config(SwatEquipment);
