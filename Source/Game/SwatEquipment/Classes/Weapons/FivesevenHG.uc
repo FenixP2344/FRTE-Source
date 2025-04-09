@@ -1,0 +1,4 @@
+class FivesevenHG extends Handgun;
+
+
+

@@ -1,0 +1,5 @@
+class GALILMG extends MachineGun;
+
+
+
+

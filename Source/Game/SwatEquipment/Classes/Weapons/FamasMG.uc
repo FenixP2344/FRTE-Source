@@ -1,0 +1,5 @@
+class FamasMG extends MachineGun;
+
+
+
+

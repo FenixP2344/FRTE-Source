@@ -1,0 +1,1 @@
+class Knife extends Shotgun config(SwatEquipment);

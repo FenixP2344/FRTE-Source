@@ -1,0 +1,1 @@
+class ColtM1911sdHG extends Handgun config(SwatEquipment);

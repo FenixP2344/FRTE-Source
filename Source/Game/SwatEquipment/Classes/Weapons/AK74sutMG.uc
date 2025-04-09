@@ -1,0 +1,1 @@
+class AK74sutMG extends MachineGun config(SwatEquipment);

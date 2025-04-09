@@ -1,0 +1,1 @@
+class C7A2isMG extends MachineGun;

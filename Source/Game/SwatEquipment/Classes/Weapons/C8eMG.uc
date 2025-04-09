@@ -1,0 +1,1 @@
+class C8eMG extends C8isMG config(SwatEquipment);

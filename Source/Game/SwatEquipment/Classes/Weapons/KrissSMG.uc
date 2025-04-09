@@ -1,0 +1,5 @@
+class KrissSMG extends SubMachineGun;
+
+
+
+
