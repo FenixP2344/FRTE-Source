@@ -1,9 +1,6 @@
-class ClipBasedWeapon extends Engine.SwatWeapon;
+class ClipBasedWeapon extends SwatWeaponFR;
 
 var SpentMagDrop SpentMag; //static mesh of the spent mag to be dropped
-
-
-//simulated function UnEquippedHook();  //TMC do we want to blank the HUD's ammo count?
 
 simulated function OnReloadMagDump() //overrided function from FiredWeapon
 {	
@@ -11,7 +8,7 @@ simulated function OnReloadMagDump() //overrided function from FiredWeapon
 	if (IsInState('BeingReloadedQuick') || ( ( Owner.IsA('SwatEnemy') || Owner.IsA('SwatOfficer') ) && AIisQuickReloaded )   )
 	{
 		
-			log("ClipBasedWeapon::OnReloadMagDump() :: " $ Owner.name $ " .");
+		//log("ClipBasedWeapon::OnReloadMagDump() :: " $ Owner.name $ " .");
 		
 		//make clip unusable!
 		if ( !self.isa('ShieldHandgun')  &&  !self.isa('TaserShield') )
@@ -57,8 +54,3 @@ simulated function OnReloadMagDump() //overrided function from FiredWeapon
 		SpentMag.SetInitialVelocity(Vect(0,0,0));	
 	}
 }
-
-
-
-
-

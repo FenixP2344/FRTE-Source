@@ -254,8 +254,13 @@ simulated state Activating
 		{
 			A = Lerp((Level.TimeSeconds - TransitionStart) / EffectDownTime, 0, 1);
 			PC.GetHUDPage().NVGogglesTransitionOverlay.WinTop = -1 + A * A;
+			
+			if ( PC.GetHUDPage().NVGogglesTransitionOverlay.WinTop >= -0.2 )
+				SetCanSeeIRLaser(true);
 		}
-
+		
+		UpdateStrobeLightPosition();
+		
 		Super.Tick(Delta);
 	}
 
@@ -299,6 +304,18 @@ simulated state Activated
 
 		ActivateEffect();
 	}
+	
+	simulated function Tick(float Delta)
+	{
+		if ( Level.GetLocalPlayerController().Pawn.IsFirstPerson() )
+			SetCanSeeIRLaser(true);
+		else
+			SetCanSeeIRLaser(false);
+		
+		UpdateStrobeLightPosition();
+		Super.Tick(Delta);
+	}	
+	
 
 	simulated function EndState()
 	{
@@ -334,7 +351,14 @@ simulated state Deactivating
 		{
 			A = Lerp((Level.TimeSeconds - TransitionStart) / EffectUpTime, 0, 1);
 			PC.GetHUDPage().NVGogglesTransitionOverlay.WinTop = 0 - A * A;
+			
+			if ( PC.GetHUDPage().NVGogglesTransitionOverlay.WinTop < -0.2 )
+				SetCanSeeIRLaser(false);
 		}
+		else
+			SetCanSeeIRLaser(false);
+		
+		UpdateStrobeLightPosition();
 
 		Super.Tick(Delta);
 	}
@@ -350,6 +374,10 @@ static function bool IsUsableByPlayer()
 	// sort of clever hack...allows the night vision goggles to be disabled, but not NVGogglesBase
 	return default.class != class'SwatEquipment.NVGogglesBase';
 }
+
+simulated function bool GetCanSeeIRLaser();
+simulated function SetCanSeeIRLaser(bool Set);
+simulated function UpdateStrobeLightPosition();
 
 defaultproperties
 {

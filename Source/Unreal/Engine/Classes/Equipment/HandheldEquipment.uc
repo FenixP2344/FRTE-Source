@@ -1606,9 +1606,8 @@ defaultproperties
     UnequipAnimationRate=1.0
     UseAnimationRate=1.0
 	MeleeAnimationRate=1.0
-	
 	NoArmorQualifyMultiplier=0.5
-    HeavyArmorQualifyMultiplier=-0.25
+	HeavyArmorQualifyMultiplier=-0.25
 
 	MeleeRange=85
 	MeleeDamage=5

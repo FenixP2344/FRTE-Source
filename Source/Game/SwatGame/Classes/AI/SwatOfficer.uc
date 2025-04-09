@@ -190,6 +190,8 @@ function EnteredZone(ZoneInfo Zone)
 		{
 			// set first our NVG state to whatever the zone says
 			SetDesiredNightvisionState(Zone.bUseFlashlight); 
+			if (FiredWeapon(self.GetActiveItem()).HasIrLaser())
+			         FiredWeapon(self.GetActiveItem()).SetLaser(Zone.bUseFlashlight);
 		}
 		else
 		{

@@ -153,6 +153,13 @@ var(Damage) public config float OverrideArmDamageModifier;
 
 var(AI) config bool OfficerWontEquipAsPrimary					"If true Officer will use secondary weapon unless ordered otherwise";
 
+replication
+{    
+  // replicated functions sent to server by owning client
+  reliable if( Role < ROLE_Authority )
+	ServerSetLaser;
+}
+
 #define DONT_REQUIRE_PENETRATION_FOR_BLOOD_PROJECTORS 1
 
 simulated function PreBeginPlay()
@@ -184,6 +191,8 @@ simulated event Destroyed()
 	// destroy orphaned actors later.
 	if (IsFlashlightInitialized())
 		DestroyFlashlight(ICanToggleWeaponFlashlight(Owner).GetDelayBeforeFlashlightShutoff());
+	
+	 DestroyLaser();
 
     if (Ammo != None)
     {
@@ -463,7 +472,6 @@ simulated function bool WillHitIntendedTarget(Actor Target, bool MomentumMatters
     return false;
 }
 
-// Used by the OfficerAI - whether firing this weapon will not hit SwatHostage/Undercover/Guard
 simulated function bool WillOfficerAvoidBadShot(Actor Target, bool MomentumMatters, vector EndTrace, optional bool IgnoreStaticMeshes)
 {
     local vector PerfectFireStartLocation, HitLocation, StartTrace, ExitLocation, PreviousExitLocation;
@@ -475,8 +483,6 @@ simulated function bool WillOfficerAvoidBadShot(Actor Target, bool MomentumMatte
     local ESkeletalRegion HitRegion;
     local float Momentum, MtP;
 
-    GetPerfectFireStart(PerfectFireStartLocation, PerfectFireStartDirection);
-
     StartTrace = Pawn(Owner).GetEyeLocation();
     EndTrace = Pawn(Target).GetChestLocation();
 
@@ -487,10 +493,6 @@ simulated function bool WillOfficerAvoidBadShot(Actor Target, bool MomentumMatte
         return false; // We can't hit it because it is too far away.
     }
 
-    Momentum = MuzzleVelocity * Ammo.Mass;
-    PreviousExitLocation = ExitLocation;
-
-
     foreach TraceActors(
         class'Actor',
         Victim,
@@ -498,42 +500,21 @@ simulated function bool WillOfficerAvoidBadShot(Actor Target, bool MomentumMatte
         HitNormal,
         HitMaterial,
         EndTrace,
-        StartTrace,
-        /*optional extent*/,
-        true, //bSkeletalBoxTest
-        HitRegion,
-        true,   //bGetMaterial
-        true,   //bFindExitLocation
-        ExitLocation,
-        ExitNormal,
-        ExitMaterial )
+        StartTrace,,true
+         )
     {
-
-        MtP = Victim.GetMomentumToPenetrate(HitLocation, HitNormal, HitMaterial);
 		
 		if(Victim.IsA('LevelInfo'))
         { // LevelInfo is hidden AND blocks all bullets!
             continue;
         }
-        else if(Victim == Owner || Victim == Self || Victim.DrawType == DT_None  || Victim.bHidden)
+        else if(Victim == Owner || Victim.Owner == Self || Victim == Self || Victim.DrawType == DT_None  || Victim.bHidden)
         {
             continue; // Not something we need to worry about
         }
-        else if(!IgnoreStaticMeshes && Victim.DrawType == DT_StaticMesh && Ammo.RoundsNeverPenetrate)
-        {
-            // This might be redundant, but it doesn't seem to work otherwise.
-            return false;
-        }
         else if(!IgnoreStaticMeshes && Victim.DrawType == DT_StaticMesh)
         {
-            // The bullet hits a static mesh.
-            Momentum -= MtP;
             continue;
-        }
-        else if(Momentum <= 0 && MomentumMatters)
-        {
-            // The bullet lost all of its momentum
-            return false;
         }
 		else if (Victim.isa('ShieldEquip'))
 		{
@@ -545,8 +526,6 @@ simulated function bool WillOfficerAvoidBadShot(Actor Target, bool MomentumMatte
 		}
         else if(Victim != Target)
         {
-            Momentum -= MtP;
-
             // We hit something that isn't our target
             if(Victim.IsA('SwatHostage') || Victim.IsA('SwatGuard')  || Victim.IsA('SwatUndercover'))
             {
@@ -561,11 +540,12 @@ simulated function bool WillOfficerAvoidBadShot(Actor Target, bool MomentumMatte
         }
         else
         {
-            return true; //go
+            continue; //go
         }
     }
     return true; //might be a LevelInfo , missed shot but still a go , officers can miss a shot
 }
+
 
 // Used by the AI - whether a bullet fired from this weapon will hit the intended target with no interruptions.
 // Key areas where this is used: ThreatenHostageAction
@@ -2101,6 +2081,9 @@ simulated function UnEquippedHook()
     {
 	    DestroyFlashlight(ICanToggleWeaponFlashlight(Owner).GetDelayBeforeFlashlightShutoff());
     }
+	
+	if (IsLaserON())
+		DestroyLaser();
 }
 
 //get the FiredWeapons standard AimError based on its Owner's current condition.
@@ -2161,18 +2144,23 @@ simulated event Tick(float dTime)
 		UpdateFlashlightLighting(dTime);
 	}
 
+	if ( IsLaserON() )
+		LaserDraw();
+
     if (class'Pawn'.static.CheckDead(Pawn(Owner)))
     {
+		if ( IsLaserON() )
+			DestroyLaser();
+		
         //in this case, we might still be equipped, but we don't want to update stuff
         Disable('Tick');
         return;
     }
-
+	
 	CheckTickEquipped();
 
     UpdateAimError(dTime);
 }
-
 simulated function CheckTickEquipped()
 {
     if (!IsEquipped()) // ckline: modified assert to conditional for efficiency (avoid string concat)
@@ -2181,6 +2169,15 @@ simulated function CheckTickEquipped()
             "[tcohen] "$class.name$", owned by "$Owner$" is Tick()ing, but it is not Equipped.");
     }
 }
+
+//LASER implementation to be expanded on childs
+simulated function  ServerSetLaser();
+simulated function SetLaser(bool bForce); //AI 
+simulated function bool IsLaserON();
+function LaserDraw();
+simulated function InitLaser();
+simulated function DestroyLaser();
+simulated function bool HasIrLaser();
 
 //AimError at any moment in time is composed of two components:
 //  - base aim error represents the weapon's accuracy based on the current condition of its owner,
@@ -2717,6 +2714,14 @@ function OnPlayerViewChanged()
 		DestroyFlashlight(ICanToggleWeaponFlashlight(Owner).GetDelayBeforeFlashlightShutoff());
     }
     UpdateFlashlightState();
+	
+	DestroyLaser();
+	if (IsLaserON())
+	{
+		//reset laser creating a new one
+		InitLaser();
+	}
+	
 }
 
 //

@@ -160,7 +160,7 @@ replication
 	
 	// replicated functions sent to server by owning client
 	reliable if( Role < ROLE_Authority )
-        ServerRequestQualify, ServerRequestUse, ServerSetIsUsingOptiwand, ServerSetForceCrouchWhileOptiwanding , ServerStartLeaning ;
+        ServerRequestQualify, ServerRequestUse, ServerSetIsUsingOptiwand, ServerSetForceCrouchWhileOptiwanding , ServerStartLeaning,ServerSetLaserState ;
 
     // replicated functions sent to client by server
     reliable if( Role == ROLE_Authority )
@@ -173,7 +173,7 @@ replication
         ClientDoFlashbangReaction, ClientDoGassedReaction, ClientDoStungReaction, ClientDoHitReaction, 
         ClientDoPepperSprayedReaction, ClientDoTasedReaction, ClientDoFlashbangShakeReaction ,
         bIsUsingOptiwand, bHasBeenReportedToTOC, ClientPlayEmptyFired, ArmInjuryFlags, 
-        ClientSetItemAvailableCount ; 
+        ClientSetItemAvailableCount; 
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -971,6 +971,8 @@ simulated function SetProtection(ESkeletalRegion Region, ProtectiveEquipment Pro
 //Pawn override
 simulated function DestroyEquipment()
 {
+    local int i;
+
     //log( ".....SwatPlayer::DestroyEquipment()." );
     LoadOut.Destroy();
 
@@ -4824,6 +4826,51 @@ function vector GetLWSLocOffset()
   
 	return offset;
 }
+
+simulated function bool HasNVGActiveForLaser()
+{
+	return ProtectiveEquipment( GetLoadOut().GetItemAtPocket(Pocket.Pocket_HeadArmor)).GetCanSeeIRLaser();
+}
+
+exec function ToggleLaser()
+{
+     local FiredWeapon ActiveItem;
+
+     ActiveItem = FiredWeapon( self.GetActiveItem() );
+     
+     if (ActiveItem != None && ActiveItem.IsA('FiredWeapon'))
+        ServerSetLaserState();
+        
+}
+
+function ServerSetLaserState()
+{
+	local Controller i;
+    local Controller theLocalPlayerController;
+    local SwatGamePlayerController current;
+	
+	if ( Level.NetMode != NM_Standalone )
+    {
+        theLocalPlayerController = Level.GetLocalPlayerController();
+        for ( i = Level.ControllerList; i != None; i = i.NextController )
+        {
+            current = SwatGamePlayerController( i );
+            if ( current != None )
+            {
+                if ( (current != theLocalPlayerController) && (current.Pawn != None) )
+                {
+	      			if (Level.GetEngine().EnableDevTools)
+						mplog( self$" on server: calling ServerSetLaserState() on "$current.Pawn );
+
+                     current.ClientSetLaserState( self );
+                }
+            }
+        }
+	}
+	else
+		SwatGamePlayerController(Controller).ClientSetLaserState(self);
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 defaultproperties
