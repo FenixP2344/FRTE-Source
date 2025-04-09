@@ -63,6 +63,11 @@ simulated function UseSkinMesh() //change mesh here due to delay of loadout load
 	Linkmesh(SkeletalMesh(DynamicLoadObject("FP_Hand2.1stPersonHandSkin", class'SkeletalMesh')),true);
 }
 
+simulated function UseSkinMeshHeavy() //change mesh here due to delay of loadout loading after beginplay
+{
+	Linkmesh(SkeletalMesh(DynamicLoadObject("FP_Hand2.1stPersonHandHeavy", class'SkeletalMesh')),true);
+}
+
 simulated event PostNetBeginPlay()
 {
     Super.PostNetBeginPlay();
@@ -221,6 +226,10 @@ simulated function UpdateHandsForRendering()
     }
 
     SetLocation(NewLocation);
+ 	
+ 	if ( OwnerPawn.bShoulderLook )
+ 		NewRotation.Yaw = OwnerPawn.Rotation.Yaw;
+ 	
     SetRotation(NewRotation);
 }
 

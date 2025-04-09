@@ -89,7 +89,7 @@ event Show()
 	}
 	else if(GC.CurrentMission.CustomScenario == None && 
 	      (  SwatGUIControllerBase(Controller).GetCampaign().CampaignPath == 3) ||  // FR mode
-		     (SwatGUIControllerBase(Controller).GetCampaign().CampaignPath == 4) )  // Patrol Officer mode
+		     (SwatGUIControllerBase(Controller).GetCampaign().CampaignPath == 4) )  // Classic mode
 	{
 		//FR campaign mode .... no unlocks here
 		TabControl.MyTabs[0].TabHeader.DisableComponent();

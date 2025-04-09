@@ -229,7 +229,7 @@ function CopyLoadOutWeaponry( DynamicLoadOutSpec to, DynamicLoadOutSpec from )
     Assert( to != None );
 
     for( i = 0; i < Pocket.EnumCount; i++ )
-    {
+    {		
       log("SwatSPLoadoutPanel: Copying "$from.LoadOutSpec[i]$" to "$to.LoadOutSpec[i]);
       to.LoadOutSpec[i] = from.LoadOutSpec[i];
     }
@@ -242,6 +242,7 @@ function CopyLoadOutWeaponry( DynamicLoadOutSpec to, DynamicLoadOutSpec from )
 
 function CopyThisPage(DynamicLoadOutSpec to)
 {
+   Assert( to != None );	
   switch(GetActiveTab())
   {
     case 0:
@@ -270,6 +271,9 @@ function CopyThisPage(DynamicLoadOutSpec to)
       to.LoadoutSpec[Pocket.Pocket_HeadArmor] = MyCurrentLoadOut.LoadoutSpec[Pocket.Pocket_HeadArmor];
       to.LoadoutSpec[Pocket.Pocket_BodyArmor] = MyCurrentLoadOut.LoadoutSpec[Pocket.Pocket_BodyArmor];
       break;
+	case 4:
+	    to.LoadoutSpec[Pocket.Pocket_CustomSkin] = MyCurrentLoadOut.LoadoutSpec[Pocket.Pocket_CustomSkin];
+	  break;
   }
 }
 
@@ -305,6 +309,14 @@ function SaveCurrentLoadout()
 function ChangeLoadOut( Pocket thePocket )
 {
     Super.ChangeLoadOut( thePocket );
+	
+	 switch (thePocket)
+    {
+		 case Pocket_CustomSkin:
+			  MyCurrentLoadOut.LoadOutSpec[thePocket] = class<actor>(EquipmentList[thePocket].GetObject()) ;
+			  break;
+	}
+	
     SaveCurrentLoadout();
 }
 
@@ -334,6 +346,38 @@ function bool CheckValidity( class EquipmentClass, eNetworkValidity type )
 	    {
 	    	return true;
 	    }
+		else if(CampaignPath == 3)
+	    {
+			//forget about skins
+			if( Left(string(EquipmentClass),4) != "Swat")
+			 return true;
+			
+	    	// unlock only specific equipment
+			for(i = 0; i < class'SwatGame.SwatFRCareerPath'.default.UnlockedEquipment.Length; ++i)
+			{
+				if(class'SwatGame.SwatFRCareerPath'.default.UnlockedEquipment[i] == EquipmentClass)
+				{
+					return true;
+				}
+			}
+	    }
+		else if(CampaignPath == 4)
+	    {
+			//forget about skins
+			if( Left(string(EquipmentClass),4) != "Swat")
+			 return true;
+			
+	    	// unlock only specific equipment
+			for(i = 0; i < class'SwatGame.SwatClassicCareerPath'.default.UnlockedEquipment.Length; ++i)
+			{
+				if(class'SwatGame.SwatClassicCareerPath'.default.UnlockedEquipment[i] == EquipmentClass)
+				{
+					log("SwatSPLoadout CP " $ CampaignPath $ " EC " $ EquipmentClass $ " ");
+					return true;
+				}
+			}
+	    }
+		
 
 	    return (type == NETVALID_SPOnly) || (Super.CheckValidity( EquipmentClass, type ));
 	}
@@ -409,6 +453,41 @@ function bool CheckCampaignValid( class EquipmentClass )
             }
         }
     }
+	else if(CampaignPath == 3) { // We only do this for the regular FR missions mode
+    		
+		//forget about skins
+		if( Left(string(EquipmentClass),4) != "Swat")
+		 return true;
+			
+        // unlock only specific equipment
+		for(i = 0; i < class'SwatGame.SwatFRCareerPath'.default.UnlockedEquipment.Length; ++i)
+        {
+            if(class'SwatGame.SwatFRCareerPath'.default.UnlockedEquipment[i] == EquipmentClass)
+            {
+                log("CheckCampaignValid failed on "$EquipmentClass);
+                return true;
+            }
+        }
+		return false;
+    }
+	else if(CampaignPath == 4) { // We only do this for the regular Classic missions mode
+    		
+		//forget about skins
+		if( Left(string(EquipmentClass),4) != "Swat")
+		 return true;
+			
+        // unlock only specific equipment
+		for(i = 0; i < class'SwatGame.SwatClassicCareerPath'.default.UnlockedEquipment.Length; ++i)
+        {
+            if(class'SwatGame.SwatClassicCareerPath'.default.UnlockedEquipment[i] == EquipmentClass)
+            {
+                log("CheckCampaignValid failed on "$EquipmentClass);
+                return true;
+            }
+        }
+		return false;
+    }
+	
 
 	return true;
 }
@@ -1023,4 +1102,5 @@ defaultproperties
     MultiApplyStr[5] = "Red Two (Girard)"
     MultiApplyStr[6] = "Blue One (Fields)"
     MultiApplyStr[7] = "Blue Two (Jackson)"
+		
 }

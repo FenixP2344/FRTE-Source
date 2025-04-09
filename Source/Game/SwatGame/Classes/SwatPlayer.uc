@@ -744,9 +744,20 @@ if ( Level.NetMode == NM_StandAlone && inloadout.CustomSkinSpec != "None" )
 	}
 	
 	//different hands mesh
-    if (inLoadOut.HasInstructorArmor() || inLoadout.HasLevelIIArmor())	
+    if (inLoadOut.HasNoArmor())	
 	{
 		GetHands().UseSkinMesh();
+	   
+	    handsSkin = inLoadOut.GetNoArmorHandsMaterial();
+	    if(handsSkin != None)
+        {
+            hands.Skins[0] = handsSkin;
+        }
+	}
+	//different hands mesh HeavyArmor
+    if (inLoadOut.HasHeavyArmor())	
+	{
+		GetHands().UseSkinMeshHeavy();
 	}
 
     //mplog( "...Skins[0]="$Skins[0] );
@@ -1903,30 +1914,20 @@ function AdjustPlayerMovementSpeed() {
 	//ModdedBck *= LoadOut.GetWeightMovementModifier();
 	//ModdedSde *= LoadOut.GetWeightMovementModifier();
 
-	/*if( IsLowReady() && PlayerController(Controller).bRun == 1 ) //little more speed when low ready
+	if( IsLowReady() && PlayerController(Controller).bRun == 1 ) //little more speed when low ready
 	{
-		AnimSet.AnimSpeedForward = ModdedFwd + (ModdedFwd/3);
-		AnimSet.AnimSpeedSidestep = ModdedSde + (ModdedSde/3);
-		AnimSet.AnimSpeedBackward = ModdedBck + (ModdedBck/3);
+		AnimSet.AnimSpeedForward = ModdedFwd + (ModdedFwd/1);
+		AnimSet.AnimSpeedSidestep = ModdedSde + (ModdedSde/1);
+		AnimSet.AnimSpeedBackward = ModdedBck + (ModdedBck/1);
 	}
-	else 
-	{	
-		TSnow=Level.TimeSeconds;
-		TSdiff=Level.TimeSeconds - dTime;
-		
-		if ( TSnow !=  TSdiff )  //do it only once per second
-		{*/
+
+
 		WeightMovMod = LoadOut.GetWeightMovementModifier();
 		AnimSet.AnimSpeedForward = ModdedFwd * WeightMovMod;
 		AnimSet.AnimSpeedBackward = ModdedBck * WeightMovMod;
 		AnimSet.AnimSpeedSidestep = ModdedSde * WeightMovMod;
-		//log("WeightMovMod=" $ WeightMovMod $ " TW=" $ Loadout.GetTotalWeight() $ " .");
-		//}
-		
-		
-	//}
-
-}
+		log("WeightMovMod=" $ WeightMovMod $ " TW=" $ Loadout.GetTotalWeight() $ " .");
+		}
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////

@@ -1201,7 +1201,7 @@ exec function Fire()
 {
     local HandheldEquipment ActiveItem;
 	local SwatGuiConfig GC;
-	GC = SwatRepo(Level.GetRepo()).GuiConfig;
+	GC = SwatRepo(Level.GetRepo()).GuiConfig;	
 
     ActiveItem = Pawn.GetActiveItem();
 
@@ -1221,6 +1221,9 @@ exec function Fire()
 		{	
 			if(!SwatPlayer(Pawn).IsLowReady()) //with MLR fire when the player is not low ready
 			{
+				if ( Pawn.bShoulderLook )
+ 				return;
+ 				
 				Super.Fire();
 			}
 			else  //if it's low ready just move to ready
@@ -1230,7 +1233,12 @@ exec function Fire()
 			
 		}	
 		else if (GC.ExtraIntOptions[6] == 0)
+		{
+			if ( Pawn.bShoulderLook )
+ 				return;
+ 			
 			Super.Fire();
+		}
     }
 }
 
@@ -2857,6 +2865,11 @@ simulated function InternalReload(optional bool QuickReload)
 
     if ( SwatPlayer.ValidateReload() )
     {
+		//reset all Reload states
+        SetZoom(false, true);
+        
+			WantedZoom=false;
+        
         if (Level.GetEngine().EnableDevTools)
             mplog( "...calling ServerRequestReload()." );
 
@@ -2870,8 +2883,8 @@ simulated function InternalReload(optional bool QuickReload)
 //called from SwatPlayer::OnReloadingFinished()
 simulated function ConsiderAutoReloading()
 {
-    if (bReload > 0)
-        Reload();
+      if (bReload > 0)
+         Reload();
 }
 
 simulated exec function EquipSlot(int Slot)
@@ -6183,6 +6196,22 @@ exec function ToggleNVGLightDown()
     SwatPawn(Pawn).UpdateNightvisionDown();
 }
 
+exec function ShoulderLook()
+{
+	if ( Pawn == None )
+		return;
+
+	Pawn.bShoulderLook = !Pawn.bShoulderLook;
+	//reset all Reload states
+    SetZoom(false, true);
+        
+	WantedZoom=false;
+
+	if ( !Pawn.bShoulderLook )
+		SetRotation(Pawn.Rotation);
+
+}
+
 // modifier to hold the next command was pressed
 exec function HoldCommand(bool bPressed)
 {
@@ -6563,6 +6592,8 @@ function HandleWalking()
     local HandheldEquipment ActiveItem;
 	local SwatGuiConfig GC;
 	
+	ActiveItem = Pawn.GetActiveItem();
+	
 	GC = SwatRepo(Level.GetRepo()).GuiConfig;
 
     if ( IsLocationFrozen() )
@@ -6585,7 +6616,7 @@ function HandleWalking()
         
 		if (GC.ExtraIntOptions[6] == 1) //with manual low ready you can run and aim to keep the flow
 		{
-			WantsToWalk = bool(bRun) == bAlwaysRun;
+			WantsToWalk = WantsZoom || bool(bRun) == bAlwaysRun;
 		}
 		else
 		{

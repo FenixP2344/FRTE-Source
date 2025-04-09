@@ -197,7 +197,41 @@ var private config float			MoveAndClearPauseThreshold;
 var DoorBufferVolume                DoorBufferVolume;
 var StaticMesh                      DoorBufferVolumeCollisionMesh;
 
-var string DeployedWedgeClassName;
+//var string DeployedWedgeClassName;
+var private bool bLockedBySwat;
+var private bool bUnused1;
+var private bool bUnused2;
+var private bool bUnused3;
+var private bool bUnused4;
+var private bool bUnused5;
+var private bool bUnused6;
+var private bool bUnused7;
+var private bool bUnused8;
+var private bool bUnused9;
+var private bool bUnused10;
+var private bool bUnused11;
+var private bool bUnused12;
+var private bool bUnused13;
+var private bool bUnused14;
+var private bool bUnused15;
+var private bool bUnused16;
+var private bool bUnused17;
+var private bool bUnused18;
+var private bool bUnused19;
+var private bool bUnused20;
+var private bool bUnused21;
+var private bool bUnused22;
+var private bool bUnused23;
+var private bool bUnused24;
+var private bool bUnused25;
+var private bool bUnused26;
+var private bool bUnused27;
+var private bool bUnused28;
+var private bool bUnused29;
+var private bool bUnused30;
+var private bool bUnused31;
+var private bool bUnused32;
+var Actor UnusedActor;
 var class<Actor> DeployedWedgeClass;
 
 var string DeployedC2ChargeClassName;
@@ -337,7 +371,7 @@ simulated function PreBeginPlay()
 
     //load the DeployedWedgeClass and DeployedC2ChargeClass because they are
     // created by designers
-    DeployedWedgeClass    = class<Actor>(DynamicLoadObject(DeployedWedgeClassName,class'Class'));
+    DeployedWedgeClass    = class<Actor>(DynamicLoadObject("SwatDesignerClasses.DeployedWedge",class'Class'));
     DeployedC2ChargeClass = class<Actor>(DynamicLoadObject(DeployedC2ChargeClassName,class'Class'));
 
     // Spawn the deployed wedge and c2 objects for this door
@@ -814,7 +848,7 @@ local Door LevelDoor;
 	if(bIsLocked)
 	{
 		BroadcastEffectEvent('LockedDoorTried');
-		UpdateOfficerDoorKnowledge(true);
+		//UpdateOfficerDoorKnowledge(true);
 		Caller.DoorIsLocked();
 
 		LockedKnowledge[0] = 1;
@@ -824,7 +858,7 @@ local Door LevelDoor;
 	else
 	{
 		BroadcastEffectEvent('Unlocked');
-		UpdateOfficerDoorKnowledge(false);
+		//UpdateOfficerDoorKnowledge(false);
 		Caller.DoorIsNotLocked();
 
 		LockedKnowledge[0] = 0;
@@ -849,23 +883,6 @@ local Door LevelDoor;
 	}
 	
 	return true;
-}
-
-// FIXME: there might be more that's required to get this to work correctly..?
-simulated function OnDoorLockedByOperator() {
-	if(bIsLocked) {
-		// See above note about bIsLocked
-		return;
-	}
-
-	bIsLocked = true;
-	TriggerEffectEvent('Unlocked');
-
-	UpdateOfficerDoorKnowledge(true);
-
-	LockedKnowledge[0] = 1;
-	LockedKnowledge[1] = 1;
-	LockedKnowledge[2] = 1;
 }
 
 simulated function bool KnowsDoorIsLocked( int TeamNumber )
@@ -1459,7 +1476,7 @@ simulated function bool LocationIsInSweep(vector DoorPivot, vector TestLocation,
     return true;    //candidate is blocking
 }
 
-simulated function UpdateOfficerDoorKnowledge(optional bool locking)
+simulated function UpdateOfficerDoorKnowledge()
 {
 	local SwatAIRepository AIRepo;
     local SwatPawn PlayerPawn;
@@ -1477,7 +1494,7 @@ simulated function UpdateOfficerDoorKnowledge(optional bool locking)
 		if (AIRepo != None)
 			AIRepo.UpdateDoorKnowledgeForOfficers(self);
 		else                //no AIRepository... tell myself
-			PlayerPawn.SetDoorLockedBelief(self, locking);
+			PlayerPawn.SetDoorLockedBelief(self, false);
 	}
 }
 
@@ -2803,6 +2820,11 @@ simulated function SilentUnlock()
 	}
 }
 
+simulated function bool CanBeOpenedBySuspectsAndCivilians()
+{
+	return !bLockedBySwat;
+}
+
 simulated function float GetMoveAndClearPauseThreshold()
 {
 	return MoveAndClearPauseThreshold;
@@ -2822,7 +2844,7 @@ function SpawnDeployedWedge()
     DeployedWedge = DeployedWedgeBase(Spawn(DeployedWedgeClass));
 
     assertWithDescription(DeployedWedge != None,
-        "[tcohen] SwatDoor couldn't Spawn a DeployedWedge.  DeployedWedgeClassName="$DeployedWedgeClassName
+        "[tcohen] SwatDoor couldn't Spawn a DeployedWedge.  DeployedWedgeClassName=SwatDesignerClasses.DeployedWedge"
         $", which resolves to DeployedWedgeClass="$DeployedWedgeClass
         $".");
 
@@ -2922,11 +2944,7 @@ function OnUsingByToolkitBegan( Pawn User );
 // Called when qualifying completes successfully.
 simulated function OnUsedByToolkit(Pawn User)
 {
-	if(bIsLocked || BelievesDoorLocked(User)) {
     OnUnlocked();
-	} else {
-		OnDoorLockedByOperator();
-	}
 }
 
 // Called when qualifying is interrupted.
