@@ -1,0 +1,4 @@
+class AKMMG extends MachineGun;
+
+
+

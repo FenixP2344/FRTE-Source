@@ -1,0 +1,1 @@
+class Fireextinguisher extends PepperSpray config(SwatEquipment);

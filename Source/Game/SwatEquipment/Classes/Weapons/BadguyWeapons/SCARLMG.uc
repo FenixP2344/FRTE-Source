@@ -1,0 +1,4 @@
+class SCARLMG extends MachineGun;
+
+
+
