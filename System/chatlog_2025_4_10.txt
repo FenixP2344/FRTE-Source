@@ -1,0 +1,81 @@
+[10/04/2025 18:45:50] MPGamer () connected to the game server.
+[10/04/2025 18:46:53] The round has started.
+[10/04/2025 18:47:03] MPGamer (): ROGER
+[10/04/2025 18:47:23] MPGamer () incapacitated a Suspect with HS Produkt VHS2 CT Aimpoint
+[10/04/2025 18:47:57] MPGamer () arrested a Suspect
+[10/04/2025 18:48:21] MPGamer () arrested a Suspect
+[10/04/2025 18:48:53] MPGamer () arrested a Civilian
+[10/04/2025 18:49:13] MPGamer () killed a Suspect with HS Produkt VHS2 CT Aimpoint
+[10/04/2025 18:49:41] MPGamer (): ROGER
+[10/04/2025 18:49:44] MPGamer (): RESTRAIN
+[10/04/2025 18:49:47] MPGamer () arrested a Suspect
+[10/04/2025 18:49:47] Objective Complete: Bring order to chaos
+[10/04/2025 18:49:47] Objective Complete: Neutralize Ric 'Dog' Peters
+[10/04/2025 18:49:56] MPGamer () arrested a Civilian
+[10/04/2025 18:50:09] MPGamer () started a vote: MPGamer has started a vote to restart the current level.
+[10/04/2025 18:50:10] MPGamer () voted yes.
+[10/04/2025 18:50:10] The vote has passed.
+[10/04/2025 18:50:10] MPGamer (): FALL IN
+[10/04/2025 18:50:13] The map has been changed to ?restart
+[10/04/2025 18:50:13] The mission has ended.
+[10/04/2025 18:50:13] MPGamer () disconnected from game server.
+[10/04/2025 18:50:14] MPGamer () connected to the game server.
+[10/04/2025 18:52:19] The round has started.
+[10/04/2025 18:52:24] MPGamer (): ROGER
+[10/04/2025 18:52:26] MPGamer (): STACK UP
+[10/04/2025 18:52:44] MPGamer () started a vote: MPGamer has started a vote to restart the current level.
+[10/04/2025 18:52:45] MPGamer () voted yes.
+[10/04/2025 18:52:45] The vote has passed.
+[10/04/2025 18:52:48] The map has been changed to ?restart
+[10/04/2025 18:52:48] The mission has ended.
+[10/04/2025 18:52:48] MPGamer () disconnected from game server.
+[10/04/2025 18:52:50] MPGamer () connected to the game server.
+[10/04/2025 18:53:20] The round has started.
+[10/04/2025 18:53:26] MPGamer (): STACK UP
+[10/04/2025 18:53:53] MPGamer () arrested a Suspect
+[10/04/2025 18:54:01] MPGamer () arrested a Suspect
+[10/04/2025 18:54:22] MPGamer () arrested a Suspect
+[10/04/2025 18:54:26] MPGamer (): MIRROR ROOM
+[10/04/2025 18:54:28] MPGamer (): CLEAR
+[10/04/2025 18:54:32] MPGamer () started a vote: MPGamer has started a vote to restart the current level.
+[10/04/2025 18:54:32] MPGamer () voted yes.
+[10/04/2025 18:54:32] The vote has passed.
+[10/04/2025 18:54:35] The map has been changed to ?restart
+[10/04/2025 18:54:35] The mission has ended.
+[10/04/2025 18:54:35] MPGamer () disconnected from game server.
+[10/04/2025 18:54:37] MPGamer () connected to the game server.
+[10/04/2025 18:54:54] The round has started.
+[10/04/2025 18:54:59] MPGamer (): FALL IN
+[10/04/2025 18:55:12] MPGamer () incapacitated a Suspect with G36C
+[10/04/2025 18:55:14] MPGamer () incapacitated a Suspect with G36C
+[10/04/2025 18:55:38] MPGamer (): RESTRAIN
+[10/04/2025 18:55:46] MPGamer () arrested a Suspect
+[10/04/2025 18:55:51] MPGamer (): FALL IN
+[10/04/2025 18:55:52] MPGamer (): FALL IN
+[10/04/2025 18:55:53] MPGamer (): FALL IN
+[10/04/2025 18:55:55] MPGamer (): COVER
+[10/04/2025 18:55:57] MPGamer (): COVER
+[10/04/2025 18:55:58] MPGamer (): MOVE TO
+[10/04/2025 18:55:59] MPGamer (): MOVE TO
+[10/04/2025 18:56:24] MPGamer () started a vote: MPGamer has started a vote to restart the current level.
+[10/04/2025 18:56:25] MPGamer () voted yes.
+[10/04/2025 18:56:25] The vote has passed.
+[10/04/2025 18:56:28] The map has been changed to ?restart
+[10/04/2025 18:56:28] The mission has ended.
+[10/04/2025 18:56:28] MPGamer () disconnected from game server.
+[10/04/2025 18:56:29] MPGamer () connected to the game server.
+[10/04/2025 19:07:06] MPGamer () connected to the game server.
+[10/04/2025 19:07:47] The round has started.
+[10/04/2025 19:08:00] MPGamer () killed a Suspect with HS2000
+[10/04/2025 19:08:09] MPGamer () killed a Suspect with HS2000
+[10/04/2025 19:08:25] MPGamer () arrested a Suspect
+[10/04/2025 19:16:59] MPGamer () connected to the game server.
+[10/04/2025 19:17:31] The round has started.
+[10/04/2025 19:18:17] MPGamer () incapacitated a Suspect with SPAS-12 
+[10/04/2025 19:18:40] MPGamer () arrested a Civilian
+[10/04/2025 19:19:23] MPGamer (): ROGER
+[10/04/2025 19:19:36] MPGamer () arrested a Suspect
+[10/04/2025 19:19:36] Objective Complete: Neutralize Lian Niu
+[10/04/2025 19:19:44] MPGamer () incapacitated a Suspect with SPAS-12 
+[10/04/2025 19:19:44] Objective Complete: Neutralize Alex Jimenez
+[10/04/2025 19:19:44] Objective Complete: Bring order to chaos

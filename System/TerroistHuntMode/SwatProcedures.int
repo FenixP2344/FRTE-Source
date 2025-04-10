@@ -1,0 +1,59 @@
+[Procedure_CompleteMission]
+Description=Mission completed
+
+[Procedure_ArrestIncapacitatedSuspects]
+Description=Suspects incapacitated
+
+[Procedure_KillSuspects]
+Description=Suspects neutralized
+
+[Procedure_NoCiviliansInjured]
+Description=No civilians injured
+
+[Procedure_NoOfficersDown]
+Description=No officers down
+
+[Procedure_PlayerUninjured]
+Description=Player uninjured
+
+[Procedure_NoHostageIncapacitated]
+Description=Incapacitated a hostage
+ChatMessage=[c=ff8000]Incapacitated Hostage (-25)[\c]
+
+[Procedure_NoHostageKilled]
+Description=Killed a hostage
+ChatMessage=[c=cc3333]Killed Hostage (-50)[\c]
+
+[Procedure_NoOfficerIncapacitated]
+Description=Incapacitated a fellow officer
+ChatMessage=[c=cc3333]Incapacitated Officer (-25)[\c]
+
+[Procedure_NoHostgeInjured]
+Description=Unauthorized use of force
+ChatMessage=[c=ff8000]Unauthorized Force (-5)[\c]
+
+[Procedure_NoOfficerInjured]
+Description=Injured a fellow officer
+ChatMessage=[c=ff8000]Injured Officer (-5)[\c]
+
+[Procedure_NoOfficerTased]
+Description=Tased a officer or an hostage
+
+[Procedure_NoUnauthorizedUseOfDeadlyForce]
+Description=Before attack Enemy Killed
+ChatMessage=[c=0099cc]Before attack Enemy Killed (+5)[\c]
+
+[Procedure_NoUnauthorizedUseOfForce]
+Description=Before attack Incapacitated Enemy
+ChatMessage=[c=0099cc]Before attack Incapacitated Enemy (+2)[\c]
+
+[Procedure_PreventSuspectEscape]
+Description=Failed to apprehend fleeing suspect
+ChatMessage=[c=0099cc]Suspect Escaped[\c]
+
+[Procedure_NoTrapsTriggered]
+Description=Tripped a trap
+ChatMessage=[c=0099cc]Triggered Trap (-5)[\c]
+
+[Procedure_NoForcedArrest]
+Description=Forced arrest penalty
