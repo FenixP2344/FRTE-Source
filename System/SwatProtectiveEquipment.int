@@ -1,0 +1,190 @@
+[HelmetAndGoggles]
+Description=The kevlar helmet combined with tactical eyewear provides superior damage prevention to the head region as well as eliminating the effects of flashbangs.
+FriendlyName=Mich+goggles
+GUIImage=Texture'FRTEEquipGui_Tex.MICHGoggels'
+
+[PASGTAndGoggles]
+Description=The kevlar helmet combined with tactical eyewear provides superior damage prevention to the head region as well as eliminating the effects of flashbangs.
+FriendlyName=Kevlar Goggles
+GUIImage=Texture'FRTEEquipGui_Tex.pasgt'
+
+[FastNVG]
+Description=NVGs work by amplifying available light and allow the wearer to see in dark areas. Due to their lack of color and limited field of vision, the goggles can make it more difficult to distinguish friend from foe.
+FriendlyName=Fast + NVG
+GUIImage=Texture'FRTEEquipGui_Tex.FastNVG'
+
+[MichNVG]
+Description=NVGs work by amplifying available light and allow the wearer to see in dark areas. Due to their lack of color and limited field of vision, the goggles can make it more difficult to distinguish friend from foe.
+FriendlyName=Mich + NVG
+GUIImage=Texture'FRTEEquipGui_Tex.MichNVG'
+
+[PLAHelmet]
+Description=The QGF-03 aramid helmet achieves or exceeds the performance of the American Kevlar helmet in ballistic protection materials and other aspects, and can achieve 3A level protection. In its design, the facial features of Chinese soldiers were fully considered, and according to the principles of ergonomics, it not only ensures the wide applicability and compact rationality of the helmet, but also improves overall comfort. The international standardization, technical specifications, and aesthetic design of this helmet have greatly improved the appearance of PLA's individual equipment. According to data statistics as of the end of May 2016, the QCF-03 helmet deployment rate of the Chinese Army's Class A troops reached 75.21%. However, such perfect individual equipment also has certain limitations in the daily use and training of soldiers.
+FriendlyName=QGF-03 Helmet
+
+[EnemyProtecHelmet]
+Description=The Fast Helmet And Glass has a sleek, dual-layer design that provides the best head protection. It has no other benefits, however.
+FriendlyName=Combat+Glass
+
+[CombatHelmet]
+Description=The Fast Helmet has a sleek, dual-layer design that provides the best head protection. It has no other benefits, however.
+FriendlyName=Combat Helmet
+
+[EnemyKevlarHelmet]
+Description=If you can read this enter a bug that you can see the Kevlar helmet description!
+FriendlyName=Kevlar Helmet
+
+[KevlarHelmet]
+Description=If you can read this, there is a bug.  This Kevlar Helmet description should never be displayed.
+FriendlyName=Kevlar Helmet
+
+[RiotHelmet]
+Description=The Gentex Level IIIA Personnel Protective Armor System Ground Troops (PASGT) helmet, also referred to as the Lightweight LE helmet, is specifically designed to protect law enforcement and other personnel from ballistic threats. It exceeds the v50 requirements of MIL-H-44099A with a velocity of 2150 feet per second and Level IIIA 9mm projectile at 1400 feet per second. This version is outfitted with a ballistic visor in the downward position.
+FriendlyName=Pasgt Riot
+
+[helmetGasMask]
+Description=The Respirator (with Mich Helmet) offers superior damage prevention while protecting against CS gas and pepper spray. However, it is immensely bulky and restricts the operator's field of view.
+FriendlyName=Mich+Respirator
+
+[gasMask]
+Description=The respirator mask provides the wearer with immunity to CS gas and pepper spray.  Unfortunately it offers no ballistic protection.
+FriendlyName=Respirator
+GUIImage=Texture'FRTEEquipGui_Tex.mask'
+
+[BBEPasgt]
+Description=The Gentex Level IIIA Personnel Protective Armor System Ground Troops (PASGT) helmet, also referred to as the Lightweight LE helmet, is specifically designed to protect law enforcement and other personnel from ballistic threats. It exceeds the v50 requirements of MIL-H-44099A with a velocity of 2150 feet per second and Level IIIA 9mm projectile at 1400 feet per second. This version is outfitted with a green lightstick to provide easy squad identification.
+FriendlyName=PASGT(Lead)
+GUIImage=Texture'FRTEEquipGui_Tex.BBEPasgtLead'
+
+[BBEPasgtBlue]
+Description=The Gentex Level IIIA Personnel Protective Armor System Ground Troops (PASGT) helmet, also referred to as the Lightweight LE helmet, is specifically designed to protect law enforcement and other personnel from ballistic threats. It exceeds the v50 requirements of MIL-H-44099A with a velocity of 2150 feet per second and Level IIIA 9mm projectile at 1400 feet per second. This version is outfitted with a blue lightstick to provide easy squad identification.
+FriendlyName=PASGT(Blue)
+GUIImage=Texture'FRTEEquipGui_Tex.BBEPasgtBlue'
+
+[BBEPasgtRed]
+Description=The Gentex Level IIIA Personnel Protective Armor System Ground Troops (PASGT) helmet, also referred to as the Lightweight LE helmet, is specifically designed to protect law enforcement and other personnel from ballistic threats. It exceeds the v50 requirements of MIL-H-44099A with a velocity of 2150 feet per second and Level IIIA 9mm projectile at 1400 feet per second. This version is outfitted with a red lightstick to provide easy squad identification.
+FriendlyName=PASGT(Red)
+GUIImage=Texture'FRTEEquipGui_Tex.BBEPasgtRed'
+
+[BBEPasgtAndMask]
+Description=The Avon SF-10 gas mask provides the wearer with immunity to CS gas, and greatly reduces the duration of the effect of pepper spray. In combination with the PASGT helmet it provides an allround protection. Restricted vision is the only downside.This version is outfitted with a green lightstick to provide easy squad identification.
+FriendlyName=PASGT + SF10(Lead)
+GUIImage=Texture'FRTEEquipGui_Tex.BBEPasgtMASKLead'
+
+[BBEPasgtAndMaskRed]
+Description=The Avon SF-10 gas mask provides the wearer with immunity to CS gas, and greatly reduces the duration of the effect of pepper spray. In combination with the PASGT helmet it provides an allround protection. Restricted vision is the only downside.This version is outfitted with a red lightstick to provide easy squad identification.
+FriendlyName=PASGT + SF10(Red)
+GUIImage=Texture'FRTEEquipGui_Tex.BBEPasgtMASKRed'
+
+[BBEPasgtAndMaskBlue]
+Description=The Avon SF-10 gas mask provides the wearer with immunity to CS gas, and greatly reduces the duration of the effect of pepper spray. In combination with the PASGT helmet it provides an allround protection. Restricted vision is the only downside.This version is outfitted with a blue lightstick to provide easy squad identification.
+FriendlyName=PASGT + SF10(Blue)
+GUIImage=Texture'FRTEEquipGui_Tex.BBEPasgtMASKBlue'
+
+[BBEOpsCore]
+Description=The FAST Helmets were designed to meet the requirements of today's soldiers who now have to use and integrate a plethora of headgear on the battlefield. The importance of protecting a soldier's brain, eyes and ears on the battlefield has always been acknowledged, and today's soldier has more protection available than ever before. Goggles, bullet and frag resistant helmets, impact protection, hearing protection are all part of the soldier's inventory, which are designed to protect him and enable to carry out his mission. In addition to protective equipment worn on the head, the soldier might have to use night vision, gas masks, communication headsets, illuminators, or identification devices, all of which are made by different manufacturers and need to all work together on a soldier's head. This version is outfitted with a green V-light for easy squad identification.
+FriendlyName=Ops Core(Lead)
+GUIImage=Texture'FRTEEquipGui_Tex.BBEOpsCore'
+
+[RedOpsCore]
+Description=The FAST Helmets were designed to meet the requirements of today's soldiers who now have to use and integrate a plethora of headgear on the battlefield. The importance of protecting a soldier's brain, eyes and ears on the battlefield has always been acknowledged, and today's soldier has more protection available than ever before. Goggles, bullet and frag resistant helmets, impact protection, hearing protection are all part of the soldier's inventory, which are designed to protect him and enable to carry out his mission. In addition to protective equipment worn on the head, the soldier might have to use night vision, gas masks, communication headsets, illuminators, or identification devices, all of which are made by different manufacturers and need to all work together on a soldier's head. This version is outfitted with a red V-light for easy squad identification.
+FriendlyName=Ops Core(Red)
+GUIImage=Texture'FRTEEquipGui_Tex.BBEOpsCoreRed'
+
+[BlueOpsCore]
+Description=The FAST Helmets were designed to meet the requirements of today's soldiers who now have to use and integrate a plethora of headgear on the battlefield. The importance of protecting a soldier's brain, eyes and ears on the battlefield has always been acknowledged, and today's soldier has more protection available than ever before. Goggles, bullet and frag resistant helmets, impact protection, hearing protection are all part of the soldier's inventory, which are designed to protect him and enable to carry out his mission. In addition to protective equipment worn on the head, the soldier might have to use night vision, gas masks, communication headsets, illuminators, or identification devices, all of which are made by different manufacturers and need to all work together on a soldier's head. This version is outfitted with a blue V-light for easy squad identification.
+FriendlyName=Ops Core(Blue)
+GUIImage=Texture'FRTEEquipGui_Tex.BBEOpsCoreBlue'
+
+[LightCeramicBodyArmor]
+Description=This ceramic plate armor provides Level III protection from ballistic penetrations.  Even when hit with FMJ rounds, it provides exceptional protection from pistols, submachineguns, 7.62 rifles and armor piercing shotgun slugs.  However, the ceramic plates only can reliably stop one impact, after that they start to break, reducing the armor's ballistic protection.  The thickness and bulk of the vest reduce the effects of Sting grenades and the less lethal shotgun by half, but reduce an officer's mobility and slowdown his actions.
+FriendlyName=Light(Ceramic)
+GUIImage=Texture'FRTEEquipGui_Tex.armorlight'
+
+[LightCeramicBodyArmorHOV]
+Description=This ceramic plate armor provides Level III protection from ballistic penetrations.  Even when hit with FMJ rounds, it provides exceptional protection from pistols, submachineguns, 7.62 rifles and armor piercing shotgun slugs.  However, the ceramic plates only can reliably stop one impact, after that they start to break, reducing the armor's ballistic protection.  The thickness and bulk of the vest reduce the effects of Sting grenades and the less lethal shotgun by half, but reduce an officer's mobility and slowdown his actions.
+FriendlyName=Light(Ceramic)
+GUIImage=Texture'FRTEEquipGui_Tex.armorlightNoMask'
+
+[LightSteelBodyArmor]
+Description=This steel plate armor provides Level III+ protection from ballistic penetrations.  Even when hit with AP rounds, it provides exceptional protection from pistols, submachineguns, rifles and armor piercing shotgun slugs.  Moreover, the steel plates can reliably stop multiple impacts without damaging, giving them an advantage compared to ceramic plate armor. The thickness and bulk of the vest reduce the effects of Sting grenades and the less lethal shotgun by half, but greatly impair an officer's mobility and slowdown his actions.
+FriendlyName=Light(Steel)
+GUIImage=material'FRTEEquipGui_Tex.armorlight'
+
+[LightSteelBodyArmorHOV]
+Description=This steel plate armor provides Level III+ protection from ballistic penetrations.  Even when hit with AP rounds, it provides exceptional protection from pistols, submachineguns, rifles and armor piercing shotgun slugs.  Moreover, the steel plates can reliably stop multiple impacts without damaging, giving them an advantage compared to ceramic plate armor. The thickness and bulk of the vest reduce the effects of Sting grenades and the less lethal shotgun by half, but greatly impair an officer's mobility and slowdown his actions.
+FriendlyName=Light(Steel)
+GUIImage=material'FRTEEquipGui_Tex.armorlightNoMask'
+
+[HeavySteelBodyArmor]
+Description=The Heavy steel armor is ultimate military grade protection made to absorb intense punishment.
+FriendlyName=Heavy(Steel) 
+GUIImage=material'FRTEEquipGui_Tex.armorHeavy'
+
+[HeavySteelBodyArmorHOV]
+Description=The Heavy steel armor is ultimate military grade protection made to absorb intense punishment.
+FriendlyName=Heavy(Steel) 
+GUIImage=material'FRTEEquipGui_Tex.armorHeavyNoMask'
+
+[LightKevlarBodyArmor]
+Description=This is the basic and common Level II kevlar body armor worn during normal operations.  Light armor provides protection from pistol hollow point rounds, smaller variants of buckshot and small caliber full metal jacket rounds, but does little to stop rifle caliber rounds, larger variants of buckshot out of long barrels or shotgun slugs.
+FriendlyName=Light(Kevlar)
+GUIImage=Texture'FRTEEquipGui_Tex.armorlight'
+
+[LightKevlarBodyArmorHOV]
+Description=This is the basic and common Level II kevlar body armor worn during normal operations.  Light armor provides protection from pistol hollow point rounds, smaller variants of buckshot and small caliber full metal jacket rounds, but does little to stop rifle caliber rounds, larger variants of buckshot out of long barrels or shotgun slugs.
+FriendlyName=Light(Kevlar)
+GUIImage=Texture'FRTEEquipGui_Tex.armorlightNoMask'
+
+[HeavyCeramicBodyArmor]
+Description=This armor is laden with ceramic plates rated Level IV protection from ballistic penetrations.  Even when hit with AP rounds, it provides exceptional protection from pistols, submachineguns, rifles and armor piercing shotgun slugs.  However, the ceramic plates only can reliably stop one impact, after that they start to break, reducing the armor's ballistic protection.  The thickness and bulk of the vest reduce the effects of Sting grenades and the less lethal shotgun by half, but reduce an officer's mobility and slowdown his actions.
+FriendlyName=Heavy(Ceramic)
+GUIImage=Texture'FRTEEquipGui_Tex.armorheavy'
+
+[HeavyCeramicBodyArmorHOV]
+Description=This armor is laden with ceramic plates rated Level IV protection from ballistic penetrations.  Even when hit with AP rounds, it provides exceptional protection from pistols, submachineguns, rifles and armor piercing shotgun slugs.  However, the ceramic plates only can reliably stop one impact, after that they start to break, reducing the armor's ballistic protection.  The thickness and bulk of the vest reduce the effects of Sting grenades and the less lethal shotgun by half, but reduce an officer's mobility and slowdown his actions.
+FriendlyName=Heavy(Ceramic)
+GUIImage=Texture'FRTEEquipGui_Tex.armorheavyNoMask'
+
+[HeavyKevlarBodyArmor]
+Description=This is a more resistant Level IIIa kevlar body armor worn during high risk operations.  Heavy Kevlar armor provides increased protection compared to standard light armor, including hollow point rounds, most forms of buckshot, shotgun slugs and small caliber full metal jacket rounds. However, it can't stop rifle caliber rounds or armor piercing pistol ammunition.
+FriendlyName=Heavy(Kevlar)
+GUIImage=Texture'FRTEEquipGui_Tex.armorheavy'
+
+[HeavyKevlarBodyArmorHOV]
+Description=This is a more resistant Level IIIa kevlar body armor worn during high risk operations.  Heavy Kevlar armor provides increased protection compared to standard light armor, including hollow point rounds, most forms of buckshot, shotgun slugs and small caliber full metal jacket rounds. However, it can't stop rifle caliber rounds or armor piercing pistol ammunition.
+FriendlyName=Heavy(Kevlar)
+GUIImage=Texture'FRTEEquipGui_Tex.armorheavyNoMask'
+
+[NoBodyArmor]
+PlayerUsable=true
+Description=This option allows for more rapid movement, but obviously results in greater vulnerability to injury from enemy fire. It also allows the user to perform actions such as restraining and locking picking faster than would otherwise be able to.
+FriendlyName=No Armor
+GUIImage=material'FRTEEquipGui_Tex.armorno'
+
+[NoBodyArmorHOV]
+PlayerUsable=true
+Description=This option allows for more rapid movement, but obviously results in greater vulnerability to injury from enemy fire. It also allows the user to perform actions such as restraining and locking picking faster than would otherwise be able to.
+FriendlyName=No Armor
+GUIImage=material'FRTEEquipGui_Tex.armornoNoMask'
+
+[BallisticGlasses]
+Description=Ballistic glasses offers eye protection against debris and dust to maintain an high situational awareness and comfort of use.
+FriendlyName=BallisticGlasses
+GUIImage=Texture'FRTEEquipGui_Tex.BallisticEyewear'
+
+[MarineHelmet]
+Description=The TC-2000 helmet is used for USMC equipment and This equipment is a DeltaForce anniversary commemoration.
+FriendlyName=TC-2000 Marine
+UIImage=material'FRTEEquipGui_Tex.MarineHelmet'
+
+[RangerHelmet]
+Description=The TC-2000 helmet is used for USMC equipment and This equipment is a DeltaForce anniversary commemoration.
+FriendlyName=TC-2000 Ranger
+GUIImage=material'FRTEEquipGui_Tex.RangerHelmet'
+
+
+[Beret]
+Description=An old friend of US military hot summer issued gear, best used for jungle warfare.
+FriendlyName=Beret Hat
+GUIImage=Texture'FRTEEquipGui_Tex.Beret'

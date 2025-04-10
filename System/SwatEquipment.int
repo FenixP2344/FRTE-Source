@@ -1,0 +1,2762 @@
+﻿[NoWeapon]
+Description=Pack no equipment in this slot. This will reduce your weight and bulk.
+FriendlyName=No Weapon
+ShortName=No Weapon
+
+[NoAmmo]
+Description=This weapon does not use ammo.
+FriendlyName=No Ammo
+
+[NoEquipment]
+Description=Choose this option to pack no equipment in this slot. This option is good for when you need to reduce your weight and/or bulk.
+FriendlyName=None
+
+[Arwen37GL]
+Description=The ARWEN 37 (ARWEN being short for "Anti-Riot Weapon ENfield") was designed by request of the British Military for a capable riot control weapon. It certainly meets that criteria - boasting a five-round rotary drum and tactical flashlight, the ARWEN 37 is a solid choice in delivering ordinance. The weapon is heavier than the HK69 however, and is only designed to be used by a grenadier's role.
+FriendlyName=ARWEN 37
+ShortName=ARWEN 37
+Manufacturer=Royal Small Arms Factory
+Caliber=37mm
+CountryOfOrigin=Great Britain
+ProductionStart=1977
+FireModes=Semi-Automatic
+MagazineSizeString=6
+TotalAmmoString=12 shells
+RateOfFire=Unknown
+
+[XDMHG]
+Description=Manufactured by the Croatian HS Produkt and licensed for use in the United States by Springfield Armory, the XDM (short for X-treme Duty, Match Grade barrel) features an impressively modern design with synthetic polymer furnishings. This firearm and its predecessor, the HS2000, were awarded the title of Handgun of the Year from American Rifleman and The Shooting Academy of Excellence in 2009 and 2006, respectively. This particular model is chambered in .45 ACP and boasts an impressive 13-round box magazine.
+FriendlyName=XDM
+ShortName=XDM
+Manufacturer=Springfield Armory
+Caliber=.45
+CountryOfOrigin=Croatia/United States
+ProductionStart=2006
+FireModes=Semi-Automatic
+MagazineSizeString=13
+TotalAmmoString=4 magazine
+RateOfFire=400 RPM
+
+[XDMHGShield]
+Description=Manufactured by the Croatian HS Produkt and licensed for use in the United States by Springfield Armory, the XDM (short for X-treme Duty, Match Grade barrel) features an impressively modern design with synthetic polymer furnishings. This firearm and its predecessor, the HS2000, were awarded the title of Handgun of the Year from American Rifleman and The Shooting Academy of Excellence in 2009 and 2006, respectively. This particular model is chambered in .45 ACP and boasts an impressive 13-round box magazine.
+FriendlyName=XDM
+ShortName=XDM
+Manufacturer=Springfield Armory
+Caliber=.45
+CountryOfOrigin=Croatia/United States
+ProductionStart=2006
+FireModes=Semi-Automatic
+MagazineSizeString=13
+TotalAmmoString=4 magazine
+RateOfFire=400 RPM
+
+[QSZ92HG]
+Description=The QSZ92 pistol was originally proposed to be equipped with a 9mm pistol for officers below the battalion level and a 5.8mm pistol for officers above the regiment level during the argumentation. But after several years of comparison, the military decided in 2005 to only equip the 5.8mm pistol, while the 9mm pistol was mainly equipped for police. The military's consideration for this is mainly due to the following reasons: the 5.8mm pistol has a very high shooting accuracy, and due to its low recoil, the muzzle jumps slightly, resulting in a relatively dense dispersion during rapid shooting. In addition, it has a capacity of 20 rounds and the ability to easily penetrate bulletproof vests (the national standard IV level is roughly equivalent to the old NIJ IIIA level or the new NIJ HG2 level), making it more effective in combat against protected targets, and its reliability during use is high. However, the police attach great importance to the stopping effect of the 9mm pistol bullet, and the penetration ability of the 5.8mm pistol bullet is also a bit too strong, which is not suitable for urban law enforcement environments, such as it may penetrate multiple obstacles and cause accidental injuries to the public.
+FriendlyName=QSZ 92G
+ShortName=QSZ 92G
+Manufacturer=China North Industries Corp.
+Caliber=9x19mm
+CountryOfOrigin=China
+ProductionStart=1998
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=365 RPM
+
+[QSZ92sdHG]
+Description=The QSZ92 pistol was originally proposed to be equipped with a 9mm pistol for officers below the battalion level and a 5.8mm pistol for officers above the regiment level during the argumentation. But after several years of comparison, the military decided in 2005 to only equip the 5.8mm pistol, while the 9mm pistol was mainly equipped for police. The military's consideration for this is mainly due to the following reasons: the 5.8mm pistol has a very high shooting accuracy, and due to its low recoil, the muzzle jumps slightly, resulting in a relatively dense dispersion during rapid shooting. In addition, it has a capacity of 20 rounds and the ability to easily penetrate bulletproof vests (the national standard IV level is roughly equivalent to the old NIJ IIIA level or the new NIJ HG2 level), making it more effective in combat against protected targets, and its reliability during use is high. However, the police attach great importance to the stopping effect of the 9mm pistol bullet, and the penetration ability of the 5.8mm pistol bullet is also a bit too strong, which is not suitable for urban law enforcement environments, such as it may penetrate multiple obstacles and cause accidental injuries to the public.This model is equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed QSZ 92G
+ShortName=Sup.QSZ 92G
+Manufacturer=China North Industries Corp.
+Caliber=9x19mm
+CountryOfOrigin=China
+ProductionStart=1998
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=365 RPM
+
+[HS2000HG]
+Description=The HS2000 pistol is designed and produced by the HS Produkt factory in Croatia (formerly known as I.M. Metal Factory, which also produces VHS assault rifles), with a polymer grip and needle firing semi-automatic pistol. Except for the 5-inch tactical and XDM series, which use a single compound spring design, most HS2000s are equipped with a series double compound spring design. They use a polymer bottom handle with steel plate inserts for mounting rails and trigger safety to prevent external firing in the event of someone attempting to pull it off. It has been selected by the Croatian military and law enforcement agencies as a standard gun.
+FriendlyName=HS2000
+ShortName=HS2000
+Manufacturer=HS Produkt
+Caliber=.45 ACP
+CountryOfOrigin=Croatia
+ProductionStart=2000
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=400 RPM
+
+[MK23HG]
+Description=In 1989, according to the requirements of the US Special Forces Command (USSOCOM), the MK23Mod0 was designated as an "offensive" pistol. The military version of this weapon is already included in the "MK23USSOCOM" plan. At the end of 1991, according to the requirements of USSOCOM, it was submitted to USSOCOM for bidding with Colt's OHWS, and ultimately defeated Colt's OHWS. After a few modifications, it became the current MK23Mod0. The first batch of MK23Mod0 was shipped to USSOCOM on May 1, 1996 after production was completed. In the same year, Heckler Koch commercialized the MK23 and its accessories.
+FriendlyName=MK23 SOCOM
+ShortName=MK23
+Manufacturer=Heckler & Koch
+Caliber=.45 ACP
+CountryOfOrigin=Germany
+ProductionStart=1989
+FireModes=Semi-Automatic
+MagazineSizeString=13
+TotalAmmoString=4 magazine
+RateOfFire=240 RPM
+
+[MK23HGShield]
+Description=In 1989, according to the requirements of the US Special Forces Command (USSOCOM), the MK23Mod0 was designated as an "offensive" pistol. The military version of this weapon is already included in the "MK23USSOCOM" plan. At the end of 1991, according to the requirements of USSOCOM, it was submitted to USSOCOM for bidding with Colt's OHWS, and ultimately defeated Colt's OHWS. After a few modifications, it became the current MK23Mod0. The first batch of MK23Mod0 was shipped to USSOCOM on May 1, 1996 after production was completed. In the same year, Heckler Koch commercialized the MK23 and its accessories.
+FriendlyName=MK23 SOCOM
+ShortName=MK23
+Manufacturer=Heckler & Koch
+Caliber=.45 ACP
+CountryOfOrigin=Germany
+ProductionStart=1989
+FireModes=Semi-Automatic
+MagazineSizeString=13
+TotalAmmoString=4 magazine
+RateOfFire=240 RPM
+
+[USP45HG]
+Description=the USP (Universelle Selbstladepistole) is a semi-automatic pistol developed in Germany by Heckler & Koch GmbH (H&K) of Oberndorf am Neckar as a replacement for the P7 series of handguns.
+FriendlyName=HK USP45 Tactical
+ShortName=HK.USP45
+Manufacturer=Heckler & Koch
+Caliber=.45 ACP
+CountryOfOrigin=Germany
+ProductionStart=1995
+FireModes=Semi-Automatic
+MagazineSizeString=12
+TotalAmmoString=4 magazine
+RateOfFire=360 RPM
+
+[FivesevenHG]
+Description=The FN Five-seven, trademarked as the Five-seveN, is a semi-automatic pistol designed and manufactured by Fabrique Nationale drmes de Guerre-Herstal (FN Herstal) in Belgium. The Five-seven pistol was developed in conjunction with the FN P90 personal defense weapon and the FN 5.7x28mm cartridge. The Five-seven is currently in service with military and police forces in over 40 nations, including Canada, France, Greece, India, Poland, Spain, and the United States.
+FriendlyName=FN FiveSeven
+ShortName=FN FiveSeven
+Manufacturer=FN Herstal
+Caliber=5.7x28mm FN
+CountryOfOrigin=Belgium
+ProductionStart=1990
+FireModes=Semi-Automatic
+MagazineSizeString=20
+TotalAmmoString=4 magazine
+RateOfFire=716 RPM
+
+[FivesevenHGShield]
+Description=The FN Five-seven, trademarked as the Five-seveN, is a semi-automatic pistol designed and manufactured by Fabrique Nationale drmes de Guerre-Herstal (FN Herstal) in Belgium. The Five-seven pistol was developed in conjunction with the FN P90 personal defense weapon and the FN 5.7x28mm cartridge. The Five-seven is currently in service with military and police forces in over 40 nations, including Canada, France, Greece, India, Poland, Spain, and the United States.
+FriendlyName=FN FiveSeven
+ShortName=FN FiveSeven
+Manufacturer=FN Herstal
+Caliber=5.7x28mm FN
+CountryOfOrigin=Belgium
+ProductionStart=1990
+FireModes=Semi-Automatic
+MagazineSizeString=20
+TotalAmmoString=4 magazine
+RateOfFire=716 RPM
+
+[BrowningHPHG]
+Description=The Browning Hi-Power is one of the most widely used pistols in history, having seen service in World War II, the Korean War, and more than a dozen other conflicts. The Browning Hi-Power started design by John Browning in 1914, but didn't see production until 1935, when it was finished by FN Herstal. The name alludes to its impressive 13-round magazine, which at the time, was double the standard pistol magazine-size. This variant in particular is chambered in 9x19mm Parabellum.
+FriendlyName=Browning Hi-Power
+ShortName=Browning Hi-Power
+Manufacturer=Browning
+Caliber=9x19mm
+CountryOfOrigin=United States
+ProductionStart=1935
+FireModes=Semi-Automatic
+MagazineSizeString=13
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[SilencedBrowningHPHG]
+Description=The Browning Hi-Power is one of the most widely used pistols in history, having seen service in World War II, the Korean War, and more than a dozen other conflicts. The Browning Hi-Power started design by John Browning in 1914, but didn't see production until 1935, when it was finished by FN Herstal. The name alludes to its impressive 13-round magazine, which at the time, was double the standard pistol magazine-size. This variant in particular is chambered in 9x19mm Parabellum and is equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed Browning Hi-Power
+ShortName=Sup. Browning Hi-Power
+Manufacturer=Browning
+Caliber=Subsonic 9x19mm
+CountryOfOrigin=United States
+ProductionStart=
+FireModes=Semi-Automatic
+MagazineSizeString=13
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[BrowningHPHGShield]
+Description=The Browning Hi-Power is one of the most widely used pistols in history, having seen service in World War II, the Korean War, and more than a dozen other conflicts. The Browning Hi-Power started design by John Browning in 1914, but didn't see production until 1935, when it was finished by FN Herstal. The name alludes to its impressive 13-round magazine, which at the time, was double the standard pistol magazine-size. This variant in particular is chambered in 9x19mm Parabellum.
+FriendlyName=Browning Hi-Power + Shield
+ShortName=Browning Hi-Power  + Shield
+Manufacturer=Browning
+Caliber=9x19mm
+CountryOfOrigin=United States
+ProductionStart=1935
+FireModes=Semi-Automatic
+MagazineSizeString=13
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[SilencedBrowningHPHGShield]
+Description=The Browning Hi-Power is one of the most widely used pistols in history, having seen service in World War II, the Korean War, and more than a dozen other conflicts. The Browning Hi-Power started design by John Browning in 1914, but didn't see production until 1935, when it was finished by FN Herstal. The name alludes to its impressive 13-round magazine, which at the time, was double the standard pistol magazine-size. This variant in particular is chambered in 9x19mm Parabellum and is equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed Browning Hi-Power  + Shield
+ShortName=Sup. Browning Hi-Power + Shield
+Manufacturer=Browning
+Caliber=Subsonic 9x19mm
+CountryOfOrigin=United States
+ProductionStart=
+FireModes=Semi-Automatic
+MagazineSizeString=13
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+
+[Beretta92fs]
+Description=The Beretta 92 is a series of semi-automatic pistols designed and manufactured by Beretta of Italy. The Beretta 92 was designed in 1975, and production began in 1976. Many variants in several different calibers continue to be used to the present.The United States military replaced the M1911A1 .45 ACP pistol in 1985 with the Beretta 92FS, designated as the M9.
+FriendlyName=Beretta 92FS
+ShortName=Beretta 92FS
+Manufacturer=Beretta
+Caliber=9x19mm
+CountryOfOrigin=Italy
+ProductionStart=1975
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[Beretta92fssd]
+Description=The Beretta 92 is a series of semi-automatic pistols designed and manufactured by Beretta of Italy. The Beretta 92 was designed in 1975, and production began in 1976. Many variants in several different calibers continue to be used to the present.The United States military replaced the M1911A1 .45 ACP pistol in 1985 with the Beretta 92FS, designated as the M9.This model is equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed Beretta 92FS
+ShortName=Sup.Beretta 92FS
+Manufacturer=Beretta
+Caliber=9x19mm
+CountryOfOrigin=Italy
+ProductionStart=1975
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[P226HG]
+Description=The SIG Sauer P226 is the high capacity version of the P220, using double stacked, 20-round magazines instead of the latter's single stacked magazines. Chambered in 9x19mm, the P226 is widely used in police departments throughout the United States and Canada. 
+FriendlyName=P226
+ShortName=P226
+Manufacturer=SIG Sauer
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1984
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[SilencedP226HG]
+Description=The SIG Sauer P226 is the high capacity version of the P220, using double stacked, 20-round magazines instead of the latter's single stacked magazines. Chambered in 9x19mm, the P226 is widely used in police departments throughout the United States and Canada. This model is equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed P226
+ShortName=Sup. P226
+Manufacturer=SIG Sauer
+Caliber=Subsonic 9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1984
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+
+[Beretta92fsShield]
+Description=The Beretta 92 is a series of semi-automatic pistols designed and manufactured by Beretta of Italy. The Beretta 92 was designed in 1975, and production began in 1976. Many variants in several different calibers continue to be used to the present.The United States military replaced the M1911A1 .45 ACP pistol in 1985 with the Beretta 92FS, designated as the M9.
+FriendlyName=Beretta 92FS + Shield
+ShortName=Beretta 92FS + Shield
+Manufacturer=Beretta
+Caliber=9x19mm
+CountryOfOrigin=Italy
+ProductionStart=1975
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[P226HGShield]
+Description=The SIG Sauer P226 is the high capacity version of the P220, using double stacked, 20-round magazines instead of the latter's single stacked magazines. Chambered in 9x19mm, the P226 is widely used in police departments throughout the United States and Canada. 
+FriendlyName=P226 + Shield
+ShortName=P226 + Shield
+Manufacturer=SIG Sauer
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1984
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[SilencedP226HGShield]
+Description=The SIG Sauer P226 is the high capacity version of the P220, using double stacked, 20-round magazines instead of the latter's single stacked magazines. Chambered in 9x19mm, the P226 is widely used in police departments throughout the United States and Canada. This model is equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed P226 + Shield
+ShortName=Sup. P226 + Shield
+Manufacturer=SIG Sauer
+Caliber=Subsonic 9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1984
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[C3A1SniperRifle]
+Description=The M24 Sniper Weapon System (SWS) is the military and police version of the Remington Model 700 rifle, M24 being the model name assigned by the United States Army after adoption as their standard sniper rifle in 1988. The M24 is referred to as a "weapon system" because it consists of not only a rifle, but also a detachable telescopic sight and other accessories.
+FriendlyName=M24 Accurized Rifle
+ShortName=M24 Accurized Rifle
+Manufacturer=Remington
+Caliber=7.62x51mm
+CountryOfOrigin=United States
+ProductionStart=1988
+FireModes=Semi-Automatic,
+MagazineSizeString=10
+TotalAmmoString=6 magazine
+RateOfFire=805 RPM
+
+[HK33MG]
+Description=The Dragunov is a semi-automatic sniper/designated marksman rifle chambered in 7.62x45mmR and developed in the Soviet Union. The Dragunov was designed as a squad support weapon since, according to Soviet and Soviet-derived military doctrines, the long-range engagement ability was lost to ordinary troops when submachine guns and assault rifles (which are optimized for close-range and medium-range, rapid-fire combat) were adopted.
+FriendlyName=Dragunov SVD
+ShortName=Dragunov SVD
+Manufacturer=Kalashnikov
+Caliber=7.62x54mm
+CountryOfOrigin=Soviet Union
+ProductionStart=1963
+FireModes=Semi-Automatic,
+MagazineSizeString=20
+TotalAmmoString=6 magazine
+RateOfFire=830 RPM
+
+[HK33sMG]
+Description=While Heckler & Koch's MP5 submachine gun is more popular amongst SWAT, the company at this time developed three other firearms built on the highly successful G3 framework - one of them being the HK33. The HK33A2 bears a rigid synthetic stock and is based on the original G3 design, utilizing the same roller-delayed blowback operating mechanism but on a smaller 5.56x45mm NATO bullet. This variant is equipped with a 4x scope for precision shots at long range.
+FriendlyName=Scoped HK33A2
+ShortName=Scoped HK33A2
+Manufacturer=Heckler & Koch
+Caliber=5.56x45mm NATO
+CountryOfOrigin=West Germany
+ProductionStart=1968
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SG55284MG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=SG 552-84 custom
+ShortName=SG 552-84
+Manufacturer=Sig Sauer
+Caliber=5.56x45mm Mk.262
+CountryOfOrigin=Switzerland
+ProductionStart=1998
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SilencedSG55284MG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed SG 552-84 custom
+ShortName=Sup. SG 552-84
+Manufacturer=Sig Sauer
+Caliber=5.56x45mm Mk.262
+CountryOfOrigin=Switzerland
+ProductionStart=1998
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SG552Aim84MG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=SG 552-84 custom with Aimpoint
+ShortName=SG 552-84 with Aimpoint
+Manufacturer=Sig Sauer
+Caliber=5.56x45mm Mk.262
+CountryOfOrigin=Switzerland
+ProductionStart=1998
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SilencedSG552Aim84MG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed SG 552-84 custom with Aimpoint
+ShortName=Sup. SG 552-84 with Aimpoint
+Manufacturer=Sig Sauer
+Caliber=5.56x45mm Mk.262
+CountryOfOrigin=Switzerland
+ProductionStart=1998
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SG553MG]
+Description=The SG 553 is an improved version of the SG 552 and was released in 2008. Even though it mostly resembles the SG 552, the SG 553 has one key advantage, the recoil spring is now wrapped around the piston rod like in the SG 550/551 models, which address several reliability issues encountered in the SG 552 and also allows the usage of the standard SG 550/551 charging handle. The SG 553 series rifles have a 339 mm (13.3 in) long sight radius. A long barrel version of the SG 553 known as the SG 553 LB incorporates a 347 mm (13.7 in) barrel with provision to fire rifle grenades and support a bayonet.
+FriendlyName=SG 553
+ShortName=SG 553
+Manufacturer=Sig Sauer
+Caliber=5.56x45mm
+CountryOfOrigin=Switzerland
+ProductionStart=2008
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SG553sdMG]
+Description=The SG 553 is an improved version of the SG 552 and was released in 2008. Even though it mostly resembles the SG 552, the SG 553 has one key advantage, the recoil spring is now wrapped around the piston rod like in the SG 550/551 models, which address several reliability issues encountered in the SG 552 and also allows the usage of the standard SG 550/551 charging handle. The SG 553 series rifles have a 339 mm (13.3 in) long sight radius. A long barrel version of the SG 553 known as the SG 553 LB incorporates a 347 mm (13.7 in) barrel with provision to fire rifle grenades and support a bayonet, and features a suppressor for when stealth is paramount.
+FriendlyName=Suppressed SG 553
+ShortName=Sup. SG 553
+Manufacturer=Sig Sauer
+Caliber=5.56x45mm
+CountryOfOrigin=Switzerland
+ProductionStart=2008
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SG553HoloMG]
+Description=The SG 553 is an improved version of the SG 552 and was released in 2008. Even though it mostly resembles the SG 552, the SG 553 has one key advantage, the recoil spring is now wrapped around the piston rod like in the SG 550/551 models, which address several reliability issues encountered in the SG 552 and also allows the usage of the standard SG 550/551 charging handle. The SG 553 series rifles have a 339 mm (13.3 in) long sight radius. A long barrel version of the SG 553 known as the SG 553 LB incorporates a 347 mm (13.7 in) barrel with provision to fire rifle grenades and support a bayonet.
+FriendlyName=SG 553 with Eotech
+ShortName=SG 553 with Eotech
+Manufacturer=Sig Sauer
+Caliber=5.56x45mm
+CountryOfOrigin=Switzerland
+ProductionStart=2008
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SG553sdHoloMG]
+Description=The SG 553 is an improved version of the SG 552 and was released in 2008. Even though it mostly resembles the SG 552, the SG 553 has one key advantage, the recoil spring is now wrapped around the piston rod like in the SG 550/551 models, which address several reliability issues encountered in the SG 552 and also allows the usage of the standard SG 550/551 charging handle. The SG 553 series rifles have a 339 mm (13.3 in) long sight radius. A long barrel version of the SG 553 known as the SG 553 LB incorporates a 347 mm (13.7 in) barrel with provision to fire rifle grenades and support a bayonet..
+FriendlyName=Suppressed SG 553 with Eotech
+ShortName=Sup. SG 553 with Eotech
+Manufacturer=Sig Sauer
+Caliber=5.56x45mm
+CountryOfOrigin=Switzerland
+ProductionStart=2008
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SG552MG]
+Description=The SIG SG 552 Commando is the smaller, carbine version of the SG 550. Because of its small size, and light weight, it is a very useful weapon for SWAT teams around the globe. This variant is chambered in 5.56x45mm NATO.
+FriendlyName=SG 552 Commando
+ShortName=SG 552 Commando
+Manufacturer=Sig Sauer
+Caliber=5.56x45mm Mk.262
+CountryOfOrigin=Switzerland
+ProductionStart=1998
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SilencedSG552MG]
+Description=The SIG SG 552 Commando is the smaller, carbine version of the SG 550. Because of its small size, and light weight, it is a very useful weapon for SWAT teams around the globe. This variant is chambered in 5.56x45mm NATO, and features a suppressor for when stealth is paramount.
+FriendlyName=Suppressed SG 552 Commando
+ShortName=Sup. SG 552 Commando
+Manufacturer=Sig Sauer
+Caliber=5.56x45mm Mk.262
+CountryOfOrigin=Switzerland
+ProductionStart=1998
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SG552AimMG]
+Description=The SIG SG 552 Commando is the smaller, carbine version of the SG 550. Because of its small size, and light weight, it is a very useful weapon for SWAT teams around the globe. This variant is chambered in 5.56x45mm NATO.
+FriendlyName=SG 552 Commando with Aimpoint
+ShortName=SG 552 Commando with Aimpoint
+Manufacturer=Sig Sauer
+Caliber=5.56x45mm Mk.262
+CountryOfOrigin=Switzerland
+ProductionStart=1998
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SilencedSG552AimMG]
+Description=The SIG SG 552 Commando is the smaller, carbine version of the SG 550. Because of its small size, and light weight, it is a very useful weapon for SWAT teams around the globe. This variant is chambered in 5.56x45mm NATO, and features a suppressor for when stealth is paramount.
+FriendlyName=Suppressed SG 552 Commando with Aimpoint
+ShortName=Sup. SG 552 Commando with Aimpoint
+Manufacturer=Sig Sauer
+Caliber=5.56x45mm Mk.262
+CountryOfOrigin=Switzerland
+ProductionStart=1998
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[M16A1MG]
+Description=Originally designed in 1964 based on the Armalite AR-15 blueprints, the M16 rifle was first deployed in the jungles of Vietnam. The M16A1 was an incremental improvement, redesigning the muzzle to avoid catching on foliage and reducing the high failure rate of its predecessor's receiver.
+FriendlyName=M16A1
+ShortName=M16A1
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=1967
+FireModes=Semi-Automatic, Full Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[M16A1MertMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=M16A2 Mert custom
+ShortName=M16A2-Mert
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=1983
+FireModes=Semi-Automatic, Burst
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SilencedM16A1MertMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed M16A2 Mert Custom
+ShortName=Sup. M16A2-Mert
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=1983
+FireModes=Semi-Automatic, Burst
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[M16A2MG]
+Description=The development of the M16A2 rifle was originally requested by the United States Marine Corps in 1979 as a result of combat experience in Vietnam with the M16A1. It was officially adopted by the Department of Defense as the "Rifle, 5.56 mm, M16A2" in 1983.
+FriendlyName=M16A2
+ShortName=M16A2
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=1983
+FireModes=Semi-Automatic, Burst
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[M16A4MG]
+Description=The M16A4 is the fourth generation of the M16 series. It is equipped with a removable carrying handle and a full length quad Picatinny rail for mounting optics and other ancillary devices. The FN M16A4, using safe/semi/burst selective fire, became standard issue for the U.S. Marine Corps and is the current issue to Marine Corps recruits in both MCRD San Diego and MCRD Parris Island.
+FriendlyName=M16A4
+ShortName=M16A4
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=1997
+FireModes=Semi-Automatic, Burst
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=945 RPM
+
+[BadguyM16A2MG]
+Description=The development of the M16A2 rifle was originally requested by the United States Marine Corps in 1979 as a result of combat experience in Vietnam with the M16A1. It was officially adopted by the Department of Defense as the "Rifle, 5.56 mm, M16A2" in 1983.This particular variant is equipped with a suppressor.
+FriendlyName=Suppressed M16A2
+ShortName=Sup. M16A2
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=1983
+FireModes=Semi-Automatic, Burst
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SilencedM16A1MG]
+Description=Originally designed in 1964 based on the Armalite AR-15 blueprints, the M16 rifle was first deployed in the jungles of Vietnam. The M16A1 was an incremental improvement, redesigning the muzzle to avoid catching on foliage and reducing the high failure rate of its predecessor's receiver. This particular variant is equipped with a suppressor.
+FriendlyName=Suppressed M16A1
+ShortName=Sup. M16A1
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=1967
+FireModes=Semi-Automatic, Full Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[MP5SSDSMG]
+Description=The MP5SD6 is a variant of the MP5 equipped with an integrated suppressor and collapsible stock. It is very popular among covert-ops forces and is deployed in stealth operations around the globe. This weapon is chambered in 9x19mm Parabellum rounds.
+FriendlyName=MP5SD6
+ShortName=MP5SD6
+Manufacturer=Heckler & Koch
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1974
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[SilencedMP5KSMG]
+Description=The MP5KA4 (the K being "Kurz", German for "short") was designed as a close quarters combat version of the popular MP5 line of submachine guns. While it has minimal carry weight and a small form factor, it is difficult to use due to the lack of a stock. Despite this, it remains popular by security and special forces around the globe, including the British Special Air Service.||This model is equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed MP5KA4
+ShortName=Sup. MP5KA4
+Manufacturer=Heckler & Koch
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1976
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=900 RPM
+
+[MP5KSMG]
+Description=The MP5KA4 (the K being "Kurz", German for "short") was designed as a close quarters combat version of the popular MP5 line of submachine guns. While it has minimal carry weight and a small form factor, it is difficult to use due to the lack of a stock. Despite this, it remains popular by security and special forces around the globe, including the British Special Air Service.
+FriendlyName=MP5KA4
+ShortName=MP5KA4
+Manufacturer=Heckler & Koch
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1976
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=900 RPM
+
+[MP5KtSMG]
+Description=The MP5KA4 (the K being "Kurz", German for "short") was designed as a close quarters combat version of the popular MP5 line of submachine guns. This particular model is equipped with a tactical stock for better control over the weapon while firing in full auto.
+FriendlyName=MP5KA4 PDW
+ShortName=MP5KA4 PDW
+
+[SilencedMP5KtSMG]
+Description=The MP5KA4 (the K being "Kurz", German for "short") was designed as a close quarters combat version of the popular MP5 line of submachine guns. This particular model is equipped with a tactical stock for better control over the weapon while firing in full auto, as well as a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed MP5KA4 PDW
+ShortName=Sup. MP5KA4 PDW
+
+[Remington870SG]
+Description=The Remington Model 870 is a reliable and compact pump-action shotgun capable of dispatching even the toughest of criminals. It sees a variety of use among patrol and SWAT units, but is also used for sport shooting and hunting. This weapon can be modified with special breaching ammunition for quick room entries, or beanbags for a less-lethal approach.
+FriendlyName=M870
+ShortName=M870
+Manufacturer=Remington
+Caliber=12 Gauge
+CountryOfOrigin=United States
+ProductionStart=1950
+FireModes=Pump-Action
+TotalAmmoString=50 shells
+RateOfFire=150 RPM
+
+[LessLethalM870SG]
+Description=The Remington Model 870 is a reliable and compact pump-action shotgun capable of dispatching even the toughest of criminals. It sees a variety of use among patrol and SWAT units, but is also used for sport shooting and hunting. This particular variant fires beanbags, which can be used on uncooperative suspects or civilians. To remind the operators that this particular weapon is only to be loaded with less than lethal ammunition, it has been painted green.||The beanbag ammunition provides a powerful blunt force impact on the target.  This causes extreme pain and disorientation. Sufficient distance should be kept between the operator and the intended target for the beanbag to slow down, otherwise it may produce a potentially life threatening injury such as broken bones.
+FriendlyName=Less Lethal M870
+ShortName=Less Lethal M870
+Manufacturer=Remington
+Caliber=12 Gauge
+CountryOfOrigin=United States
+ProductionStart=1950
+FireModes=Pump-Action
+TotalAmmoString=50 shells
+RateOfFire=150 RPM
+
+[M1Super90LFSG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=M1 Super 90 Defense LF Custom
+ShortName=M1 Super 90-LF
+Manufacturer=Benelli
+Caliber=12 Gauge
+CountryOfOrigin=Italy
+ProductionStart=1994
+FireModes=Semi-Automatic
+TotalAmmoString=50 shells
+RateOfFire=200 RPM
+
+[M1Super90SG]
+Description=The M1 Super 90 is a semi-automatic 12 gauge combat shotgun with a five round magazine capacity and it accepts multiple types of 2.75" shot shells. With a tritium "glow in the dark" front sight, a fourteen-inch chrome plated barrel, a high impact polymer buttstock and a mounted flashlight, the Benelli M1 Super 90 might old, but it is a mainstay in law enforcement.
+FriendlyName=M1 Super 90 Defense
+ShortName=M1 Super 90
+Manufacturer=Benelli
+Caliber=12 Gauge
+CountryOfOrigin=Italy
+ProductionStart=1994
+FireModes=Semi-Automatic
+TotalAmmoString=50 shells
+RateOfFire=200 RPM
+
+[SaigaSG]
+Description=The AK-47 was developed in the Soviet Union in 1947 and became standard issue in the Soviet army in 1951.  It has remained in service in many third world armies as well as terrorist organizations around the world due to its dependability and the ease at which it can be maintained.  It has a slower rate of fire and lower muzzle velocity than the Colt M4A1, but uses a higher caliber bullet which makes it comparable to its American counterpart at short ranges.
+FriendlyName=SAIGA 12K Shotgun
+ShortName=SAIGA 12K
+Manufacturer=Kalashnikov
+Caliber=12 Gauge
+CountryOfOrigin=Russian
+ProductionStart=1990
+FireModes=Semi-Automatic
+MagazineSizeString=10
+TotalAmmoString=5 magazine
+RateOfFire=200 RPM
+
+[M4Super90fwyooSGHolo]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=M4 Super 90 with Eotech Fwyoo Custom
+ShortName=M4 Super 90 with Eotech-Fwyoo
+Manufacturer=Benelli
+Caliber=12 Gauge
+CountryOfOrigin=Italy
+ProductionStart=1999
+FireModes=Semi-Automatic
+TotalAmmoString=50 shells
+RateOfFire=200 RPM
+
+[M4Super90fwyooSG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=M4 Super 90 Fwyoo Custom
+ShortName=M4 Super 90-Fwyoo
+Manufacturer=Benelli
+Caliber=12 Gauge
+CountryOfOrigin=Italy
+ProductionStart=1999
+FireModes=Semi-Automatic
+TotalAmmoString=50 shells
+RateOfFire=200 RPM
+
+[M4Super90SGHolo]
+Description=The Benelli M4 Super 90 (designated by the United States military as the M1014) is a highly reliable semi-automatic shotgun, developed in the late 90s as the final successor to the widely popular M1 series of Benelli shotguns. Its 7-round magazine is appealing to law enforcement, but its relative bulk may make it difficult to use in close quarters.
+FriendlyName=M4 Super 90 with Eotech
+ShortName=M4 Super 90 with Eotech
+Manufacturer=Benelli
+Caliber=12 Gauge
+CountryOfOrigin=Italy
+ProductionStart=1999
+FireModes=Semi-Automatic
+TotalAmmoString=50 shells
+RateOfFire=200 RPM
+
+[M4Super90SG]
+Description=The Benelli M4 Super 90 (designated by the United States military as the M1014) is a highly reliable semi-automatic shotgun, developed in the late 90s as the final successor to the widely popular M1 series of Benelli shotguns. Its 7-round magazine is appealing to law enforcement, but its relative bulk may make it difficult to use in close quarters.
+FriendlyName=M4 Super 90
+ShortName=M4 Super 90
+Manufacturer=Benelli
+Caliber=12 Gauge
+CountryOfOrigin=Italy
+ProductionStart=1999
+FireModes=Semi-Automatic
+TotalAmmoString=50 shells
+RateOfFire=200 RPM
+
+[NovaPumpSG]
+Description=A relatively new design from Benelli, the Nova Tactical is the top of the line in pump action shotguns.   While firing a bit slower than the semi-automatic M4 Super 90, the attached magazine extender allows the Nova pump to hold up to 7 shells at one time.
+FriendlyName=Nova Tactical
+ShortName=Nova Tactical
+Manufacturer=Benelli
+Caliber=12 Gauge
+CountryOfOrigin=Italy
+ProductionStart=Late 1990s
+FireModes=Pump-Action
+TotalAmmoString=50 shells
+RateOfFire=100 RPM
+
+[SPAS12SG]
+Description=The SPAS-12 (Special Purpose Automatic Shotgun) is dual-mode shotgun designed by Franchi of Italy, with use by special forces in mind. The SPAS-12 was designed to function primarily in semi-automatic mode, with the pump-action mode used to reliably fire low-pressure ammunition such as bean bags. 
+FriendlyName=SPAS-12 
+ShortName=SPAS-12
+Manufacturer=Franchi
+Caliber=12 Gauge
+CountryOfOrigin=Italy
+ProductionStart=1979
+FireModes=Pump-Action, 2-rd. Burst
+MagazineSizeString=8
+TotalAmmoString=50 shells
+RateOfFire=300 RPM
+
+[LessLethalSpas12SG]
+Description=The SPAS-12 (Special Purpose Automatic Shotgun) is dual-mode shotgun designed by Franchi of Italy, with use by special forces in mind. The SPAS-12 was designed to function primarily in semi-automatic mode, with the pump-action mode used to reliably fire low-pressure ammunition such as bean bags. 
+FriendlyName=LessLathal SPAS-12 
+ShortName=LessLathal SPAS-12
+Manufacturer=Franchi
+Caliber=12 Gauge
+CountryOfOrigin=Italy
+ProductionStart=1979
+FireModes=Pump-Action, 2-rd. Burst
+MagazineSizeString=8
+TotalAmmoString=50 shells
+RateOfFire=300 RPM
+
+[SawedOffSG]
+Description=The Remington Model 870 is a reliable and compact pump-action shotgun capable of dispatching even the toughest of criminals. It sees a variety of use among patrol and SWAT units, but is also used for sport shooting and hunting. This weapon can be modified with special breaching ammunition for quick room entries, or beanbags for a less-lethal approach.
+FriendlyName=M870 Tactical
+ShortName=M870 Tactical
+Manufacturer=Remington
+Caliber=12 Gauge
+CountryOfOrigin=United States
+ProductionStart=1950
+FireModes=Pump-Action
+TotalAmmoString=50 shells
+RateOfFire=150 RPM
+
+[pmHG]
+Description=The Makarov pistol, also known as the PM pistol, is the result of the Latinization of the Russian letter "Makarov pistol" (ПМ). In 1951, it was selected by the Soviet army as the standard pistol equipment unit, and later widely equipped in the police. Due to its small size and light weight, the gun is generally worn by intermediate and above level officers, hence it is also known as the "school officer pistol". Widely used and produced in large quantities, it is a famous gun in the world. Russia has also developed variant guns, including the military Makarov pistol (PMM) and the civilian Makarov pistol Bellga Izh-70 series. This type of gun is planned to be decommissioned in the early 21st century, but it is still widely used in the military, police, and civilian markets.
+FriendlyName=Makarov
+ShortName=Makarov
+Manufacturer=Unknown
+Caliber=9x18mm PM
+CountryOfOrigin=Soviet Union
+ProductionStart=1951
+FireModes=Semi-Automatic
+MagazineSizeString=8
+TotalAmmoString=4 magazine
+RateOfFire=430 RPM
+
+[pmsdHG]
+Description=The Makarov pistol, also known as the PM pistol, is the result of the Latinization of the Russian letter "Makarov pistol" (ПМ). In 1951, it was selected by the Soviet army as the standard pistol equipment unit, and later widely equipped in the police. Due to its small size and light weight, the gun is generally worn by intermediate and above level officers, hence it is also known as the "school officer pistol". Widely used and produced in large quantities, it is a famous gun in the world. Russia has also developed variant guns, including the military Makarov pistol (PMM) and the civilian Makarov pistol Bellga Izh-70 series. This type of gun is planned to be decommissioned in the early 21st century, but it is still widely used in the military, police, and civilian markets.
+FriendlyName=Suppressed Makarov
+ShortName=Sup.Makarov
+Manufacturer=Unknown
+Caliber=9x18mm PM
+CountryOfOrigin=Soviet Union
+ProductionStart=1951
+FireModes=Semi-Automatic
+MagazineSizeString=8
+TotalAmmoString=4 magazine
+RateOfFire=430 RPM
+
+[VP70HG]
+Description=The HK VP70 pistol is a novel and structurally unique automatic pistol. Made by Heckler&Koch GmbH in Germany. When shooting with one hand, it can be used as a handgun; When the holster is used as a stock, it can be used as a submachine gun and can perform 3-round controlled firing. The production quantity of VP70 pistol is limited and has not yet been adopted by the military. The military version of the VP70 pistol is the VP70M, which is equipped with a shoulder rest (also serving as a holster) and can fire three rounds. The VP70Z pistol is a civilian type and can only perform semi-automatic shooting. The VP71 model is an improved version of the VP70, with no changes in its appearance. The main improvement is the elimination of the three shot firing mechanism. After installing a temporary stock, it can only fire semi-automatic.
+FriendlyName=HK VP70
+ShortName=HK VP70
+Manufacturer=Heckler & Koch
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1970
+FireModes=Semi-Automatic,Burst
+MagazineSizeString=20
+TotalAmmoString=4 magazine
+RateOfFire=360 RPM
+
+[VP70bHG]
+Description=The HK VP70 pistol is a novel and structurally unique automatic pistol. Made by Heckler&Koch GmbH in Germany. When shooting with one hand, it can be used as a handgun; When the holster is used as a stock, it can be used as a submachine gun and can perform 3-round controlled firing. The production quantity of VP70 pistol is limited and has not yet been adopted by the military. The military version of the VP70 pistol is the VP70M, which is equipped with a shoulder rest (also serving as a holster) and can fire three rounds. The VP70Z pistol is a civilian type and can only perform semi-automatic shooting. The VP71 model is an improved version of the VP70, with no changes in its appearance. The main improvement is the elimination of the three shot firing mechanism. After installing a temporary stock, it can only fire semi-automatic.
+FriendlyName=HK VP70 Buttstock
+ShortName=HK VP70 Buttstock
+Manufacturer=Heckler & Koch
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1970
+FireModes=Semi-Automatic,Burst
+MagazineSizeString=20
+TotalAmmoString=4 magazine
+RateOfFire=360 RPM
+
+[ColtM1911HG]
+Description=The Colt M1911 Handgun has been a mainstay in law enforcement for decades.  This weapon, chambered in .45 ACP, packs a powerful punch and is the most common backup weapon for SWAT officers.  This semi-automatic weapon has an 8 round magazine and can fire both full metal jacket and jacketed hollow point ammunition.
+FriendlyName=M1911
+ShortName=M1911
+Manufacturer=Colt
+Caliber=.45 ACP
+CountryOfOrigin=United States
+ProductionStart=1911
+FireModes=Semi-Automatic
+MagazineSizeString=8
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[ColtM1911sdHG]
+Description=The Colt M1911 Handgun has been a mainstay in law enforcement for decades.  This weapon, chambered in .45 ACP, packs a powerful punch and is the most common backup weapon for SWAT officers.  This semi-automatic weapon has an 8 round magazine and can fire both full metal jacket and jacketed hollow point ammunition.This model is equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed M1911
+ShortName=Sup.M1911
+Manufacturer=Colt
+Caliber=.45 ACP
+CountryOfOrigin=United States
+ProductionStart=1911
+FireModes=Semi-Automatic
+MagazineSizeString=8
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[ColtM1911HG_Shield]
+Description=The Colt M1911 Handgun has been a mainstay in law enforcement for decades.  This weapon, chambered in .45 ACP, packs a powerful punch and is the most common backup weapon for SWAT officers.  This semi-automatic weapon has an 8 round magazine and can fire both full metal jacket and jacketed hollow point ammunition.
+FriendlyName=M1911 + Shield
+ShortName=M1911 + Shield
+Manufacturer=Colt
+Caliber=.45 ACP
+CountryOfOrigin=United States
+ProductionStart=1911
+FireModes=Semi-Automatic
+MagazineSizeString=8
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[Glock9mmHG]
+Description=Designed by gun designer Gaston Glock, this Austrian designed handgun is largely made of high tech polymer plastics.  This construction results in a weapon that is incredibly easy to handle and manipulate.  While less powerful than the Colt 1911, it boasts a standard 17 round magazine.  Its ease of use, accuracy, and ''safe action'' trigger has made it a popular choice for law enforcement agencies.
+FriendlyName=Glock 17
+ShortName=Glock 17
+Manufacturer=Glock
+Caliber=9x19mm Parabellum
+CountryOfOrigin=Austria
+ProductionStart=1982
+FireModes=Semi-Automatic
+MagazineSizeString=17
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[Glock9mmsdHG]
+Description=Designed by gun designer Gaston Glock, this Austrian designed handgun is largely made of high tech polymer plastics.  This construction results in a weapon that is incredibly easy to handle and manipulate.  While less powerful than the Colt 1911, it boasts a standard 17 round magazine.  Its ease of use, accuracy, and ''safe action'' trigger has made it a popular choice for law enforcement agencies.This model is equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed  Glock 17
+ShortName=Sup.Glock 17
+Manufacturer=Glock
+Caliber=9x19mm Parabellum
+CountryOfOrigin=Austria
+ProductionStart=1982
+FireModes=Semi-Automatic
+MagazineSizeString=17
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[Glock9mmHG_Shield]
+Description=Designed by gun designer Gaston Glock, this Austrian designed handgun is largely made of high tech polymer plastics.  This construction results in a weapon that is incredibly easy to handle and manipulate.  While less powerful than the Colt 1911, it boasts a standard 17 round magazine.  Its ease of use, accuracy, and ''safe action'' trigger has made it a popular choice for law enforcement agencies.
+FriendlyName=Glock 17 + Shield
+ShortName=Glock 17 + Shield
+Manufacturer=Glock
+Caliber=9x19mm Parabellum
+CountryOfOrigin=Austria
+ProductionStart=1982
+FireModes=Semi-Automatic
+MagazineSizeString=17
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[Glock18HG]
+Description=One of the first machine pistols, the Glock 18 was developed at the request of EKO Cobra, the elite tactical unit of Austria's Ministry of the Interior, in order to test the wear of Glock's signature polymer materials. It was later determined that this weapon, with its incredible firerate, has some potential in the field, if the operator can manage its intense recoil. Due to its fully automatic nature, this weapon is not available for civilians to purchase and is only available to elite, tactical units such as SWAT.
+FriendlyName=Glock 18
+ShortName=Glock 18
+Manufacturer=Glock
+Caliber=9x19 Parabellum
+CountryOfOrigin=Austria
+ProductionStart=1985
+FireModes=Full Auto, Semi-Automatic
+MagazineSizeString=33
+TotalAmmoString=4 magazine
+RateOfFire=1200 RPM
+
+[Glock19HG]
+Description=A more compact iteration of the Glock, the Glock 19 shaves 12mm (0.5 in) off of its barrel size, and pares down the 17 standard rounds for a 15 round magazine. While this firearm, deemed ''compact'' by the manufacturer, is smaller than the Glock 17, it has worse recoil and accuracy than its forebearer.
+FriendlyName=Glock 19
+ShortName=Glock 19
+Manufacturer=Glock
+Caliber=9x19 Parabellum
+CountryOfOrigin=Austria
+ProductionStart=1988
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[PythonRevolverHG]
+Description=The Colt Python is among the most famous of Colt revolvers and was introduced in 1955.  It is chambered for the powerful .357 Magnum ammunition making it one of the most powerful hand guns on the market.  Its power is offset by its slow rate of fire and arduous reload.  In addition, it is not equipped with a tactical flashlight.
+FriendlyName=Python
+ShortName=Python
+Manufacturer=Colt
+Caliber=.357 Magnum
+CountryOfOrigin=United States
+ProductionStart=1955
+FireModes=Double-Action
+MagazineSizeString=6
+TotalAmmoString=6 speedloaders
+RateOfFire=80 RPM
+
+[PythonRevolverHGShield]
+Description=The Colt Python is among the most famous of Colt revolvers and was introduced in 1955.  It is chambered for the powerful .357 Magnum ammunition making it one of the most powerful hand guns on the market.  Its power is offset by its slow rate of fire and arduous reload.  In addition, it is not equipped with a tactical flashlight.
+FriendlyName=Python + Shield
+ShortName=Python + Shield
+Manufacturer=Colt
+Caliber=.357 Magnum
+CountryOfOrigin=United States
+ProductionStart=1955
+FireModes=Double-Action
+MagazineSizeString=6
+TotalAmmoString=6 speedloaders
+RateOfFire=80 RPM
+
+[DesertEagleHG]
+Description=This semiautomatic pistol holds eight .50 Action Express rounds, providing the greatest stopping power of any handgun outside a revolver. Favored by criminals for its considerable intimidation potential, it is often eschewed as a practical combat weapon due to its low ammunition capacity and excessive weight.
+FriendlyName=Desert Eagle
+ShortName=Desert Eagle
+Manufacturer=Israel Military Industries (IMI)
+Caliber=.50 Action Express
+CountryOfOrigin=Israel
+ProductionStart=1995
+FireModes=Semi-Automatic
+MagazineSizeString=8
+TotalAmmoString=4 magazine
+RateOfFire=300 RPM
+
+[DesertEagle357HG]
+Description=This semiautomatic pistol holds eight .357 Action Express rounds, providing the greatest stopping power of any handgun outside a revolver. Favored by criminals for its considerable intimidation potential, it is often eschewed as a practical combat weapon due to its low ammunition capacity and excessive weight.
+FriendlyName=Desert Eagle 357
+ShortName=Desert Eagle 357
+Manufacturer=Israel Military Industries (IMI)
+Caliber=.357 Magnum
+CountryOfOrigin=Israel
+ProductionStart=1995
+FireModes=Semi-Automatic
+MagazineSizeString=9
+TotalAmmoString=4 magazine
+RateOfFire=300 RPM
+
+[TEC9HG]
+Description=This infamous machine pistol was developed by Intratec, a Miami offshoot of the Swedish company Interdynamic. While it has relatively poor stopping power compared to full-sized submachine guns, its highly concealable form factor and ease of converting to full-auto makes it the weapon of choice for drive-bys and gang shootings. The TEC-DC9 received considerable noteriety in American media after the Columbine and Cleveland school shootings. After these events, the weapon was banned in several states by name and Intratec went bankrupt. Despite being a criminal weapon, a flashlight has been added for better tactical use in dark areas.
+FriendlyName=TEC-DC9
+ShortName=TEC-DC9
+Manufacturer=Intratec
+Caliber=9x19mm Parabellum
+CountryOfOrigin=United States
+ProductionStart=1989
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=32
+TotalAmmoString=4 magazines
+RateOfFire=950 RPM
+
+[FNP90SMG]
+Description=The P90 was developed by the Belgian company FN in conjunction with their Five-Seven in response to NATO's requests for a replacement to 9x19mm firearms. It began production in 1990 (hence the name P90), and features a futuristic and ambidextrous design. It remains in service in over 40 countries worldwide.||One of the unique features of the P90 is its top-loaded magazine. It can hold an abnormally large amount of ammunition due to its compact design.
+FriendlyName=P90
+ShortName=P90
+Manufacturer=FN Herstal
+Caliber=5.7x28mm FN
+CountryOfOrigin=Belgium
+ProductionStart=1990
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=50
+TotalAmmoString=4 magazine
+RateOfFire=900 RPM
+
+[SilencedFNP90SMG]
+Description=The P90 was developed by the Belgian company FN in conjunction with their Five-Seven in response to NATO's requests for a replacement to 9x19mm firearms. It began production in 1990 (hence the name P90), and features a futuristic and ambidextrous design. It remains in service in over 40 countries worldwide. One of the unique features of the P90 is its top-loaded magazine. It can hold an abnormally large amount of ammunition due to its compact design. This particular model is equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed P90
+ShortName=Sup. P90
+Manufacturer=FN Herstal
+Caliber=5.7x28mm FN
+CountryOfOrigin=Belgium
+ProductionStart=1990
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=50
+TotalAmmoString=4 magazine
+RateOfFire=900 RPM
+
+[MP5SMG]
+Description=This 9mm submachine gun was designed by H&K, a world renowned German manufacturer.  It is preferred by many para-military groups throughout the world for urban tactical engagements.  Firing either full metal jacket or jacketed hollow point 9x19mm ammunition it is versatile, but lacks the stopping power of an assault rifle.  Its key advantage is its compact design, which allows superior maneuverability in indoor situations.  It is equipped with a fire mode selector allowing automatic, semi-automatic and three round burst firing modes.
+FriendlyName=MP5A4
+ShortName=MP5A4
+Manufacturer=Heckler & Koch
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1974
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[SilencedMP5SMG]
+Description=This 9mm submachine gun was designed by H&K, a world renowned German manufacturer.  It is preferred by many para-military groups throughout the world for urban tactical engagements.  Firing either full metal jacket or jacketed hollow point 9x19mm ammunition it is versatile, but lacks the stopping power of an assault rifle.  Its key advantage is its compact design, which allows superior maneuverability in indoor situations.  This model is equipped with a fire mode selector allowing automatic, semi-automatic and three round burst firing modes.  It also sports a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed MP5A4
+ShortName=Sup. MP5A4
+Manufacturer=Heckler & Koch
+Caliber=Subsonic 9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1974
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+
+[MP5HoloSMG]
+Description=This 9mm submachine gun was designed by H&K, a world renowned German manufacturer.  It is preferred by many para-military groups throughout the world for urban tactical engagements.  Firing either full metal jacket or jacketed hollow point 9x19mm ammunition it is versatile, but lacks the stopping power of an assault rifle.  Its key advantage is its compact design, which allows superior maneuverability in indoor situations.  It is equipped with a fire mode selector allowing automatic, semi-automatic and three round burst firing modes.
+FriendlyName=MP5A4 with Eotech
+ShortName=MP5A4 with Eotech
+Manufacturer=Heckler & Koch
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1974
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[SilencedMP5HoloSMG]
+Description=This 9mm submachine gun was designed by H&K, a world renowned German manufacturer.  It is preferred by many para-military groups throughout the world for urban tactical engagements.  Firing either full metal jacket or jacketed hollow point 9x19mm ammunition it is versatile, but lacks the stopping power of an assault rifle.  Its key advantage is its compact design, which allows superior maneuverability in indoor situations.  This model is equipped with a fire mode selector allowing automatic, semi-automatic and three round burst firing modes.  It also sports a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed MP5A4 with Eotech
+ShortName=Sup. MP5A4 with Eotech
+Manufacturer=Heckler & Koch
+Caliber=Subsonic 9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1974
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MP7SMG]
+Description=The MP7 is a German Personal Defence Weapon (PDW) manufactured by Heckler & Koch (H&K) and chambered for the HK 4.6?0mm cartridge. It was designed with the new cartridge to meet NATO requirements published in 1989, as these requirements call for a personal defense weapon (PDW) class firearm, with a greater ability to defeat body armor than current weapons limited to conventional pistol cartridges. The MP7 went into production in 2001. It is a direct rival to the FN P90, also developed in response to NATO's requirement. The weapon has been revised since its introduction and the current production versions are the MP7A1 and newest MP7A2.
+FriendlyName=MP7A1
+ShortName=MP7A1
+Manufacturer=Heckler & Koch
+Caliber=4.6x30mm
+CountryOfOrigin=Germany
+ProductionStart=1989
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=40
+TotalAmmoString=6 magazine
+RateOfFire=950 RPM
+
+[MP7HoloSMG]
+Description=The MP7 is a German Personal Defence Weapon (PDW) manufactured by Heckler & Koch (H&K) and chambered for the HK 4.6?0mm cartridge. It was designed with the new cartridge to meet NATO requirements published in 1989, as these requirements call for a personal defense weapon (PDW) class firearm, with a greater ability to defeat body armor than current weapons limited to conventional pistol cartridges. The MP7 went into production in 2001. It is a direct rival to the FN P90, also developed in response to NATO's requirement. The weapon has been revised since its introduction and the current production versions are the MP7A1 and newest MP7A2.
+FriendlyName=MP7A1 with Eotech
+ShortName=MP7A1 with Eotech
+Manufacturer=Heckler & Koch
+Caliber=4.6x30mm
+CountryOfOrigin=Germany
+ProductionStart=1989
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=40
+TotalAmmoString=6 magazine
+RateOfFire=950 RPM
+
+[MP7sdSMG]
+Description=The MP7 is a German Personal Defence Weapon (PDW) manufactured by Heckler & Koch (H&K) and chambered for the HK 4.6?0mm cartridge. It was designed with the new cartridge to meet NATO requirements published in 1989, as these requirements call for a personal defense weapon (PDW) class firearm, with a greater ability to defeat body armor than current weapons limited to conventional pistol cartridges. The MP7 went into production in 2001. It is a direct rival to the FN P90, also developed in response to NATO's requirement. The weapon has been revised since its introduction and the current production versions are the MP7A1 and newest MP7A2.
+FriendlyName=Suppressed MP7A1
+ShortName=Sup.MP7A1
+Manufacturer=Heckler & Koch
+Caliber=4.6x30mm
+CountryOfOrigin=Germany
+ProductionStart=1989
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=40
+TotalAmmoString=6 magazine
+RateOfFire=950 RPM
+
+[MP7sdHoloSMG]
+Description=The MP7 is a German Personal Defence Weapon (PDW) manufactured by Heckler & Koch (H&K) and chambered for the HK 4.6?0mm cartridge. It was designed with the new cartridge to meet NATO requirements published in 1989, as these requirements call for a personal defense weapon (PDW) class firearm, with a greater ability to defeat body armor than current weapons limited to conventional pistol cartridges. The MP7 went into production in 2001. It is a direct rival to the FN P90, also developed in response to NATO's requirement. The weapon has been revised since its introduction and the current production versions are the MP7A1 and newest MP7A2.
+FriendlyName=Suppressed MP7A1 with Eotech
+ShortName=Sup.MP7A1 with Eotech
+Manufacturer=Heckler & Koch
+Caliber=4.6x30mm
+CountryOfOrigin=Germany
+ProductionStart=1989
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=40
+TotalAmmoString=6 magazine
+RateOfFire=950 RPM
+
+[KrisstySMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=KRISS Vector TyAlone Custom
+ShortName=Vector TyAlong
+Manufacturer=KRISS TDI
+Caliber=.45 ACP
+CountryOfOrigin=United States
+ProductionStart=2006
+FireModes=Semi-Automatic, Burst, Full-Auto
+MagazineSizeString=35
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[KrissHolotySMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=KRISS Vector with Eotech TyAlone Custom
+ShortName=Vector with Eotech TyAlone
+Manufacturer=KRISS TDI
+Caliber=.45 ACP
+CountryOfOrigin=United States
+ProductionStart=2006
+FireModes=Semi-Automatic, Burst, Full-Auto
+MagazineSizeString=35
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[KrissSMG]
+Description=Designed by a leading European arms manufacturer, this personal defense weapon was originally intended for use by troops who did not use full-sized rifles, but for whom pistols were ineffective against targets with modern body armor. Since its introduction, law enforcement and military personnel throughout Europe and the Middle East have adopted it. It's high reliability, large ammunition capacity and excellent balance makes it a desirable weapon.
+FriendlyName=KRISS Vector
+ShortName=Vector
+Manufacturer=KRISS TDI
+Caliber=.45 ACP
+CountryOfOrigin=United States
+ProductionStart=2006
+FireModes=Semi-Automatic, Burst, Full-Auto
+MagazineSizeString=35
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[KrissHoloSMG]
+Description=Designed by a leading European arms manufacturer, this personal defense weapon was originally intended for use by troops who did not use full-sized rifles, but for whom pistols were ineffective against targets with modern body armor. Since its introduction, law enforcement and military personnel throughout Europe and the Middle East have adopted it. It's high reliability, large ammunition capacity and excellent balance makes it a desirable weapon.
+FriendlyName=KRISS Vector with Eotech
+ShortName=Vector with Eotech
+Manufacturer=KRISS TDI
+Caliber=.45 ACP
+CountryOfOrigin=United States
+ProductionStart=2006
+FireModes=Semi-Automatic, Burst, Full-Auto
+MagazineSizeString=35
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[UMP45SMG]
+Description=The UMP is the cheaper and lighter successor to the MP5.  Built largely of glass-fiber reinforced polymers, this lightweight submachine gun provides the same reliability as the MP5, but with the added punch of the larger .45 ACP caliber round.  The heavy bullet provides superior penetration of armored targets with FMJ rounds compared to its 9mm brethren, despite having a lower muzzle velocity and slower cyclical rate of fire.  This model is equipped with a fire mode selector allowing semi-automatic, two round burst and fully automatic firing modes.
+FriendlyName=UMP
+ShortName=UMP
+Manufacturer=Heckler & Koch
+Caliber=.45 ACP
+CountryOfOrigin=Germany
+ProductionStart=1999
+FireModes=Semi-Automatic, 2-rd. Burst, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=600 RPM
+
+[UMP45sdSMG]
+Description=The UMP is the cheaper and lighter successor to the MP5.  Built largely of glass-fiber reinforced polymers, this lightweight submachine gun provides the same reliability as the MP5, but with the added punch of the larger .45 ACP caliber round.  The heavy bullet provides superior penetration of armored targets with FMJ rounds compared to its 9mm brethren, despite having a lower muzzle velocity and slower cyclical rate of fire.  This model is equipped with a fire mode selector allowing semi-automatic, two round burst and fully automatic firing modes as well as a suppressor for when stealth is paramount.
+FriendlyName=Suppressed UMP
+ShortName=Sup. UMP
+
+[UMP45HoloSMG]
+Description=The UMP is the cheaper and lighter successor to the MP5.  Built largely of glass-fiber reinforced polymers, this lightweight submachine gun provides the same reliability as the MP5, but with the added punch of the larger .45 ACP caliber round.  The heavy bullet provides superior penetration of armored targets with FMJ rounds compared to its 9mm brethren, despite having a lower muzzle velocity and slower cyclical rate of fire.  This model is equipped with a fire mode selector allowing semi-automatic, two round burst and fully automatic firing modes.
+FriendlyName=UMP with Eotech
+ShortName=UMP with Eotech
+Manufacturer=Heckler & Koch
+Caliber=.45 ACP
+CountryOfOrigin=Germany
+ProductionStart=1999
+FireModes=Semi-Automatic, 2-rd. Burst, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=600 RPM
+
+[UMP45HolosdSMG]
+Description=The UMP is the cheaper and lighter successor to the MP5.  Built largely of glass-fiber reinforced polymers, this lightweight submachine gun provides the same reliability as the MP5, but with the added punch of the larger .45 ACP caliber round.  The heavy bullet provides superior penetration of armored targets with FMJ rounds compared to its 9mm brethren, despite having a lower muzzle velocity and slower cyclical rate of fire.  This model is equipped with a fire mode selector allowing semi-automatic, two round burst and fully automatic firing modes as well as a suppressor for when stealth is paramount.
+FriendlyName=Suppressed UMP with Eotech
+ShortName=Sup. UMP with Eotech
+
+[ColtSMG]
+Description=This shortened version of the M16 assault rifle is designed for close quarters. Instead of firing 5.56x45mm NATO rounds from a gas-operated receiver however, this model fires 9x19mm Parabellum rounds from a closed bolt. It has become popular amongst law enforcement agencies for its relative cheap cost compared to German imports and accuracy compared to open-bolt submachine guns.
+FriendlyName=Colt Model 635
+ShortName=Colt Model 635
+Manufacturer=Colt
+Caliber=9x19mm
+CountryOfOrigin=United States
+ProductionStart=1982
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=32
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[SilencedColtSMG]
+Description=This shortened version of the M16 assault rifle is designed for close quarters. Instead of firing 5.56x45mm NATO rounds from a gas-operated receiver however, this model fires 9x19mm Parabellum rounds from a closed bolt. It has become popular amongst law enforcement agencies for its relative cheap cost compared to German imports and accuracy compared to open-bolt submachine guns. This particular model is equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed Colt 635
+ShortName=Sup. Colt 635
+
+[SCARHMG]
+Description=A truly next-generation assault rifle, the SCAR, short for ''Special operations forces Combat Assault Rifle'' is the latest offering from FN Herstal in full-sized assault rifles. The H designation indicates that this particular model fires in 7.62x51mm rounds. While firing slower and having a smaller magazine size than the M4, it fires a much larger round to compensate.
+FriendlyName=SCAR-H
+ShortName=SCAR-H
+Manufacturer=FN Herstal
+Caliber=7.62x51mm
+CountryOfOrigin=Belgium/United States
+ProductionStart=2004
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=600 RPM
+
+[SCARHAMG]
+Description=A truly next-generation assault rifle, the SCAR, short for ''Special operations forces Combat Assault Rifle'' is the latest offering from FN Herstal in full-sized assault rifles. The H designation indicates that this particular model fires in 7.62x51mm rounds. While firing slower and having a smaller magazine size than the M4, it fires a much larger round to compensate. It is equipped with an aimpoint sight for ease of use against distant targets.
+FriendlyName=SCAR-H with Aimpoint Sight
+ShortName=SCAR-H Aim.
+Manufacturer=FN Herstal
+Caliber=7.62x51mm
+CountryOfOrigin=Belgium/United States
+ProductionStart=2004
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=600 RPM
+
+[SCARHsdMG]
+Description=A truly next-generation assault rifle, the SCAR, short for ''Special operations forces Combat Assault Rifle'' is the latest offering from FN Herstal in full-sized assault rifles. The H designation indicates that this particular model fires in 7.62x51mm rounds. While firing slower and having a smaller magazine size than the M4, it fires a much larger round to compensate. This model is equipped with a flash and noise suppressor for when stealth is paramount.
+FriendlyName=Suppressed SCAR-H
+ShortName=Sup. SCAR-H
+Manufacturer=FN Herstal
+Caliber=7.62x51mm
+CountryOfOrigin=Belgium/United States
+ProductionStart=2004
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=600 RPM
+
+[SCARHAsdMG]
+Description=A truly next-generation assault rifle, the SCAR, short for ''Special operations forces Combat Assault Rifle'' is the latest offering from FN Herstal in full-sized assault rifles. The H designation indicates that this particular model fires in 7.62x51mm rounds. While firing slower and having a smaller magazine size than the M4, it fires a much larger round to compensate. This model is equipped with a flash and noise suppressor for when stealth is paramount, and an aimpoint sight for ease of use against distant targets.
+FriendlyName=Suppressed SCAR-H with Aimpoint Sight
+ShortName=Sup. SCAR-H Aim.
+Manufacturer=FN Herstal
+Caliber=7.62x51mm
+CountryOfOrigin=Belgium/United States
+ProductionStart=2004
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=600 RPM
+
+[C7A2isMG]
+Description="The Colt C7 Rifle with Elcan is based on the tried and true design of the M16 assault rifle used by the United States Army.  The shorter carbine design makes it a more viable weapon than the M16 in close quarters situations.  Using .223 caliber rifle ammunition in both full metal jacket and jacketed hollow point configurations, the Colt carbine is the most powerful weapon available to SWAT officers.  It is equipped with a fire mode selector allowing semi-automatic as well as fully automatic firing."
+FriendlyName=Diemaco C7A2 Rifle
+ShortName=C7A2
+Manufacturer=Diemaco
+Caliber=5.56x45mm NATO
+CountryOfOrigin=Canada
+ProductionStart=1982
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[C7A2eMG]
+Description="The Colt C7 Rifle with Elcan is based on the tried and true design of the M16 assault rifle used by the United States Army.  The shorter carbine design makes it a more viable weapon than the M16 in close quarters situations.  Using .223 caliber rifle ammunition in both full metal jacket and jacketed hollow point configurations, the Colt carbine is the most powerful weapon available to SWAT officers.  It is equipped with a fire mode selector allowing semi-automatic as well as fully automatic firing."
+FriendlyName=Diemaco C7A2 Rifle With ELCAN
+ShortName=C7A2 ELCAN
+Manufacturer=Diemaco
+Caliber=5.56x45mm NATO
+CountryOfOrigin=Canada
+ProductionStart=1982
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[C8isMG]
+Description="The Colt C8 Rifle with Elcan is based on the tried and true design of the M16 assault rifle used by the United States Army.  The shorter carbine design makes it a more viable weapon than the M16 in close quarters situations.  Using .223 caliber rifle ammunition in both full metal jacket and jacketed hollow point configurations, the Colt carbine is the most powerful weapon available to SWAT officers.  It is equipped with a fire mode selector allowing semi-automatic as well as fully automatic firing."
+FriendlyName=Diemaco C8 Rifle
+ShortName=C8
+Manufacturer=Diemaco
+Caliber=5.56x45mm NATO
+CountryOfOrigin=Canada
+ProductionStart=1982
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[C8eMG]
+Description="The Colt C8 Rifle with Elcan is based on the tried and true design of the M16 assault rifle used by the United States Army.  The shorter carbine design makes it a more viable weapon than the M16 in close quarters situations.  Using .223 caliber rifle ammunition in both full metal jacket and jacketed hollow point configurations, the Colt carbine is the most powerful weapon available to SWAT officers.  It is equipped with a fire mode selector allowing semi-automatic as well as fully automatic firing."
+FriendlyName=Diemaco C8 Rifle With ELCAN
+ShortName=C8 ELCAN
+Manufacturer=Diemaco
+Caliber=5.56x45mm NATO
+CountryOfOrigin=Canada
+ProductionStart=1982
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[TrainingM4MG]
+Description=Non-lethal training version of the Colt M4A1 Carbine. It fires reduced-energy, non-lethal cartridges leave a detergent-based, water-soluble colour marking compound. These visible impacts allow accurate assessment of simulated lethality.These specialy designed ammo features tactical accuracy completely identical to live ammunition.
+FriendlyName=Less Lethal M4A1
+ShortName=Less Lethal M4A1
+Manufacturer=Colt
+Caliber=5.56X45mm Simunition
+CountryOfOrigin=United States
+ProductionStart=Unknown
+FireModes=Semi-Automatic
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[M4A1FireMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=M4A1-Fire custom
+ShortName=M4A1-Fire
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=1994
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[M4A1sdFireMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed M4A1-Fire custom
+ShortName=Sup. M4A1-Fire
+
+[M4A1AFireMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=M4A1-Fire custom with Aimpoint Sight
+ShortName=M4A1-Fire Aim.
+
+[M4A1AsdFireMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed M4A1-Fire custom with Aimpoint Sight
+ShortName=Sup. M4A1-Fire Aim.
+
+[M4A1HoloFireMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=M4A1-Fire custom with Eotech Sight
+ShortName=M4A1-Fire Eotech.
+
+[M4A1sdHoloFireMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed M4A1-Fire custom with Eotech Sight
+ShortName=Sup. M4A1-Fire Eotech.
+
+[M4A1MG]
+Description=The Colt M4A1 carbine is based on the tried and true design of the M16 assault rifle used by the United States Army.  The shorter carbine design makes it a more viable weapon than the M16 in close quarters situations.  Using 5.56x45mm rifle ammunition in both full metal jacket and jacketed hollow point configurations, the M4A1 carbine is the most powerful weapon available to SWAT officers.  It is equipped with a fire mode selector allowing semi-automatic as well as fully automatic firing.
+FriendlyName=M4A1 Carbine
+ShortName=M4A1
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=1994
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[M4A1sdMG]
+Description=The Colt M4A1 carbine is based on the tried and true design of the M16 assault rifle used by the United States Army.  The shorter carbine design makes it a more viable weapon than the M16 in close quarters situations.  Using 5.56x45mm rifle ammunition in both full metal jacket and jacketed hollow point configurations, the M4A1 carbine is the most powerful weapon available to SWAT officers.  It is equipped with a fire mode selector allowing semi-automatic as well as fully automatic firing and a suppressor for when stealth is paramount.
+FriendlyName=Suppressed M4A1 Carbine
+ShortName=Sup. M4A1
+
+[M4A1AMG]
+Description=The Colt M4A1 carbine is based on the tried and true design of the M16 assault rifle used by the United States Army.  The shorter carbine design makes it a more viable weapon than the M16 in close quarters situations.  Using 5.56x45mm rifle ammunition in both full metal jacket and jacketed hollow point configurations, the M4A1 carbine is the most powerful weapon available to SWAT officers.  It is equipped with a fire mode selector allowing semi-automatic as well as fully automatic firing and an aimpoint sight for ease of use against long range targets.
+FriendlyName=M4A1 Carbine with Aimpoint Sight
+ShortName=M4A1 Aim.
+
+[M4A1AsdMG]
+Description=The Colt M4A1 carbine is based on the tried and true design of the M16 assault rifle used by the United States Army.  The shorter carbine design makes it a more viable weapon than the M16 in close quarters situations.  Using 5.56x45mm rifle ammunition in both full metal jacket and jacketed hollow point configurations, the M4A1 carbine is the most powerful weapon available to SWAT officers.  It is equipped with a fire mode selector allowing semi-automatic as well as fully automatic firing, a suppressor for when stealth is paramount, and an aimpoint sight for ease of use against long range targets.
+FriendlyName=Suppressed M4A1 Carbine with Aimpoint Sight
+ShortName=Sup. M4A1 Aim.
+
+[M4A1HoloMG]
+Description=The Colt M4A1 carbine is based on the tried and true design of the M16 assault rifle used by the United States Army.  The shorter carbine design makes it a more viable weapon than the M16 in close quarters situations.  Using 5.56x45mm rifle ammunition in both full metal jacket and jacketed hollow point configurations, the M4A1 carbine is the most powerful weapon available to SWAT officers.  It is equipped with a fire mode selector allowing semi-automatic as well as fully automatic firing and an Eotech sight for ease of use against long range targets.
+FriendlyName=M4A1 Carbine with Eotech Sight
+ShortName=M4A1 Eotech.
+
+[M4A1sdHoloMG]
+Description=The Colt M4A1 carbine is based on the tried and true design of the M16 assault rifle used by the United States Army.  The shorter carbine design makes it a more viable weapon than the M16 in close quarters situations.  Using 5.56x45mm rifle ammunition in both full metal jacket and jacketed hollow point configurations, the M4A1 carbine is the most powerful weapon available to SWAT officers.  It is equipped with a fire mode selector allowing semi-automatic as well as fully automatic firing, a suppressor for when stealth is paramount, and an Eotech sight for ease of use against long range targets.
+FriendlyName=Suppressed M4A1 Carbine with Eotech Sight
+ShortName=Sup. M4A1 Eotech.
+
+[MK18CHPMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=MK18MOD1-Momoi
+ShortName=MK18MOD1-Momoi
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=2001
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MK18sdCHPMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed MK18MOD1-Momoi
+ShortName=Sup. MK18MOD1-Momoi
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=2001
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MK18HoloCHPMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=MK18MOD1 with Eotech-Momoi
+ShortName=MK18MOD1 with Eotech-Momoi
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=2001
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MK18sdHoloCHPMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed MK18MOD1 with Eotech-Momoi
+ShortName=Sup. MK18MOD1 with Eotech-Momoi
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=2001
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MK18HoloananMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=MK18MOD0 with Eotech Anan Custom
+ShortName=MK18MOD0-Anan
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=2001
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MK18HolosdananMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed MK18MOD0 with Eotech Anan Custom
+ShortName=Sup. MK18MOD0 with Eotech-Anan
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=2001
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MK18MG]
+Description=MK18 is a short barrel rifle designed by the US Navy Ground Weapon Development Center for close range CQB operations. The Close Quarters Battle Receiver (CQBR) is a replaceable upper case of the M4A1 Carbine. Its purpose is to provide naval special forces with a short length and light weight melee weapon, but it can be fully used with the tactical accessories of the SOPMOD M4, minimizing the workload of logistics maintenance.
+FriendlyName=MK18MOD1
+ShortName=MK18MOD1
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=2001
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MK18sdMG]
+Description=MK18 is a short barrel rifle designed by the US Navy Ground Weapon Development Center for close range CQB operations. The Close Quarters Battle Receiver (CQBR) is a replaceable upper case of the M4A1 Carbine. Its purpose is to provide naval special forces with a short length and light weight melee weapon, but it can be fully used with the tactical accessories of the SOPMOD M4, minimizing the workload of logistics maintenance.
+FriendlyName=Suppressed MK18MOD1
+ShortName=Sup. MK18MOD1
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=2001
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[M4CQBHoloMG]
+Description=MK18 is a short barrel rifle designed by the US Navy Ground Weapon Development Center for close range CQB operations. The Close Quarters Battle Receiver (CQBR) is a replaceable upper case of the M4A1 Carbine. Its purpose is to provide naval special forces with a short length and light weight melee weapon, but it can be fully used with the tactical accessories of the SOPMOD M4, minimizing the workload of logistics maintenance.
+FriendlyName=MK18MOD1 with Eotech
+ShortName=MK18MOD1 with Eotech
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=2001
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[M4CQBHolosdMG]
+Description=MK18 is a short barrel rifle designed by the US Navy Ground Weapon Development Center for close range CQB operations. The Close Quarters Battle Receiver (CQBR) is a replaceable upper case of the M4A1 Carbine. Its purpose is to provide naval special forces with a short length and light weight melee weapon, but it can be fully used with the tactical accessories of the SOPMOD M4, minimizing the workload of logistics maintenance, and Eotech sight for ease of use against long range targets.
+FriendlyName=Suppressed MK18MOD1 with Eotech
+ShortName=Sup. MK18MOD1 with Eotech
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=2001
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[SOP276MG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=M4 SOPMOD2 76 Custom
+ShortName=M4 SOPMOD2-76
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=2005
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[SOP2Holo76MG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=M4 SOPMOD2 with Eotech Sight 76 Custom
+ShortName=M4 SOPMOD2 Holo-76
+
+[SOP2sd76MG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed M4 SOPMOD2 76 Custom
+ShortName=Sup. M4 SOPMOD2-76
+
+[SOP2Holosd76MG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed M4 SOPMOD2 with Eotech Sight 76 Custom
+ShortName=Sup. M4 SOPMOD2 Holo-76
+
+[HK416MikuFansMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=HK416 Assault Rifle SuperGamer Custom
+ShortName=HK416-SuperGamer
+Manufacturer=Heckler & Koch
+Caliber=5.56x45mm NATO
+CountryOfOrigin=Germany
+ProductionStart=2004
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=900 RPM
+
+[HK416HoloMikuFansMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=HK416 Assault Rifle with Eotech Sight SuperGamer Custom
+ShortName=HK416 Holo-SuperGamer
+
+[HK416sdMikuFansMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed HK416 Assault Rifle SuperGamer Custom
+ShortName=Sup. HK416-SuperGamer
+
+[HK416HolosdMikuFansMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed HK416 with Eotech Sight SuperGamer Custom
+ShortName=Sup. HK416 Holo-SuperGamer
+
+[HK416MG]
+Description=The Heckler & Koch HK416 (HK M4) is an assault rifle/carbine designed and manufactured by Heckler & Koch. It is based on the AR-15 platform, and was originally conceived as an improvement based on the Colt M4 carbine family issued to the U.S. military, with the notable inclusion of an HK-proprietary short-stroke gas piston system derived from the Heckler & Koch G36 assault rifle.
+FriendlyName=HK416 Assault Rifle 
+ShortName=HK416
+Manufacturer=Heckler & Koch
+Caliber=5.56x45mm NATO
+CountryOfOrigin=Germany
+ProductionStart=2004
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=900 RPM
+
+[HK416HoloMG]
+Description=The Heckler & Koch HK416 (HK M4) is an assault rifle/carbine designed and manufactured by Heckler & Koch. It is based on the AR-15 platform, and was originally conceived as an improvement based on the Colt M4 carbine family issued to the U.S. military, with the notable inclusion of an HK-proprietary short-stroke gas piston system derived from the Heckler & Koch G36 assault rifle and an Eotech sight for ease of use against long range targets.
+FriendlyName=HK416 Assault Rifle with Eotech Sight
+ShortName=HK416 Holo.
+
+[HoneyBadgerMG]
+Description=The United States Special Operations Command (USSOCOM) is testing a weapon called the Low Vulnerability Carbine to replace the MP5SD-N and MP7A1. The sample gun of LVC is the "Honey Badger" short barreled rifle launched by Advanced Armament Corporation (AAC), which produces and sells high-quality mufflers, and fires the company's latest developed. 300 AAC BLK bullet.
+FriendlyName=AAC-Honey Badger
+ShortName=Honey Badger
+Manufacturer=AAC
+Caliber=.300 BLK
+CountryOfOrigin=United States
+ProductionStart=2012
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=900 RPM
+
+[HoneyBadgerAMG]
+Description=The United States Special Operations Command (USSOCOM) is testing a weapon called the Low Vulnerability Carbine to replace the MP5SD-N and MP7A1. The sample gun of LVC is the "Honey Badger" short barreled rifle launched by Advanced Armament Corporation (AAC), which produces and sells high-quality mufflers, and fires the company's latest developed. 300 AAC BLK bullet and it is equipped with a GBRS system and is mounted with PEQ15 and T1 Micro.
+FriendlyName=AAC-Honey Badger GBRS T1 Micro
+ShortName=Honey Badger GBRS Micro
+Manufacturer=AAC
+Caliber=.300 BLK
+CountryOfOrigin=United States
+ProductionStart=2012
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=900 RPM
+
+[HoneyBadgerLMG]
+Description=The United States Special Operations Command (USSOCOM) is testing a weapon called the Low Vulnerability Carbine to replace the MP5SD-N and MP7A1. The sample gun of LVC is the "Honey Badger" short barreled rifle launched by Advanced Armament Corporation (AAC), which produces and sells high-quality mufflers, and fires the company's latest developed. 300 AAC BLK bullet and it is equipped with a GBRS system and is mounted with PEQ15 and T1 Micro,But this variant is mainly used for variable laser.
+FriendlyName=AAC-Honey Badger GBRS Laser
+ShortName=Honey Badger GBRS Laser
+Manufacturer=AAC
+Caliber=.300 BLK
+CountryOfOrigin=United States
+ProductionStart=2012
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=900 RPM
+
+[HK416sdMG]
+Description=The Heckler & Koch HK416 (HK M4) is an assault rifle/carbine designed and manufactured by Heckler & Koch. It is based on the AR-15 platform, and was originally conceived as an improvement based on the Colt M4 carbine family issued to the U.S. military, with the notable inclusion of an HK-proprietary short-stroke gas piston system derived from the Heckler & Koch G36 assault rifle and a suppressor for when stealth is paramount.
+FriendlyName=Suppressed HK416 Assault Rifle 
+ShortName=Sup. HK416
+
+[HK416HolosdMG]
+Description=The Heckler & Koch HK416 (HK M4) is an assault rifle/carbine designed and manufactured by Heckler & Koch. It is based on the AR-15 platform, and was originally conceived as an improvement based on the Colt M4 carbine family issued to the U.S. military, with the notable inclusion of an HK-proprietary short-stroke gas piston system derived from the Heckler & Koch G36 assault rifle and a suppressor for when stealth is paramount a suppressor for when stealth is paramount, and an Eotech sight for ease of use against long range targets.
+FriendlyName=Suppressed HK416 with Eotech Sight
+ShortName=Sup. HK416 Holo 
+
+[G36CMG]
+Description=The H&K G36C is a lightweight compact assault rifle originally developed in the 1990s by H&K for the German Bundeswehr.  It is now world renowned as an incredibly reliable all-around carbine.  Firing a mid-sized 5.56x45mm rifle round, this weapon is equipped with a firemode selector with a fully automatic and semi-automatic firing Compared to the G36K although it does not have a 2-round burst it is more suitable for close range combat.
+FriendlyName=G36C
+ShortName=G36C
+Manufacturer=Heckler & Koch
+Caliber=5.56x45mm DM11
+CountryOfOrigin=Germany
+ProductionStart=2000
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=750 RPM
+
+[G36CsdMG]
+Description=The H&K G36C is a lightweight compact assault rifle originally developed in the 1990s by H&K for the German Bundeswehr.  It is now world renowned as an incredibly reliable all-around carbine.  Firing a mid-sized 5.56x45mm rifle round, this weapon is equipped with a firemode selector with a fully automatic and semi-automatic firing and a suppressor for when stealth is paramount Compared to the G36K although it does not have a 2-round burst it is more suitable for close range combat. 
+FriendlyName=Suppressed G36C
+ShortName=Sup. G36C
+
+[G36COpticMG]
+Description=The H&K G36C is a lightweight compact assault rifle originally developed in the 1990s by H&K for the German Bundeswehr.  It is now world renowned as an incredibly reliable all-around carbine.  Firing a mid-sized 5.56x45mm rifle round, this weapon is equipped with a firemode selector with a fully automatic and semi-automatic firing Compared to the G36K although it does not have a 2-round burst it is more suitable for close range combat.
+FriendlyName=G36C with Optic ACOG
+ShortName=G36C with Optic
+Manufacturer=Heckler & Koch
+Caliber=5.56x45mm DM11
+CountryOfOrigin=Germany
+ProductionStart=2000
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=750 RPM
+
+[G36CsdOpticMG]
+Description=The H&K G36C is a lightweight compact assault rifle originally developed in the 1990s by H&K for the German Bundeswehr.  It is now world renowned as an incredibly reliable all-around carbine.  Firing a mid-sized 5.56x45mm rifle round, this weapon is equipped with a firemode selector with a fully automatic and semi-automatic firing and a suppressor for when stealth is paramount Compared to the G36K although it does not have a 2-round burst it is more suitable for close range combat. 
+FriendlyName=Suppressed G36C with Optic
+ShortName=Sup. G36C with Optic
+
+[G36kMG]
+Description=The H&K G36K is a lightweight compact assault rifle originally developed in the 1990s by H&K for the German Bundeswehr.  It is now world renowned as an incredibly reliable all-around carbine.  Firing a mid-sized 5.56x45mm rifle round, this weapon is equipped with a firemode selector with a 2-round burst as well as fully automatic and semi-automatic firing.
+FriendlyName=G36K
+ShortName=G36K
+Manufacturer=Heckler & Koch
+Caliber=5.56x45mm DM11
+CountryOfOrigin=Germany
+ProductionStart=1997
+FireModes=Semi-Automatic, 2-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=750 RPM
+
+[G36ksdMG]
+Description=The H&K G36K is a lightweight compact assault rifle originally developed in the 1990s by H&K for the German Bundeswehr.  It is now world renowned as an incredibly reliable all-around carbine.  Firing a mid-sized 5.56x45mm rifle round, this weapon is equipped with a firemode selector with a 2-round burst as well as fully automatic and semi-automatic firing and a suppressor for when stealth is paramount.
+FriendlyName=Suppressed G36K
+ShortName=Sup. G36K
+
+[G36kHoloMG]
+Description=The H&K G36K is a lightweight compact assault rifle originally developed in the 1990s by H&K for the German Bundeswehr.  It is now world renowned as an incredibly reliable all-around carbine.  Firing a mid-sized 5.56x45mm rifle round, this weapon is equipped with a firemode selector with a 2-round burst as well as fully automatic and semi-automatic firing.
+FriendlyName=G36K with Eotech
+ShortName=G36K with Eotech
+Manufacturer=Heckler & Koch
+Caliber=5.56x45mm DM11
+CountryOfOrigin=Germany
+ProductionStart=1997
+FireModes=Semi-Automatic, 2-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=750 RPM
+
+[G36kHolosdMG]
+Description=The H&K G36K is a lightweight compact assault rifle originally developed in the 1990s by H&K for the German Bundeswehr.  It is now world renowned as an incredibly reliable all-around carbine.  Firing a mid-sized 5.56x45mm rifle round, this weapon is equipped with a firemode selector with a 2-round burst as well as fully automatic and semi-automatic firing and a suppressor for when stealth is paramount.
+FriendlyName=Suppressed G36K with Eotech
+ShortName=Sup. G36K with Eotech
+
+
+[UziSMG]
+Description=The Uzi is a compact and reliable sub-machinegun that was developed in the early fifties in Israel. It's a staple of many Hollywood gang movies.  It has a slow rate of fire and is very easy to control even when fired on full auto.  This model is equipped with a suppressor making it a more stealthy choice.
+FriendlyName=Suppressed Uzi
+ShortName=Sup. Uzi
+Manufacturer=Israel Military Industries (IMI)
+Caliber=Subsonic 9x19mm
+CountryOfOrigin=Israel
+ProductionStart=1950
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazine
+RateOfFire=600 RPM
+
+[UziTSMG]
+Description=The Uzi is a compact and reliable sub-machinegun that was developed in the early fifties in Israel. It's a staple of many Hollywood gang movies.  It has a slow rate of fire and is very easy to control even when fired on full auto.  This model is equipped with a suppressor making it a more stealthy choice. Despite not being a weapon used by SWAT, this weapon has been given a flashlight for more tactical use in dark environments.
+
+[SAWMG]
+Description=This light machine gun is intended only for military operations; however as with most weapons some are available on the black market. The weapon is designed to be fired accurately from the hip or shoulder, though it is more commonly fired from a deployed bipod. It uses a box magazine holding 200 rounds of disintegrating-link ammunition.
+FriendlyName=M249 Light Machine Gun
+ShortName=M249
+Manufacturer=FN Herstal
+Caliber=5.56x45mm NATO
+CountryOfOrigin=Belgium
+ProductionStart=Late 1970s
+FireModes=Full-Auto
+MagazineSizeString=200
+TotalAmmoString=2 belts
+RateOfFire=800 RPM
+
+[FNFALMG]
+Description=Nicknamed 'The right arm of the free world', the FAL was manufactured by FN Herstal during the Cold War and saw use in a large number of countries during that period. It remains in wide use to this day. While its long stature makes it a bit unwieldy for close quarters and its recoil makes it difficult to sustain fully automatic fire, it makes up for this with sheer strength of firepower. 
+FriendlyName=FAL
+ShortName=FAL
+Manufacturer=FN Herstal
+Caliber=7.62x51mm NATO
+CountryOfOrigin=Belgium
+ProductionStart=1954
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazines
+RateOfFire=700 RPM
+
+[FNFALsdMG]
+Description=Nicknamed 'The right arm of the free world', the FAL was manufactured by FN Herstal during the Cold War and saw use in a large number of countries during that period. It remains in wide use to this day. While its long stature makes it a bit unwieldy for close quarters and its recoil makes it difficult to sustain fully automatic fire, it makes up for this with sheer strength of firepower. This configuration comes equipped with a suppressor making it a more stealthy choice.
+FriendlyName=Suppressed FAL
+ShortName=Sup.FAL 
+Manufacturer=FN Herstal
+Caliber=Subsonic 7.62x51mm NATO
+CountryOfOrigin=Belgium
+ProductionStart=1954
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazines
+RateOfFire=700 RPM
+
+[FNFALAimpointMG]
+Description=Nicknamed 'The right arm of the free world', the FAL was manufactured by FN Herstal during the Cold War and saw use in a large number of countries during that period. It remains in wide use to this day. While its long stature makes it a bit unwieldy for close quarters and its recoil makes it difficult to sustain fully automatic fire, it makes up for this with sheer strength of firepower. This configuration comes equipped with an aimpoint sight for ease in aiming down the sights.
+FriendlyName=FAL with Aimpoint
+ShortName=FAL with Aimpoint
+Manufacturer=FN Herstal
+Caliber=Subsonic 7.62x51mm NATO
+CountryOfOrigin=Belgium
+ProductionStart=1954
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazines
+RateOfFire=700 RPM
+
+[FNFALsdAimpointMG]
+Description=Nicknamed 'The right arm of the free world', the FAL was manufactured by FN Herstal during the Cold War and saw use in a large number of countries during that period. It remains in wide use to this day. While its long stature makes it a bit unwieldy for close quarters and its recoil makes it difficult to sustain fully automatic fire, it makes up for this with sheer strength of firepower. This configuratio comes equipped with a suppressor making it a more stealthy choice as well as an aimpoint sight for ease in aiming down the sights.
+FriendlyName=Suppressed FAL with Aimpoint
+ShortName=Sup.FAL with Aimpoint
+Manufacturer=FN Herstal
+Caliber=Subsonic 7.62x51mm NATO
+CountryOfOrigin=Belgium
+ProductionStart=1954
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=25
+TotalAmmoString=6 magazines
+RateOfFire=700 RPM
+
+[VHS2FenixMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=HS Produkt VHS2 Fenix Custom
+ShortName=VHS2-Fenix
+Manufacturer=HS Produkt
+Caliber=5.56x45mm
+CountryOfOrigin=Croatia
+ProductionStart=2010
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[VHS2CTFenixMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=HS Produkt VHS2 CT Aimpoint Fenix Custom
+ShortName=VHS2 CTAim-Fenix
+Manufacturer=HS Produkt
+Caliber=5.56x45mm
+CountryOfOrigin=Croatia
+ProductionStart=2010
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[VHS2sdFenixMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed HS Produkt VHS2 Fenix Custom 
+ShortName=Sup. VHS2-Fenix
+Manufacturer=HS Produkt
+Caliber=5.56x45mm
+CountryOfOrigin=Croatia
+ProductionStart=2010
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[VHS2MG]
+Description=VHS-2 is a brand new assault rifle launched by Croatian engineering company HS Produkt in 2010. It is the VHS (Vi) š The second generation product of the enamjenska Hrvatska Strojnica (Croatian multifunctional machine gun) rifle series. VHS-2 adopts modern design and advanced materials, with high precision and reliability, and is widely used in the Croatian defense and police forces.
+FriendlyName=HS Produkt VHS2
+ShortName=HS Produkt VHS2
+Manufacturer=HS Produkt
+Caliber=5.56x45mm
+CountryOfOrigin=Croatia
+ProductionStart=2010
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[VHS2CTMG]
+Description=VHS-2 is a brand new assault rifle launched by Croatian engineering company HS Produkt in 2010. It is the VHS (Vi) š The second generation product of the enamjenska Hrvatska Strojnica (Croatian multifunctional machine gun) rifle series. VHS-2 adopts modern design and advanced materials, with high precision and reliability, and is widely used in the Croatian defense and police forces.
+FriendlyName=HS Produkt VHS2 CT Aimpoint
+ShortName=HS Produkt VHS2 CTAim
+Manufacturer=HS Produkt
+Caliber=5.56x45mm
+CountryOfOrigin=Croatia
+ProductionStart=2010
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[VHS2sdMG]
+Description=VHS-2 is a brand new assault rifle launched by Croatian engineering company HS Produkt in 2010. It is the VHS (Vi) š The second generation product of the enamjenska Hrvatska Strojnica (Croatian multifunctional machine gun) rifle series. VHS-2 adopts modern design and advanced materials, with high precision and reliability, and is widely used in the Croatian defense and police forces.
+FriendlyName=Suppressed HS Produkt VHS2
+ShortName=Sup.HS Produkt VHS2
+Manufacturer=HS Produkt
+Caliber=5.56x45mm
+CountryOfOrigin=Croatia
+ProductionStart=2010
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[QBZ191FGMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=QBZ-192 FlashGhost Custom
+ShortName=QBZ-192-FlashGhost
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191sdFGMG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=QBZ-192 FlashGhost Custom
+ShortName=QBZ-192-FlashGhost
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191MG]
+Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces
+FriendlyName=QBZ-192
+ShortName=QBZ-192
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191vMG]
+Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a Vertical Grip Make it more precise and better control its recoil when standing still and aiming
+FriendlyName=QBZ-192 Vertical Grip
+ShortName=QBZ-192 Vertical
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191fMG]
+Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a Angled Forward Grip Make it have good recoil cancellation and improve the accuracy of forward movement
+FriendlyName=QBZ-192 Angled Forward Grip
+ShortName=QBZ-192 Forward
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191sdMG]
+Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a suppressor making it a more stealthy choice.
+FriendlyName=Suppressed QBZ-192
+ShortName=Sup.QBZ-192
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191sdvMG]
+Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a suppressor and Vertical Grip making it a more stealthy choice and more precise and better control its recoil when standing still and aiming
+FriendlyName=Suppressed QBZ-192 Vertical Grip
+ShortName=Sup.QBZ-192 Vertical
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191sdfMG]
+Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a suppressor and Angled Forward Grip making it a more stealthy choice and more precise and have good recoil cancellation and improve the accuracy of forward movement
+FriendlyName=Suppressed QBZ-192 Angled Forward Grip
+ShortName=Sup.QBZ-192 Forward
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191AimMG]
+Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces
+FriendlyName=QBZ-192 with Eotech Sight
+ShortName=QBZ-192 Holo
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191vAimMG]
+Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a Vertical Grip Make it more precise and better control its recoil when standing still and aiming
+FriendlyName=QBZ-192 Eotech Vertical Grip
+ShortName=QBZ-192 VGrip+Holo
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191fAimMG]
+Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a Angled Forward Grip Make it have good recoil cancellation and improve the accuracy of forward movement
+FriendlyName=QBZ-192 Eotech Angled Forward Grip
+ShortName=QBZ-192 FGrip+Holo
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191sdAimMG]
+Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a suppressor making it a more stealthy choice.
+FriendlyName=Suppressed QBZ-192 with Eotech Sight
+ShortName=Sup.QBZ-192 Holo
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191sdvAimMG]
+Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a suppressor and Vertical Grip making it a more stealthy choice and more precise and better control its recoil when standing still and aiming
+FriendlyName=Suppressed QBZ-192 Eotech Vertical Grip
+ShortName=Sup.QBZ-192 VGrip+Holo
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ191sdfAimMG]
+Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a suppressor and Angled Forward Grip making it a more stealthy choice and more precise and have good recoil cancellation and improve the accuracy of forward movement
+FriendlyName=Suppressed QBZ-192 Eotech Angled Forward Grip
+ShortName=Sup.QBZ-192 FGrip+Holo
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=910 RPM
+
+[QBZ95MG]
+Description=The QBZ-95 (Type 95 Automatic Rifle) is a bullpup style assault rifle manufactured by Arsenal 266, part of Norinco and Arsenal 296, under Jianshe Corp, China South for the People's Liberation Army, the armed forces of the People's Republic of China, Chinese People's Armed Police (para-military police), and Chinese law enforcement. This weapon uses a newly developed ammunition type of Chinese origin, the 5.8x42mm DBP87. The QBZ-95 consists of a system of firearms using a common design. This family includes a carbine variant, a standard rifle, and a light support weapon.
+FriendlyName=QBZ95 TYPE-1
+ShortName=QBZ95-1
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=1995
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=650 RPM
+
+[QBZ95HoloMG]
+Description=The QBZ-95 (Type 95 Automatic Rifle) is a bullpup style assault rifle manufactured by Arsenal 266, part of Norinco and Arsenal 296, under Jianshe Corp, China South for the People's Liberation Army, the armed forces of the People's Republic of China, Chinese People's Armed Police (para-military police), and Chinese law enforcement. This weapon uses a newly developed ammunition type of Chinese origin, the 5.8x42mm DBP87. The QBZ-95 consists of a system of firearms using a common design. This family includes a carbine variant, a standard rifle, and a light support weapon.
+FriendlyName=QBZ95 TYPE-1 with YMA Sight
+ShortName=QBZ95-1 with YMA
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=1995
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=650 RPM
+
+[QBZ95RailAimMG]
+Description=The QBZ-95 (Type 95 Automatic Rifle) is a bullpup style assault rifle manufactured by Arsenal 266, part of Norinco and Arsenal 296, under Jianshe Corp, China South for the People's Liberation Army, the armed forces of the People's Republic of China, Chinese People's Armed Police (para-military police), and Chinese law enforcement. This weapon uses a newly developed ammunition type of Chinese origin, the 5.8x42mm DBP87. The QBZ-95 consists of a system of firearms using a common design. This family includes a carbine variant, a standard rifle, and a light support weapon.
+FriendlyName=QBZ95 TYPE-1 with Longbow Aimpoint
+ShortName=QBZ95-1 with Rail Aim
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=1995
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=650 RPM
+
+[QBZ95RailHoloMG]
+Description=The QBZ-95 (Type 95 Automatic Rifle) is a bullpup style assault rifle manufactured by Arsenal 266, part of Norinco and Arsenal 296, under Jianshe Corp, China South for the People's Liberation Army, the armed forces of the People's Republic of China, Chinese People's Armed Police (para-military police), and Chinese law enforcement. This weapon uses a newly developed ammunition type of Chinese origin, the 5.8x42mm DBP87. The QBZ-95 consists of a system of firearms using a common design. This family includes a carbine variant, a standard rifle, and a light support weapon.
+FriendlyName=QBZ95 TYPE-1 with Longbow Eotech
+ShortName=QBZ95-1 with Rail Eotech
+Manufacturer=CSGC 208
+Caliber=5.8x42mm
+CountryOfOrigin=China
+ProductionStart=1995
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=650 RPM
+
+[ASVALMG]
+Description=The AS Val Special Assault Rifle (corresponding to the Russian letters A, C, and B, A, C) was developed by a research team led by P. Serdjukov of the Central Institute of Precision Mechanical Engineering (TSNIITochMash) in the late 1980s. The AS is an abbreviation of Avtomat Spetsialnij, also known as the "Special Assault Rifle". The AS' VAL 'Micro Sound Assault Rifle is a micro sound assault rifle designed by the Central Precision Machinery Design Bureau of the former Soviet Union for special forces, capable of firing 9 x 39mm subsonic rounds.
+FriendlyName=AS-VAL
+ShortName=AS-VAL
+Manufacturer=TSNIITochMash
+Caliber=9x39mm
+CountryOfOrigin=Soviet Union
+ProductionStart=1980
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[ASVALOPKMG]
+Description=The AS Val Special Assault Rifle (corresponding to the Russian letters A, C, and B, A, C) was developed by a research team led by P. Serdjukov of the Central Institute of Precision Mechanical Engineering (TSNIITochMash) in the late 1980s. The AS is an abbreviation of Avtomat Spetsialnij, also known as the "Special Assault Rifle". The AS' VAL 'Micro Sound Assault Rifle is a micro sound assault rifle designed by the Central Precision Machinery Design Bureau of the former Soviet Union for special forces, capable of firing 9 x 39mm subsonic rounds.
+FriendlyName=AS-VAL with OKP-7 Sight 
+ShortName=AS-VAL with OKP-7 Sight
+Manufacturer=TSNIITochMash
+Caliber=9x39mm
+CountryOfOrigin=Soviet Union
+ProductionStart=1980
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[AK15MG]
+Description=The Kalashnikov Assault Rifle AK-15 (GRAU code 6P71) is actually a 7.62mm caliber version developed from the 2016 AK-12. The design of the AK-15 assault rifle is for use as a light weapon in special forces, as the Russian standard rifle is mainly 5.45mm in size, and only in some special forces, the 7.62mm AK is still retained for different types of missions, especially when used with subsonic heavy warheads in conjunction with silencers. The 7.62mm heavy warhead is more effective than the 5.45mm heavy warhead. The equipment of AK-15 is used to replace the AKM/AKMS, AK-103, and AK-104 in these units. Like its predecessors, the AK-15 can use the 7.62 × 39mm YC special projectile with subsonic heavy warheads and is paired with a silencer. But unlike its predecessors, the AK-15's muffler has a quick loading and unloading function, which can be directly installed on the muzzle brake without the need to disassemble the muzzle brake before installing the muffler.
+FriendlyName=AK15
+ShortName=AK15
+Manufacturer=Kalashnikov
+Caliber=7.62x39mm
+CountryOfOrigin=Russian
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[AK15RMRMG]
+Description=The Kalashnikov Assault Rifle AK-15 (GRAU code 6P71) is actually a 7.62mm caliber version developed from the 2016 AK-12. The design of the AK-15 assault rifle is for use as a light weapon in special forces, as the Russian standard rifle is mainly 5.45mm in size, and only in some special forces, the 7.62mm AK is still retained for different types of missions, especially when used with subsonic heavy warheads in conjunction with silencers. The 7.62mm heavy warhead is more effective than the 5.45mm heavy warhead. The equipment of AK-15 is used to replace the AKM/AKMS, AK-103, and AK-104 in these units. Like its predecessors, the AK-15 can use the 7.62 × 39mm YC special projectile with subsonic heavy warheads and is paired with a silencer. But unlike its predecessors, the AK-15's muffler has a quick loading and unloading function, which can be directly installed on the muzzle brake without the need to disassemble the muzzle brake before installing the muffler.
+FriendlyName=AK15 with RMR Sight
+ShortName=AK15 RMR.
+Manufacturer=Kalashnikov
+Caliber=7.62x39mm
+CountryOfOrigin=Russian
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[AK15sdMG]
+Description=The Kalashnikov Assault Rifle AK-15 (GRAU code 6P71) is actually a 7.62mm caliber version developed from the 2016 AK-12. The design of the AK-15 assault rifle is for use as a light weapon in special forces, as the Russian standard rifle is mainly 5.45mm in size, and only in some special forces, the 7.62mm AK is still retained for different types of missions, especially when used with subsonic heavy warheads in conjunction with silencers. The 7.62mm heavy warhead is more effective than the 5.45mm heavy warhead. The equipment of AK-15 is used to replace the AKM/AKMS, AK-103, and AK-104 in these units. Like its predecessors, the AK-15 can use the 7.62 × 39mm YC special projectile with subsonic heavy warheads and is paired with a silencer. But unlike its predecessors, the AK-15's muffler has a quick loading and unloading function, which can be directly installed on the muzzle brake without the need to disassemble the muzzle brake before installing the muffler.
+FriendlyName=Suppressed AK15
+ShortName=Sup. AK15
+Manufacturer=Kalashnikov
+Caliber=7.62x39mm
+CountryOfOrigin=Russian
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[AK15sdRMRMG]
+Description=The Kalashnikov Assault Rifle AK-15 (GRAU code 6P71) is actually a 7.62mm caliber version developed from the 2016 AK-12. The design of the AK-15 assault rifle is for use as a light weapon in special forces, as the Russian standard rifle is mainly 5.45mm in size, and only in some special forces, the 7.62mm AK is still retained for different types of missions, especially when used with subsonic heavy warheads in conjunction with silencers. The 7.62mm heavy warhead is more effective than the 5.45mm heavy warhead. The equipment of AK-15 is used to replace the AKM/AKMS, AK-103, and AK-104 in these units. Like its predecessors, the AK-15 can use the 7.62 × 39mm YC special projectile with subsonic heavy warheads and is paired with a silencer. But unlike its predecessors, the AK-15's muffler has a quick loading and unloading function, which can be directly installed on the muzzle brake without the need to disassemble the muzzle brake before installing the muffler.
+FriendlyName=Suppressed AK15 with RMR Sight
+ShortName=Sup. AK15 RMR.
+Manufacturer=Kalashnikov
+Caliber=7.62x39mm
+CountryOfOrigin=Russian
+ProductionStart=2016
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[AK74MMG]
+Description=The Kalashnikov AKM was designed in the Soviet Union in 1957 by Mikhail Kalashnikov. It was officially accepted by the Soviet army in 1959, but has since been replaced by the AK-74.  It has remained in service in many third world armies as well as terrorist organizations around the world due to its dependability and the ease at which it can be maintained.  It has a slower rate of fire and lower muzzle velocity than the Colt M4A1, but uses a higher caliber bullet which makes it comparable to its American counterpart at short ranges.
+FriendlyName=AK74M
+ShortName=AK74M
+Manufacturer=Kalashnikov
+Caliber=5.45x39mm
+CountryOfOrigin=Russian
+ProductionStart=1987
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=650 RPM
+
+[AK47orgMG]
+Description=The AK-47 automatic rifle has a shorter body and shorter range compared to rifles from World War II, making it suitable for close range combat. This gun adopts the automatic principle of gas conduction and a rotary locking gun mechanism, with a caliber of 7.62mm and a firing rate of 7.62x39mm M1943 intermediate cartridge, with 30 rounds of ammunition supplied by arc magazine, semi-automatic or full-automatic firing mode can be selected.
+FriendlyName=AK47
+ShortName=AK47
+Manufacturer=Kalashnikov
+Caliber=7.62x39mm
+CountryOfOrigin=Soviet Union
+ProductionStart=1947
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=600 RPM
+
+[AK74HMG]
+Description=The Kalashnikov AKM was designed in the Soviet Union in 1957 by Mikhail Kalashnikov. It was officially accepted by the Soviet army in 1959, but has since been replaced by the AK-74.  It has remained in service in many third world armies as well as terrorist organizations around the world due to its dependability and the ease at which it can be maintained.  It has a slower rate of fire and lower muzzle velocity than the Colt M4A1, but uses a higher caliber bullet which makes it comparable to its American counterpart at short ranges.
+FriendlyName=AK74M with Aimpoint Sight
+ShortName=AK74M Aim.
+Manufacturer=Kalashnikov
+Caliber=5.45x39mm
+CountryOfOrigin=Russian
+ProductionStart=1987
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=650 RPM
+
+[AK74sdMG]
+Description=The Kalashnikov AKM was designed in the Soviet Union in 1957 by Mikhail Kalashnikov. It was officially accepted by the Soviet army in 1959, but has since been replaced by the AK-74.  It has remained in service in many third world armies as well as terrorist organizations around the world due to its dependability and the ease at which it can be maintained.  It has a slower rate of fire and lower muzzle velocity than the Colt M4A1, but uses a higher caliber bullet which makes it comparable to its American counterpart at short ranges.
+FriendlyName=Suppressed AK74M 
+ShortName=Sup. AK74M
+Manufacturer=Kalashnikov
+Caliber=5.45x39mm
+CountryOfOrigin=Russian
+ProductionStart=1987
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=650 RPM
+
+[AK74HsdMG]
+Description=The Kalashnikov AKM was designed in the Soviet Union in 1957 by Mikhail Kalashnikov. It was officially accepted by the Soviet army in 1959, but has since been replaced by the AK-74.  It has remained in service in many third world armies as well as terrorist organizations around the world due to its dependability and the ease at which it can be maintained.  It has a slower rate of fire and lower muzzle velocity than the Colt M4A1, but uses a higher caliber bullet which makes it comparable to its American counterpart at short ranges.
+FriendlyName=Suppressed AK74M with Aimpoint Sight
+ShortName=Sup. AK74M Aim.
+Manufacturer=Kalashnikov
+Caliber=5.45x39mm
+CountryOfOrigin=Russian
+ProductionStart=1987
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=650 RPM
+
+[AK47tMG]
+Description=The Kalashnikov AKM was designed in the Soviet Union in 1957 by Mikhail Kalashnikov. It was officially accepted by the Soviet army in 1959, but has since been replaced by the AK-74.  It has remained in service in many third world armies as well as terrorist organizations around the world due to its dependability and the ease at which it can be maintained.  It has a slower rate of fire and lower muzzle velocity than the Colt M4A1, but uses a higher caliber bullet which makes it comparable to its American counterpart at short ranges. A flashlight has been added to this weapon to make it more usable in tactical scenarios.
+
+[AK74sutMG]
+Description=The AK-74 was developed as a response to design criticisms of the AK-47 and AKM rifles. Particularly, it dropped the 7.62x39mm ammunition down to 5.45x39mm in order to address concerns that the bullets overpenetrated their targets, a chrome-lined barrel bore to reduce maintenance, and a set of brackets for underbarrel attachments. This particular model, a carbine variant often called a ''Krinkov'', is equipped with a flashlight to make it more usable in tactical scenarios, and is more suited to close quarters combat.
+FriendlyName=AKs-74u
+ShortName=AKs-74u
+Manufacturer=Kalashnikov
+Caliber=5.45x39mm
+CountryOfOrigin=Soviet Union
+ProductionStart=1974
+FireModes=Semi-Automatic, Full Auto
+MagazineSize=30
+TotalAmmoString=6 magazine
+RateOfFire=600 RPM
+
+[Taser]
+Description=Stun guns work on the principle of Electro-Muscular Disruption (EMD).  This projectile model fires small electrodes into the target and then sends a powerful electric charge down the thin wires.  The EMD effect causes involuntary contraction of the target's muscle tissue regardless of an individual's pain tolerance or mental focus.  The effect is painful and demoralizing to even the most aggressive suspects.||EMD devices have three key drawbacks.  The first is that they have a relatively short range.  The second is that new electrodes must be loaded after each shot. Lastly, EMD poses numerous risks, including possible cardiac arrest in drug users, the elderly, or those with specific medical conditions.
+FriendlyName=M26 Stun Gun
+ShortName=M26 Stun Gun
+GUIImage=Texture'gui_tex.equip_taser'
+Manufacturer=TASER International
+Caliber=TASER Cartridge
+CountryOfOrigin=United States
+ProductionStart=2000
+FireModes=Single Fire
+TotalAmmoString=20 cartridges
+
+[RiotShieldHG]
+Description=Riot shields are lightweight protection devices deployed by police and some military organizations. Riot shields are almost exclusively long enough to cover an average-sized man from the top of the head to the knees. Some riot shields are designed to be bullet resistant against low-velocity handgun and shotgun ammunition; however, most are not. They are generally intended to be used in riot control, to protect the user from shrapnel, thrown projectiles, and splash from various weapons such as a Molotov cocktail. They can also be used as short-ranged melee weapons to push back rioters.
+FriendlyName=Riot shield
+ShortName=Riot shield
+GUIImage=Texture'gui_Tex.equip_RiotShield'
+
+[PistolHG_Shield]
+Description=Riot shields are lightweight protection devices deployed by police and some military organizations. Riot shields are almost exclusively long enough to cover an average-sized man from the top of the head to the knees. Some riot shields are designed to be bullet resistant against low-velocity handgun and shotgun ammunition; however, most are not. They are generally intended to be used in riot control, to protect the user from shrapnel, thrown projectiles, and splash from various weapons such as a Molotov cocktail. They can also be used as short-ranged melee weapons to push back rioters.
+FriendlyName=Riot shield
+ShortName=Riot shield
+GUIImage=Texture'gui_Tex.equip_RiotShield'
+
+[Stingray]
+Description=The X2 model is a dual-purpose less-lethal weapon. It possesses both a ranged means of Electro-Muscular Disruption (EMD) and a touch-stun mode. The electrical discharge causes involuntary contraction of the target's muscle tissue, regardless of an individual's pain tolerance or mental focus.  The effect is painful and demoralizing to even the most aggressive suspects. The X2 can fire darts in groups of four or two separate groups of two. It can also be used in touch-stun mode as a melee weapon. An onboard computer records information on shock intensity and duration, among other factors. The main drawback is the reduced range of the X2 cartridges in comparison to the newer X26P model.
+FriendlyName=X2 Series Stun Gun
+ShortName=X2 Series Stun Gun
+GUIImage=Texture'gui_FR.gui_TaserX2'
+Manufacturer=TASER International
+Caliber=TASER Cartridge
+CountryOfOrigin=United States
+ProductionStart=2004
+FireModes=2-Barb, 4-Barb, Touch-Stun
+TotalAmmoString=20 cartridges
+
+[X12SG]
+Description=Mossberg and Taser are combining forces to bring the revolutionary combination of new technology and reliable form. The new TASER X12 LLS (Less-Lethal Shotgun) is a fully integrated less-lethal platform, utilizing a re-engineered Mossberg 500 pump-action shotgun that has been optimized for the TASER XREP eXtended Range Electronic Projectile. This system enables integration of the TASERX26 electronic control device (ECD) for close-in engagements. The TASER X12 LLS includes Radial Ammunition Key technology (patent pending) to prevent the system from accepting lethal 12-gauge rounds in order to remove the possibility of end users loading a lethal round in a less-lethal system during high stress situations.
+FriendlyName=X12 Stun Shotgun
+ShortName=X12 Stun Shotgun
+GUIImage=Texture'gui_FR.equip_X12'
+Manufacturer=TASER International
+Caliber=TASER Cartridge
+CountryOfOrigin=United States
+ProductionStart=2005
+FireModes=7-Barb, 4-Barb, Touch-Stun
+TotalAmmoString=30 shells
+
+[HK69GrenadeLauncher]
+Description=The grenade launcher has become a standard piece of police equipment for use in unusual situations such as hostage rescue or riot control. Its ability to fire a wide range of direct and indirect less-lethal ammunitions has proved it to be extremely versatile.
+FriendlyName=HK69A1
+ShortName=HK69A1
+Manufacturer=Heckler & Koch
+Caliber=40x46mm grenade
+CountryOfOrigin=West Germany
+ProductionStart=1960s
+FireModes=Single Fire
+MagazineSizeString=1
+TotalAmmoString=12 grenades
+RateOfFire=6 RPM
+
+[ColtAccurizedRifle]
+Description=The Colt Accurized Rifle occupies the mid ground between an assault rifle and a dedicated sniper rifle. The CAR combines accurate fire at range with the large ammo capacity required for urban field use, plus mounting points for a variety of scopes. Firing a 5.56mm round from a 20 round magazine, the CAR is only capable of firing in semiautomatic mode. Its length can make it a difficult weapon to wield in close quarters.
+FriendlyName=Colt Accurized
+ShortName=Colt Accurized
+Manufacturer=Colt
+Caliber=5.56x45mm Mk.262
+CountryOfOrigin=United States
+FireModes=Semi-Automatic
+MagazineSizeString=20
+TotalAmmoString=6 magazine
+RateOfFire=200 RPM
+
+[SniperRifle]
+Description=If you are reading this, file a bug that the sniper rifle description is being shown.
+FriendlyName=Remington 700 Sniper rifle
+
+[C2Charge]
+Description=The C2 breaching charge is a powerful and devastating method of breaching a door.  The compact and specially designed charge destroys the locking mechanism of the door and forcefully opens the door at the same time.  The noise and shock of the detonation causes people on the opposite side of the door to react in a similar manner to a flashbang detonation, which can provide a tactical advantage for using it instead of the breaching shotgun.  The C2 breaching charge is an explosive and can injure or kill anyone unlucky enough to be directly behind the door.
+FriendlyName=C2 (x5)
+GivenName=C2 Charge
+
+[LessLethalSG]
+Description=The less lethal shotgun is a Benelli Nova, pump-action shotgun which is always loaded with less than lethal beanbag rounds.  It is most often used on an uncooperative suspect or civilian.  The specially designated less lethal shotgun is necessary to eliminate errors that can occur from individually loading lethal or less than lethal munitions into the same weapon.  To remind the operators that this particular weapon is only to be loaded with less than lethal ammunition, it has been painted green.||The beanbag ammunition provides a powerful blunt force impact on the target.  This causes extreme pain and disorientation. Sufficient distance should be kept between the operator and the intended target for the beanbag to slow down, otherwise it may produce a potentially life threatening injury such as broken bones.
+FriendlyName=Less-Lethal Nova
+ShortName=Less-Lethal Nova
+Manufacturer=Benelli
+Caliber=Beanbags
+CountryOfOrigin=Italy
+ProductionStart=Late 1990s
+FireModes=Pump-Action
+TotalAmmoString=50 shells
+RateOfFire=100 RPM
+
+[CSBallLauncher]
+Description=The Pepper-ball gun is based on technology originally designed for recreational paintball.  Compressed Carbon Dioxide ejects the ammunition at relatively high velocities.  The Pepper-ball gun allows officers to quickly deploy OC at specific targets, in more easily controlled quantities, and at significantly longer ranges than a grenade or standard pepper spray.  With the large ammunition hopper this weapon never needs to be reloaded under normal operating conditions.
+FriendlyName=Pepper-ball Gun
+ShortName=Pepper-ball Gun
+Manufacturer=Tippmann
+Caliber=Pepper-ball
+CountryOfOrigin=United States
+ProductionStart=Unknown
+FireModes=Semi-Automatic
+TotalAmmoString=200 pepper-balls
+RateOfFire=600 RPM
+
+[Wedge]
+Description=This specially designed tactical wedge is slid under the door and then activated.  The spring loaded action flips up wedges preventing the door from opening from either direction.  The rubber coating along the bottom of the wedge increases friction making it extremely difficult to push open with brute force.  It can only be removed with a cutting tool reducing the risk of a suspect dislodging the device.
+FriendlyName=Door Wedge
+GivenName=Door Wedge
+
+[Wedge3pack]
+Description=This pack of three door wedges contains three times as many wedges, but occupies five times as much space and weight.
+FriendlyName=Wedge 3-Pack
+GivenName=Door Wedge
+
+[Optiwand]
+Description=The opti-wand is a sophisticated observation device which allows officers to examine situations around corners and under closed doors without exposing themselves to lines of fire.  On top of the device is a small LCD screen which displays the images seen by the camera at the end of the expandable rod.  It is an invaluable tool for gathering intelligence on suspect and civilian locations before performing dangerous clear routines and potentially exposing your team to fire.
+FriendlyName=Optiwand
+
+[MagliteTorch]
+Description=Maglite Torch allows you to highlight evidences by using the flashlight.
+FriendlyName=Maglite Torch
+ShortName=Maglite
+GivenName=Maglite
+
+[PepperSpray]
+Description=While generally used for riot control, handheld pepper spray canisters can be an effective tool for subduing uncooperative targets.  The active ingredient in pepper spray is Oleoresin Capsicum or OC.  OC is an inflammatory agent that causes the eyes to swell up and close.  It also causes a burning sensation on any exposed skin.  Due to its limited range and area of effect it is best used in addition to other non-lethal devices to cause a suspect or hostage to comply.
+FriendlyName=Pepper Spray
+ShortName=Pepper Spray
+
+[FragGrenade]
+Description=The Frag Grenade, From The John Clark and he Rainbow Team,Can cause large-scale damage to enemies.Press"J"Equipment and only can used by Terroist hunt mode.
+FriendlyName=M67 Frag
+ShortName=M67 Frag
+GivenName=M67 Frag
+
+[stingGrenade]
+Description=The sting grenade, or Stinger, is filled with many small rubber balls.  Upon detonation these balls are ejected from the grenade, bombarding targets with blunt force projectiles.  The rubber balls will not penetrate the skin but can cause dizzyness, disorientation, and severe pain from the impact of the projectiles. ||While considered less lethal, the sting grenade can cause severe injury if it detonates in very close proximity to someone.
+FriendlyName=Model 9590 Stinger
+ShortName=Stinger
+GivenName=Stinger
+
+[CSGasGrenade]
+Description=This grenade emits Chlorobenzylidene malonitrile, or CS.  CS is a chemical agent which causes tearing in the eyes and irritation of the mucus membranes.  Commonly known as Tear gas, this agent causes people to lose visual acuity and have difficulty breathing.  While under the influence of tear gas, suspects are at a significant disadvantage when encountering officers.
+FriendlyName=M7A3 CS Grenade
+ShortName=CS Gas
+GivenName=CS Gas
+
+[FlashbangGrenade]
+Description=The stun grenade is a diversionary device that stuns and disorients people with an explosive report and a brillant flash.  People that are affected by the device can be temporarily blinded and deafened by the blast.  During this time SWAT has a significant tactical advantage over the affected persons.||Flashbangs are designed so that they will not fragment on detonation, but can still cause serious injury if detonation occurs in close proximity to a person.  Caution is advised.
+FriendlyName=M84 Flashbang
+ShortName=Flashbang
+GivenName=Flashbang
+
+[NinebangGrenade]
+Description=Nine Banger Grenade
+FriendlyName=Ninebang
+ShortName=Ninebang
+GivenName=Ninebang
+
+[Frag3pack]
+Description=This 2-pack of stingers contains three times as many stingers, but occupies five times as much space and weight.Press"J"Equipment and only can used by Terroist hunt mode.
+FriendlyName=Frag (x2)
+ShortName=Frag (x2)
+GivenName=Frag
+
+[Sting3pack]
+Description=This 2-pack of stingers contains three times as many stingers, but occupies five times as much space and weight.
+FriendlyName=Stinger (x2)
+ShortName=Stinger (x2)
+GivenName=Stinger
+
+[Sting6pack]
+Description=This 4-pack of stingers contains three times as many stingers, but occupies five times as much space and weight.
+FriendlyName=Stinger (x4)
+ShortName=Stinger (x4)
+GivenName=Stinger
+
+[CS3pack]
+Description=This 2-pack of gas grenades contains three times as many CS gas grenades, but occupies five times as much space and weight.
+FriendlyName=CS Gas (x2)
+ShortName=CS Gas (x2)
+GivenName=CS Gas
+
+[CS6pack]
+Description=This 4-pack of gas grenades contains three times as many CS gas grenades, but occupies five times as much space and weight.
+FriendlyName=CS Gas (x4)
+ShortName=CS Gas (x4)
+GivenName=CS Gas
+
+[Flashbang3pack]
+Description=This 2-pack of flashbangs contains three times as many flashbangs, but occupies five times as much space and weight.
+FriendlyName=Flashbang (x2)
+ShortName=Flashbang (x2)
+GivenName=Flashbang
+
+[Flashbang6pack]
+Description=This 4-pack of flashbangs contains three times as many flashbangs, but occupies five times as much space and weight.
+FriendlyName=Flashbang (x4)
+ShortName=Flashbang (x4)
+GivenName=Flashbang
+
+[Ninebang3pack]
+Description=This 2-pack of flashbangs contains three times as many flashbangs, but occupies five times as much space and weight.
+FriendlyName=Ninebang (x2)
+ShortName=Ninebang (x2)
+GivenName=Ninebang
+
+[Ninebang6pack]
+Description=This 4-pack of flashbangs contains three times as many flashbangs, but occupies five times as much space and weight.
+FriendlyName=Ninebang (x4)
+ShortName=Ninebang (x4)
+GivenName=Ninebang
+
+[BreachingSG]
+Description=The Remington Model 870 is a reliable and compact pump-action shotgun capable of dispatching even the toughest of criminals. It sees a variety of use among patrol and SWAT units, but is also used for sport shooting and hunting. This weapon can be modified with special breaching ammunition for quick room entries, or beanbags for a less-lethal approach.||This particular variant is equipped with a special breaching nozzle, which ensures that every shot will consistently breach a door.
+FriendlyName=M870 Breaching
+ShortName=M870 Breaching
+Manufacturer=Remington
+Caliber=12 Gauge
+CountryOfOrigin=United States
+ProductionStart=1950
+FireModes=Pump-Action
+TotalAmmoString=50 shells
+RateOfFire=150 RPM
+
+[BatteringRam]
+Description=This type of Breaching hammer uses a steel cylinder in the center, which is particularly movable within the hammer. In addition, the handle lever and the cylinder make up a complete breaking hammer. Its working principle is to use the acceleration generated by manual movement to impact the door lock or door edge. At the moment when the door hammer contacts the door, the acceleration causes a strong impact force on the cylinder at the center of the door hammer, which is enough to destroy all locks.
+FriendlyName=Battering Ram
+ShortName=Battering Ram
+
+[BreachingHammer]
+Description=This type of Breaching hammer uses a steel cylinder in the center, which is particularly movable within the hammer. In addition, the handle lever and the cylinder make up a complete breaking hammer. Its working principle is to use the acceleration generated by manual movement to impact the door lock or door edge. At the moment when the door hammer contacts the door, the acceleration causes a strong impact force on the cylinder at the center of the door hammer, which is enough to destroy all locks.
+FriendlyName=Door Ram
+ShortName=Door Ram
+
+[Toolkit]
+Description=The multi-tool serves many functions and can be used to pick locks, disable bombs and traps, and remove tactical wedges.  All officers are equipped with a toolkit.
+FriendlyName=Toolkit
+
+[BadguyColtM1911HG]
+Description=Colt M1911 Handgun
+FriendlyName=M1911
+
+[BadguyG36kMG]
+Description=The GB36s Assault Rifle is a lightweight full sized assault rifle originally developed in the 1990s for the German Bundeswehr.  It is now world renowned as an incredibly reliable all-around assault rifle.  Firing a mid-sized 5.56mm rifle round, this weapon is equipped with a firemode selector with a 2-round burst as well as fully automatic firing.
+FriendlyName=GB36s Assault Rifle
+
+[BadGuySAWMG]
+Description=This light support weapon is intended only for military operations; however as with most weapons some are available on the black market. The weapon is designed to be fired accurately from the hip or shoulder, though it is more commonly fired from a deployed bipod. It uses a box magazine holding 200 rounds of disintegrating-link ammunition.
+FriendlyName=5.56mm Light Machine Gun
+
+[BadguyUMP45SMG]
+Description=The 45 caliber submachinegun is comparable to the 9mm SMG in almost every way.  Built largely of glass-fiber reinforced polymers, this lightweight sub-machine gun provides the same reliability as the 9mm model, but with the added punch of the larger .45 caliber round.  The heavy bullet provides superior penetration of armored targets with FMJ rounds compared to its 9mm brethren, despite having a lower muzzle velocity and slower cyclical rate of fire.  This model is equipped with a fire mode selector allowing semi-automatic and fully automatic firing modes.
+FriendlyName=.45 SMG
+
+[VIPColtM1911HG]
+Description=The Colt M1911 Handgun has been a mainstay in law enforcement for decades.  This .45 caliber weapon packs a powerful punch and is the most common backup weapon for SWAT officers.  This semi-automatic weapon has an 8 round magazine and can fire both full metal jacket and jacketed hollow point ammunition.
+FriendlyName=VIP Colt M1911 Handgun
+Manufacturer=Colt
+Caliber=.45
+CountryOfOrigin=United States
+ProductionStart=1911
+FireModes=Semi-Automatic
+MagazineSizeString=8
+TotalAmmoString=10 magazines
+RateOfFire=20-100 RPM
+
+[Cuffs]
+Description=Zip cuff restraints have many benefits over traditional metal hand-cuffs.  Tactical teams favor them due to their light weight and flexible design.
+FriendlyName=Zip-cuffs
+
+[Detonator]
+Description=Default description for Detonator
+FriendlyName=The Detonator
+
+[Lightstick]
+Description=Lightsticks are used to designate paths through buildings and to mark areas as having been cleared.
+FriendlyName=Lightstick
+ShortName=Lightstick
+GivenName=Lightstick
+
+[IngramHG]
+Description=Ingram Handgun
+FriendlyName=MAC-10 Machine Pistol
+
+[USP40HG]
+Description=SLP40 Handgun
+FriendlyName=SLP 40
+
+[ScorpionHG]
+Description=Skorpion Machine Pistol
+FriendlyName=Skorpion Machine Pistol
+
+[BerettaM9HG]
+Description=Beretta N9 Handgun
+FriendlyName=Beretta N9
+
+[Pump2RifleGripSG]
+Description=Rifle Grip Pump Shotgun
+FriendlyName=Rifle Grip Pump Shotgun
+
+[Pump1SG]
+Description=Pistol Grip Pump Shotgun
+FriendlyName=Pistol Grip Pump Shotgun
+
+[BadguyM4Super90SG]
+Description=Benelli M4 Super90
+FriendlyName=Benelli M4 Super90
+
+[HK53SMG]
+Description=Beretta M9 Handgun
+FriendlyName=GB53
+
+[BadguySilencedMP5SMG]
+Description=Default description for SilencedMP5SMG
+FriendlyName=Silenced 9mm Sub-Machine Gun
+
+[BadguyMP5SMG]
+Description=Default description for MP5SMG
+FriendlyName=9mm Sub-Machine Gun
+
+[M4MG]
+Description=Colt M4 Carbine
+FriendlyName=Colt M4 Carbine
+
+[AK74suMG]
+Description=Default description for M4A1MG
+FriendlyName=AK74su
+
+[AK74MG]
+Description=Default description for M4A1MG
+FriendlyName=AK74
+
+[PMHG_Shield]
+Description=The Makarov pistol, also known as the PM pistol, is the result of the Latinization of the Russian letter "Makarov pistol" (ПМ). In 1951, it was selected by the Soviet army as the standard pistol equipment unit, and later widely equipped in the police. Due to its small size and light weight, the gun is generally worn by intermediate and above level officers, hence it is also known as the "school officer pistol". Widely used and produced in large quantities, it is a famous gun in the world. Russia has also developed variant guns, including the military Makarov pistol (PMM) and the civilian Makarov pistol Bellga Izh-70 series. This type of gun is planned to be decommissioned in the early 21st century, but it is still widely used in the military, police, and civilian markets.
+FriendlyName=Makarov
+ShortName=Makarov
+Manufacturer=Unknown
+Caliber=9x18mm PM
+CountryOfOrigin=Soviet Union
+ProductionStart=1951
+FireModes=Semi-Automatic
+MagazineSizeString=8
+TotalAmmoString=4 magazine
+RateOfFire=430 RPM
+
+[PMsdHG_Shield]
+Description=The Makarov pistol, also known as the PM pistol, is the result of the Latinization of the Russian letter "Makarov pistol" (ПМ). In 1951, it was selected by the Soviet army as the standard pistol equipment unit, and later widely equipped in the police. Due to its small size and light weight, the gun is generally worn by intermediate and above level officers, hence it is also known as the "school officer pistol". Widely used and produced in large quantities, it is a famous gun in the world. Russia has also developed variant guns, including the military Makarov pistol (PMM) and the civilian Makarov pistol Bellga Izh-70 series. This type of gun is planned to be decommissioned in the early 21st century, but it is still widely used in the military, police, and civilian markets.
+FriendlyName=Suppressed Makarov
+ShortName=Sup.Makarov
+Manufacturer=Unknown
+Caliber=9x18mm PM
+CountryOfOrigin=Soviet Union
+ProductionStart=1951
+FireModes=Semi-Automatic
+MagazineSizeString=8
+TotalAmmoString=4 magazine
+RateOfFire=430 RPM
+
+[QSZ92HG_Shield]
+Description=The QSZ92 pistol was originally proposed to be equipped with a 9mm pistol for officers below the battalion level and a 5.8mm pistol for officers above the regiment level during the argumentation. But after several years of comparison, the military decided in 2005 to only equip the 5.8mm pistol, while the 9mm pistol was mainly equipped for police. The military's consideration for this is mainly due to the following reasons: the 5.8mm pistol has a very high shooting accuracy, and due to its low recoil, the muzzle jumps slightly, resulting in a relatively dense dispersion during rapid shooting. In addition, it has a capacity of 20 rounds and the ability to easily penetrate bulletproof vests (the national standard IV level is roughly equivalent to the old NIJ IIIA level or the new NIJ HG2 level), making it more effective in combat against protected targets, and its reliability during use is high. However, the police attach great importance to the stopping effect of the 9mm pistol bullet, and the penetration ability of the 5.8mm pistol bullet is also a bit too strong, which is not suitable for urban law enforcement environments, such as it may penetrate multiple obstacles and cause accidental injuries to the public.
+FriendlyName=QSZ 92G
+ShortName=QSZ 92G
+Manufacturer=China North Industries Corp.
+Caliber=9x19mm
+CountryOfOrigin=China
+ProductionStart=1998
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=365 RPM
+
+[QSZ92sdHG_Shield]
+Description=The QSZ92 pistol was originally proposed to be equipped with a 9mm pistol for officers below the battalion level and a 5.8mm pistol for officers above the regiment level during the argumentation. But after several years of comparison, the military decided in 2005 to only equip the 5.8mm pistol, while the 9mm pistol was mainly equipped for police. The military's consideration for this is mainly due to the following reasons: the 5.8mm pistol has a very high shooting accuracy, and due to its low recoil, the muzzle jumps slightly, resulting in a relatively dense dispersion during rapid shooting. In addition, it has a capacity of 20 rounds and the ability to easily penetrate bulletproof vests (the national standard IV level is roughly equivalent to the old NIJ IIIA level or the new NIJ HG2 level), making it more effective in combat against protected targets, and its reliability during use is high. However, the police attach great importance to the stopping effect of the 9mm pistol bullet, and the penetration ability of the 5.8mm pistol bullet is also a bit too strong, which is not suitable for urban law enforcement environments, such as it may penetrate multiple obstacles and cause accidental injuries to the public.This model is equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Suppressed QSZ 92G
+ShortName=Sup.QSZ 92G
+Manufacturer=China North Industries Corp.
+Caliber=9x19mm
+CountryOfOrigin=China
+ProductionStart=1998
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=365 RPM
+
+[HS2000HG_Shield]
+Description=The HS2000 pistol is designed and produced by the HS Produkt factory in Croatia (formerly known as I.M. Metal Factory, which also produces VHS assault rifles), with a polymer grip and needle firing semi-automatic pistol. Except for the 5-inch tactical and XDM series, which use a single compound spring design, most HS2000s are equipped with a series double compound spring design. They use a polymer bottom handle with steel plate inserts for mounting rails and trigger safety to prevent external firing in the event of someone attempting to pull it off. It has been selected by the Croatian military and law enforcement agencies as a standard gun.
+FriendlyName=HS2000
+ShortName=HS2000
+Manufacturer=HS Produkt
+Caliber=.45 ACP
+CountryOfOrigin=Croatia
+ProductionStart=2000
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=400 RPM
+
+[USP45HG_Shield]
+Description=the USP (Universelle Selbstladepistole) is a semi-automatic pistol developed in Germany by Heckler & Koch GmbH (H&K) of Oberndorf am Neckar as a replacement for the P7 series of handguns.
+FriendlyName=HK USP45 Tactical
+ShortName=HK.USP45
+Manufacturer=Heckler & Koch
+Caliber=.45 ACP
+CountryOfOrigin=Germany
+ProductionStart=1995
+FireModes=Semi-Automatic
+MagazineSizeString=12
+TotalAmmoString=4 magazine
+RateOfFire=360 RPM
+
+[VP70HG_Shield]
+Description=The HK VP70 pistol is a novel and structurally unique automatic pistol. Made by Heckler&Koch GmbH in Germany. When shooting with one hand, it can be used as a handgun; When the holster is used as a stock, it can be used as a submachine gun and can perform 3-round controlled firing. The production quantity of VP70 pistol is limited and has not yet been adopted by the military. The military version of the VP70 pistol is the VP70M, which is equipped with a shoulder rest (also serving as a holster) and can fire three rounds. The VP70Z pistol is a civilian type and can only perform semi-automatic shooting. The VP71 model is an improved version of the VP70, with no changes in its appearance. The main improvement is the elimination of the three shot firing mechanism. After installing a temporary stock, it can only fire semi-automatic.
+FriendlyName=HK VP70
+ShortName=HK VP70
+Manufacturer=Heckler & Koch
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1970
+FireModes=Semi-Automatic,Burst
+MagazineSizeString=20
+TotalAmmoString=4 magazine
+RateOfFire=360 RPM
+
+[Glock19HG_Shield]
+Description=A more compact iteration of the Glock, the Glock 19 shaves 12mm (0.5 in) off of its barrel size, and pares down the 17 standard rounds for a 15 round magazine. While this firearm, deemed ''compact'' by the manufacturer, is smaller than the Glock 17, it has worse recoil and accuracy than its forebearer.
+FriendlyName=Glock 19
+ShortName=Glock 19
+Manufacturer=Glock
+Caliber=9x19 Parabellum
+CountryOfOrigin=Austria
+ProductionStart=1988
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
