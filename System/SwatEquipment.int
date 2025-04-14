@@ -559,6 +559,19 @@ MagazineSizeString=30
 TotalAmmoString=6 magazine
 RateOfFire=945 RPM
 
+[M16A4AcogMG]
+Description=The M16A4 is the fourth generation of the M16 series. It is equipped with a removable carrying handle and a full length quad Picatinny rail for mounting optics and other ancillary devices. The FN M16A4, using safe/semi/burst selective fire, became standard issue for the U.S. Marine Corps and is the current issue to Marine Corps recruits in both MCRD San Diego and MCRD Parris Island.
+FriendlyName=M16A4 Vertical Grip+Optic ACOG
+ShortName=M16A4 Vertical+ACOG
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=1997
+FireModes=Semi-Automatic, Burst
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=945 RPM
+
 [BadguyM16A2MG]
 Description=The development of the M16A2 rifle was originally requested by the United States Marine Corps in 1979 as a result of combat experience in Vietnam with the M16A1. It was officially adopted by the Department of Defense as the "Rifle, 5.56 mm, M16A2" in 1983.This particular variant is equipped with a suppressor.
 FriendlyName=Suppressed M16A2
