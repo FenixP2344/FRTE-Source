@@ -137,7 +137,30 @@ simulated event PostNetBeginPlay()
 		{
 			for(i = 0; i <= 3; i++)
 			{
-				ReplicatedSkins[i] = class'SwatGame.SwatAICharacterConfig'.default.OfficerHeavyDefaultMaterial[i];
+				 ReplicatedSkins[i] = Skins[i];
+			     ReplicatedSkins[i] = class'SwatGame.SwatAICharacterConfig'.default.OfficerHeavyDefaultMaterial[i];
+			}
+		}
+	}
+	
+	if(Level.NetMode != NM_Standalone)
+	{
+		if(Mesh == class'SwatGame.SwatAICharacterConfig'.static.GetSuspectMaskMesh())
+		{
+			for(i = 0; i <= 3; i++)
+			{
+				ReplicatedSkins[i] = Skins[i];
+			}
+		}
+	}
+	
+	if(Level.NetMode != NM_Standalone)
+	{
+		if(Mesh == class'SwatGame.SwatAICharacterConfig'.static.GetSuspectNoMaskMesh())
+		{
+			for(i = 0; i <= 3; i++)
+			{
+				ReplicatedSkins[i] = Skins[i];
 			}
 		}
 	}
@@ -444,6 +467,8 @@ function InitializeFromArchetypeInstance()
     local Mesh OfficerMesh;
     local Mesh OfficerHeavyMesh;
     local Mesh OfficerNoArmorMesh;
+    local Mesh SuspectMaskMesh;
+    local Mesh SuspectNoMaskMesh;
 
     Super.InitializeFromArchetypeInstance();
 
@@ -451,6 +476,8 @@ function InitializeFromArchetypeInstance()
     OfficerMesh = class'SwatAICharacterConfig'.static.GetOfficerMesh();
     OfficerHeavyMesh = class'SwatAICharacterConfig'.static.GetOfficerHeavyMesh();
     OfficerNoArmorMesh = class'SwatAICharacterConfig'.static.GetOfficerNoArmorMesh();
+    SuspectMaskMesh = class'SwatAICharacterConfig'.static.GetSuspectMaskMesh();
+    SuspectNoMaskMesh = class'SwatAICharacterConfig'.static.GetSuspectNoMaskMesh();
 
     Instance = CharacterArchetypeInstance(ArchetypeInstance);
     assert(Instance != None);   //ArchetypeInstance should always be set before InitializeFromArchetypeInstance() is called
@@ -469,8 +496,10 @@ function InitializeFromArchetypeInstance()
     // Some hostages/enemies use the SWAT officer skeleton with different clothing and skin.
     // We need to handle this case separately because that skeleton has a different number of
     // materials than the other enemy/hostage meshes.
-    if (Mesh == OfficerMesh || Mesh == OfficerHeavyMesh || Mesh == OfficerNoArmorMesh)
+    if (Mesh == OfficerMesh || Mesh == OfficerHeavyMesh || Mesh == OfficerNoArmorMesh || Mesh == SuspectMaskMesh || Mesh == SuspectNoMaskMesh)
     {
+     //if(Level.NetMode != NM_Standalone)
+     //{
         Skins[0] = Instance.PantsMaterial;
         Skins[1] = Instance.FaceMaterial;
         Skins[2] = Instance.NameMaterial;
@@ -489,6 +518,7 @@ function InitializeFromArchetypeInstance()
         ReplicatedSkins[0] = Skins[0];
         ReplicatedSkins[1] = Skins[1];
     }
+//}
 
     ReplicatedEquipment1Class = Instance.SelectedEquipment1Class;
     ReplicatedEquipment2Class = Instance.SelectedEquipment2Class;

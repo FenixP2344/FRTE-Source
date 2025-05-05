@@ -63,6 +63,8 @@ var localized config string FriendlyName;
 var Mesh OfficerMesh;
 var Mesh OfficerHeavyMesh;
 var Mesh OfficerNoArmorMesh;
+var Mesh SuspectMaskMesh;
+var Mesh SuspectNoMaskMesh;
 
 //initialize this archetype
 function Initialize(Actor inOwner)
@@ -111,7 +113,7 @@ protected function Validate()
 
     ValidateCondition(Mesh != None, "Mesh resolves to None");
 
-    if (Mesh == OfficerMesh || Mesh == OfficerHeavyMesh || Mesh == OfficerNoArmorMesh)
+    if (Mesh == OfficerMesh || Mesh == OfficerHeavyMesh || Mesh == OfficerNoArmorMesh || Mesh == SuspectMaskMesh || Mesh == SuspectNoMaskMesh)
     {
         ValidateCondition(FaceMaterial.length > 0, "it is Missing a FaceMaterial");
         for (i=0; i<FaceMaterial.length; ++i)
@@ -194,7 +196,7 @@ function InitializeInstance(ArchetypeInstance inInstance,
     Super.InitializeInstance(Instance);
 
     Instance.Mesh = Mesh;
-    if (Mesh == OfficerMesh || Mesh == OfficerHeavyMesh || Mesh == OfficerNoArmorMesh)
+    if (Mesh == OfficerMesh || Mesh == OfficerHeavyMesh || Mesh == OfficerNoArmorMesh || Mesh == SuspectMaskMesh || Mesh == SuspectNoMaskMesh)
     {
         Instance.FaceMaterial = FaceMaterial[Rand(FaceMaterial.length)];
         Instance.VestMaterial = VestMaterial[Rand(VestMaterial.length)];
@@ -312,6 +314,8 @@ defaultproperties
 	OfficerMesh=Mesh'SWATMaleAnimation2.SwatOfficer'
 	OfficerHeavyMesh=Mesh'SWATMaleAnimation2.SwatHeavy'
 	OfficerNoArmorMesh=Mesh'SWATMaleAnimation2.SWATnoArmour'
+    SuspectMaskMesh=Mesh'SWATMaleAnimation2.SwatSuspectMask'
+    SuspectNoMaskMesh=Mesh'SWATMaleAnimation2.SwatSuspectNoMask'
 
 	// There's only really a small handful of archetypes that can cause issues here. Probably best we leave this at zero.
 	TaserDeathChance = 0.0
