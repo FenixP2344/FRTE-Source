@@ -2863,12 +2863,11 @@ simulated function InternalReload(optional bool QuickReload)
         )
         return;
 
-    if ( SwatPlayer.ValidateReload() )
-    {
-		//reset all Reload states
-        SetZoom(false, true);
-        
-			WantedZoom=false;
+     //if (WantsZoom && SwatPlayer.ValidateReload() ) //if in Reload state and not zooming
+     //{
+      if ( SwatPlayer.ValidateReload() )
+      {
+     	WantedZoom=false;
         
         if (Level.GetEngine().EnableDevTools)
             mplog( "...calling ServerRequestReload()." );
@@ -2883,8 +2882,17 @@ simulated function InternalReload(optional bool QuickReload)
 //called from SwatPlayer::OnReloadingFinished()
 simulated function ConsiderAutoReloading()
 {
+      //if (!WantsZoom && bReload > 0) //Reload Finished if zooming
       if (bReload > 0)
+      {
          Reload();
+         WantedZoom=True;
+      }
+      else if (!WantsZoom) //Reload Finished if not zooming
+      {
+         Reload();
+         WantedZoom=false;
+      }
 }
 
 simulated exec function EquipSlot(int Slot)
