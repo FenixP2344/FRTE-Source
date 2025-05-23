@@ -212,6 +212,8 @@ defaultproperties
 	AttachmentBone=Shield
 	UnequipSocket=ShieldUnequip
 	
+	CollisionRadius=+0004.000000
+    CollisionHeight=+0004.000000
 	bUseCollisionBoneBoundingBox = false
 	bCollideActors=true
 	bCollideWorld=true

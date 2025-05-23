@@ -3057,7 +3057,6 @@ private function bool CantBeDazed()
 {
 	return ( Level.NetMode == NM_Client ) ||												// Clients handle their own dazing
 		   ( HasProtection( 'IProtectFromSting' ) ) ||										// Has protection from sting effects
-		   ( HasActiveShield() ) ||																// shield virginity protection
 		   ( Controller != None && Controller.bGodMode ) ||									// Gods can not be dazed!
 		   ( class'Pawn'.static.CheckDead( self ) );										// Dead people are beyond dazing
 }
@@ -3511,15 +3510,15 @@ simulated function ClientDoTasedReaction( float PlayerDuration )
 }
 
 
-//returns false if the ICanBeTased has some inherent protection from Taser
+//returns false if the ICanBeTased has some inherent protection from Taser, ie. officers wearing ceramics
 simulated function bool IsVulnerableToTaser()
 {
-    //Fix 2436: Spec says that taser should only affect players with no armor, but this makes no sense
-    //
-    //Paul wants players to always be vulnerable to Taser:
-//    //heavy armor protects from taser
-//    return (!GetLoadOut().HasHeavyArmor());
-    return true;
+	if ( LoadOut.HasCeramicArmor() )
+		{
+			return false;
+		}
+	else
+		return true;
 }
 
 //IReactToC2Detonation Implementation

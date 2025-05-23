@@ -1165,7 +1165,7 @@ private function TriggerHarmlessShotSpeech()
 
 private function bool CantBeDazed()
 {
-    return HasProtection('IProtectFromSting') || !IsConscious() || HasActiveShield();
+    return HasProtection('IProtectFromSting') || !IsConscious();
 }
 
 private function ApplyDazedEffect(SwatProjectile Grenade, Vector SourceLocation, float AIStingDuration)
@@ -1496,9 +1496,12 @@ simulated function bool IsVulnerableToTaser()
     //Fix 2436: Spec says that taser should only affect players with no armor, but this makes no sense
     //
     //Paul wants players to always be vulnerable to Taser:
-//    //heavy armor protects from taser
-//    return (!GetLoadOut().HasHeavyArmor());
-    return true;
+	if ( LoadOut.HasCeramicArmor() )
+		{
+			return false;
+		}
+	else
+		return true;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

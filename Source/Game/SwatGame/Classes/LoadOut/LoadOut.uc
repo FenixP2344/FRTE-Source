@@ -807,6 +807,15 @@ simulated function Material GetCustomMaterial( MaterialPocket pock )
 	return None;
 }
 
+simulated function bool HasCeramicArmor()
+{
+    if ( PocketEquipment[Pocket.Pocket_BodyArmor] != None )
+        return PocketEquipment[Pocket.Pocket_BodyArmor].IsA('LightCeramicBodyArmor') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('LightCeramicBodyArmorHov') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('HeavyCeramicBodyArmor') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('HeavyCeramicBodyArmorHov');
+    else
+        return false; // The VIP has no armor in Pocket_BodyArmor.
+}
+
+
 simulated function bool HasHeavyArmor()
 {
     if ( PocketEquipment[Pocket.Pocket_BodyArmor] != None )
