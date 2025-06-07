@@ -1,4 +1,4 @@
-class TrainingM4TMG extends MachineGun config(SwatEquipment);
+class TrainingM4TMG extends ScopeBase config(SwatEquipment);
 
 defaultproperties
 {

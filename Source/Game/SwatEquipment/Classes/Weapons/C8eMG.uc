@@ -1,1 +1,1 @@
-class C8eMG extends C8isMG config(SwatEquipment);
+class C8eMG extends ScopeBase config(SwatEquipment);

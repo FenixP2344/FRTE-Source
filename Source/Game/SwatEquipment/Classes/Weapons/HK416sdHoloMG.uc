@@ -1,4 +1,4 @@
-class HK416sdHoloMG extends HK416sdMG config(SwatEquipment);
+class HK416sdHoloMG extends ScopeBase config(SwatEquipment);
 
 
 

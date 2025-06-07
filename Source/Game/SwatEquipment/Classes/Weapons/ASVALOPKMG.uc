@@ -1,1 +1,1 @@
-class ASVALOPKMG extends ASVALMG config(SwatEquipment);
+class ASVALOPKMG extends ScopeBase config(SwatEquipment);

@@ -1,1 +1,1 @@
-class UMP45HoloSMG extends SubMachineGun config(SwatEquipment);
+class UMP45HoloSMG extends SubScopeBase config(SwatEquipment);

@@ -1,1 +1,1 @@
-class MP7HoloSMG extends MP7SMG config(SwatEquipment);
+class MP7HoloSMG extends SubScopeBase config(SwatEquipment);

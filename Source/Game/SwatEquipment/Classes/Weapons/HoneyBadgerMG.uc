@@ -1,4 +1,4 @@
-class HoneyBadgerMG extends MachineGun config(SwatEquipment);
+class HoneyBadgerMG extends ScopeBase config(SwatEquipment);
 
 
 

@@ -1,1 +1,1 @@
-class G36COpticMG extends MachineGun config(SwatEquipment);
+class G36COpticMG extends ScopeBase config(SwatEquipment);

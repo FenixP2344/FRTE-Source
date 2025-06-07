@@ -1,1 +1,1 @@
-class VHS2CTFenixMG extends MachineGun config(SwatEquipment);
+class VHS2CTFenixMG extends ScopeBase config(SwatEquipment);

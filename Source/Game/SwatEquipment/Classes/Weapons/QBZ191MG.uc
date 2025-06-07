@@ -1,4 +1,4 @@
-class QBZ191MG extends MachineGun;
+class QBZ191MG extends ScopeBase;
 
 
 

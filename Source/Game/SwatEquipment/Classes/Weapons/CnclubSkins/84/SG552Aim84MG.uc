@@ -1,1 +1,1 @@
-class SG552Aim84MG extends MachineGun config(SwatEquipment);
+class SG552Aim84MG extends ScopeBase config(SwatEquipment);

@@ -1,1 +1,1 @@
-class VHS2CTMG extends MachineGun config(SwatEquipment);
+class VHS2CTMG extends ScopeBase config(SwatEquipment);

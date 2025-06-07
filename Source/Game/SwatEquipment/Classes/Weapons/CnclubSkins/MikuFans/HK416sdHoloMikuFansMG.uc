@@ -1,4 +1,4 @@
-class HK416sdHoloMikuFansMG extends HK416sdMikuFansMG config(SwatEquipment);
+class HK416sdHoloMikuFansMG extends ScopeBase config(SwatEquipment);
 
 
 

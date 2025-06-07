@@ -1,4 +1,4 @@
-class ColtAccurizedRifle extends ClipBasedWeapon;
+class ColtAccurizedRifle extends ScopeBase;
 
 defaultproperties
 {

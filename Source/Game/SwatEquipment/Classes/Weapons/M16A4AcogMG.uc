@@ -1,4 +1,4 @@
-class M16A4AcogMG extends M16A4MG config(SwatEquipment);
+class M16A4AcogMG extends ScopeBase config(SwatEquipment);
 
 
 

@@ -1,4 +1,4 @@
-class SOP276MG extends MachineGun config(SwatEquipment);
+class SOP276MG extends ScopeBase config(SwatEquipment);
 
 
 
