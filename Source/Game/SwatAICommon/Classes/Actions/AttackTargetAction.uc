@@ -388,7 +388,247 @@ protected latent function AimAndFireAtTarget(FiredWeapon CurrentWeapon)
 		//SWAT reaction is random between 0.4/0.8
 		LatentAimAtActor(Target, Fclamp(frand()+0.4, 0.4 ,0.8) );
 	}
+	
+/////Difficulty System
+//////Easy 
+	//Bomber 
+	if(m_Pawn.IsA('SwatEasyBomber'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.2);
+	}
 
+    //Classic
+	if(m_Pawn.IsA('SwatEasyClassic'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.4);
+	}
+		 
+	//ThreatLevel
+	//Low
+	if(m_Pawn.IsA('SwatEasyLowThreat'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.4);
+	}	 
+	
+	//Middle
+	if(m_Pawn.IsA('SwatEasyMiddleThreat'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.3);
+	}
+		 
+	//High
+	if(m_Pawn.IsA('SwatEasyHighThreat'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.2);
+	}
+		 
+	//GangSterA
+	if(m_Pawn.IsA('SwatEasyGangsterA'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.4);
+	}
+
+	//GangSterB
+	if(m_Pawn.IsA('SwatEasyGangsterB'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.4);
+	}
+
+	//Mafia
+	if(m_Pawn.IsA('SwatEasyMafia'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.3);
+	}
+	
+	//Marine
+	if(m_Pawn.IsA('SwatEasyMarine'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.2);
+	}
+		 
+	//Marine Bomber
+	if(m_Pawn.IsA('SwatEasyMarineBomber'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.2);
+	}
+		 
+	//PLP Threat
+	if(m_Pawn.IsA('SwatEasyPLPThreat'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+
+//////Normal 
+
+	//Bomber 
+	if(m_Pawn.IsA('SwatNormalBomber'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+
+    //Classic
+	if(m_Pawn.IsA('SwatNormalClassic'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+	}
+		 
+	//ThreatLevel
+	//Low
+	if(m_Pawn.IsA('SwatNormalLowThreat'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.2);
+	}
+	
+	//Middle
+	if(m_Pawn.IsA('SwatNormalMiddleThreat'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+		 
+	//High
+	if(m_Pawn.IsA('SwatNormalHighThreat'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+	}
+		 
+	//GangSterA
+	if(m_Pawn.IsA('SwatNormalGangsterA'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.2);
+	}
+
+	//GangSterB
+	if(m_Pawn.IsA('SwatNormalGangsterB'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.2);
+	}
+
+	//Mafia
+	if(m_Pawn.IsA('SwatNormalMafia'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+	
+	//Marine
+	if(m_Pawn.IsA('SwatNormalMarine'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+	}
+		 
+	//Marine Bomber
+	if(m_Pawn.IsA('SwatNormalMarineBomber'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+	}
+		 
+	//PLP Threat
+	if(m_Pawn.IsA('SwatNormalPLPThreat'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+	}
+
+//////Hard 
+
+	//Bomber 
+	if(m_Pawn.IsA('SwatHardBomber'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			//sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+
+    //Classic
+	if(m_Pawn.IsA('SwatHardClassic'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+		 
+	//ThreatLevel
+	//Low
+	if(m_Pawn.IsA('SwatHardLowThreat'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+	
+	//Middle
+	if(m_Pawn.IsA('SwatHardMiddleThreat'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+	}
+		 
+	//High
+	if(m_Pawn.IsA('SwatHardHighThreat'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			//sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+		 
+	//GangSterA
+	if(m_Pawn.IsA('SwatHardGangsterA'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+
+	//GangSterB
+	if(m_Pawn.IsA('SwatHardGangsterB'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+
+	//Mafia
+	if(m_Pawn.IsA('SwatHardMafia'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			//sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+	
+	//Marine
+	if(m_Pawn.IsA('SwatHardMarine'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			//sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+		 
+	//Marine Bomber
+	if(m_Pawn.IsA('SwatHardMarineBomber'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			//sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+		 
+	//PLP Threat
+	if(m_Pawn.IsA('SwatHardPLPThreat'))
+	{
+			LatentAimAtActor(Target,ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring());
+			//sleep(ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring() + 0.1);
+	}
+/////Difficulty System End		 
 
 /*
 	// Make sure we wait a minimum of MandatedWait before firing, so shooting isn't instant
