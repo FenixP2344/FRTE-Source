@@ -1,4 +1,4 @@
-class KrissHolotySMG extends KrisstySMG config(SwatEquipment);
+class KrissHolotySMG extends SubScopeBase config(SwatEquipment);
 
 
 

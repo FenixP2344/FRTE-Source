@@ -1,1 +1,1 @@
-class G36kHoloMG extends MachineGun config(SwatEquipment);
+class G36kHoloMG extends ScopeBase config(SwatEquipment);

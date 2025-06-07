@@ -1,1 +1,1 @@
-class SG553HoloMG extends MachineGun config(SwatEquipment);
+class SG553HoloMG extends ScopeBase config(SwatEquipment);

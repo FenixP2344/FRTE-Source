@@ -1,1 +1,1 @@
-class SilencedSG552Aim84MG extends SG55284MG;
+class SilencedSG552Aim84MG extends SG552Aim84MG;

@@ -1,1 +1,1 @@
-class M4CQBHoloMG extends M4A1MG config(SwatEquipment);
+class M4CQBHoloMG extends ScopeBase config(SwatEquipment);

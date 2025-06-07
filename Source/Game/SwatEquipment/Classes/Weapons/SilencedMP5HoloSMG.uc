@@ -1,1 +1,1 @@
-class SilencedMP5HoloSMG extends SilencedMP5SMG config(SwatEquipment);
+class SilencedMP5HoloSMG extends MP5HoloSMG config(SwatEquipment);

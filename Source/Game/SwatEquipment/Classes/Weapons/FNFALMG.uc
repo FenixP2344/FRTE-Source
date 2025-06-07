@@ -1,1 +1,1 @@
-class FNFALMG extends MachineGun config(SwatEquipment);
+class FNFALMG extends ScopeBase config(SwatEquipment);

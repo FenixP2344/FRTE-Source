@@ -1,1 +1,1 @@
-class MK18HoloananMG extends M4A1MG config(SwatEquipment);
+class MK18HoloananMG extends ScopeBase config(SwatEquipment);

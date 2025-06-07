@@ -1,4 +1,4 @@
-class MK18sdHoloCHPMG extends MK18sdCHPMG config(SwatEquipment);
+class MK18sdHoloCHPMG extends ScopeBase config(SwatEquipment);
 
 
 

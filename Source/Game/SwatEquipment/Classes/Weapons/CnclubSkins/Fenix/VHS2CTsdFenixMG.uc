@@ -1,1 +1,1 @@
-class VHS2CTsdFenixMG extends VHS2CTFenixMG config(SwatEquipment);
+class VHS2CTsdFenixMG extends ScopeBase config(SwatEquipment);

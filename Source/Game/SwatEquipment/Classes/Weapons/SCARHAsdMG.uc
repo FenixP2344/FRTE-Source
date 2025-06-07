@@ -1,1 +1,1 @@
-class SCARHAsdMG extends MachineGun config(SwatEquipment);
+class SCARHAsdMG extends ScopeBase config(SwatEquipment);

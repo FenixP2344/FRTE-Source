@@ -1,1 +1,1 @@
-class SG553sdHoloMG extends SG553MG;
+class SG553sdHoloMG extends SG553HoloMG;

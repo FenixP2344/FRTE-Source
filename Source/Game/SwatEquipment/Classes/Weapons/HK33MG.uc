@@ -1,1 +1,1 @@
-class HK33MG extends MachineGun config(SwatEquipment);
+class HK33MG extends ScopeBase config(SwatEquipment);
