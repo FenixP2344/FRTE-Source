@@ -2863,11 +2863,12 @@ simulated function InternalReload(optional bool QuickReload)
         )
         return;
 
-     //if (WantsZoom && SwatPlayer.ValidateReload() ) //if in Reload state and not zooming
-     //{
-      if ( SwatPlayer.ValidateReload() )
-      {
-     	WantedZoom=false;
+    if ( SwatPlayer.ValidateReload() )
+    {
+		//reset all Reload states
+        SetZoom(false, true);
+        
+			WantedZoom=false;
         
         if (Level.GetEngine().EnableDevTools)
             mplog( "...calling ServerRequestReload()." );
@@ -2882,17 +2883,8 @@ simulated function InternalReload(optional bool QuickReload)
 //called from SwatPlayer::OnReloadingFinished()
 simulated function ConsiderAutoReloading()
 {
-      //if (!WantsZoom && bReload > 0) //Reload Finished if zooming
       if (bReload > 0)
-      {
          Reload();
-         WantedZoom=True;
-      }
-      else if (!WantsZoom) //Reload Finished if not zooming
-      {
-         Reload();
-         WantedZoom=false;
-      }
 }
 
 simulated exec function EquipSlot(int Slot)
@@ -6621,17 +6613,8 @@ function HandleWalking()
     {
 		ActiveItem = Pawn.GetActiveItem();
         //WantsToWalk = bool(bRun) == Repo.GuiConfig.bAlwaysRun; // MCJ: old version.
-        
-		if (GC.ExtraIntOptions[6] == 1) //with manual low ready you can run and aim to keep the flow
-		{
-			WantsToWalk = WantsZoom || bool(bRun) == bAlwaysRun;
-		}
-		else
-		{
-			WantsToWalk = (WantsZoom && ActiveItem.ShouldWalkInIronsights()) || bool(bRun) == bAlwaysRun;
-		}
-		
-		Pawn.SetWalking( WantsToWalk && !Region.Zone.IsA('WarpZoneInfo') );
+        WantsToWalk = (WantsZoom && ActiveItem.ShouldWalkInIronsights()) || bool(bRun) == bAlwaysRun;		
+		         Pawn.SetWalking( WantsToWalk && !Region.Zone.IsA('WarpZoneInfo') );
 
         if (aForward == 0 && aStrafe == 0)
         {
