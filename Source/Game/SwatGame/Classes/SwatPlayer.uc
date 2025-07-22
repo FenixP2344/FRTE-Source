@@ -3229,7 +3229,7 @@ function ReactToMeleeAttack(
     float AIStingDuration)
 {
 	if ( CantBeDazed() )
-		return;
+		  return;
 
 	// Set LastStingWeapon before RefreshCameraEffects so that the OnAdded call in
 	// StingCameraEffect will know that this target was hit by a melee attack
@@ -4162,7 +4162,7 @@ simulated function OnSkeletalRegionHit(ESkeletalRegion RegionHit, vector HitLoca
             SwatGamePlayerController(Controller).ClientSkeletalRegionHit(RegionHit, Damage);
 
         // Modify damage...s
-        if ( Damage > 0 )
+        if ( Damage > 0 && (Controller == None || !Controller.bGodMode) )
         {
             RegionInfo = SkeletalRegionInformation[RegionHit];
 
