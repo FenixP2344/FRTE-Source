@@ -24,6 +24,12 @@ function initAction(AI_Resource r, AI_Goal goal)
 	m_Pawn = AI_CharacterResource(r).m_pawn;
     assert(m_Pawn != None);
     
+       //forced arrest after the first issued comply(Only Hostages)   - Probe
+       if (ISwatHostage(m_Pawn) != None  && !ISwatHostage(m_Pawn).isa('SwatOfficer') )
+       {
+	    ISwatHostage(m_Pawn).SetCanBeArrested(true);
+	   }	
+    
     Level = m_Pawn.Level;
 
     super.initAction(r, goal);
@@ -146,7 +152,12 @@ function bool IsMovingTo()
 	}
 }
 
+// returns true if the character is moving and clearing
 function bool IsMovingAndClearing()
-{	
-	return SwatAIRepository(m_Pawn.Level.AIRepo).IsOfficerMovingAndClearing(m_Pawn);
+{
+	local SwatAIRepository SwatAIRepo;
+
+	SwatAIRepo = SwatAIRepository(m_Pawn.Level.AIRepo);
+
+	return SwatAIRepo.IsOfficerMovingAndClearing(m_Pawn);
 }

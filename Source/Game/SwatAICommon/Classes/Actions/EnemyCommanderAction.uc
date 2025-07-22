@@ -678,9 +678,8 @@ function OnPawnEncounteredVisionNotification()
 	if (m_Pawn.logAI)
 		log(m_Pawn.Name $ " OnPawnEncounteredVisionNotification - VisionSensor.LastPawnSeen: " $ VisionSensor.LastPawnSeen $ " LostPawnTimer: " $ LostPawnTimer $ " CurrentEnemy: " $CurrentEnemy);
 
+	EncounterEnemy(Enemy);
 	
-	if( m_pawn.CanSee(Enemy) )
-		EncounterEnemy(Enemy);
 }
 
 function OnPawnLostVisionNotification()
@@ -802,8 +801,6 @@ function OnHeardNoise()
 
 //	log("OnHeardNoise - HeardActor: " $ HeardActor $ " SoundCategory: " $ SoundCategory $ " HeardPawn: " $ HeardPawn);
 
-	Distance = VSize(HeardActor.Location - m_Pawn.Location);
-
 	if (m_Pawn.IsCompliant() || m_Pawn.IsArrested())
 	{
 		if (HeardActor.IsA('Ammunition') && (VSize(HeardActor.Location - m_Pawn.Location) < MinReactToGunshotDistance) && m_Pawn.LineOfSightTo(HeardActor))
@@ -822,7 +819,7 @@ function OnHeardNoise()
 				)
 			{
 				
-				if ( m_Pawn.CanSee(HeardPawn) || DoWeKnowAboutPawn(HeardPawn) )
+				if ( m_Pawn.LineOfSightTo(HeardPawn) || DoWeKnowAboutPawn(HeardPawn) )
 				{//		log(m_Pawn.Name $ " going to encounter enemy");
 					
 					ISwatAI(m_pawn).GetKnowledge().UpdateKnowledgeAboutPawn(HeardPawn);
@@ -831,67 +828,72 @@ function OnHeardNoise()
 				else
 				{
 					if (frand () < GetInvestigateSoundChance() )
-						BecomeSuspicious(SoundOrigin,false,true); 
+						BecomeSuspicious(SoundOrigin,false,false); //investigate only
 					else
-						RotateToFaceNoise(HeardPawn);
+						BecomeSuspicious(SoundOrigin,true,false); //barricade only
 				}
 			}
 				
 		}
 		else	
 		{
-			//
-			if ((HeardPawn != None) && ISwatAI(m_Pawn).IsOtherActorAThreat(HeardPawn) &&
+			Distance = VSize(HeardActor.Location - m_Pawn.Location);
+			if ((HeardPawn != None) && 
+			//ISwatAI(m_Pawn).IsOtherActorAThreat(HeardPawn) &&
 			(DoesSoundCauseUsToKnowAboutPawn(SoundCategory) || DoWeKnowAboutPawn(HeardPawn)))
 			{
 				
-				if ( m_Pawn.CanSee(HeardPawn) || Distance < 200  ) //sound sixth sense in close range
+				if ( m_Pawn.LineOfSightTo(HeardPawn) || Distance < 400  ) //sound sixth sense in close range
 				{
 					//		log(m_Pawn.Name $ " going to encounter enemy");
 					ISwatAI(m_pawn).GetKnowledge().UpdateKnowledgeAboutPawn(HeardPawn);
 					EncounterEnemy(HeardPawn);
+					return;
 				}
 				else 
 				{
-					if ( Distance < 400 )
+					if ( Distance < 800 )
 					{
 					  ISwatAI(m_pawn).GetKnowledge().UpdateKnowledgeAboutPawn(HeardPawn);
 					  RotateToFaceNoise(HeardPawn);
+					  return;
 					}
 				}
 			}
-		}
+		
 
-		if (SoundCategory == 'Footsteps')
-		{
-			HandleFootstepNoise(HeardPawn, SoundOrigin);
-		}
-		else if (SoundCategory == 'DoorInteraction')
-		{
-			assertWithDescription((HeardActor.IsA('SwatDoor')), "EnemyCommanderAction::OnHeardNoise - sound played by " $ HeardActor $ " with the Sound category 'DoorInteraction' is not a door!");
-
-			LastDoorInteractor = ISwatDoor(HeardActor).GetLastInteractor();
-
-			// if the other actor isn't a threat to us, ignore the door sound
-			// yes this is cheating...  so sue me.
-			if (ISwatAI(m_Pawn).IsOtherActorAThreat(LastDoorInteractor) && HasLineOfSightToDoor(Door(HeardActor)))
+			if (SoundCategory == 'Footsteps')
 			{
-				if (ISwatEnemy(m_Pawn).GetCurrentState() == EnemyState_Aware)
+				HandleFootstepNoise(HeardPawn, SoundOrigin);
+			}
+			else if (SoundCategory == 'DoorInteraction')
+			{
+				assertWithDescription((HeardActor.IsA('SwatDoor')), "EnemyCommanderAction::OnHeardNoise - sound played by " $ HeardActor $ " with the Sound category 'DoorInteraction' is not a door!");
+
+				LastDoorInteractor = ISwatDoor(HeardActor).GetLastInteractor();
+
+				// if the other actor isn't a threat to us, ignore the door sound
+				// yes this is cheating...  so sue me.
+			if (ISwatAI(m_Pawn).IsOtherActorAThreat(LastDoorInteractor))
 				{
-					EncounterEnemy(LastDoorInteractor);
-				}
-				else
-				{
-					BecomeSuspicious(SoundOrigin);
+				    if (ISwatEnemy(m_Pawn).GetCurrentState() == EnemyState_Aware && HasLineOfSightToDoor(Door(HeardActor)))
+					{
+						EncounterEnemy(LastDoorInteractor);
+					}
+					else
+					{
+						BecomeSuspicious(SoundOrigin);
+					}
 				}
 			}
-		}
-		else if (CurrentEnemy == None)	// if we're not currently pursuing an enemy, watch out
-		{
-	//		log(m_Pawn.Name $ " becoming suspicious - HeardPawn is a sniper: " $ ((HeardPawn != None) && HeardPawn.IsA('SniperPawn')));
+			else if (CurrentEnemy == None)	// if we're not currently pursuing an enemy, watch out
+			{
+				//log(m_Pawn.Name $ " becoming suspicious - HeardPawn is a sniper: " $ ((HeardPawn != None) && HeardPawn.IsA('SniperPawn')));
 
-			// if we heard sniper fire, we shouldn't investigate, otherwise we let BecomeSuspicious determine what we should do
-			BecomeSuspicious(SoundOrigin, ((HeardPawn != None) && HeardPawn.IsA('SniperPawn')));
+				// if we heard sniper fire, we shouldn't investigate, otherwise we let BecomeSuspicious determine what we should do
+				BecomeSuspicious(SoundOrigin, ((HeardPawn != None) && HeardPawn.IsA('SniperPawn')));
+			}
+		
 		}
 	}
 }
@@ -1234,8 +1236,7 @@ private function bool ShouldEncounterNewEnemy(Pawn NewEnemy)
 		DistanceToNewEnemy     = VSize(NewEnemy.Location - m_Pawn.Location);
 
 		if (((DistanceToNewEnemy < DistanceToCurrentEnemy) && (DistanceToNewEnemy < class'EnemyCommanderActionConfig'.default.DeltaDistanceToSwitchEnemies)) ||
-			//(! m_Pawn.CanHit(CurrentEnemy) && m_Pawn.CanHit(NewEnemy)))
-			(! m_Pawn.CanSee(CurrentEnemy) && m_Pawn.CanSee(NewEnemy)))
+			(! m_Pawn.LineOfSightTo(CurrentEnemy) && m_Pawn.LineOfSightTo(NewEnemy)))
 		{
 			return true;
 		}
@@ -1277,6 +1278,13 @@ function EncounterEnemy(Pawn NewEnemy)
 	if (ShouldEncounterEnemy(NewEnemy))
 	{
 		SetCurrentEnemy(NewEnemy);
+		
+			//a threat before the animation
+		if ((m_Pawn.IsA('SwatEnemy')) && ((!m_Pawn.IsA('SwatUndercover')) || (!m_Pawn.IsA('SwatGuard'))) && !ISwatEnemy(m_Pawn).IsAThreat())
+		{
+			ISwatEnemy(m_Pawn).BecomeAThreat();
+		}	
+		
 
 		// we are now aware
         ISwatEnemy(m_Pawn).SetCurrentState(EnemyState_Aware);
@@ -1437,6 +1445,14 @@ latent function EngageCurrentEnemy()
 		return;
 	}
 	
+	//a threat before the animation
+	if ((m_Pawn.IsA('SwatEnemy')) && ((!m_Pawn.IsA('SwatUndercover')) || (!m_Pawn.IsA('SwatGuard'))) && !ISwatEnemy(m_Pawn).IsAThreat())
+	{
+		ISwatEnemy(m_Pawn).BecomeAThreat();
+		yield();
+	}	
+		
+	
 	// If we had an engagement goal, drop it
 	if(CurrentEngageOfficerGoal != None)
 	{
@@ -1484,6 +1500,21 @@ function InterruptCurrentEngagement()
 	{
 		CurrentInitialReactionGoal.achievingAction.instantFail(ACT_GENERAL_FAILURE);
 	}
+}
+
+function FiredWeapon GetBackupWeapon()
+{
+	return ISwatEnemy(m_Pawn).GetBackupWeapon();
+}
+
+function FiredWeapon GetPrimaryWeapon()
+{
+	return ISwatEnemy(m_Pawn).GetPrimaryWeapon();
+}
+
+function bool AllowedToUseWeaponAgainst(FiredWeapon Weapon, Pawn TargetPawn, int ShotsFired)
+{
+	return Weapon.ShouldSuspectUseAgainst(TargetPawn, ShotsFired);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1732,8 +1763,7 @@ function FindBetterEnemy()
 	
 	if (CurrentEnemy != None)
 	{
-		//if (! m_Pawn.LineOfSightTo(CurrentEnemy))
-	    if (! m_Pawn.CanSee(CurrentEnemy))
+	    if (! m_Pawn.LineOfSightTo(CurrentEnemy))
 		{
 			NewEnemy = VisionSensor.GetVisibleConsciousPawnClosestTo(m_Pawn.Location);
 
@@ -1781,7 +1811,7 @@ latent function FinishedEngagingEnemies()
 
 function FinishedMovingEngageBehavior()
 {
-	if (!class'Pawn'.static.checkConscious(CurrentEnemy) || !m_Pawn.CanSee(CurrentEnemy))
+	if (!class'Pawn'.static.checkConscious(CurrentEnemy) || !m_Pawn.LineOfSightTo(CurrentEnemy))
 	{
 		SetCurrentEnemy(None);
 	}
@@ -1802,6 +1832,16 @@ latent function DecideToStayCompliant()
 	while (class'Pawn'.static.checkConscious(m_Pawn) &&
 			(GetCurrentMorale() < class'EnemyCommanderActionConfig'.default.LeaveCompliantStateMoraleThreshold || FoundWeaponModel == None))
 	{
+		if(FoundWeaponModel != None)
+		{
+			// If we found a weapon model, then our morale gain is 2x but our leave compliance threshold is also 2x.
+			// This is so that gunfights are a little more engaging for the player to deal with.
+            if (ISwatAI(m_Pawn).IsBeingArrestedNow())
+		    {
+		      	break;
+		    }
+	    }
+		
 		// Sleep for a random amount of time for this "tick"
 		// This might seem high, but keep in mind that half the values are going to be below this and the effect can stack.
 		Sleep(FRand() * 2.0);
@@ -1816,6 +1856,11 @@ latent function DecideToStayCompliant()
 		if (m_pawn.logTyrion)
 			log(name @ "DecideToStayCompliant: morale now:" @ GetCurrentMorale());
 		
+	}
+
+	if (ISwatAI(m_Pawn).IsBeingArrestedNow())
+	{
+		return;
 	}
 
 	if (FoundWeaponModel != None)

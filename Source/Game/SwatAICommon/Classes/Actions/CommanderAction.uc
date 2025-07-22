@@ -492,8 +492,13 @@ function OnComplianceIssued(Pawn ComplianceIssuer)
 					log(m_Pawn.Name$" will not comply - morale is: " $ GetCurrentMorale() $ " RandomChance is: " $ RandomChance);
 
 				bWillComply = false;
-				
-			}
+						    
+		    //forced arrest after the first issued comply(Only Hostages)   - Probe
+		    if (ISwatHostage(m_Pawn) != None  && !ISwatHostage(m_Pawn).isa('SwatOfficer') )
+		    {
+			ISwatHostage(m_Pawn).SetCanBeArrested(true);
+		    }		
+		}
 
 			// don't listen for compliance until morale changes
 			if(bWillComply)
@@ -1386,6 +1391,15 @@ protected function AimAtTarget(Actor Target, int BehaviorPriority, bool bAimWeap
 	CurrentAimAtTargetGoal.SetAimWeapon(bAimWeapon);
 
 	CurrentAimAtTargetGoal.postGoal(self);
+}
+
+function FiredWeapon GetBackupWeapon();
+function FiredWeapon GetPrimaryWeapon();
+
+function bool AllowedToUseWeaponAgainst(FiredWeapon Weapon, Pawn Target, int ShotsFired)
+{
+	// Meant to be overridden
+	return false;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

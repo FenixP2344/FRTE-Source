@@ -24,6 +24,7 @@ var private CloseDoorGoal		CurrentCloseDoorGoal;
 var private MoveToDoorGoal		CurrentMoveToDoorGoal;
 var private AttackTargetGoal	AttackDoorGoal;
 var private AimAtTargetGoal		CurrentAimAtTargetGoal;
+var protected AttackTargetGoal			CurrentAttackTargetGoal;
 
 // domain data
 var private array<Door>			DoorsInRoom;
@@ -33,7 +34,6 @@ var private Door				DoorOpening;
 
 // sensors we use
 var private DoorOpeningSensor	DoorOpeningSensor;
-var private VisionSensor		VisionSensor;
 
 // config variables
 var config float				ShootAtDoorsChance;
@@ -54,6 +54,13 @@ var config float				AimAtClosestDoorTime;
 var config float				MinTimeBeforeClosingDoor;
 var config float				MaxTimeBeforeClosingDoor;
 
+
+var private bool OutForThreat;
+var private Pawn BarricadeThreat;
+
+var config float                AggressiveAttackWhileMovingChance;
+var config float                AttackWhileMovingChance;
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Cleanup
@@ -69,6 +76,12 @@ function cleanup()
 		{
 			FleePoint(BarricadePoint).UnclaimPoint();
 		}
+	}
+	
+	if (CurrentAttackTargetGoal != None)
+	{
+		CurrentAttackTargetGoal.Release();
+		CurrentAttackTargetGoal = None;
 	}
 
 	if (CurrentAimAroundGoal != None)
@@ -111,12 +124,6 @@ function cleanup()
 	{
 		DoorOpeningSensor.deactivateSensor(self);
 		DoorOpeningSensor = None;
-	}
-	
-	if (VisionSensor != None)
-	{
-		VisionSensor.deactivateSensor(self);
-		VisionSensor = None;
 	}
 
 	// if we were crouched, get up.
@@ -162,14 +169,8 @@ function OnSensorMessage( AI_Sensor sensor, AI_SensorData value, Object userData
 			runAction();
 		}
 	}
-	else if (Sensor == VisionSensor && isIdle() ) 
-	{
-		//barricade is failed
-		instantFail(ACT_INSUFFICIENT_RESOURCES_AVAILABLE);
-	}
 	
 }
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 // State Code
@@ -508,13 +509,6 @@ function CreateDoorOpeningSensor()
 	
 }
 
-// if you override, call down the chain
-protected function ActivateVisionSensor()
-{
-	VisionSensor = VisionSensor(class'AI_Sensor'.static.activateSensor( self, class'VisionSensor', resource, 0, 1000000 ));
-	assert(VisionSensor != None);
-}
-
 function RemoveAimAroundGoal()
 {
 	if (CurrentAimAroundGoal != None)
@@ -570,11 +564,6 @@ private latent function AimAtOpeningDoor()
 	CurrentAimAtTargetGoal.SetAimOnlyWhenCanHitTarget(true);
 
 	CurrentAimAtTargetGoal.postGoal(self);
-	if (m_Pawn.IsA('SwatEnemy') && !ISwatEnemy(m_Pawn).IsAThreat())
-	{
-		ISwatEnemy(m_Pawn).BecomeAThreat();
-		yield();
-	}	
 
 	while (DoorOpening.IsOpening())
 		yield();
@@ -589,6 +578,64 @@ private latent function CloseOpenedDoor()
 	CloseDoor(DoorOpening);
 	LockDoor(DoorOpening);
 }
+
+private function bool ShouldAttackWhileMoving()
+{
+	if (ISwatAI(m_Pawn).IsAggressive())
+	{
+		return FRand() < AggressiveAttackWhileMovingChance;
+	}
+	return FRand() < AttackWhileMovingChance;
+}
+
+private function AttackWhileMoving()
+{
+	local Pawn Enemy;
+
+	Enemy = ISwatEnemy(m_Pawn).GetEnemyCommanderAction().GetCurrentEnemy();
+	if(Enemy == None) {
+	    return;
+	}
+
+	CurrentAttackTargetGoal = new class'AttackTargetGoal'(weaponResource(), Enemy);
+    assert(CurrentAttackTargetGoal != None);
+	CurrentAttackTargetGoal.AddRef();
+
+	CurrentAttackTargetGoal.postGoal(self);
+}
+
+private latent function AimAtThreat()
+{
+	assert(DoorOpening != None);
+
+	CurrentAimAtTargetGoal = new class'AimAtTargetGoal'(weaponResource(), BarricadeThreat);
+	assert(CurrentAimAtTargetGoal != None);
+	CurrentAimAtTargetGoal.AddRef();
+
+	CurrentAimAtTargetGoal.SetAimOnlyWhenCanHitTarget(true);
+
+	CurrentAimAtTargetGoal.postGoal(self);
+
+}
+
+
+private function bool ThreatIsNear()
+{
+	local Pawn SO;
+		
+		ForEach m_pawn.VisibleCollidingActors(class'Pawn', SO, 800 )
+		{
+			if ( SO.isa('SwatPlayer') || SO.isa('SwatOfficer') )
+				if (m_Pawn.LineOfSightTo(SO))
+				{
+					BarricadeThreat = SO;
+					return true;
+				}
+		}
+	
+	return false;	
+}
+
 
 state Running
 {
@@ -616,14 +663,18 @@ Begin:
 	ClearDummyMovementGoal();
 
 	CreateDoorOpeningSensor();
+	
+GetInPosition:
+	if (ShouldAttackWhileMoving())
+	{
+		AttackWhileMoving();
+	}
+    MoveToBarricadePoint();
 
 	if (bCanCloseDoors && DoesRoomHaveDoorsToCloseAndLock())
 	{
 		CloseAndLockDoorsInRoom();
 	}
-
-//GetInPosition:
-    MoveToBarricadePoint();
 
 	useResources(class'AI_Resource'.const.RU_LEGS);
 
@@ -642,14 +693,18 @@ Begin:
 		m_Pawn.ShouldCrouch(true);
 	}
 
-
-	ActivateVisionSensor(); //if sensor is triggered just fail
-
 	// wait for a door to start opening, if that ever happens
 	pause();
 
+
 	if (m_Pawn.CanHitTarget(DoorOpening))
 	{
+			if (m_Pawn.IsA('SwatEnemy') && !ISwatEnemy(m_Pawn).IsAThreat())
+			{
+			ISwatEnemy(m_Pawn).BecomeAThreat();
+			yield();
+			}	
+		
 		RemoveAimAroundGoal();
 
 		if ((FRand() < ShootAtDoorsChance) && !m_Pawn.IsA('SwatUndercover'))
@@ -665,7 +720,7 @@ Begin:
 		// aim around again
 		AimAround();
 	}
-		
+    
 }
 
 ///////////////////////////////////////////////////////////////////////////////

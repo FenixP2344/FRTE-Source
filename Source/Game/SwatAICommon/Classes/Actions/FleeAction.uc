@@ -294,8 +294,6 @@ function AttackWhileFleeing()
 	CurrentAttackTargetGoal.AddRef();
 
 	CurrentAttackTargetGoal.postGoal(self);
-
-	ISwatEnemy(m_Pawn).BecomeAThreat();
 }
 
 

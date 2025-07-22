@@ -273,6 +273,11 @@ protected function bool ShouldReactToNonLethals()
     return true;
 }
 
+simulated function bool TaserMightKillMe()
+{
+    return Instance != None && Instance.TaserMightKillMe();
+}
+
 ///////////////////////////////////////
 
 function UnbecomeAThreat(optional bool UseCooldown, optional float CooldownDuration);
