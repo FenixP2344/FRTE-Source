@@ -7,9 +7,8 @@ If you would like to get more infro of FRTE, you're welcome to join in the SEF:F
 FAQ: https://www.moddb.com/mods/sef-fr-tactical-edition/tutorials/necessary-instructions
 
 
-========================================
-FRTE v1.39 Patch1 Changelog
-========================================
+#FRTE v1.39 Patch1 Changelog
+
 Added:
  - Added Type81-1 and variant in Assaultrifle
  - Added Type79 in Submachinegun
@@ -60,9 +59,8 @@ Bug Fix:
  - Fixed the issue with SWAT AI's recognition of door locks (when the door is confirmed to be locked, the shortcut command menu still displays "TryLock")
 
 
-==================================
-FRTE v1.39 Changelog
-==================================
+#FRTE v1.39 Changelog
+
 Added:
  - Added SWAT4 MP Launch Tools
  - Added MP5/10mm Submachinegun
@@ -125,9 +123,8 @@ Bug Fix:
  - Fixed the issue in the map 'Underground' where it could be quickly teleported underground
 
 
-==================================
-FRTE v1.38 Changelog
-==================================
+#FRTE v1.38 Changelog
+
 Added:
  - Added HoneyBadger Assault Rifle and .300BLK(FMJ/OTM)
  - Added As-Val OKP-7 sight variant
@@ -208,9 +205,8 @@ Fixed the issue of incorrect weight of MP7A1 ammo 4.6x30 JSP
     The suspicious threat level system and multi ROE rule system of FRTE may not be effective in the "Classic Map Group" or "Non FRTE Occupational Activities", as the AI settings and features invoked by this map group are based on official
 
 
-==================================
-FRTE v1.37Patch1 Changelog
-==================================
+#FRTE v1.37Patch1 Changelog
+
 Added:
 1.Classic Mission Maps:
 The Map group are all named after the Classic prefix and all applications are vanilla. Maps are stetted  with vanilla difficulty, suspect/hostage appearance, AI features and weapons used by the suspect 
@@ -233,9 +229,9 @@ Bug Fix:
  - Fixed the issue of players getting stuck in multiple places on the maps of "Red Library Office" and "Department of Agriculture"
  - High probability fixed the issue of evidence disappearing
 
-==================================
-FRTE v1.37 Changelog
-==================================
+
+#FRTE v1.37 Changelog
+
 Added:
  - Added AK15 assault rifle (4 variants: RMR and suppressor)
  - Added QBZ192 assault rifle (12 variants: two grips, Sight, and suppressor)
@@ -281,9 +277,9 @@ Bug fix:
  - Fixed the issue where the suspect kept trying to open a locked door
  - Fixed the issue of incorrect firstperson Hand offset in UZI
 
-==================================
-FRTE v1.36 Patch2 Changelog
-==================================
+
+#FRTE v1.36 Patch2 Changelog
+
 Balance:
  - The Breaching shotgun (original slot 5), C2 (original slot 5), and Medic Pouch (original slot 6) have been adjusted to slot 4
  - The weight of the head protection has been readjusted
@@ -296,9 +292,9 @@ BugFix:
  - Fixed some issues with incorrect weight of head protection
  - Fixed the issue of C2 text displaying x5 while only having 3 in the game
 
-==================================
+
 FRTE v1.36 Patch1 Changelog
-==================================
+
 Balance:
  - The Breaching shotgun has been moved to slot5 and cancelled in the shotgun variant menu
  - Adjusted the quantity of C2 to 5 (original 3) and modified it to only be equipped in slot 5
@@ -308,9 +304,9 @@ BugFix:
  - Fixed issue with K6-3 Helmets not being correctly invoked in Terrorist Hunt mode
  - Fixed issue with incorrect bullet point during ADS aiming of HS2000 pistol
 
-==================================
-FRTE v1.36 Changelog
-==================================
+
+#FRTE v1.36 Changelog
+
 Added:
  - Added Weapon SG553 and variant
  - Added Weapon HS2000 Pistol
@@ -373,9 +369,8 @@ Misc:
  - Added career mode to unlock all mission Campaign(Vanilla and Extra)
 
 
-==================================
-FRTE v1.35 Changelog
-==================================
+#FRTE v1.35 Changelog
+
 Added:
  - Added Weapon G36C and variant
  - Added Suspect ThreatLevel System
@@ -421,9 +416,8 @@ Misc:
  - The Voice Type menu and rename the original "ReadyOrNot" to "Judge (RON1.0)"
 
 
-==================================
-FRTE v1.3.1 Changelog
-==================================
+#FRTE v1.3.1 Changelog
+
 Added:
  - New skin:
  * Rainbow Recruit snow camouflage
@@ -446,9 +440,8 @@ Misc:
  - Cancelled the RELOAD sound effect for "Terrorist Hunting" and changed it to vanilla yell
 
 
-==================================
-FRTE v1.3 Changelog
-==================================
+#FRTE v1.3 Changelog
+
 Added:
  - Swatofficer HOV animation model, with various types of armor to choose from with mask or without masks
  - New Equipment
@@ -521,4 +514,5 @@ Talocan
 
 And all the community members who support us, your support is the driving force behind our progress
                                                                     - FRTE DEV Team
+
 
