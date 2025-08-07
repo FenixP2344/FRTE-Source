@@ -97,7 +97,7 @@ private function UpdateDoorKnowledge()
 	}
 
 	// complete if it's wedged or locked and we can't open it
-	if (SwatDoorTarget.IsWedged() || (SwatDoorTarget.IsLocked() && ! ISwatAI(m_Pawn).ShouldForceOpenLockedDoors()))
+    if (SwatDoorTarget.IsWedged() || (SwatDoorTarget.IsLocked() && ! ISwatAI(m_Pawn).ShouldForceOpenLockedDoors()))
 	{
 		instantSucceed();
 	}
@@ -214,7 +214,8 @@ state Running
 	// if it was blocked, try opening again soon
 	if (! bIsDoorBlockedBeforeOpen)
 	{
-		while ( (TargetDoor.IsClosed() && !SwatDoorTarget.IsWedged() && !TargetDoor.IsOpening()  ) )//|| (ISwatDoor(TargetDoor).IsPartialOpen() ) )
+		//while ( (TargetDoor.IsClosed() && !SwatDoorTarget.IsWedged() && !TargetDoor.IsOpening()  ) )//|| (ISwatDoor(TargetDoor).IsPartialOpen() ) )
+		while (TargetDoor.IsClosed() && !TargetDoor.IsOpening() && !SwatDoorTarget.IsWedged())
 		{
 			yield();
 		}

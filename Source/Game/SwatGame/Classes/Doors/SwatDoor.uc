@@ -197,41 +197,7 @@ var private config float			MoveAndClearPauseThreshold;
 var DoorBufferVolume                DoorBufferVolume;
 var StaticMesh                      DoorBufferVolumeCollisionMesh;
 
-//var string DeployedWedgeClassName;
-var private bool bLockedBySwat;
-var private bool bUnused1;
-var private bool bUnused2;
-var private bool bUnused3;
-var private bool bUnused4;
-var private bool bUnused5;
-var private bool bUnused6;
-var private bool bUnused7;
-var private bool bUnused8;
-var private bool bUnused9;
-var private bool bUnused10;
-var private bool bUnused11;
-var private bool bUnused12;
-var private bool bUnused13;
-var private bool bUnused14;
-var private bool bUnused15;
-var private bool bUnused16;
-var private bool bUnused17;
-var private bool bUnused18;
-var private bool bUnused19;
-var private bool bUnused20;
-var private bool bUnused21;
-var private bool bUnused22;
-var private bool bUnused23;
-var private bool bUnused24;
-var private bool bUnused25;
-var private bool bUnused26;
-var private bool bUnused27;
-var private bool bUnused28;
-var private bool bUnused29;
-var private bool bUnused30;
-var private bool bUnused31;
-var private bool bUnused32;
-var Actor UnusedActor;
+var string DeployedWedgeClassName;
 var class<Actor> DeployedWedgeClass;
 
 var string DeployedC2ChargeClassName;
@@ -848,7 +814,7 @@ local Door LevelDoor;
 	if(bIsLocked)
 	{
 		BroadcastEffectEvent('LockedDoorTried');
-		//UpdateOfficerDoorKnowledge(true);
+		UpdateOfficerDoorKnowledge(true);
 		Caller.DoorIsLocked();
 
 		LockedKnowledge[0] = 1;
@@ -858,7 +824,7 @@ local Door LevelDoor;
 	else
 	{
 		BroadcastEffectEvent('Unlocked');
-		//UpdateOfficerDoorKnowledge(false);
+		UpdateOfficerDoorKnowledge(false);
 		Caller.DoorIsNotLocked();
 
 		LockedKnowledge[0] = 0;
@@ -883,6 +849,23 @@ local Door LevelDoor;
 	}
 	
 	return true;
+	}
+	
+// FIXME: there might be more that's required to get this to work correctly..?		
+simulated function OnDoorLockedByOperator() {		
+	if(bIsLocked) {		
+       // See above note about bIsLocked		
+       return;		
+     }		
+
+     bIsLocked = true;		
+     TriggerEffectEvent('Unlocked');		
+
+     UpdateOfficerDoorKnowledge(true);		
+
+     LockedKnowledge[0] = 1;		
+     LockedKnowledge[1] = 1;		
+     LockedKnowledge[2] = 1;	
 }
 
 simulated function bool KnowsDoorIsLocked( int TeamNumber )
@@ -1476,7 +1459,7 @@ simulated function bool LocationIsInSweep(vector DoorPivot, vector TestLocation,
     return true;    //candidate is blocking
 }
 
-simulated function UpdateOfficerDoorKnowledge()
+simulated function UpdateOfficerDoorKnowledge(optional bool locking)
 {
 	local SwatAIRepository AIRepo;
     local SwatPawn PlayerPawn;
@@ -1494,7 +1477,7 @@ simulated function UpdateOfficerDoorKnowledge()
 		if (AIRepo != None)
 			AIRepo.UpdateDoorKnowledgeForOfficers(self);
 		else                //no AIRepository... tell myself
-			PlayerPawn.SetDoorLockedBelief(self, false);
+            PlayerPawn.SetDoorLockedBelief(self, locking);
 	}
 }
 
@@ -2818,11 +2801,6 @@ simulated function SilentUnlock()
 		bCanBeLocked = true;
         bIsLocked = false;
 	}
-}
-
-simulated function bool CanBeOpenedBySuspectsAndCivilians()
-{
-	return !bLockedBySwat;
 }
 
 simulated function float GetMoveAndClearPauseThreshold()
