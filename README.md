@@ -7,7 +7,7 @@ If you would like to get more infro of FRTE, you're welcome to join in the SEF:F
 FAQ: https://www.moddb.com/mods/sef-fr-tactical-edition/tutorials/necessary-instructions
 
 
-#FRTE v1.39 Patch1 Changelog
+#### FRTE v1.39 Patch1 Changelog ####
 
 Added:
  - Added Type81-1 and variant in Assaultrifle
@@ -59,7 +59,7 @@ Bug Fix:
  - Fixed the issue with SWAT AI's recognition of door locks (when the door is confirmed to be locked, the shortcut command menu still displays "TryLock")
 
 
-#FRTE v1.39 Changelog
+#### FRTE v1.39 Changelog ####
 
 Added:
  - Added SWAT4 MP Launch Tools
@@ -123,7 +123,7 @@ Bug Fix:
  - Fixed the issue in the map 'Underground' where it could be quickly teleported underground
 
 
-#FRTE v1.38 Changelog
+#### FRTE v1.38 Changelog ####
 
 Added:
  - Added HoneyBadger Assault Rifle and .300BLK(FMJ/OTM)
@@ -205,7 +205,7 @@ Fixed the issue of incorrect weight of MP7A1 ammo 4.6x30 JSP
     The suspicious threat level system and multi ROE rule system of FRTE may not be effective in the "Classic Map Group" or "Non FRTE Occupational Activities", as the AI settings and features invoked by this map group are based on official
 
 
-#FRTE v1.37Patch1 Changelog
+#### FRTE v1.37Patch1 Changelog ####
 
 Added:
 1.Classic Mission Maps:
@@ -230,7 +230,7 @@ Bug Fix:
  - High probability fixed the issue of evidence disappearing
 
 
-#FRTE v1.37 Changelog
+#### FRTE v1.37 Changelog ####
 
 Added:
  - Added AK15 assault rifle (4 variants: RMR and suppressor)
@@ -278,7 +278,7 @@ Bug fix:
  - Fixed the issue of incorrect firstperson Hand offset in UZI
 
 
-#FRTE v1.36 Patch2 Changelog
+#### FRTE v1.36 Patch2 Changelog ####
 
 Balance:
  - The Breaching shotgun (original slot 5), C2 (original slot 5), and Medic Pouch (original slot 6) have been adjusted to slot 4
@@ -293,7 +293,7 @@ BugFix:
  - Fixed the issue of C2 text displaying x5 while only having 3 in the game
 
 
-FRTE v1.36 Patch1 Changelog
+#### FRTE v1.36 Patch1 Changelog ####
 
 Balance:
  - The Breaching shotgun has been moved to slot5 and cancelled in the shotgun variant menu
@@ -305,7 +305,7 @@ BugFix:
  - Fixed issue with incorrect bullet point during ADS aiming of HS2000 pistol
 
 
-#FRTE v1.36 Changelog
+#### FRTE v1.36 Changelog ####
 
 Added:
  - Added Weapon SG553 and variant
@@ -369,7 +369,7 @@ Misc:
  - Added career mode to unlock all mission Campaign(Vanilla and Extra)
 
 
-#FRTE v1.35 Changelog
+#### FRTE v1.35 Changelog ####
 
 Added:
  - Added Weapon G36C and variant
@@ -416,7 +416,7 @@ Misc:
  - The Voice Type menu and rename the original "ReadyOrNot" to "Judge (RON1.0)"
 
 
-#FRTE v1.3.1 Changelog
+#### FRTE v1.3.1 Changelog ####
 
 Added:
  - New skin:
@@ -440,7 +440,7 @@ Misc:
  - Cancelled the RELOAD sound effect for "Terrorist Hunting" and changed it to vanilla yell
 
 
-#FRTE v1.3 Changelog
+#### FRTE v1.3 Changelog ####
 
 Added:
  - Swatofficer HOV animation model, with various types of armor to choose from with mask or without masks
@@ -514,5 +514,6 @@ Talocan
 
 And all the community members who support us, your support is the driving force behind our progress
                                                                     - FRTE DEV Team
+
 
 
