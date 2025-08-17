@@ -591,6 +591,7 @@ simulated function EAnimationSet GetPaintballAimPoseSet()               { if (!b
 simulated function EAnimationSet GetCuffedAimPoseSet()                  { if (isArrestedOnFloor ()) return kAnimationSetCuffedFloor; else  return kAnimationSetCuffed; }
 simulated function EAnimationSet GetShieldAimPoseSet()                  { return kAnimationSetShield; }
 simulated function EAnimationSet GetRamAimPoseSet()                  { return kAnimationSetRam; }
+simulated function EAnimationSet GetKillSelfAimPoseSet()                  { return kAnimationSetKillSelf; }
 
 // Returns the animation set based on the Pawns current equipment
 simulated function EAnimationSet GetEquipmentAimSet()
@@ -613,6 +614,8 @@ simulated function EAnimationSet GetEquipmentAimSet()
           {
             case WeaponAnimAim_Handgun:
               return GetHandgunAimPoseSet();
+			case WeaponAnimAim_KillSelf:
+              return GetKillSelfAimPoseSet();
 			case WeaponAnimAim_Shield:
               return GetShieldAimPoseSet();
 			case WeaponAnimAim_Ram:

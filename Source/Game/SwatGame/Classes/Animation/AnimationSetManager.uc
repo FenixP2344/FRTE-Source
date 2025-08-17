@@ -71,21 +71,25 @@ enum EAnimationSet
 	// General weapon animation sets
     kAnimationSetHandgun,
     kAnimationSetHandgunLowReady,
+    kAnimationSetHandgunLowReadySealth,
     kAnimationSetHandgunCrouched,
     kAnimationSetHandgunLowReadyCrouched,
     kAnimationSetHandgunExtremeLowReady,
 	kAnimationSetSubMachineGun,
 	kAnimationSetSubMachineGunLowReady,
+	kAnimationSetSubMachineGunLowReadySealth,
 	kAnimationSetSubMachineGunCrouched,
 	kAnimationSetSubMachineGunLowReadyCrouched,
 	kAnimationSetSubMachineGunExtremeLowReady,
     kAnimationSetMachineGun,
     kAnimationSetMachineGunLowReady,
+    kAnimationSetMachineGunLowReadySealth,
     kAnimationSetMachineGunCrouched,
     kAnimationSetMachineGunLowReadyCrouched,
     kAnimationSetMachineGunExtremeLowReady,
 	kAnimationSetShotgun,
 	kAnimationSetShotgunLowReady,
+	kAnimationSetShotgunLowReadySealth,
 	kAnimationSetShotgunCrouched,
 	kAnimationSetShotgunLowReadyCrouched,
 	kAnimationSetShotgunExtremeLowReady,
@@ -104,21 +108,25 @@ enum EAnimationSet
     // More specific weapon animation sets
     kAnimationSetPepperSpray,
     kAnimationSetPepperSprayLowReady,
+    kAnimationSetPepperSprayLowReadySealth,
     kAnimationSetPepperSprayCrouched,
     kAnimationSetPepperSprayLowReadyCrouched,
     kAnimationSetPepperSprayExtremeLowReady,
     kAnimationSetM4,
     kAnimationSetM4LowReady,
+    kAnimationSetM4LowReadySealth,
     kAnimationSetM4Crouched,
     kAnimationSetM4LowReadyCrouched,
     kAnimationSetM4ExtremeLowReady,
     kAnimationSetUMP,
     kAnimationSetUMPLowReady,
+    kAnimationSetUMPLowReadySealth,
     kAnimationSetUMPCrouched,
     kAnimationSetUMPLowReadyCrouched,
     kAnimationSetUMPExtremeLowReady,
 	kAnimationSetP90,
     kAnimationSetP90LowReady,
+    kAnimationSetP90LowReadySealth,
     kAnimationSetP90Crouched,
     kAnimationSetP90LowReadyCrouched,
     kAnimationSetP90ExtremeLowReady,
@@ -129,6 +137,7 @@ enum EAnimationSet
     kAnimationSetOptiwandExtremeLowReady,
     kAnimationSetPaintball,
     kAnimationSetPaintballLowReady,
+    kAnimationSetPaintballLowReadySealth,
     kAnimationSetPaintballCrouched,
     kAnimationSetPaintballLowReadyCrouched,
     kAnimationSetPaintballExtremeLowReady,
@@ -166,6 +175,9 @@ enum EAnimationSet
 	
 	//ram
 	kAnimationSetRam,
+
+	//KillSelf
+	kAnimationSetKillSelf,
 	
 	//cuffed floor
 	kAnimationSetCuffedFloor,
@@ -244,21 +256,25 @@ overloaded function Construct()
 	// Aiming Sets
     CreateSet(kAnimationSetHandgun,									"AnimationSetHandgun");
     CreateSet(kAnimationSetHandgunLowReady,							"AnimationSetHandgunLowReady");
+    CreateSet(kAnimationSetHandgunLowReadySealth,					"AnimationSetHandgunLowReadySealth");
     CreateSet(kAnimationSetHandgunCrouched,							"AnimationSetHandgunCrouched");
     CreateSet(kAnimationSetHandgunLowReadyCrouched,					"AnimationSetHandgunLowReadyCrouched");
     CreateSet(kAnimationSetHandgunExtremeLowReady,					"AnimationSetHandgunExtremeLowReady");
 	CreateSet(kAnimationSetSubMachineGun,							"AnimationSetSubMachineGun");
 	CreateSet(kAnimationSetSubMachineGunLowReady,					"AnimationSetSubMachineGunLowReady");
+	CreateSet(kAnimationSetSubMachineGunLowReadySealth,				"AnimationSetSubMachineGunLowReadySealth");	
 	CreateSet(kAnimationSetSubMachineGunCrouched,					"AnimationSetSubMachineGunCrouched");
 	CreateSet(kAnimationSetSubMachineGunLowReadyCrouched,			"AnimationSetSubMachineGunLowReadyCrouched");
 	CreateSet(kAnimationSetSubMachineGunExtremeLowReady,			"AnimationSetSubMachineGunExtremeLowReady");
     CreateSet(kAnimationSetMachinegun,								"AnimationSetMachinegun");
     CreateSet(kAnimationSetMachinegunLowReady,						"AnimationSetMachinegunLowReady");
+    CreateSet(kAnimationSetMachinegunLowReadySealth,				"AnimationSetMachinegunLowReadySealth");
     CreateSet(kAnimationSetMachinegunCrouched,						"AnimationSetMachinegunCrouched");
     CreateSet(kAnimationSetMachinegunLowReadyCrouched,				"AnimationSetMachinegunLowReadyCrouched");
     CreateSet(kAnimationSetMachinegunExtremeLowReady,				"AnimationSetMachinegunExtremeLowReady");
     CreateSet(kAnimationSetShotgun,									"AnimationSetShotgun");
     CreateSet(kAnimationSetShotgunLowReady,							"AnimationSetShotgunLowReady");
+    CreateSet(kAnimationSetShotgunLowReadySealth,					"AnimationSetShotgunLowReadySealth");
     CreateSet(kAnimationSetShotgunCrouched,							"AnimationSetShotgunCrouched");
     CreateSet(kAnimationSetShotgunLowReadyCrouched,					"AnimationSetShotgunLowReadyCrouched");
     CreateSet(kAnimationSetShotgunExtremeLowReady,					"AnimationSetShotgunExtremeLowReady");
@@ -276,21 +292,25 @@ overloaded function Construct()
 
     CreateSet(kAnimationSetPepperSpray,								"AnimationSetPepperSpray");
     CreateSet(kAnimationSetPepperSprayLowReady,						"AnimationSetPepperSprayLowReady");
+    CreateSet(kAnimationSetPepperSprayLowReadySealth,				"AnimationSetPepperSprayLowReadySealth");
     CreateSet(kAnimationSetPepperSprayCrouched,						"AnimationSetPepperSprayCrouched");
     CreateSet(kAnimationSetPepperSprayLowReadyCrouched,				"AnimationSetPepperSprayLowReadyCrouched");
     CreateSet(kAnimationSetPepperSprayExtremeLowReady,				"AnimationSetPepperSprayExtremeLowReady");
     CreateSet(kAnimationSetM4,										"AnimationSetM4");
     CreateSet(kAnimationSetM4LowReady,								"AnimationSetM4LowReady");
+    CreateSet(kAnimationSetM4LowReadySealth,						"AnimationSetM4LowReadySealth");
     CreateSet(kAnimationSetM4Crouched,								"AnimationSetM4Crouched");
     CreateSet(kAnimationSetM4LowReadyCrouched,						"AnimationSetM4LowReadyCrouched");
     CreateSet(kAnimationSetM4ExtremeLowReady,						"AnimationSetM4ExtremeLowReady");
     CreateSet(kAnimationSetUMP,										"AnimationSetUMP");
     CreateSet(kAnimationSetUMPLowReady,								"AnimationSetUMPLowReady");
+    CreateSet(kAnimationSetUMPLowReadySealth,						"AnimationSetUMPLowReadySealth");
     CreateSet(kAnimationSetUMPCrouched,								"AnimationSetUMPCrouched");
     CreateSet(kAnimationSetUMPLowReadyCrouched,						"AnimationSetUMPLowReadyCrouched");
     CreateSet(kAnimationSetUMPExtremeLowReady,						"AnimationSetUMPExtremeLowReady");
 	CreateSet(kAnimationSetP90,										"AnimationSetP90");
     CreateSet(kAnimationSetP90LowReady,								"AnimationSetP90LowReady");
+    CreateSet(kAnimationSetP90LowReadySealth,						"AnimationSetP90LowReadySealth");
     CreateSet(kAnimationSetP90Crouched,								"AnimationSetP90Crouched");
     CreateSet(kAnimationSetP90LowReadyCrouched,						"AnimationSetP90LowReadyCrouched");
     CreateSet(kAnimationSetP90ExtremeLowReady,						"AnimationSetP90ExtremeLowReady");
@@ -301,6 +321,7 @@ overloaded function Construct()
     CreateSet(kAnimationSetOptiwandExtremeLowReady,				    "AnimationSetOptiwandExtremeLowReady");
     CreateSet(kAnimationSetPaintball,								"AnimationSetPaintball");
     CreateSet(kAnimationSetPaintballLowReady,						"AnimationSetPaintballLowReady");
+    CreateSet(kAnimationSetPaintballLowReadySealth,					"AnimationSetPaintballLowReadySealth");
     CreateSet(kAnimationSetPaintballCrouched,						"AnimationSetPaintballCrouched");
     CreateSet(kAnimationSetPaintballLowReadyCrouched,				"AnimationSetPaintballLowReadyCrouched");
     CreateSet(kAnimationSetPaintballExtremeLowReady,				"AnimationSetPaintballExtremeLowReady");
@@ -336,6 +357,9 @@ overloaded function Construct()
 	
 	//ram
 	CreateSet(kAnimationSetRam,									"AnimationSetRam");
+	
+	//KillSelf
+	CreateSet(kAnimationSetKillSelf,									"AnimationSetKillSelf");
 	
 	//cuffed floor
 	CreateSet(kAnimationSetCuffedFloor,									"AnimationSetCuffedFloor");
