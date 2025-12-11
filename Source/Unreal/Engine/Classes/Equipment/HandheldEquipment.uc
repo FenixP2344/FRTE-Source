@@ -45,6 +45,7 @@ enum EquipmentSlot
 	Slot_AmmoBandolier,     //15
 	Slot_Maglite,           //16
     Slot_Bandage,           //17
+    Slot_Ninebang,          //18
 	kNumEquipmentSlots,
 };
 
@@ -1469,13 +1470,13 @@ simulated function float GetIronSightAnimationProgress()
 }
 simulated function SetIronSightAnimationProgress(float value) { }
 
-simulated function array<vector> GetAnimationSplinePoints()
+simulated function vector GetHandsOffsetLastFrame()
 {
-	local array<vector> AnimationSplinePoints;
+	local vector Offset;
 
-	return AnimationSplinePoints;
+	return Offset;
 }
-simulated function AddAnimationSplinePoint(vector value) { }
+simulated function SetHandsOffsetLastFrame(vector value) { }
 
 event Destroyed()
 {

@@ -965,4 +965,5 @@ defaultproperties
     SlotNames(14)="Lightstick"
 	SlotNames(16)="Maglite"
     SlotNames(17)="Field Dress"
+    SlotNames(18)="Ninebang Grenade"
 }

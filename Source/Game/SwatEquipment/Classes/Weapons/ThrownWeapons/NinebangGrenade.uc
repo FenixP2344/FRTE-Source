@@ -2,6 +2,6 @@ class NinebangGrenade extends GrenadeWeapon;
 
 defaultproperties
 {
-    Slot=Slot_Flashbang
+    Slot=SLOT_Ninebang
     ProjectileClass=class'SwatEquipment.NinebangGrenadeProjectile'
 }
