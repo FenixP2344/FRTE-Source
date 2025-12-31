@@ -20,13 +20,13 @@ Description=No civilians injured
 Description=No officers down
 
 [Procedure_PlayerUninjured]
-Description=Player uninjured
+Description=Player uninjured (Additional)
 
 [Procedure_ReportCharactersToTOC]
 Description=Report status to TOC
 
 [Procedure_SecureAllWeapons]
-Description=All evidence secured
+Description=All evidence secured (Additional)
 
 [Procedure_EvacuateDownedOfficers]
 Description=Failed to report a downed officer

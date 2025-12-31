@@ -165,10 +165,10 @@ Caption=Grenade
 Caption=Grenade
 
 [SwatSPLoadoutPanel_equip4label]
-Caption=Tactical
+Caption=Breaching
 
 [SwatSPLoadoutPanel_equip5label]
-Caption=Misc
+Caption=Tactical
 
 [SwatSPLoadoutPanel_equip6label]
 Caption=Support
@@ -2471,10 +2471,10 @@ Caption=PROTECTION
 Caption=Support
 
 [SwatMPLoadoutPanel_2_TabPanel_equip5buttonlabel]
-Caption=Misc
+Caption=Tactical
 
 [SwatMPLoadoutPanel_2_TabPanel_equip4buttonlabel]
-Caption=Tactical
+Caption=Breaching
 
 [SwatMPLoadoutPanel_2_TabPanel_equip3buttonlabel]
 Caption=Grenade
@@ -5508,7 +5508,7 @@ TimeLineShortDescription=("Arranged meeting","Lost contact","Ransom demand","SWA
 TimeLineLongDescription=(" - Arranged meeting: Betincourt and Adams meet at the hotel construction site."," - Kevin Halskey, Betincourt's chauffeur, attempts to contact Betincourt via cellphone and fails."," - Charles Betincourt, owner and CEO of Betincourt Investments, contacted with a demand for 12 million dollars by midnight.  Failure to comply will result in the death of the hostages. Dispatch notified; emergency services notified.  SWAT responds."," - SWAT arrives. Containment perimeter and high ground put in place."," - CNT makes contact with the suspects.  Demand for 12 milllion dollars repeated, along with midnight deadline.  Additional 10 million dollars to be added to ransom for every hour after 21:00 it is late. CNT continues negotiations."," - Suspects make another demand, that their ''New American Manifesto'' be published in a national newspaper. CNT requests release of a hostage in exchange; suspects refuse."," - CNT reports that suspects appear to still be confident of getting their demands met.  CNT says that no further progress can be expected through negotiations."," - Decision made to go tactical. Entry team assembled.")
 LoadingText=1700 West 7th Ave., Old Granite Hotel
 
-[SP-DNA]
+[SP-DNAFRTE]
 PrimarySpawnPoint=Front Door
 SecondarySpawnPoint=Service Entrance
 CampaignObjectiveEnemySpawn=("Jean Trouffant")
@@ -5926,7 +5926,7 @@ TimeLineShortDescription=("Arranged meeting","Lost contact","Ransom demand","SWA
 TimeLineLongDescription=(" - Arranged meeting: Betincourt and Adams meet at the hotel construction site."," - Kevin Halskey, Betincourt's chauffeur, attempts to contact Betincourt via cellphone and fails."," - Charles Betincourt, owner and CEO of Betincourt Investments, contacted with a demand for 12 million dollars by midnight.  Failure to comply will result in the death of the hostages. Dispatch notified; emergency services notified.  SWAT responds."," - SWAT arrives. Containment perimeter and high ground put in place."," - CNT makes contact with the suspects.  Demand for 12 milllion dollars repeated, along with midnight deadline.  Additional 10 million dollars to be added to ransom for every hour after 21:00 it is late. CNT continues negotiations."," - Suspects make another demand, that their ''New American Manifesto'' be published in a national newspaper. CNT requests release of a hostage in exchange; suspects refuse."," - CNT reports that suspects appear to still be confident of getting their demands met.  CNT says that no further progress can be expected through negotiations."," - Decision made to go tactical. Entry team assembled.")
 LoadingText=1700 West 7th Ave., Old Granite Hotel
 
-[SP-DNAClassic]
+[SP-DNA]
 PrimarySpawnPoint=Front Door
 SecondarySpawnPoint=Service Entrance
 CampaignObjectiveEnemySpawn=("Jean Trouffant")
@@ -6127,6 +6127,15 @@ Description=Neutralize Lian Niu
 
 [Neutralize_Jimenez]
 Description=Neutralize Alex Jimenez
+
+[Secure_Brochure]
+Description=Secure the Brochure
+
+[Arrest_Garland]
+Description=Arrest Owen Garland
+
+[Rescue_FBI]
+Description=Located and confirm Owen Garland
 
 [Secure_Briefcase]
 Description=Secure the briefcase

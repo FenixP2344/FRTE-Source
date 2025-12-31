@@ -11,6 +11,11 @@ FriendlyName=No Ammo
 Description=Choose this option to pack no equipment in this slot. This option is good for when you need to reduce your weight and/or bulk.
 FriendlyName=None
 
+[Melee]
+Description=So you forgot to bring your weapon? It's okay, fighting is a necessary skill for a qualified SWAT team member
+FriendlyName=Empty Hands
+ShortName=Empty Hands
+
 [Arwen37GL]
 Description=The ARWEN 37 (ARWEN being short for "Anti-Riot Weapon ENfield") was designed by request of the British Military for a capable riot control weapon. It certainly meets that criteria - boasting a five-round rotary drum and tactical flashlight, the ARWEN 37 is a solid choice in delivering ordinance. The weapon is heavier than the HK69 however, and is only designed to be used by a grenadier's role.
 FriendlyName=ARWEN 37
@@ -83,7 +88,7 @@ ShortName=HS2000
 Manufacturer=HS Produkt
 Caliber=.45 ACP
 CountryOfOrigin=Croatia
-ProductionStart=2000
+ProductionStart=2008
 FireModes=Semi-Automatic
 MagazineSizeString=15
 TotalAmmoString=4 magazine
@@ -102,6 +107,31 @@ MagazineSizeString=13
 TotalAmmoString=4 magazine
 RateOfFire=240 RPM
 
+[Pistol54HG]
+Description=The Type 54 7.62mm pistol is a short firearm developed independently by China, which was standardized and put into production in 1954 for military deployment. It is a self-defense weapon designed for close-range engagements, and it is a replica of the Soviet TT 1930/1933 pistol. The pistol is characterized by its compact size, light weight, ease of carrying, minimal constraints from terrain, and quick response capabilities, making it suitable for sudden attacks on enemies in confined spaces. It is an ideal personal defense combat weapon for frontline commanders and special forces.
+FriendlyName=TYPE 54
+ShortName=TYPE 54
+Manufacturer=Norinco
+Caliber=7.62 x 25
+CountryOfOrigin=China
+ProductionStart=1954
+FireModes=Semi-Automatic
+MagazineSizeString=8
+TotalAmmoString=4 magazine
+RateOfFire=420 RPM
+
+[Pistol64HG]
+Description=The Type 64 7.62mm pistol was standardized in 1964, with design references from the German PPK pistol and incorporating elements from the Soviet Makarov pistol. It began mass production in 1980. This pistol is widely used as a self-defense weapon by the People's Liberation Army of China as well as public security, armed police, judiciary, and security sectors. Its popularity is attributed to its compact and lightweight design, ease of concealment, simple maintenance, reliable shooting performance, and high accuracy.
+FriendlyName=TYPE 64
+ShortName=TYPE 64
+Manufacturer=Norinco
+CountryOfOrigin=China
+ProductionStart=1964
+FireModes=Semi-Automatic
+MagazineSizeString=7
+TotalAmmoString=4 magazine
+RateOfFire=310 RPM
+
 [MK23HGShield]
 Description=In 1989, according to the requirements of the US Special Forces Command (USSOCOM), the MK23Mod0 was designated as an "offensive" pistol. The military version of this weapon is already included in the "MK23USSOCOM" plan. At the end of 1991, according to the requirements of USSOCOM, it was submitted to USSOCOM for bidding with Colt's OHWS, and ultimately defeated Colt's OHWS. After a few modifications, it became the current MK23Mod0. The first batch of MK23Mod0 was shipped to USSOCOM on May 1, 1996 after production was completed. In the same year, Heckler Koch commercialized the MK23 and its accessories.
 FriendlyName=MK23 SOCOM
@@ -119,6 +149,32 @@ RateOfFire=240 RPM
 Description=the USP (Universelle Selbstladepistole) is a semi-automatic pistol developed in Germany by Heckler & Koch GmbH (H&K) of Oberndorf am Neckar as a replacement for the P7 series of handguns.
 FriendlyName=HK USP45 Tactical
 ShortName=HK.USP45
+Manufacturer=Heckler & Koch
+Caliber=.45 ACP
+CountryOfOrigin=Germany
+ProductionStart=1995
+FireModes=Semi-Automatic
+MagazineSizeString=12
+TotalAmmoString=4 magazine
+RateOfFire=360 RPM
+
+[MK23sdHG]
+Description=In 1989, according to the requirements of the US Special Forces Command (USSOCOM), the MK23Mod0 was designated as an "offensive" pistol. The military version of this weapon is already included in the "MK23USSOCOM" plan. At the end of 1991, according to the requirements of USSOCOM, it was submitted to USSOCOM for bidding with Colt's OHWS, and ultimately defeated Colt's OHWS. After a few modifications, it became the current MK23Mod0. The first batch of MK23Mod0 was shipped to USSOCOM on May 1, 1996 after production was completed. In the same year, Heckler Koch commercialized the MK23 and its accessories.
+FriendlyName=Suppressed MK23 SOCOM
+ShortName=Sup. MK23
+Manufacturer=Heckler & Koch
+Caliber=.45 ACP
+CountryOfOrigin=Germany
+ProductionStart=1989
+FireModes=Semi-Automatic
+MagazineSizeString=13
+TotalAmmoString=4 magazine
+RateOfFire=240 RPM
+
+[USP45sdHG]
+Description=the USP (Universelle Selbstladepistole) is a semi-automatic pistol developed in Germany by Heckler & Koch GmbH (H&K) of Oberndorf am Neckar as a replacement for the P7 series of handguns.
+FriendlyName=Suppressed HK USP45 Tactical
+ShortName=Sup. HK.USP45
 Manufacturer=Heckler & Koch
 Caliber=.45 ACP
 CountryOfOrigin=Germany
@@ -259,6 +315,31 @@ MagazineSizeString=15
 TotalAmmoString=4 magazine
 RateOfFire=390 RPM
 
+[P320HG]
+Description=The SIG Sauer P320 is a semi-automatic pistol developed based on the P250, serving as a derivative model. The P320 primarily inherits the frame of the P250, including its modular trigger mechanism design, but features a completely redesigned slide. This is because the P320 replaces the rotating hammer with a sliding striker. The firing mechanism operates similarly to the semi-double-action mode of Glock pistols, where the striker is pre-compressed halfway during the ready position but does not fully engage. When the trigger is pulled, it completes the compression and releases the striker. As a result, like most SIG pistols, the P320 lacks a manual safety but includes an automatic striker safety, which only releases the striker when the trigger is fully pulled to reduce accidental discharges.
+FriendlyName=P320 M18
+ShortName=P320 M18
+Manufacturer=SIG Sauer
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=2014
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[P320RHG]
+Description=The SIG Sauer P320 is a semi-automatic pistol developed based on the P250, serving as a derivative model. The P320 primarily inherits the frame of the P250, including its modular trigger mechanism design, but features a completely redesigned slide. This is because the P320 replaces the rotating hammer with a sliding striker. The firing mechanism operates similarly to the semi-double-action mode of Glock pistols, where the striker is pre-compressed halfway during the ready position but does not fully engage. When the trigger is pulled, it completes the compression and releases the striker. As a result, like most SIG pistols, the P320 lacks a manual safety but includes an automatic striker safety, which only releases the striker when the trigger is fully pulled to reduce accidental discharges.
+FriendlyName=P320 M18 Reflex Reddot
+ShortName=P320 M18 Reflex
+Manufacturer=SIG Sauer
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=2014
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
 
 [Beretta92fsShield]
 Description=The Beretta 92 is a series of semi-automatic pistols designed and manufactured by Beretta of Italy. The Beretta 92 was designed in 1975, and production began in 1976. Many variants in several different calibers continue to be used to the present.The United States military replaced the M1911A1 .45 ACP pistol in 1985 with the Beretta 92FS, designated as the M9.
@@ -281,6 +362,19 @@ Manufacturer=SIG Sauer
 Caliber=9x19mm
 CountryOfOrigin=Germany
 ProductionStart=1984
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[P320HGShield]
+Description=The SIG Sauer P320 is a semi-automatic pistol developed based on the P250, serving as a derivative model. The P320 primarily inherits the frame of the P250, including its modular trigger mechanism design, but features a completely redesigned slide. This is because the P320 replaces the rotating hammer with a sliding striker. The firing mechanism operates similarly to the semi-double-action mode of Glock pistols, where the striker is pre-compressed halfway during the ready position but does not fully engage. When the trigger is pulled, it completes the compression and releases the striker. As a result, like most SIG pistols, the P320 lacks a manual safety but includes an automatic striker safety, which only releases the striker when the trigger is fully pulled to reduce accidental discharges.
+FriendlyName=P320 + Shield
+ShortName=P320 + Shield
+Manufacturer=SIG Sauer
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=2014
 FireModes=Semi-Automatic
 MagazineSizeString=15
 TotalAmmoString=4 magazine
@@ -416,10 +510,10 @@ MagazineSizeString=30
 TotalAmmoString=6 magazine
 RateOfFire=700 RPM
 
-[SG553HoloMG]
+[SG553AcogMG]
 Description=The SG 553 is an improved version of the SG 552 and was released in 2008. Even though it mostly resembles the SG 552, the SG 553 has one key advantage, the recoil spring is now wrapped around the piston rod like in the SG 550/551 models, which address several reliability issues encountered in the SG 552 and also allows the usage of the standard SG 550/551 charging handle. The SG 553 series rifles have a 339 mm (13.3 in) long sight radius. A long barrel version of the SG 553 known as the SG 553 LB incorporates a 347 mm (13.7 in) barrel with provision to fire rifle grenades and support a bayonet.
-FriendlyName=SG 553 with Eotech
-ShortName=SG 553 with Eotech
+FriendlyName=SG 553 with ACOG
+ShortName=SG 553 with ACOG
 Manufacturer=Sig Sauer
 Caliber=5.56x45mm
 CountryOfOrigin=Switzerland
@@ -429,10 +523,10 @@ MagazineSizeString=30
 TotalAmmoString=6 magazine
 RateOfFire=700 RPM
 
-[SG553sdHoloMG]
+[SG553sdAcogMG]
 Description=The SG 553 is an improved version of the SG 552 and was released in 2008. Even though it mostly resembles the SG 552, the SG 553 has one key advantage, the recoil spring is now wrapped around the piston rod like in the SG 550/551 models, which address several reliability issues encountered in the SG 552 and also allows the usage of the standard SG 550/551 charging handle. The SG 553 series rifles have a 339 mm (13.3 in) long sight radius. A long barrel version of the SG 553 known as the SG 553 LB incorporates a 347 mm (13.7 in) barrel with provision to fire rifle grenades and support a bayonet..
-FriendlyName=Suppressed SG 553 with Eotech
-ShortName=Sup. SG 553 with Eotech
+FriendlyName=Suppressed SG 553 with ACOG
+ShortName=Sup. SG 553 with ACOG
 Manufacturer=Sig Sauer
 Caliber=5.56x45mm
 CountryOfOrigin=Switzerland
@@ -597,6 +691,58 @@ FireModes=Semi-Automatic, Full Auto
 MagazineSizeString=30
 TotalAmmoString=6 magazine
 RateOfFire=700 RPM
+
+[MP5FBISMG]
+Description=The 10mm caliber MP5 submachine gun (abbreviated as MP5/10mm) was developed and produced by HK company in 1991 in accordance with the requirements of the FBI in the United States. The handguns equipped by the FBI mainly use 10mm AUTO bullets, and they feel that the existing submachine guns that fire 9mm bullets are not powerful enough. For logistical supply and combat effectiveness considerations, the FBI proposes to equip their HRT (hostage rescue team) and other special forces with 10mm AUTO caliber submachine guns. So, HK company improved on the original 9mm caliber MP5 and developed the MP5/10 submachine gun that fires 10mm AUTO bullets. In addition to the FBI, many cities, states, federal and other law enforcement agencies in the United States have also adopted it.
+FriendlyName=H&K MP5/10mm
+ShortName=MP5/10mm
+Manufacturer=Heckler & Koch
+Caliber=10x25mm
+CountryOfOrigin=Germany
+ProductionStart=1991
+FireModes=Semi-Automatic, 2-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MP5FBIHoloSMG]
+Description=The 10mm caliber MP5 submachine gun (abbreviated as MP5/10mm) was developed and produced by HK company in 1991 in accordance with the requirements of the FBI in the United States. The handguns equipped by the FBI mainly use 10mm AUTO bullets, and they feel that the existing submachine guns that fire 9mm bullets are not powerful enough. For logistical supply and combat effectiveness considerations, the FBI proposes to equip their HRT (hostage rescue team) and other special forces with 10mm AUTO caliber submachine guns. So, HK company improved on the original 9mm caliber MP5 and developed the MP5/10 submachine gun that fires 10mm AUTO bullets. In addition to the FBI, many cities, states, federal and other law enforcement agencies in the United States have also adopted it.
+FriendlyName=H&K MP5/10mm With Eotech
+ShortName=MP5/10mm With Eotech
+Manufacturer=Heckler & Koch
+Caliber=10x25mm
+CountryOfOrigin=Germany
+ProductionStart=1991
+FireModes=Semi-Automatic, 2-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MP5FBIsdSMG]
+Description=The 10mm caliber MP5 submachine gun (abbreviated as MP5/10mm) was developed and produced by HK company in 1991 in accordance with the requirements of the FBI in the United States. The handguns equipped by the FBI mainly use 10mm AUTO bullets, and they feel that the existing submachine guns that fire 9mm bullets are not powerful enough. For logistical supply and combat effectiveness considerations, the FBI proposes to equip their HRT (hostage rescue team) and other special forces with 10mm AUTO caliber submachine guns. So, HK company improved on the original 9mm caliber MP5 and developed the MP5/10 submachine gun that fires 10mm AUTO bullets. In addition to the FBI, many cities, states, federal and other law enforcement agencies in the United States have also adopted it.
+FriendlyName=H&K MP5/10mm Suppressed
+ShortName=Sup. MP5/10mm
+Manufacturer=Heckler & Koch
+Caliber=10x25mm
+CountryOfOrigin=Germany
+ProductionStart=1991
+FireModes=Semi-Automatic, 2-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MP5FBIsdHoloSMG]
+Description=The 10mm caliber MP5 submachine gun (abbreviated as MP5/10mm) was developed and produced by HK company in 1991 in accordance with the requirements of the FBI in the United States. The handguns equipped by the FBI mainly use 10mm AUTO bullets, and they feel that the existing submachine guns that fire 9mm bullets are not powerful enough. For logistical supply and combat effectiveness considerations, the FBI proposes to equip their HRT (hostage rescue team) and other special forces with 10mm AUTO caliber submachine guns. So, HK company improved on the original 9mm caliber MP5 and developed the MP5/10 submachine gun that fires 10mm AUTO bullets. In addition to the FBI, many cities, states, federal and other law enforcement agencies in the United States have also adopted it.
+FriendlyName=H&K MP5/10mm Suppressed with Eotech
+ShortName=Sup. MP5/10mm with Eotech
+Manufacturer=Heckler & Koch
+Caliber=10x25mm
+CountryOfOrigin=Germany
+ProductionStart=1991
+FireModes=Semi-Automatic, 2-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
 
 [MP5SSDSMG]
 Description=The MP5SD6 is a variant of the MP5 equipped with an integrated suppressor and collapsible stock. It is very popular among covert-ops forces and is deployed in stealth operations around the globe. This weapon is chambered in 9x19mm Parabellum rounds.
@@ -1587,10 +1733,10 @@ MagazineSizeString=30
 TotalAmmoString=6 magazine
 RateOfFire=800 RPM
 
-[SOP276MG]
-Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=M4 SOPMOD2 76 Custom
-ShortName=M4 SOPMOD2-76
+[SOP2MG]
+Description=The SOPMOD M4 Block1 system includes modular components such as RIS rail handguard, detachable suppressor, grenade launcher, and various optical sights, mainly equipped for special forces such as the Navy SEALs. The second generation (SOPMOD II) entered the research and development stage in the 2000s, integrating new rail systems such as URX II and SIR, and expanding functions such as night aiming and universal suppressor. Some components were applied to SCAR rifles. The main difference between this system and the standard M4/M4A1 is the slanted cut design of the QD flame arrester, which facilitates quick installation of the muffler.
+FriendlyName=M4 SOPMOD2
+ShortName=M4 SOPMOD2
 Manufacturer=Colt
 Caliber=5.56x45mm NATO
 CountryOfOrigin=United States
@@ -1600,20 +1746,48 @@ MagazineSizeString=30
 TotalAmmoString=6 magazine
 RateOfFire=700 RPM
 
-[SOP2Holo76MG]
-Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=M4 SOPMOD2 with Eotech Sight 76 Custom
-ShortName=M4 SOPMOD2 Holo-76
+[SOP2HoloMG]
+Description=The SOPMOD M4 Block1 system includes modular components such as RIS rail handguard, detachable suppressor, grenade launcher, and various optical sights, mainly equipped for special forces such as the Navy SEALs. The second generation (SOPMOD II) entered the research and development stage in the 2000s, integrating new rail systems such as URX II and SIR, and expanding functions such as night aiming and universal suppressor. Some components were applied to SCAR rifles. The main difference between this system and the standard M4/M4A1 is the slanted cut design of the QD flame arrester, which facilitates quick installation of the muffler.
+FriendlyName=M4 SOPMOD2 with Eotech Sight
+ShortName=M4 SOPMOD2 Holo
 
-[SOP2sd76MG]
-Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=Suppressed M4 SOPMOD2 76 Custom
-ShortName=Sup. M4 SOPMOD2-76
+[SOP2sdMG]
+Description=The SOPMOD M4 Block1 system includes modular components such as RIS rail handguard, detachable suppressor, grenade launcher, and various optical sights, mainly equipped for special forces such as the Navy SEALs. The second generation (SOPMOD II) entered the research and development stage in the 2000s, integrating new rail systems such as URX II and SIR, and expanding functions such as night aiming and universal suppressor. Some components were applied to SCAR rifles. The main difference between this system and the standard M4/M4A1 is the slanted cut design of the QD flame arrester, which facilitates quick installation of the muffler.
+FriendlyName=Suppressed M4 SOPMOD2
+ShortName=Sup. M4 SOPMOD2
 
-[SOP2Holosd76MG]
-Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=Suppressed M4 SOPMOD2 with Eotech Sight 76 Custom
-ShortName=Sup. M4 SOPMOD2 Holo-76
+[SOP2HolosdMG]
+Description=The SOPMOD M4 Block1 system includes modular components such as RIS rail handguard, detachable suppressor, grenade launcher, and various optical sights, mainly equipped for special forces such as the Navy SEALs. The second generation (SOPMOD II) entered the research and development stage in the 2000s, integrating new rail systems such as URX II and SIR, and expanding functions such as night aiming and universal suppressor. Some components were applied to SCAR rifles. The main difference between this system and the standard M4/M4A1 is the slanted cut design of the QD flame arrester, which facilitates quick installation of the muffler.
+FriendlyName=Suppressed M4 SOPMOD2 with Eotech Sight
+ShortName=Sup. M4 SOPMOD2 Holo
+
+[HK41676MG]
+Description=This equipment is a reward item from CN SWAT CLUB and also represents personal honor.
+FriendlyName=HK416 Assault Rifle 76 Custom
+ShortName=HK416-76
+Manufacturer=Heckler & Koch
+Caliber=5.56x45mm NATO
+CountryOfOrigin=Germany
+ProductionStart=2004
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=900 RPM
+
+[HK416Holo76MG]
+Description=This equipment is a reward item from CN SWAT CLUB and also represents personal honor.
+FriendlyName=HK416 Assault Rifle with Eotech Sight 76 Custom
+ShortName=HK416 Holo-76
+
+[HK416sd76MG]
+Description=This equipment is a reward item from CN SWAT CLUB and also represents personal honor.
+FriendlyName=Suppressed HK416 Assault Rifle 76 Custom
+ShortName=Sup. HK416-76
+
+[HK416Holosd76MG]
+Description=This equipment is a reward item from CN SWAT CLUB and also represents personal honor.
+FriendlyName=Suppressed HK416 with Eotech Sight 76 Custom
+ShortName=Sup. HK416 Holo-76
 
 [HK416MikuFansMG]
 Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
@@ -1705,7 +1879,7 @@ Description=The Heckler & Koch HK416 (HK M4) is an assault rifle/carbine designe
 FriendlyName=Suppressed HK416 Assault Rifle 
 ShortName=Sup. HK416
 
-[HK416HolosdMG]
+[HK416sdHoloMG]
 Description=The Heckler & Koch HK416 (HK M4) is an assault rifle/carbine designed and manufactured by Heckler & Koch. It is based on the AR-15 platform, and was originally conceived as an improvement based on the Colt M4 carbine family issued to the U.S. military, with the notable inclusion of an HK-proprietary short-stroke gas piston system derived from the Heckler & Koch G36 assault rifle and a suppressor for when stealth is paramount a suppressor for when stealth is paramount, and an Eotech sight for ease of use against long range targets.
 FriendlyName=Suppressed HK416 with Eotech Sight
 ShortName=Sup. HK416 Holo 
@@ -2176,6 +2350,58 @@ MagazineSizeString=30
 TotalAmmoString=6 magazine
 RateOfFire=650 RPM
 
+[Type81MG]
+Description=The Type 81 was developed in 1979, designed and finalized in 1981, and officially put into mass production in 1983. The development goal is to replace the Type 56 semi-automatic rifle, Type 56 submachine gun, and Type 56 light machine gun currently being equipped with a squad of guns, but still using Type 56 7.62mm ammunition. Due to the official decision in 1978 to adopt a 5.8mm caliber small caliber automatic rifle in the future, the purpose of developing the Type 81 rifle family was to provide a transitional weapon before equipping small caliber rifles. But through practical experience, it has been proven that the Type 81 gun family is a high-performance weapon with good accuracy, reliable action, and easy operation and maintenance.
+FriendlyName=Type 81-1
+ShortName=Type 81-1
+Manufacturer=CSGC 208
+Caliber=7.62x39mm
+CountryOfOrigin=China
+ProductionStart=1979
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=650 RPM
+
+[Type81zMG]
+Description=The Type 81 was developed in 1979, designed and finalized in 1981, and officially put into mass production in 1983. The development goal is to replace the Type 56 semi-automatic rifle, Type 56 submachine gun, and Type 56 light machine gun currently being equipped with a squad of guns, but still using Type 56 7.62mm ammunition. Due to the official decision in 1978 to adopt a 5.8mm caliber small caliber automatic rifle in the future, the purpose of developing the Type 81 rifle family was to provide a transitional weapon before equipping small caliber rifles. But through practical experience, it has been proven that the Type 81 gun family is a high-performance weapon with good accuracy, reliable action, and easy operation and maintenance.
+FriendlyName=Type 81-1 Zenitco Tactical
+ShortName=Type 81-1 Zenitco
+Manufacturer=CSGC 208
+Caliber=7.62x39mm
+CountryOfOrigin=China
+ProductionStart=1979
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=650 RPM
+
+[Type81zsdMG]
+Description=The Type 81 was developed in 1979, designed and finalized in 1981, and officially put into mass production in 1983. The development goal is to replace the Type 56 semi-automatic rifle, Type 56 submachine gun, and Type 56 light machine gun currently being equipped with a squad of guns, but still using Type 56 7.62mm ammunition. Due to the official decision in 1978 to adopt a 5.8mm caliber small caliber automatic rifle in the future, the purpose of developing the Type 81 rifle family was to provide a transitional weapon before equipping small caliber rifles. But through practical experience, it has been proven that the Type 81 gun family is a high-performance weapon with good accuracy, reliable action, and easy operation and maintenance.
+FriendlyName=Suppressed  Type 81-1 Zenitco Tactical
+ShortName=Sup.Type 81-1 Zenitco
+Manufacturer=CSGC 208
+Caliber=7.62x39mm
+CountryOfOrigin=China
+ProductionStart=1979
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=650 RPM
+
+[t79SMG]
+Description=The Type 79 submachine gun uses Type 51 7.62mm pistol cartridges. This gun can perform single and continuous firing when the stock is folded and unfolded, with good shooting accuracy. In terms of portability and mobility, the 79 light charge is convenient for use on vehicles or narrow terrain, providing convenient conditions for the china police, PAP and china swat to carry out combat missions. The magazine has a capacity of 20 rounds, the gun weighs 1.9 kilograms, and the gun length (stock folded) is 470 millimeters.
+FriendlyName=Type-79
+ShortName=Type-79
+Manufacturer=CSGC 208
+Caliber=7.62-Type51
+CountryOfOrigin=China
+ProductionStart=1979
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=20
+TotalAmmoString=6 magazine
+RateOfFire=1000 RPM
+
 [ASVALMG]
 Description=The AS Val Special Assault Rifle (corresponding to the Russian letters A, C, and B, A, C) was developed by a research team led by P. Serdjukov of the Central Institute of Precision Mechanical Engineering (TSNIITochMash) in the late 1980s. The AS is an abbreviation of Avtomat Spetsialnij, also known as the "Special Assault Rifle". The AS' VAL 'Micro Sound Assault Rifle is a micro sound assault rifle designed by the Central Precision Machinery Design Bureau of the former Soviet Union for special forces, capable of firing 9 x 39mm subsonic rounds.
 FriendlyName=AS-VAL
@@ -2282,34 +2508,8 @@ RateOfFire=600 RPM
 
 [AK74HMG]
 Description=The Kalashnikov AKM was designed in the Soviet Union in 1957 by Mikhail Kalashnikov. It was officially accepted by the Soviet army in 1959, but has since been replaced by the AK-74.  It has remained in service in many third world armies as well as terrorist organizations around the world due to its dependability and the ease at which it can be maintained.  It has a slower rate of fire and lower muzzle velocity than the Colt M4A1, but uses a higher caliber bullet which makes it comparable to its American counterpart at short ranges.
-FriendlyName=AK74M with Aimpoint Sight
-ShortName=AK74M Aim.
-Manufacturer=Kalashnikov
-Caliber=5.45x39mm
-CountryOfOrigin=Russian
-ProductionStart=1987
-FireModes=Semi-Automatic, Full-Auto
-MagazineSizeString=30
-TotalAmmoString=6 magazine
-RateOfFire=650 RPM
-
-[AK74sdMG]
-Description=The Kalashnikov AKM was designed in the Soviet Union in 1957 by Mikhail Kalashnikov. It was officially accepted by the Soviet army in 1959, but has since been replaced by the AK-74.  It has remained in service in many third world armies as well as terrorist organizations around the world due to its dependability and the ease at which it can be maintained.  It has a slower rate of fire and lower muzzle velocity than the Colt M4A1, but uses a higher caliber bullet which makes it comparable to its American counterpart at short ranges.
-FriendlyName=Suppressed AK74M 
-ShortName=Sup. AK74M
-Manufacturer=Kalashnikov
-Caliber=5.45x39mm
-CountryOfOrigin=Russian
-ProductionStart=1987
-FireModes=Semi-Automatic, Full-Auto
-MagazineSizeString=30
-TotalAmmoString=6 magazine
-RateOfFire=650 RPM
-
-[AK74HsdMG]
-Description=The Kalashnikov AKM was designed in the Soviet Union in 1957 by Mikhail Kalashnikov. It was officially accepted by the Soviet army in 1959, but has since been replaced by the AK-74.  It has remained in service in many third world armies as well as terrorist organizations around the world due to its dependability and the ease at which it can be maintained.  It has a slower rate of fire and lower muzzle velocity than the Colt M4A1, but uses a higher caliber bullet which makes it comparable to its American counterpart at short ranges.
-FriendlyName=Suppressed AK74M with Aimpoint Sight
-ShortName=Sup. AK74M Aim.
+FriendlyName=AK74M with OKP-7 Sight
+ShortName=AK74M OKP-7.
 Manufacturer=Kalashnikov
 Caliber=5.45x39mm
 CountryOfOrigin=Russian
@@ -2448,7 +2648,7 @@ GivenName=Door Wedge
 
 [Wedge3pack]
 Description=This pack of three door wedges contains three times as many wedges, but occupies five times as much space and weight.
-FriendlyName=Wedge 3-Pack
+FriendlyName=Wedge 6-Pack
 GivenName=Door Wedge
 
 [Optiwand]
@@ -2539,9 +2739,9 @@ ShortName=Flashbang (x4)
 GivenName=Flashbang
 
 [Ninebang3pack]
-Description=This 2-pack of flashbangs contains three times as many flashbangs, but occupies five times as much space and weight.
-FriendlyName=Ninebang (x2)
-ShortName=Ninebang (x2)
+Description=This 3-pack of flashbangs contains three times as many flashbangs, but occupies five times as much space and weight.
+FriendlyName=Ninebang (x3)
+ShortName=Ninebang (x3)
 GivenName=Ninebang
 
 [Ninebang6pack]
@@ -2560,6 +2760,18 @@ CountryOfOrigin=United States
 ProductionStart=1950
 FireModes=Pump-Action
 TotalAmmoString=50 shells
+RateOfFire=150 RPM
+
+[SuperShortSG]
+Description=The SUPER-SHORTY shotgun was designed by Mark Serbu, the manager of Serbu Firearms Inc. This short and thick shotgun is not entirely produced by Shelby Company, but is modified from Mossberg 500 and Remington 870. In fact, there are many gunsmiths who modify shortened shotguns, but Shelby Company operates this type of shotgun as an official product. However, in the United States, due to the restrictions of the 1934 Firearms Act, the SUPER-SHORTY with an ultra short barrel is classified as an AOW (Any Other Weapon) weapon. Civilian purchases require prior approval and a stamp duty of $5 to be paid to the ATF.
+FriendlyName=SUPER-SHORTY Breaching
+ShortName=SUPER-SHORTY Breaching
+Manufacturer=Unknown
+Caliber=12 Gauge
+CountryOfOrigin=United States
+ProductionStart=1998
+FireModes=Pump-Action
+TotalAmmoString=8 shells
 RateOfFire=150 RPM
 
 [BatteringRam]
@@ -2729,7 +2941,7 @@ ShortName=HS2000
 Manufacturer=HS Produkt
 Caliber=.45 ACP
 CountryOfOrigin=Croatia
-ProductionStart=2000
+ProductionStart=2008
 FireModes=Semi-Automatic
 MagazineSizeString=15
 TotalAmmoString=4 magazine
