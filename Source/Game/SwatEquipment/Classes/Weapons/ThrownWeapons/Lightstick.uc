@@ -10,6 +10,8 @@ var config name FastThrowAnimation;
 
 var config class<LightstickProjectile> RedLightstickClass;
 var config class<LightstickProjectile> BlueLightstickClass;
+var config Material RedLightstickMaterial;
+var config Material BlueLightstickMaterial; 
 
 ////////////////////////////////////////////////////////////////////
 //
@@ -75,6 +77,11 @@ simulated function OnUsingFinishedHook()
 		if(Owner.IsA('SwatPlayer'))
 		{
 			SwatPlayer(Owner).DoDefaultEquip();
+		}
+
+		if(Level.NetMode != NM_Client && Level.NetMode != NM_Standalone)
+		{
+			ThrowingFast = false;
 		}
 	}
 	else
@@ -221,6 +228,13 @@ simulated function EquipmentSlot GetSlotForReequip()
 	}
 
 	return super.GetSlotForReequip();
+}
+
+simulated function UnequippedHook()
+{
+	mplog("UnequippedHook()");
+	ThrowingFast = false;
+	Super.UnequippedHook();
 }
 
 Replication

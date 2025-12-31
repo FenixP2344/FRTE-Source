@@ -149,6 +149,7 @@ enum eVoiceType
     VOICETYPE_VIP,
     VOICETYPE_ReadyOrNot,
     VOICETYPE_RainbowAgent,
+    VOICETYPE_Ranger,
 };
 
 
@@ -676,6 +677,8 @@ final function Name GetTagForVoiceType( eVoiceType Type )
             return 'OfficerBlueOne';
         case VOICETYPE_OfficerBlueTwo:
             return 'OfficerBlueTwo';
+        case VOICETYPE_Ranger:
+            return 'Ranger';  
     }
     return '';
 }
@@ -759,6 +762,7 @@ defaultproperties
     VoiceTypeChoices(6)="VIP"
     VoiceTypeChoices(7)="ReadyOrNot"
     VoiceTypeChoices(8)="RainbowAgent"
+    VoiceTypeChoices(9)="Ranger"
 
     ExtraIntOptions[3]=0
 }
