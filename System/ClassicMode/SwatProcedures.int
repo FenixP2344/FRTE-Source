@@ -54,8 +54,8 @@ Description=Injured a fellow officer
 ChatMessage=[c=ff8000]Injured Officer (-5)[\c]
 
 [Procedure_NoHostgeInjured]
-Description=Unauthorized use of force
-ChatMessage=[c=ff8000]Unauthorized Force (-5)[\c]
+Description=Injured Hostage
+ChatMessage=[c=ff8000]Injured Hostage (-5)[\c]
 
 [Procedure_NoOfficerTased]
 Description=Tased a officer or an hostage

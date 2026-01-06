@@ -77,7 +77,32 @@ function cleanup()
 		DistanceToOfficersSensor = None;
 	}
 
-	ISwatEnemy(m_Pawn).UnBecomeAThreat(true, 3.0);
+/////Exception to the Difficulty and threat system
+/////This is to prevent high threat suspects from being wrongly subjected to unauthorized use of force -Probe
+
+//////Easy 
+	if(m_Pawn.IsA('SwatEasyClassic') || m_Pawn.IsA('SwatEasyLowThreat') || m_Pawn.IsA('SwatEasyMiddleThreat') || m_Pawn.IsA('SwatEasyGangsterA') || m_Pawn.IsA('SwatEasyGangsterB') || m_Pawn.IsA('SwatEasyMafia'))
+	{
+	ISwatEnemy(m_Pawn).UnBecomeAThreat(true, 3.0f);
+	}
+	
+//////Normal
+	if(m_Pawn.IsA('SwatNormalClassic') || m_Pawn.IsA('SwatNormalLowThreat') || m_Pawn.IsA('SwatNormalMiddleThreat') || m_Pawn.IsA('SwatNormalGangsterA') || m_Pawn.IsA('SwatNormalGangsterB') || m_Pawn.IsA('SwatNormalMafia'))
+	{
+	ISwatEnemy(m_Pawn).UnBecomeAThreat(true, 3.0f);
+	}
+	
+//////Hard
+	if(m_Pawn.IsA('SwatHardClassic') || m_Pawn.IsA('SwatHardLowThreat') || m_Pawn.IsA('SwatHardMiddleThreat') || m_Pawn.IsA('SwatHardGangsterA') || m_Pawn.IsA('SwatHardGangsterB') || m_Pawn.IsA('SwatHardMafia'))
+	{
+	ISwatEnemy(m_Pawn).UnBecomeAThreat(true, 3.0f);
+	}
+
+//////Other ACtorClass
+	if(m_Pawn.IsA('SwatClassic') || m_Pawn.IsA('SwatLowThreat') || m_Pawn.IsA('SwatMiddleThreat') || m_Pawn.IsA('SwatGangsterA') || m_Pawn.IsA('SwatGangsterB') || m_Pawn.IsA('SwatMafia'))
+	{
+	ISwatEnemy(m_Pawn).UnBecomeAThreat(true, 3.0f);
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////

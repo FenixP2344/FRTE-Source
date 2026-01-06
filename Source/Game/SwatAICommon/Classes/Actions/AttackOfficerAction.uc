@@ -88,7 +88,10 @@ function cleanup()
 		CurrentAttackTargetGoal = None;
 	}
 
+	if(m_Pawn.IsA('SwatModeTH'))
+	{
 	ISwatEnemy(m_Pawn).UnBecomeAThreat(true, 3.0f);
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -375,9 +375,13 @@ latent function Flee()
 	local Pawn CurrentEnemy;
 	CurrentEnemy = ISwatEnemy(m_Pawn).GetEnemyCommanderAction().GetCurrentEnemy();
 
+	//Some suspects take weapon flee is threat
+	if(m_Pawn.IsA('SwatMarine') || m_Pawn.IsA('SwatMarineLead') || m_Pawn.IsA('SwatMafia') || m_Pawn.IsA('SwatKnife') || m_Pawn.IsA('SwatMIddleThreat') || m_Pawn.IsA('SwatEasyMIddleThreat') || m_Pawn.IsA('SwatNormalMIddleThreat') || m_Pawn.IsA('SwatHardMIddleThreat') || m_Pawn.IsA('SwatEasyMarine') || m_Pawn.IsA('SwatNormalMarine') || m_Pawn.IsA('SwatHardMarine') || m_Pawn.IsA('SwatEasyMafia') || m_Pawn.IsA('SwatNormalMafia') || m_Pawn.IsA('SwatHardMafia'))
+	{    
 	ISwatEnemy(m_Pawn).UnbecomeAThreat(true, ThreatCooldown);
 	
 	ISwatEnemy(m_Pawn).SetCurrentState(EnemyState_Flee);
+	}
 	
 	// trigger the speech
 	ISwatEnemy(m_Pawn).GetEnemySpeechManagerAction().TriggerFleeSpeech();
