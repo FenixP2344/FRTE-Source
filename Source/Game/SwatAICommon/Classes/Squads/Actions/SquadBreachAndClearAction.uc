@@ -222,20 +222,26 @@ protected function bool CanOfficerBreachWithShotgun(Pawn Officer)
 	local FiredWeapon Weapon;
 
 	Weapon = FiredWeapon(ISwatOfficer(Officer).GetItemAtSlot(SLOT_Breaching));
-	if(Weapon != None && Weapon.IsA('Shotgun') && !Weapon.IsA('BatteringRam') && (!Weapon.NeedsReload() || Weapon.CanReload()))
+	if(Weapon != None && Weapon.IsA('Shotgun') && !Weapon.IsA('BatteringRam') && !Weapon.IsA('SuperShortSG') && (!Weapon.NeedsReload() || Weapon.CanReload()))
+	{
+		return true;
+	}
+	
+	Weapon = FiredWeapon(ISwatOfficer(Officer).GetItemAtSlot(SLOT_Breaching));
+	if(Weapon != None && Weapon.IsA('SuperShortSG') && (!Weapon.NeedsReload() || Weapon.CanReload()))
 	{
 		return true;
 	}
 
 	Weapon = FiredWeapon(ISwatOfficer(Officer).GetItemAtSlot(SLOT_PrimaryWeapon));
-	if(Weapon != None && Weapon.IsA('Shotgun') && !Weapon.IsA('BatteringRam') && (!Weapon.NeedsReload() || Weapon.CanReload()))
+	if(Weapon != None && Weapon.IsA('Shotgun') && !Weapon.IsA('BatteringRam') && !Weapon.IsA('SuperShortSG') && (!Weapon.NeedsReload() || Weapon.CanReload()))
 	{
 		return true;
 	}
 	
 	
 	Weapon = FiredWeapon(ISwatOfficer(Officer).GetItemAtSlot(SLOT_SecondaryWeapon));
-	if(Weapon != None && Weapon.IsA('Shotgun') && !Weapon.IsA('BatteringRam') && (!Weapon.NeedsReload() || Weapon.CanReload()))
+	if(Weapon != None && Weapon.IsA('Shotgun') && !Weapon.IsA('BatteringRam') && !Weapon.IsA('SuperShortSG') && (!Weapon.NeedsReload() || Weapon.CanReload()))
 	{
 		return true;
 	}

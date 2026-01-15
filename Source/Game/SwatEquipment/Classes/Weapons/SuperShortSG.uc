@@ -1,4 +1,4 @@
-class SuperShortSG extends BreachingShotgun config(SwatEquipment);
+class SuperShortSG extends BreachingSG config(SwatEquipment);
 
 defaultproperties
 {

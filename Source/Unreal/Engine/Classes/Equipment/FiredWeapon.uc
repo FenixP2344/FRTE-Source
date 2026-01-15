@@ -472,6 +472,7 @@ simulated function bool WillHitIntendedTarget(Actor Target, bool MomentumMatters
     return false;
 }
 
+// Used by the OfficerAI - whether firing this weapon will not hit SwatHostage/Undercover/Guard
 simulated function bool WillOfficerAvoidBadShot(Actor Target, bool MomentumMatters, vector EndTrace, optional bool IgnoreStaticMeshes)
 {
     local vector PerfectFireStartLocation, HitLocation, StartTrace, ExitLocation, PreviousExitLocation;
@@ -483,6 +484,8 @@ simulated function bool WillOfficerAvoidBadShot(Actor Target, bool MomentumMatte
     local ESkeletalRegion HitRegion;
     local float Momentum, MtP;
 
+    GetPerfectFireStart(PerfectFireStartLocation, PerfectFireStartDirection);
+
     StartTrace = Pawn(Owner).GetEyeLocation();
     EndTrace = Pawn(Target).GetChestLocation();
 
@@ -493,6 +496,10 @@ simulated function bool WillOfficerAvoidBadShot(Actor Target, bool MomentumMatte
         return false; // We can't hit it because it is too far away.
     }
 
+    Momentum = MuzzleVelocity * Ammo.Mass;
+    PreviousExitLocation = ExitLocation;
+
+
     foreach TraceActors(
         class'Actor',
         Victim,
@@ -500,52 +507,69 @@ simulated function bool WillOfficerAvoidBadShot(Actor Target, bool MomentumMatte
         HitNormal,
         HitMaterial,
         EndTrace,
-        StartTrace,,true
-         )
+        StartTrace,
+        /*optional extent*/,
+        true, //bSkeletalBoxTest
+        HitRegion,
+        true,   //bGetMaterial
+        true,   //bFindExitLocation
+        ExitLocation,
+        ExitNormal,
+        ExitMaterial )
     {
-		
+
+        MtP = Victim.GetMomentumToPenetrate(HitLocation, HitNormal, HitMaterial);
+
 		if(Victim.IsA('LevelInfo'))
         { // LevelInfo is hidden AND blocks all bullets!
             continue;
         }
-        else if(Victim == Owner || Victim.Owner == Self || Victim == Self || Victim.DrawType == DT_None  || Victim.bHidden)
+        else if(Victim == Owner || Victim == Self || Victim.DrawType == DT_None  || Victim.bHidden)
         {
             continue; // Not something we need to worry about
         }
+        else if(!IgnoreStaticMeshes && Victim.DrawType == DT_StaticMesh && Ammo.RoundsNeverPenetrate)
+        {
+            // This might be redundant, but it doesn't seem to work otherwise.
+            return false;
+        }
         else if(!IgnoreStaticMeshes && Victim.DrawType == DT_StaticMesh)
         {
+            // The bullet hits a static mesh.
+            Momentum -= MtP;
             continue;
+        }
+        else if(Momentum <= 0 && MomentumMatters)
+        {
+            // The bullet lost all of its momentum
+            return false;
         }
 		else if (Victim.isa('ShieldEquip'))
 		{
-			continue; //ignore shields , we care about what is behind it
+			continue;
 		}
 		else if(Victim.IsA('SwatOfficer') || Victim.IsA('SwatPlayer') )
 		{
-			return false; //no go
+			return false;
 		}
         else if(Victim != Target)
         {
+            Momentum -= MtP;
+
             // We hit something that isn't our target
             if(Victim.IsA('SwatHostage') || Victim.IsA('SwatGuard')  || Victim.IsA('SwatUndercover'))
             {
-				return false; // no go
+				return false;
             }
-			else if (Victim.IsA('SwatEnemy') )
-			{
-				if ( Pawn(Victim).IsArrested() || Pawn(Victim).IsCompliant() )
-					return false; //ok...but no go
-			}
 			continue;
         }
         else
         {
-            continue; //go
+            return true;
         }
     }
-    return true; //might be a LevelInfo , missed shot but still a go , officers can miss a shot
+    return true;
 }
-
 
 // Used by the AI - whether a bullet fired from this weapon will hit the intended target with no interruptions.
 // Key areas where this is used: ThreatenHostageAction
@@ -2353,6 +2377,18 @@ simulated function SetFlashlightCone(float cone)
 	}
 }
 
+simulated function bool ShouldSuspectUseAgainst(Pawn OtherActor, int ShotsFired)
+{
+    // Should suspects use this weapon against another pawn? (regardless of reload)
+    return !IsEmpty();
+}
+
+simulated function bool ShouldOfficerUseAgainst(Pawn OtherActor, int ShotsFired)
+{
+    // Should AIs use this weapon against another pawn? (regardless of reload)
+    return !IsEmpty();
+}
+
 simulated function UpdateFlashlightLighting(optional float dTime)
 {
 #if ENABLE_FLASHLIGHT_PROJECTION_VISIBILITY_TESTING
@@ -2558,7 +2594,7 @@ simulated function InitFlashlight()
 		FlashlightDynamicLight = Spawn(FlashlightSpotLightClass,WeaponModel,,,);
 		//FlashlightDynamicLight.bActorShadows = true; //doesn't seem to work
 		//FlashlightDynamicLight.LightCone = 8; ORIGINAL SEF VALUE 
-		FlashlightDynamicLight.LightCone = 4; //how wide the flashlight beam is
+		//FlashlightDynamicLight.LightCone = 4; //how wide the flashlight beam is
 		FlashlightDynamicLight.LightRadius = FlashlightFirstPersonDistance; //distance the beam travels
 	}
 	else

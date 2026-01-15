@@ -38,6 +38,18 @@ private function bool CanOfficerUseBreachingShotgun(Pawn Officer)
 
 	assert(class'Pawn'.static.checkConscious(Officer));
 
+	Weapon = FiredWeapon(ISwatOfficer(Officer).GetItemAtSlot(SLOT_Breaching));
+	if(Weapon != None && Weapon.IsA('Shotgun') && (!Weapon.NeedsReload() || Weapon.CanReload()))
+	{
+		return true;
+	}
+	
+	Weapon = FiredWeapon(ISwatOfficer(Officer).GetItemAtSlot(SLOT_Breaching));
+	if(Weapon != None && Weapon.IsA('SuperShortSG') && (!Weapon.NeedsReload() || Weapon.CanReload()))
+	{
+		return true;
+	}
+
 	Weapon = FiredWeapon(ISwatOfficer(Officer).GetItemAtSlot(SLOT_PrimaryWeapon));
 	if(Weapon != None && Weapon.IsA('Shotgun') && (!Weapon.NeedsReload() || Weapon.CanReload()))
 	{

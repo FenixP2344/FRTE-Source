@@ -118,14 +118,14 @@ latent function EquipBreachingShotgun()
     assert(Officer != None);
 
 	BreachingShotgun = FiredWeapon(Officer.GetItemAtSlot(SLOT_Breaching));
-	if(BreachingShotgun == None || !BreachingShotgun.IsA('BreachingSG'))
+	if(BreachingShotgun == None || !BreachingShotgun.IsA('BreachingSG') || !BreachingShotgun.IsA('SuperShortSG'))
 	{
 		BreachingShotgun = FiredWeapon(Officer.GetItemAtSlot(SLOT_PrimaryWeapon));
 			if(BreachingShotgun == None || !BreachingShotgun.IsA('Shotgun'))
 				BreachingShotgun = FiredWeapon(Officer.GetItemAtSlot(SLOT_SecondaryWeapon));
 	}
 
-	if(BreachingShotgun == None || !BreachingShotgun.IsA('Shotgun'))
+	if(BreachingShotgun == None || !BreachingShotgun.IsA('Shotgun') || !BreachingShotgun.IsA('SuperShortSG'))
 	{
 		log("Use BreachingShotgun ACT_NO_WEAPONS_AVAILABLE");
 		instantFail(ACT_NO_WEAPONS_AVAILABLE);

@@ -1141,7 +1141,11 @@ simulated function SetCommandStatus(Command Command, optional bool TeamChanged)
 	  if(CurrentCommandTeam.DoesAnOfficerHaveUsableEquipment(Slot_Breaching, 'BreachingSG'))
       {
         Status = Pad_Normal;
-      } 	
+      } 
+	  else if(CurrentCommandTeam.DoesAnOfficerHaveUsableEquipment(Slot_Breaching, 'SuperShortSG'))
+      {
+        Status = Pad_Normal;
+      }
 	  else if(CurrentCommandTeam.DoesAnOfficerHaveUsableEquipment(Slot_PrimaryWeapon, 'Shotgun'))
       {
         Status = Pad_Normal;
