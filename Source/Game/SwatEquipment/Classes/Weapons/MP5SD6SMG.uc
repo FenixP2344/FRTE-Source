@@ -1,0 +1,1 @@
+class MP5SD6SMG extends SubMachineGun config(SwatEquipment);

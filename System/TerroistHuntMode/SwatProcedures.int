@@ -29,8 +29,8 @@ Description=Incapacitated a fellow officer
 ChatMessage=[c=cc3333]Incapacitated Officer (-25)[\c]
 
 [Procedure_NoHostgeInjured]
-Description=Unauthorized use of force
-ChatMessage=[c=ff8000]Unauthorized Force (-5)[\c]
+Description=Injured Hostage
+ChatMessage=[c=ff8000]Injured Hostage (-5)[\c]
 
 [Procedure_NoOfficerInjured]
 Description=Injured a fellow officer

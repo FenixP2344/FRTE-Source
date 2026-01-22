@@ -744,19 +744,6 @@ MagazineSizeString=30
 TotalAmmoString=6 magazine
 RateOfFire=800 RPM
 
-[MP5SSDSMG]
-Description=The MP5SD6 is a variant of the MP5 equipped with an integrated suppressor and collapsible stock. It is very popular among covert-ops forces and is deployed in stealth operations around the globe. This weapon is chambered in 9x19mm Parabellum rounds.
-FriendlyName=MP5SD6
-ShortName=MP5SD6
-Manufacturer=Heckler & Koch
-Caliber=9x19mm
-CountryOfOrigin=Germany
-ProductionStart=1974
-FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
-MagazineSizeString=30
-TotalAmmoString=6 magazine
-RateOfFire=800 RPM
-
 [SilencedMP5KSMG]
 Description=The MP5KA4 (the K being "Kurz", German for "short") was designed as a close quarters combat version of the popular MP5 line of submachine guns. While it has minimal carry weight and a small form factor, it is difficult to use due to the lack of a stock. Despite this, it remains popular by security and special forces around the globe, including the British Special Air Service.||This model is equipped with a sound and flash suppressor for when stealth is paramount.
 FriendlyName=Suppressed MP5KA4
@@ -1225,11 +1212,10 @@ MagazineSizeString=30
 TotalAmmoString=6 magazine
 RateOfFire=800 RPM
 
-
 [MP5HoloSMG]
 Description=This 9mm submachine gun was designed by H&K, a world renowned German manufacturer.  It is preferred by many para-military groups throughout the world for urban tactical engagements.  Firing either full metal jacket or jacketed hollow point 9x19mm ammunition it is versatile, but lacks the stopping power of an assault rifle.  Its key advantage is its compact design, which allows superior maneuverability in indoor situations.  It is equipped with a fire mode selector allowing automatic, semi-automatic and three round burst firing modes.
-FriendlyName=MP5A4 with Eotech
-ShortName=MP5A4 with Eotech
+FriendlyName=MP5A4 with Reflex
+ShortName=MP5A4 with Reflex
 Manufacturer=Heckler & Koch
 Caliber=9x19mm
 CountryOfOrigin=Germany
@@ -1241,8 +1227,34 @@ RateOfFire=800 RPM
 
 [SilencedMP5HoloSMG]
 Description=This 9mm submachine gun was designed by H&K, a world renowned German manufacturer.  It is preferred by many para-military groups throughout the world for urban tactical engagements.  Firing either full metal jacket or jacketed hollow point 9x19mm ammunition it is versatile, but lacks the stopping power of an assault rifle.  Its key advantage is its compact design, which allows superior maneuverability in indoor situations.  This model is equipped with a fire mode selector allowing automatic, semi-automatic and three round burst firing modes.  It also sports a sound and flash suppressor for when stealth is paramount.
-FriendlyName=Suppressed MP5A4 with Eotech
-ShortName=Sup. MP5A4 with Eotech
+FriendlyName=Suppressed MP5A4 with Reflex
+ShortName=Sup. MP5A4 with Reflex
+Manufacturer=Heckler & Koch
+Caliber=Subsonic 9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1974
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MP5SD6SMG]
+Description=The MP5SD6 is a variant of the MP5 equipped with an integrated suppressor and fixed stock. The MP5SD is very popular among covert-ops forces and is deployed in stealth operations around the globe. This weapon is chambered in 9x19mm Parabellum rounds.
+FriendlyName=MP5SD6
+ShortName=MP5SD6
+Manufacturer=Heckler & Koch
+Caliber=Subsonic 9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1974
+FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=800 RPM
+
+[MP5SD6HoloSMG]
+Description=The MP5SD6 is a variant of the MP5 equipped with an integrated suppressor and fixed stock. The MP5SD is very popular among covert-ops forces and is deployed in stealth operations around the globe. This weapon is chambered in 9x19mm Parabellum rounds.
+FriendlyName=MP5SD6 Holo
+ShortName=MP5SD6Holo
 Manufacturer=Heckler & Koch
 Caliber=Subsonic 9x19mm
 CountryOfOrigin=Germany
@@ -1527,6 +1539,32 @@ MagazineSizeString=30
 TotalAmmoString=6 magazine
 RateOfFire=700 RPM
 
+[TrainingM4AMG]
+Description=Non-lethal training version of the Colt M4A1 Carbine. It fires reduced-energy, non-lethal cartridges leave a detergent-based, water-soluble colour marking compound. These visible impacts allow accurate assessment of simulated lethality.These specialy designed ammo features tactical accuracy completely identical to live ammunition and an Aimpoint sight for ease of use against long range targets..
+FriendlyName=Less Lethal M4A1 Aimpoint
+ShortName=Less Lethal M4A1 Aimpoint
+Manufacturer=Colt
+Caliber=5.56X45mm Simunition
+CountryOfOrigin=United States
+ProductionStart=Unknown
+FireModes=Semi-Automatic
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
+[TrainingM4HMG]
+Description=Non-lethal training version of the Colt M4A1 Carbine. It fires reduced-energy, non-lethal cartridges leave a detergent-based, water-soluble colour marking compound. These visible impacts allow accurate assessment of simulated lethality.These specialy designed ammo features tactical accuracy completely identical to live ammunition and an Eotech sight for ease of use against long range targets..
+FriendlyName=Less Lethal M4A1 Eotech
+ShortName=Less Lethal M4A1 Eotech
+Manufacturer=Colt
+Caliber=5.56X45mm Simunition
+CountryOfOrigin=United States
+ProductionStart=Unknown
+FireModes=Semi-Automatic
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=700 RPM
+
 [M4A1FireMG]
 Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
 FriendlyName=M4A1-Fire custom
@@ -1776,7 +1814,7 @@ RateOfFire=900 RPM
 
 [HK416Holo76MG]
 Description=This equipment is a reward item from CN SWAT CLUB and also represents personal honor.
-FriendlyName=HK416 Assault Rifle with Eotech Sight 76 Custom
+FriendlyName=HK416 Assault Rifle with UH1 Sight 76 Custom
 ShortName=HK416 Holo-76
 
 [HK416sd76MG]
@@ -1786,7 +1824,7 @@ ShortName=Sup. HK416-76
 
 [HK416Holosd76MG]
 Description=This equipment is a reward item from CN SWAT CLUB and also represents personal honor.
-FriendlyName=Suppressed HK416 with Eotech Sight 76 Custom
+FriendlyName=Suppressed HK416 with UH1 Sight 76 Custom
 ShortName=Sup. HK416 Holo-76
 
 [HK416MikuFansMG]
@@ -1804,7 +1842,7 @@ RateOfFire=900 RPM
 
 [HK416HoloMikuFansMG]
 Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=HK416 Assault Rifle with Eotech Sight SuperGamer Custom
+FriendlyName=HK416 Assault Rifle with UH1 Sight SuperGamer Custom
 ShortName=HK416 Holo-SuperGamer
 
 [HK416sdMikuFansMG]
@@ -1814,7 +1852,7 @@ ShortName=Sup. HK416-SuperGamer
 
 [HK416HolosdMikuFansMG]
 Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=Suppressed HK416 with Eotech Sight SuperGamer Custom
+FriendlyName=Suppressed HK416 with UH1 Sight SuperGamer Custom
 ShortName=Sup. HK416 Holo-SuperGamer
 
 [HK416MG]
@@ -1831,9 +1869,9 @@ TotalAmmoString=6 magazine
 RateOfFire=900 RPM
 
 [HK416HoloMG]
-Description=The Heckler & Koch HK416 (HK M4) is an assault rifle/carbine designed and manufactured by Heckler & Koch. It is based on the AR-15 platform, and was originally conceived as an improvement based on the Colt M4 carbine family issued to the U.S. military, with the notable inclusion of an HK-proprietary short-stroke gas piston system derived from the Heckler & Koch G36 assault rifle and an Eotech sight for ease of use against long range targets.
-FriendlyName=HK416 Assault Rifle with Eotech Sight
-ShortName=HK416 Holo.
+Description=The Heckler & Koch HK416 (HK M4) is an assault rifle/carbine designed and manufactured by Heckler & Koch. It is based on the AR-15 platform, and was originally conceived as an improvement based on the Colt M4 carbine family issued to the U.S. military, with the notable inclusion of an HK-proprietary short-stroke gas piston system derived from the Heckler & Koch G36 assault rifle and an UH1 sight for ease of use against long range targets.
+FriendlyName=HK416 Assault Rifle with UH1 Sight
+ShortName=HK416 UH1.
 
 [HoneyBadgerMG]
 Description=The United States Special Operations Command (USSOCOM) is testing a weapon called the Low Vulnerability Carbine to replace the MP5SD-N and MP7A1. The sample gun of LVC is the "Honey Badger" short barreled rifle launched by Advanced Armament Corporation (AAC), which produces and sells high-quality mufflers, and fires the company's latest developed. 300 AAC BLK bullet.
@@ -1880,9 +1918,9 @@ FriendlyName=Suppressed HK416 Assault Rifle
 ShortName=Sup. HK416
 
 [HK416sdHoloMG]
-Description=The Heckler & Koch HK416 (HK M4) is an assault rifle/carbine designed and manufactured by Heckler & Koch. It is based on the AR-15 platform, and was originally conceived as an improvement based on the Colt M4 carbine family issued to the U.S. military, with the notable inclusion of an HK-proprietary short-stroke gas piston system derived from the Heckler & Koch G36 assault rifle and a suppressor for when stealth is paramount a suppressor for when stealth is paramount, and an Eotech sight for ease of use against long range targets.
-FriendlyName=Suppressed HK416 with Eotech Sight
-ShortName=Sup. HK416 Holo 
+Description=The Heckler & Koch HK416 (HK M4) is an assault rifle/carbine designed and manufactured by Heckler & Koch. It is based on the AR-15 platform, and was originally conceived as an improvement based on the Colt M4 carbine family issued to the U.S. military, with the notable inclusion of an HK-proprietary short-stroke gas piston system derived from the Heckler & Koch G36 assault rifle and a suppressor for when stealth is paramount a suppressor for when stealth is paramount, and an UH1 sight for ease of use against long range targets.
+FriendlyName=Suppressed HK416 with UH1 Sight
+ShortName=Sup. HK416 UH1
 
 [G36CMG]
 Description=The H&K G36C is a lightweight compact assault rifle originally developed in the 1990s by H&K for the German Bundeswehr.  It is now world renowned as an incredibly reliable all-around carbine.  Firing a mid-sized 5.56x45mm rifle round, this weapon is equipped with a firemode selector with a fully automatic and semi-automatic firing Compared to the G36K although it does not have a 2-round burst it is more suitable for close range combat.

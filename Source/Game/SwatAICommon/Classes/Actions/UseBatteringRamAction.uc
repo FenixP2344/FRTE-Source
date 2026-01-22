@@ -113,6 +113,7 @@ latent function EquipBreachingShotgun()
 
 	if(BreachingShotgun == None || !BreachingShotgun.IsA('BatteringRam'))
 	{
+	    log("Use BreachingShotgun ACT_NO_WEAPONS_AVAILABLE");
 		instantFail(ACT_NO_WEAPONS_AVAILABLE);
 	}
 
