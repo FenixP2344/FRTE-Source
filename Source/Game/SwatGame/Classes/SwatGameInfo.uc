@@ -477,9 +477,9 @@ final function MissionFailed()
 
 final function MissionEnded()
 {
-    local SwatPlayerReplicationInfo PlayerInfo;
+    //local SwatPlayerReplicationInfo PlayerInfo;
 	local PlayerController C;
-	local int i;
+	//local int i;
 
 	log("[dkaplan] >>> MissionEnded" );
 
@@ -617,7 +617,7 @@ function InitGameReplicationInfo()
 function SetupNameDisplay()
 {
     local SwatGameReplicationInfo SGRI;
-	local PlayerTagInterface PTI;
+	//local PlayerTagInterface PTI;
 
     SGRI = SwatGameReplicationInfo(GameReplicationInfo);
 	if ( ServerSettings(Level.CurrentServerSettings).bShowTeammateNames )
@@ -1656,7 +1656,7 @@ event PostLogin( PlayerController NewPlayer )
 function PlayerLoggedIn(PlayerController NewPlayer)
 {
     local SwatGamePlayerController PC;
-	local SwatPlayerReplicationInfo PRI;
+	//local SwatPlayerReplicationInfo PRI;
 
     //dkaplan: when finished logging in,
     //

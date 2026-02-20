@@ -20,7 +20,7 @@ Description=No civilians injured
 Description=No officers down
 
 [Procedure_PlayerUninjured]
-Description=Player uninjured (Additional)
+Description=Player uninjured
 
 [Procedure_ReportCharactersToTOC]
 Description=Report status to TOC

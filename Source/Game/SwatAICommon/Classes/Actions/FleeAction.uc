@@ -30,7 +30,10 @@ var config private float				MaxAggressiveFleePercentageChance;
 
 var private DistanceToOfficersSensor	DistanceToOfficersSensor;
 var private bool						bUseDistanceToOfficersSensor;
-var config private float ThreatCooldown;
+//var config private float ThreatCooldown;
+
+var private float TimeBeforeRegroup;
+const kTimeToMove = 5.0;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -280,7 +283,7 @@ function bool ShouldAttackWhileFleeing()
     return true;
 }
 
-function AttackWhileFleeing()
+latent function AttackWhileFleeing()
 {
   	local Pawn Enemy;
 
@@ -288,6 +291,9 @@ function AttackWhileFleeing()
 	if(Enemy == None) {
 	    return;
 	}
+
+    //ISwatEnemy(m_Pawn).BecomeAThreat();
+    yield();
 
 	CurrentAttackTargetGoal = new class'AttackTargetGoal'(weaponResource(), Enemy);
     assert(CurrentAttackTargetGoal != None);
@@ -378,10 +384,16 @@ latent function Flee()
 	//Some suspects take weapon flee is threat
 	if(m_Pawn.IsA('SwatMarine') || m_Pawn.IsA('SwatMarineLead') || m_Pawn.IsA('SwatMafia') || m_Pawn.IsA('SwatKnife') || m_Pawn.IsA('SwatMIddleThreat') || m_Pawn.IsA('SwatEasyMIddleThreat') || m_Pawn.IsA('SwatNormalMIddleThreat') || m_Pawn.IsA('SwatHardMIddleThreat') || m_Pawn.IsA('SwatEasyMarine') || m_Pawn.IsA('SwatNormalMarine') || m_Pawn.IsA('SwatHardMarine') || m_Pawn.IsA('SwatEasyMafia') || m_Pawn.IsA('SwatNormalMafia') || m_Pawn.IsA('SwatHardMafia'))
 	{    
-	ISwatEnemy(m_Pawn).UnbecomeAThreat(true, ThreatCooldown);
+	//ISwatEnemy(m_Pawn).UnbecomeAThreat(true, ThreatCooldown);
 	
 	ISwatEnemy(m_Pawn).SetCurrentState(EnemyState_Flee);
 	}
+	
+	//Some suspects take weapon flee is unthreat	
+	if(m_Pawn.IsA('SwatEasyClassic') || m_Pawn.IsA('SwatNormalClassic') || m_Pawn.IsA('SwatHardClassic') || m_Pawn.IsA('SwatClassic') || m_Pawn.IsA('SwatLowThreat') || m_Pawn.IsA('SwatEasyLowThreat') || m_Pawn.IsA('SwatNormalLowThreat') || m_Pawn.IsA('SwatHardLowThreat') || m_Pawn.IsA('SwatGangsterA') || m_Pawn.IsA('SwatEasyGangsterA') || m_Pawn.IsA('SwatNormalGangsterA') || m_Pawn.IsA('SwatHardGangsterA') || m_Pawn.IsA('SwatGangsterB') || m_Pawn.IsA('SwatEasyGangsterB') || m_Pawn.IsA('SwatNormalGangsterB') || m_Pawn.IsA('SwatHardGangsterB'))
+	{    
+      ISwatEnemy(m_pawn).UnbecomeAThreat();
+	}	
 	
 	// trigger the speech
 	ISwatEnemy(m_Pawn).GetEnemySpeechManagerAction().TriggerFleeSpeech();
@@ -443,6 +455,20 @@ Begin:
 	{
 		if ( CurrentMoveToActorGoal == None ) //dont attack if fleeing as already started 
 			AttackWhileFleeing();
+			
+		TimeBeforeRegroup = Level.TimeSeconds + ( kTimeToMove ) ;
+		
+		while (	Level.TimeSeconds < TimeBeforeRegroup )
+		   yield();
+	   
+		if (CurrentAttackTargetGoal != None)
+		{
+			CurrentAttackTargetGoal.Release();
+			CurrentAttackTargetGoal = None;
+		}
+		ISwatAI(m_pawn).UnlockAim();
+		SwapInFullBodyFleeAnimations();	
+
 	}
 	else
 	{
@@ -465,5 +491,5 @@ Begin:
 defaultproperties
 {
     satisfiesGoal = class'EngageOfficerGoal'
-	ThreatCooldown = 2.0
+	//ThreatCooldown = 2.0
 }

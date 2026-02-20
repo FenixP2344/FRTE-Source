@@ -433,7 +433,7 @@ function OnComplianceIssued(Pawn ComplianceIssuer)
 	local float RandomChance; 
 	local ISwatPawn Off;
 	local int totOff;
-	local ISwatAICharacter SwatAICharacter;
+	//local ISwatAICharacter SwatAICharacter;
 	
 	if (m_Pawn.logAI)
 		log("Compliance issued from: "$ComplianceIssuer.Name$" to: "$m_Pawn.name);

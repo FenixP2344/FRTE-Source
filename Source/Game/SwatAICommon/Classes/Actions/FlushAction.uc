@@ -16,7 +16,7 @@ var private RotateTowardRotationGoal	CurrentRotateTowardRotationGoal;
 var private BarricadeGoal 				CurrentBarricadeGoal;
 
 var private float TimeBeforeRegroup;
-const kTimeToMove = 5.0;
+//const kTimeToMove = 5.0;
 
 ///////////////////////////////////////////////////////////////////////////////
 //

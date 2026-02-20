@@ -1602,66 +1602,71 @@ private function RemoveSuspiciousGoals()
 // if we find a wedged door
 function NotifyDoorWedged(Door WedgedDoor)
 {
-	local ISwatDoor SD;
-	local SwatAIRepository SwatAIRepo;
-	local Controller C;
-	local float Distance;
-	local bool DoRemoveWedge;
-	SD=ISwatDoor(WedgedDoor);
 
+	// we're supposed to call down the chain
+	super.NotifyDoorWedged(WedgedDoor);
+	
+	//local ISwatDoor SD;
+	//local SwatAIRepository SwatAIRepo;
+	//local Controller C;
+	//local float Distance;
+	//local bool DoRemoveWedge;
+	//SD=ISwatDoor(WedgedDoor);
+
+	CreateBarricadeGoal(WedgedDoor.Location, false, false);
 	//let the enemy remove wedges if they are high skill
-    if( ISwatEnemy(m_Pawn).GetEnemySkill() == EnemySkill_High  && ( FRand() > 0.5 ) ) //  EnemySkill_High with 50% chance       
-    {    
+    //if( ISwatEnemy(m_Pawn).GetEnemySkill() == EnemySkill_High  && ( FRand() > 0.5 ) ) //  EnemySkill_High with 50% chance       
+    //{    
 	   
-		for (C = Level.ControllerList; C != none && !DoRemoveWedge ; C = C.nextController)
-		{
-			if (C.bIsPlayer)
-			{
-				Distance = VSize2D(WedgedDoor.Location - C.Location);
-				if (Distance > 2000 ) //4000 estimated distance... to be tested!
-					DoRemoveWedge=true;
-			}
+		//for (C = Level.ControllerList; C != none && !DoRemoveWedge ; C = C.nextController)
+		//{
+			//if (C.bIsPlayer)
+			//{
+				//Distance = VSize2D(WedgedDoor.Location - C.Location);
+				//if (Distance > 2000 ) //4000 estimated distance... to be tested!
+					//DoRemoveWedge=true;
+			//}
 
-		}
+		//}
 		
 		//DoRemoveWedge=true;
 		
 		// do remove wedge
-		if (SD != None && DoRemoveWedge )
-		{
+		//if (SD != None && DoRemoveWedge )
+		//{
 		// do some speech
 			ISwatEnemy(m_Pawn).GetEnemySpeechManagerAction().TriggerDoorBlockedSpeech();
 			
-			if( !SD.IsLocked() ) //if door is not locked
-			{	
+			//if( !SD.IsLocked() ) //if door is not locked
+			//{	
 				
 				//actually remove the wedge from the door
-				SD.EnemyRemoveWedge(m_Pawn);  
+				//SD.EnemyRemoveWedge(m_Pawn);  
 				
 				//barricade after opening
-				CreateBarricadeGoal(WedgedDoor.Location, false, false);
+				//CreateBarricadeGoal(WedgedDoor.Location, false, false);
 						
 				//let officers know the wedge is gone. UpdateOfficersKnowledge()
-				SwatAIRepo = SwatAIRepository(m_Pawn.Level.AIRepo);
-				assert(SwatAIRepo != None);
+				//SwatAIRepo = SwatAIRepository(m_Pawn.Level.AIRepo);
+				//assert(SwatAIRepo != None);
 
-				SwatAIRepo.NotifyOfficersDoorWedgeRemoved(WedgedDoor); 
-			}
-			else
-			{
+				//SwatAIRepo.NotifyOfficersDoorWedgeRemoved(WedgedDoor); 
+			//}
+			//else
+			//{
 				//door is still locked anyway... just barricade!
-				CreateBarricadeGoal(WedgedDoor.Location, false, false);
-			}
-		}
+				//CreateBarricadeGoal(WedgedDoor.Location, false, false);
+			//}
+		//}
 		
-    }
-    else // barricade!
-	{ 
+    //}
+    //else // barricade!
+	//{ 
 		// we're supposed to call down the chain
-		super.NotifyDoorWedged(WedgedDoor);
+		//super.NotifyDoorWedged(WedgedDoor);
 		
-		CreateBarricadeGoal(WedgedDoor.Location, false, false);
-	}
+		//CreateBarricadeGoal(WedgedDoor.Location, false, false);
+	//}
 }
 
 // if we find a blocked door that is blocked by a player or officer, barricade!

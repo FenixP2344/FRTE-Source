@@ -982,7 +982,7 @@ simulated function SetProtection(ESkeletalRegion Region, ProtectiveEquipment Pro
 //Pawn override
 simulated function DestroyEquipment()
 {
-    local int i;
+    //local int i;
 
     //log( ".....SwatPlayer::DestroyEquipment()." );
     LoadOut.Destroy();
@@ -1895,7 +1895,7 @@ function AdjustPlayerMovementSpeed() {
   local float OriginalFwd, OriginalBck, OriginalSde;
   local float ModdedFwd, ModdedBck, ModdedSde;
   local float WeightMovMod;
-  local int TSnow,TSdiff;
+  //local int TSnow,TSdiff;
  
   local AnimationSetManager AnimationSetManager;
   local AnimationSet setObject;  
@@ -4199,9 +4199,9 @@ simulated function OnSkeletalRegionHit(ESkeletalRegion RegionHit, vector HitLoca
 function ApplyHitEffect(float PlayerStingDuration, float HeavilyArmoredPlayerStingDuration, float NonArmoredPlayerStingDuration)
 {
 	local float StingDuration;
-    local name Reason;		
-	local name NewControllerState;		
-	local name NewPawnState;
+    //local name Reason;		
+	//local name NewControllerState;		
+	//local name NewPawnState;
 
     //reinitialize the noise generator to prepare for a new effect
     PerlinNoiseAxisA.Reinitialize();

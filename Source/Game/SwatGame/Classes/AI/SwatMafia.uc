@@ -46,6 +46,7 @@ event bool IgnoresSeenPawnsOfType(class<Pawn> SeenType)
             ClassIsChildOf(SeenType, class'SwatGame.SwatUndercover') || 
             ClassIsChildOf(SeenType, class'SwatGame.SwatWildGunner') ||
             ClassIsChildOf(SeenType, class'SwatGame.SwatEscaper') ||
+			ClassIsChildOf(SeenType, class'SwatGame.SwatClassic') ||
 			ClassIsChildOf(SeenType, class'SwatGame.SwatHostage') ||
 		    ClassIsChildOf(SeenType, class'SwatGame.SwatTrainer') ||
 			ClassIsChildOf(SeenType, class'SwatGame.SniperPawn'));
@@ -60,7 +61,7 @@ function OnPawnDied(Pawn Pawn, Actor Killer, bool WasAThreat)
     //We can use deadly force by running close
     if ( ISwatEnemy(Pawn).GetCurrentState() == EnemyState_Flee )
 	{
-	if ( VSize(Pawn.Location - Killer.Location) < 1000 && !ISwatEnemy(Pawn).GetEnemyCommanderAction().HasFledWithoutUsableWeapon() )
+	if ( VSize(Pawn.Location - Killer.Location) < 300 && !ISwatEnemy(Pawn).GetEnemyCommanderAction().HasFledWithoutUsableWeapon() )
 	   {
 		BecomeAThreat();
 	   }
@@ -72,7 +73,7 @@ function OnPawnIncapacitated(Pawn Pawn, Actor Incapacitator, bool WasAThreat)
     //running close in front of an officer with a gun is considered a threat		
     if ( ISwatEnemy(Pawn).GetCurrentState() == EnemyState_Flee )		
 	{			
-        if ( VSize(Pawn.Location - Incapacitator.Location) < 1000 && !ISwatEnemy(Pawn).GetEnemyCommanderAction().HasFledWithoutUsableWeapon() )		
+        if ( VSize(Pawn.Location - Incapacitator.Location) < 300 && !ISwatEnemy(Pawn).GetEnemyCommanderAction().HasFledWithoutUsableWeapon() )		
         {		
 		BecomeAThreat();
         }		

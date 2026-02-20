@@ -289,6 +289,58 @@ MagazineSizeString=15
 TotalAmmoString=4 magazine
 RateOfFire=390 RPM
 
+[P226ColeHG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=P226 Cole
+ShortName=P226-Cole
+Manufacturer=SIG Sauer
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1984
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[P226RColeHG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=P226 Cole Reflex
+ShortName=P226-Cole Reflex
+Manufacturer=SIG Sauer
+Caliber=9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1984
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[P226sdColeHG]
+Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed P226 Cole
+ShortName=Sup. P226+Cole
+Manufacturer=SIG Sauer
+Caliber=Subsonic 9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1984
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
+[P226sdRColeHG]
+Description=Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
+FriendlyName=Suppressed P226 Cole Reflex
+ShortName=Sup. P226+Cole Reflex
+Manufacturer=SIG Sauer
+Caliber=Subsonic 9x19mm
+CountryOfOrigin=Germany
+ProductionStart=1984
+FireModes=Semi-Automatic
+MagazineSizeString=15
+TotalAmmoString=4 magazine
+RateOfFire=390 RPM
+
 [P226HG]
 Description=The SIG Sauer P226 is the high capacity version of the P220, using double stacked, 20-round magazines instead of the latter's single stacked magazines. Chambered in 9x19mm, the P226 is widely used in police departments throughout the United States and Canada. 
 FriendlyName=P226
@@ -1105,7 +1157,7 @@ CountryOfOrigin=United States
 ProductionStart=1955
 FireModes=Double-Action
 MagazineSizeString=6
-TotalAmmoString=6 speedloaders
+TotalAmmoString=10 speedloaders
 RateOfFire=80 RPM
 
 [PythonRevolverHGShield]
@@ -1118,7 +1170,7 @@ CountryOfOrigin=United States
 ProductionStart=1955
 FireModes=Double-Action
 MagazineSizeString=6
-TotalAmmoString=6 speedloaders
+TotalAmmoString=10 speedloaders
 RateOfFire=80 RPM
 
 [DesertEagleHG]
@@ -1318,8 +1370,8 @@ RateOfFire=950 RPM
 
 [KrisstySMG]
 Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=KRISS Vector TyAlone Custom
-ShortName=Vector TyAlong
+FriendlyName=KRISS Vector cafe14 Custom
+ShortName=Vector cafe14
 Manufacturer=KRISS TDI
 Caliber=.45 ACP
 CountryOfOrigin=United States
@@ -1331,8 +1383,8 @@ RateOfFire=800 RPM
 
 [KrissHolotySMG]
 Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=KRISS Vector with Eotech TyAlone Custom
-ShortName=Vector with Eotech TyAlone
+FriendlyName=KRISS Vector with Eotech cafe14 Custom
+ShortName=Vector with Eotech cafe14
 Manufacturer=KRISS TDI
 Caliber=.45 ACP
 CountryOfOrigin=United States

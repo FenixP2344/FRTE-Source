@@ -356,8 +356,18 @@ latent function Regroup()
 {
     local NavigationPoint Destination;
 	local Pawn CurrentEnemy;
-	
+
+	//Some suspects take weapon flee is threat
+	if(m_Pawn.IsA('SwatMarine') || m_Pawn.IsA('SwatMarineLead') || m_Pawn.IsA('SwatMafia') || m_Pawn.IsA('SwatKnife') || m_Pawn.IsA('SwatMIddleThreat') || m_Pawn.IsA('SwatEasyMIddleThreat') || m_Pawn.IsA('SwatNormalMIddleThreat') || m_Pawn.IsA('SwatHardMIddleThreat') || m_Pawn.IsA('SwatEasyMarine') || m_Pawn.IsA('SwatNormalMarine') || m_Pawn.IsA('SwatHardMarine') || m_Pawn.IsA('SwatEasyMafia') || m_Pawn.IsA('SwatNormalMafia') || m_Pawn.IsA('SwatHardMafia'))
+	{  
 	ISwatEnemy(m_Pawn).SetCurrentState(EnemyState_Flee);
+	}
+	
+	//Some suspects take weapon flee is unthreat	
+	if(m_Pawn.IsA('SwatEasyClassic') || m_Pawn.IsA('SwatNormalClassic') || m_Pawn.IsA('SwatHardClassic') || m_Pawn.IsA('SwatClassic') || m_Pawn.IsA('SwatLowThreat') || m_Pawn.IsA('SwatEasyLowThreat') || m_Pawn.IsA('SwatNormalLowThreat') || m_Pawn.IsA('SwatHardLowThreat') || m_Pawn.IsA('SwatGangsterA') || m_Pawn.IsA('SwatEasyGangsterA') || m_Pawn.IsA('SwatNormalGangsterA') || m_Pawn.IsA('SwatHardGangsterA') || m_Pawn.IsA('SwatGangsterB') || m_Pawn.IsA('SwatEasyGangsterB') || m_Pawn.IsA('SwatNormalGangsterB') || m_Pawn.IsA('SwatHardGangsterB'))
+	{    
+      ISwatEnemy(m_pawn).UnbecomeAThreat();
+	}	
 
     Destination = FindRegroupDestination();
 

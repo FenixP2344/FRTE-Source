@@ -547,7 +547,7 @@ simulated function bool IsBoobyTrapTriggered()
 
 simulated function Actor GetTrapOnDoor()
 {	
-	local BoobyTrap_Door Trap;
+	//local BoobyTrap_Door Trap;
 	if(!IsBoobyTrapped())
 	{
 		return None;
@@ -725,21 +725,21 @@ simulated function OnUnwedged()
 }
 
 //hack to remove wedge by suspects
-simulated function EnemyRemoveWedge(Pawn Other)
-{
-	if (IsWedged())
-	{
-		DeployedWedge.OnRemoved();
-		OnUnwedged();
+//simulated function EnemyRemoveWedge(Pawn Other)
+//{
+	//if (IsWedged())
+	//{
+		//DeployedWedge.OnRemoved();
+		//OnUnwedged();
 		
-		if (ActorIsToMyLeft(Other))
-                SetPositionForMove( DoorPosition_OpenRight, MR_Interacted );
-            else
-                SetPositionForMove( DoorPosition_OpenLeft, MR_Interacted );
+		//if (ActorIsToMyLeft(Other))
+                //SetPositionForMove( DoorPosition_OpenRight, MR_Interacted );
+            //else
+                //SetPositionForMove( DoorPosition_OpenLeft, MR_Interacted );
 		
-		Moved();
-	}
-}
+		//Moved();
+	//}
+//}
 
 // It is not an error to call this function multiple times on the same
 // door. If a door is bIsUnlocked

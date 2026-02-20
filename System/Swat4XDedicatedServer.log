@@ -1,0 +1,1792 @@
+Log: Log file open, 02/20/26 18:08:51
+Init: ----------------------------------------
+Init: SWAT VERSION NUMBER: v1.4 Beta3
+Init: ----------------------------------------
+Init: Compiled: Nov 22 2005 12:00:47
+Init: Command line: -server
+Init: Base directory: X:\SWAT 4\ContentExpansion\System\
+Init: Character set: Unicode
+Init: Found startup configuration: Startup.ini
+Init: Adding FilePath: ..\System;..\Content\Scenarios;..\Content\Maps;..\..\ContentExpansion\System;..\..\ContentExpansion\Scenarios;..\..\ContentExpansion\Maps;..\Content\Movies;..\..\ContentExpansion\LocalizedContent;..\..\ContentExpansion\Sounds;..\Content\CustomSkins;..\..\ContentExpansion\Test\Maps;..\..\Content\System;..\..\Content\Scenarios;..\..\Content\Maps;..\..\LocalizedContent;..\..\Content\Sounds;..\Content\Sounds;..\Content\Movies;..\..\Content\Test\Maps
+Log: Bound to Window.dll
+Log: Bound to Core.dll
+Log: Bound to Scripting.dll
+Log: Bound to Engine.dll
+Log: Bound to SwatAIAwareness.dll
+Log: Bound to AICommon.dll
+Log: Bound to ALAudio.dll
+Init: Object subsystem initialized
+Init: Computer: DX068
+Init: User: Administrator
+Init: CPU Page size=4096, Processors=16
+Init: CPU Detected: PentiumPro-class processor (GenuineIntel)
+Init: CPU Features: CMov FPU RDTSC PAE MMX SSE
+Init: CPU Speed=2499.725120 MHz
+Init: Memory total: Phys=4194303K Pagef=4194303K Virt=4194176K
+Init: Working set: 32000 / 159000
+Log: Bound to SwatGame.dll
+Log: Bound to RWOSupport.dll
+Log: Bound to Tyrion.dll
+Log: Bound to GUI.dll
+Log: Bound to SwatAICommon.dll
+Log: Bound to Editor.dll
+Log: Bound to ScriptCompiler.dll
+Log: Bound to IGEffectsSystem.dll
+Log: Bound to IGSoundEffectsSubsystem.dll
+Log: Bound to IpDrv.dll
+Warning: Missing Shader Shader 123.ChestShader
+Warning: Missing Shader Shader 123.FaceShader
+Log: Bound to SwatEquipment.dll
+Log: (Havok): Initializing base system.
+Log: Bound to IGVisualEffectsSubsystem.dll
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.None': Can't resolve package name
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Failed to load 'ScriptedTexture AimpointM2.rmr_dot': Failed to find object 'ScriptedTexture AimpointM2.rmr_dot'
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Failed to load 'ScriptedTexture NewM4A1Tex.M4reddot': Failed to find object 'ScriptedTexture NewM4A1Tex.M4reddot'
+Warning: Failed to load 'ScriptedTexture NewM4A1Tex.M4reddot': Failed to find object 'ScriptedTexture NewM4A1Tex.M4reddot'
+Warning: Failed to load 'ScriptedTexture NewM4A1Tex.Holored': Failed to find object 'ScriptedTexture NewM4A1Tex.Holored'
+Warning: Failed to load 'ScriptedTexture NewM4A1Tex.Holored': Failed to find object 'ScriptedTexture NewM4A1Tex.Holored'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.Holosight': Failed to find object 'ScriptedTexture Eotech552.Holosight'
+Warning: Failed to load 'ScriptedTexture Eotech552.Holosight': Failed to find object 'ScriptedTexture Eotech552.Holosight'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Failed to load 'ScriptedTexture SWAT5_Weapons_Gear.Holosight': Failed to find object 'ScriptedTexture SWAT5_Weapons_Gear.Holosight'
+Warning: Failed to load 'ScriptedTexture NewM4A1Tex.M4greendot': Failed to find object 'ScriptedTexture NewM4A1Tex.M4greendot'
+Warning: Failed to load 'ScriptedTexture NewM4A1Tex.HoloGreen': Failed to find object 'ScriptedTexture NewM4A1Tex.HoloGreen'
+Warning: Failed to load 'ScriptedTexture NewM4A1Tex.Zoom': Failed to find object 'ScriptedTexture NewM4A1Tex.Zoom'
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Failed to load 'ScriptedTexture NewM4A1Tex.Zoom': Failed to find object 'ScriptedTexture NewM4A1Tex.Zoom'
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Failed to load 'ScriptedTexture Eotech552.opksight': Failed to find object 'ScriptedTexture Eotech552.opksight'
+Warning: Failed to load 'ScriptedTexture AimpointM2.rmr_dot': Failed to find object 'ScriptedTexture AimpointM2.rmr_dot'
+Warning: Missing MeshAnimation MeshAnimation FP_79smg.FP_AK47
+Init: Unreal engine initialized
+Log: Updating Revision level for AB85680146C638FEB3569080297EF63E to 0
+Log: Updating Revision level for 2BA00134419D52A5286771882B926A8E to 0
+Log: Updating Revision level for 0E92F1D54440701DF816C5B397282D9E to 0
+Log: Updating Revision level for A9B4BC4C434C36B37294F8A15BF99689 to 0
+Log: Updating MD5 for E57E524E4137D5D8A1B085BBBB5B098A [0b37f0fcb9f44bb960c9f6a848e3fa36991045688ac18b12c9d0363c222873fa]
+Log: Updating Revision level for B5E8CD3040F5B3A014C0DF8D49DC0690 to 0
+Log: Updating Revision level for FBDA220C45326C3CAB36C3AA87C44C18 to 0
+Log: Updating Revision level for 8AEBF5F6446523C60081B78A2F0690CC to 0
+Log: Updating Revision level for 3C6837774359FF9257E466A76638A4DD to 0
+Log: Updating Revision level for 3B86B65C420BAC85E283FC89B392B775 to 0
+Log: Updating Revision level for 72FF142E4981D62FB62955891C843EEF to 0
+Log: Updating Revision level for 07D75611460F063137CF718AF4BB2A31 to 0
+Log: Updating Revision level for C7DBE0A645683386B063C6A2B2AE08CD to 0
+Log: Updating Revision level for 7F57C2794F71131CF03EAABF56C896CC to 0
+Log: Updating MD5 for 8AB2D43D44DDCA6100BD71BED9E4020E [e19f046dcd4801c35a0e1f548ce182eefc5af3cc90bff9299961f2538447c4f2]
+Log: Updating Revision level for 807F98C2454D2B0762FC38AFA4CA7C51 to 0
+Log: Updating Revision level for 109F748447776CA4F0C3FD8C175D97A1 to 0
+Log: Updating Revision level for 94F9AAB14B5E00C4A5B8E49A8A3530DD to 0
+Log: Updating Revision level for 1C6011ED497231C5834725AB7DCD5550 to 0
+Log: Updating Revision level for 125BF2C24EB7FA925084C58A90C31BCF to 0
+Log: Updating Revision level for 746AA51A4340F6312DE5A5932CABCCA6 to 0
+Log: Updating MD5 for 3F20AAA7430A3115138EEB84C2C30420 [300a5e3644d31494da34188a831b1d99ba4770fc161eca3a6a55c55c3ea2b143]
+Log: Updating MD5 for DF1F078F4F3223F61BE2D4B1BBF71D47 [300a5e3644d31494da34188a831b1d99ba4770fc161eca3a6a55c55c3ea2b1430de184a83c4e84c399e09211f5442850]
+Log: Initializing the game as a dedicated server!
+Log: UGameEngine::Init() ... CommandLine = -server
+Log: Browse: Entry.s4m?Name=MPGamer?Class=SwatGame.SwatPlayer?team=255
+Log: LoadMap: Entry.s4m?Name=MPGamer?Class=SwatGame.SwatPlayer?team=255
+Log: [dkaplan]: URL.Map = Entry.s4m
+Log: ****************************************************
+Log:  Beginning level load: 'Entry.s4m'
+Log: ****************************************************
+Log: ****************************************************
+Log:  Finished level load in 0.015 seconds
+Log: ****************************************************
+Log: Building Collision Octree...
+Log: Finished Building Collision Octree
+Log: Game class is 'GameInfo'
+Init: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+Init: WinSock: Socket queue 131072 / 131072
+Init: WinSock: I am DX-068 (192.168.0.68)
+DevNet: TcpNetDriver on port 10480
+Log: Server Package: Core
+Log: Server Package: Engine
+Log: Server Package: IGEffectsSystem
+Log: Server Package: IGVisualEffectsSubsystem
+Log: Server Package: IGSoundEffectsSubsystem
+Log: Server Package: Voting
+Log: Server Package: Editor
+Log: Server Package: UWindow
+Log:    (server-side only)
+Log: Server Package: GamePlay
+Log: Server Package: GUI
+Log: Server Package: SwatEd
+Log: Server Package: IpDrv
+Log:    (server-side only)
+Log: Server Package: Tyrion
+Log: Server Package: AICommon
+Log: Server Package: Scripting
+Log: Server Package: SwatAIAwareness
+Log: Server Package: SwatAICommon
+Log: Server Package: RWOSupport
+Log: Server Package: SwatGame
+Log: Server Package: SwatEffects
+Log: Server Package: SwatEquipment
+Log: Server Package: SwatProtectiveEquipment
+Log: Server Package: SwatProtectiveEquipment2
+Log: Server Package: SwatSimpleEquipment
+Log: Server Package: SwatObjectives
+Log: Server Package: SwatProcedures
+Log: Server Package: SwatGui
+Log: Bound to SwatGui.dll
+Log: Server Package: SwatAmmo
+Log: Server Package: SwatAmmo2
+Log: Server Package: SwatCameraEffects
+Log: Server Package: SwatCameraEffects2
+Log: Server Package: SWATMaleAnimation
+Log: Server Package: FemaleAnimation
+Log: Server Package: SwatDesignerClasses2
+Log: Spawning: IpDrv.MasterServerUplink
+Log: Spawning: SurvivalMod.SVMod
+Log: Spawning: EventLogger.EventMod
+Log: UGameSpyManager::InitAsServer().
+Log: Level is Level Entry.myLevel
+Log: *** WARNING - PATHS MAY NOT BE VALID ***
+Log: Bringing Level Entry.myLevel up for play (120)...
+Log: ---------- IsTheEntryLevel = 1, GameEngine=0x2EC2D00, GameEngine->GEntry=0x0, GameEngine->GEntry->GetLevelInfo()=0x0, current LevelInfo=0x10840700
+VoiceChat: (t=0.000): GameInfo0 VoiceReplicationInfo created: None
+Log: MasterServerUplink::Reconnect().
+Log: ...Engine URL Port=0
+Log: Loadmap executed in 1.95 seconds. (0.00 Verify) (0.01 Load) (1.93 Actor Init)
+Log: URL: Adding default option Class=SwatGame.SwatPlayer
+Log: URL: Adding default option team=255
+Log: Browse: SP-Hotel?Name=MPGamer?dedicated?Class=SwatGame.SwatPlayer?team=255
+Log: LoadMap: SP-Hotel?Name=MPGamer?dedicated?Class=SwatGame.SwatPlayer?team=255
+Log: [dkaplan]: URL.Map = SP-Hotel
+Exit: Socket shut down
+Log: ****************************************************
+Log:  Beginning level load: 'SP-Hotel'
+Log: ****************************************************
+Log: (Havok): Physical world for ULevel being created.
+Log: (Havok): Using medium solver
+Log: (Havok): Found 3 ragdoll files matching search path '..\HavokData\*.hke'
+Log: (Havok):   Precached ragdoll for file 'HotelSuitBag_rd.hke' in 1 ms.
+Log: (Havok):   Precached ragdoll for file 'PaperTarget_rd.hke' in 1 ms.
+Log: (Havok):   Precached ragdoll for file 'SWATofficer_rd.hke' in 19 ms.
+Log: (Havok): Finished precaching ragdolls
+Log: ****************************************************
+Log:  Finished level load in 0.676 seconds
+Log: ****************************************************
+Log: Collecting garbage
+Log: Purging garbage
+Log: 13438.0ms Unloading: Package ATJ
+Log: 13438.0ms Unloading: Package ATJ_TEX
+Log: 13438.0ms Unloading: Package SWATnoarmorhands
+Log: 13438.0ms Unloading: Package A_Rngr
+Log: 13438.0ms Unloading: Package A_Rngr_Tex
+Log: 13438.0ms Unloading: Package BOPE
+Log: 13438.0ms Unloading: Package SWAT5_Officer_BOPE
+Log: 13438.0ms Unloading: Package BurkeAndrew
+Log: 13438.0ms Unloading: Package CAJ
+Log: 13438.0ms Unloading: Package CAJ_TEX
+Log: 13438.0ms Unloading: Package CAPF
+Log: 13438.0ms Unloading: Package ChavezDing
+Log: 13438.0ms Unloading: Package CHINA
+Log: 13438.0ms Unloading: Package CSF
+Log: 13438.0ms Unloading: Package CSF_Tex
+Log: 13438.0ms Unloading: Package CTRU
+Log: 13438.0ms Unloading: Package NewCTRU_Tex
+Log: 13438.0ms Unloading: Package FBI
+Log: 13438.0ms Unloading: Package GATE
+Log: 13438.0ms Unloading: Package GATE_TEX
+Log: 13438.0ms Unloading: Package GerySWAT
+Log: 13438.0ms Unloading: Package GIGN
+Log: 13438.0ms Unloading: Package GSG
+Log: 13438.0ms Unloading: Package MerryWeather
+Log: 13438.0ms Unloading: Package Noose
+Log: 13438.0ms Unloading: Package NovikovArkadi
+Log: 13438.0ms Unloading: Package OMON
+Log: 13438.0ms Unloading: Package PLA
+Log: 13439.0ms Unloading: Package skin_pla_tex
+Log: 13439.0ms Unloading: Package Plainclothes1c
+Log: 13439.0ms Unloading: Package Plainclothes_tex
+Log: 13439.0ms Unloading: Package Plainclothes2c
+Log: 13439.0ms Unloading: Package R6RS
+Log: 13439.0ms Unloading: Package ReadyOrNot
+Log: 13439.0ms Unloading: Package RPD
+Log: 13439.0ms Unloading: Package SAS
+Log: 13439.0ms Unloading: Package SDU
+Log: 13439.0ms Unloading: Package NewSDU_Tex
+Log: 13439.0ms Unloading: Package Sheriff
+Log: 13439.0ms Unloading: Package Sheriff_Tex
+Log: 13439.0ms Unloading: Package SIAS
+Log: 13439.0ms Unloading: Package SIAS_TEX
+Log: 13439.0ms Unloading: Package Skin_DFM
+Log: 13439.0ms Unloading: Package Skin_DFM_tex
+Log: 13439.0ms Unloading: Package SPETNAZ
+Log: 13439.0ms Unloading: Package SWAT3C
+Log: 13439.0ms Unloading: Package Taiwan
+Log: 13439.0ms Unloading: Package USMC
+Log: 13439.0ms Unloading: Package USS
+Log: 13439.0ms Unloading: Package WaltherJorg
+Log: 13439.0ms Unloading: Package Entry
+Log: 13439.0ms Unloading: Package UWindow
+Log: 13439.0ms Unloading: Package SwatEd
+Log: 13439.0ms Unloading: Package SwatEffects
+Log: 13439.0ms Unloading: Package SwatProtectiveEquipment
+Log: 13439.0ms Unloading: Package BBE
+Log: 13439.0ms Unloading: Package FRTEEquipGui_Tex
+Log: 13439.0ms Unloading: Package BBE_Meshes
+Log: 13439.0ms Unloading: Package SwatGearTexZZZ
+Log: 13439.0ms Unloading: Package BFHLgear_sm
+Log: 13439.0ms Unloading: Package acuGearTex
+Log: 13439.0ms Unloading: Package VTheadgTEX
+Log: 13439.0ms Unloading: Package BFHLSWAT_Tex
+Log: 13439.0ms Unloading: Package SWAT5_HUD_Overlay
+Log: 13439.0ms Unloading: Package zznSWATgear_smZZZ
+Log: 13439.0ms Unloading: Package SWAT5helmet
+Log: 13439.0ms Unloading: Package SEK_GSG9_eq_sm
+Log: 13439.0ms Unloading: Package SEK_GSG9_tx
+Log: 13439.0ms Unloading: Package Beret
+Log: 13439.0ms Unloading: Package SWAT5_Mask
+Log: 13439.0ms Unloading: Package acugearTex2
+Log: 13439.0ms Unloading: Package SwatProtectiveEquipment2
+Log: 13439.0ms Unloading: Package zznSWATgear_smFR
+Log: 13439.0ms Unloading: Package FR_strobe
+Log: 13439.0ms Unloading: Package Suicide
+Log: 13439.0ms Unloading: Package SWAT5_Officer
+Log: 13439.0ms Unloading: Package NightVision
+Log: 13439.0ms Unloading: Package SwatSimpleEquipment
+Log: 13439.0ms Unloading: Package TP_handcuffs
+Log: 13439.0ms Unloading: Package SwatGui
+Log: 13439.0ms Unloading: Package SwatAmmo
+Log: 13439.0ms Unloading: Package SwatAmmo2
+Log: 13439.0ms Unloading: Package SwatProjectile
+Log: 13439.0ms Unloading: Package CF_weaponmeshes
+Log: 13439.0ms Unloading: Package SwatCameraEffects
+Log: 13439.0ms Unloading: Package SwatCameraEffects2
+Log: 13439.0ms Unloading: Package FemaleAnimation
+Log: 13439.0ms Unloading: Package FemaleCasual1Tex
+Log: 13439.0ms Unloading: Package FemaleCasual3Tex
+Log: 13439.0ms Unloading: Package SwatDesignerClasses2
+Log: 13439.0ms Unloading: Package halfwayhouse_sm
+Log: 13439.0ms Unloading: Package halfway_tex
+Log: 13439.0ms Unloading: Package warehouse_sm
+Log: 13439.0ms Unloading: Package warehouse_tex
+Log: MasterServerUplink::Destroy().
+Log: 13439.0ms Unloading: Package SurvivalMod
+Log: 13439.0ms Unloading: Package EventLogger
+Log: Garbage: objects: 66653->65342; refs: 1095663
+Log: (Havok): Calling HavokInitActor on all 3840 Actors in the level
+Log: (Havok) Initialised level mopp in 0.05 seconds
+Log: Building Collision Octree...
+Log: Finished Building Collision Octree
+Log: Game class is 'SwatGameInfo'
+Init: WinSock: Socket queue 131072 / 131072
+DevNet: TcpNetDriver on port 10480
+Log: Server Package: Core
+Log: Server Package: Engine
+Log: Server Package: IGEffectsSystem
+Log: Server Package: IGVisualEffectsSubsystem
+Log: Server Package: IGSoundEffectsSubsystem
+Log: Server Package: Voting
+Log: Server Package: Editor
+Log: Server Package: UWindow
+Log:    (server-side only)
+Log: Server Package: GamePlay
+Log: Server Package: GUI
+Log: Server Package: SwatEd
+Log: Server Package: IpDrv
+Log:    (server-side only)
+Log: Server Package: Tyrion
+Log: Server Package: AICommon
+Log: Server Package: Scripting
+Log: Server Package: SwatAIAwareness
+Log: Server Package: SwatAICommon
+Log: Server Package: RWOSupport
+Log: Server Package: SwatGame
+Log: Server Package: SwatEffects
+Log: Server Package: SwatEquipment
+Log: Server Package: SwatProtectiveEquipment
+Log: Server Package: SwatProtectiveEquipment2
+Log: Server Package: SwatSimpleEquipment
+Log: Server Package: SwatObjectives
+Log: Server Package: SwatProcedures
+Log: Server Package: SwatGui
+Log: Server Package: SwatAmmo
+Log: Server Package: SwatAmmo2
+Log: Server Package: SwatCameraEffects
+Log: Server Package: SwatCameraEffects2
+Log: Server Package: SWATMaleAnimation
+Log: Server Package: FemaleAnimation
+Log: Server Package: SwatDesignerClasses2
+Log: Spawning: IpDrv.MasterServerUplink
+Log: Spawning: SurvivalMod.SVMod
+Log: Spawning: EventLogger.EventMod
+Log: UGameSpyManager::InitAsServer().
+Log: ...1
+Log: Level is Level SP-Hotel.myLevel
+Log: *** WARNING - PATHS MAY NOT BE VALID ***
+Log: Bringing Level SP-Hotel.myLevel up for play (120)...
+Log: ---------- IsTheEntryLevel = 0, GameEngine=0x2EC2D00, GameEngine->GEntry=0x0, GameEngine->GEntry->GetLevelInfo()=0x0, current LevelInfo=0x1CB4BD00
+VoiceChat: (t=0.000): SwatVoiceReplicationInfo0 ___________________PostNetBeginPlay
+VoiceChat: (t=0.000): SwatVoiceReplicationInfo0 AddVoiceChannel PRI:None
+VoiceChat: (t=0.000): SwatVoiceReplicationInfo0 AddVoiceChannel PRI:None
+VoiceChat: (t=0.000): SwatGameInfo0 VoiceReplicationInfo created: SP-Hotel.SwatVoiceReplicationInfo0
+Log: Resolving ...
+Log: Turning on AssertWithDescription dialog box.
+Log: MasterServerUplink::Reconnect().
+Log: ...Engine URL Port=10480
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Material None.'': Can't resolve package name
+Warning: Failed to load 'SWAT5_gui': Can't find file for package 'SWAT5_gui'
+Warning: Failed to load 'Material SWAT5_gui.equip_Striker': Can't find file for package 'SWAT5_gui'
+Log: WARNING: Actor SwatMarineBomber1 failed encroachment check because it encroaches on SwatMarineBomber0
+Log: WARNING: ConstructActor failed for Actor SwatMarineBomber1 because it was encroached upon at the spawn location
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Material None.'': Can't resolve package name
+Warning: Failed to load 'Class SwatEquipmentModels2.ExplosiveArmor_FirstPerson': Failed to find object 'Class SwatEquipmentModels2.ExplosiveArmor_FirstPerson'
+Warning: Failed to load 'SWAT5_gui': Can't find file for package 'SWAT5_gui'
+Warning: Failed to load 'Material SWAT5_gui.equip_c2charge': Can't find file for package 'SWAT5_gui'
+Warning: Failed to load 'SWAT5_Cubemaps': Can't find file for package 'SWAT5_Cubemaps'
+Warning: Missing TexEnvMap TexEnvMap SWAT5_Cubemaps.BlackCubemapFace
+Warning: Failed to load 'SWAT5_Cubemaps': Can't find file for package 'SWAT5_Cubemaps'
+Warning: Failed to load 'SWAT5_Cubemaps': Can't find file for package 'SWAT5_Cubemaps'
+Warning: Missing TexEnvMap TexEnvMap SWAT5_Cubemaps.BlackCubemapFace
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Material None.'': Can't resolve package name
+Log: SPAWN FAILED
+Reason: 'Failed after all checks'
+Actors blocking spawn:
+   -> LevelInfo0 (primitive: Model1)
+
+Log: WARNING: SpawnActor failed for Actor SwatMarineBomber6 because it couldn't fit at the spawn location
+Log: Loadmap executed in 3.80 seconds. (0.44 Verify) (0.68 Load) (2.39 Actor Init)
+Init: Game engine initialized in 13.535 seconds
+Log: Startup time: 15.843000 seconds
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture mp_OfficerTex.NameTagRed': Failed to find object 'ScriptedTexture mp_OfficerTex.NameTagRed'
+Warning: Failed to load 'ScriptedTexture mp_OfficerTex.NameTagRed': Failed to find object 'ScriptedTexture mp_OfficerTex.NameTagRed'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Init: EffectsSystem Configuration: ..\system\SoundEffectsConfig.u is out of date or missing.  Building it from SoundEffects.ini.
+Log: [EFFECTS SYSTEM] The SoundEffectsSubsystem is packaging its effects configuration.
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: WARNING: AEffectsSubsystem::execAddEventResponse() Found that the EventResponse named AK15sdRMR_ThirdPersonFired is duplicated in the SoundEffectsSubsystem.
+Log: Assertion failed: !duplicate_event_response [File:.\IGEffectsSystem.cpp] [Line: 188]
+Log: WARNING: AEffectsSubsystem::execAddEventResponse() Found that the EventResponse named NoneNone is duplicated in the SoundEffectsSubsystem.
+Log: Assertion failed: !duplicate_event_response [File:.\IGEffectsSystem.cpp] [Line: 188]
+Log: WARNING: AEffectsSubsystem::execAddEventResponse() Found that the EventResponse named AK47Aim_FirstPersonEmptyFired is duplicated in the SoundEffectsSubsystem.
+Log: Assertion failed: !duplicate_event_response [File:.\IGEffectsSystem.cpp] [Line: 188]
+Warning: Failed to load 'Sound SW_ambients.Empty': Failed to find object 'Sound SW_ambients.Empty'
+Warning: ImportText failed in: (SoundToPlay=Sound'SW_ambients.Empty',Flag=0)
+Warning: Import: Failed to import property 'VolumeCategory': 'VOL_NormalVolumeCategory' is not a valid value for enum 'EVolumeCategory'. Treating as 0.
+Warning: ImportText: Unexpected termination of entry in parenthesised struct, starting at []: entire struct entry is [(SpecificationType=FAL_1p_Fired,SpecificationClass=Class'IGSoundEffectsSubsystem.NormalSoundEffectSpecification']
+Log: WARNING: AEffectsSubsystem::execAddEventResponse() Found that the EventResponse named NoneNone is duplicated in the SoundEffectsSubsystem.
+Log: Assertion failed: !duplicate_event_response [File:.\IGEffectsSystem.cpp] [Line: 188]
+Log: WARNING: AEffectsSubsystem::execAddEventResponse() Found that the EventResponse named Type81z_FirstPersonBoltPull is duplicated in the SoundEffectsSubsystem.
+Log: Assertion failed: !duplicate_event_response [File:.\IGEffectsSystem.cpp] [Line: 188]
+Log: WARNING: AEffectsSubsystem::execAddEventResponse() Found that the EventResponse named Type81sdz_FirstPersonBoltPull is duplicated in the SoundEffectsSubsystem.
+Log: Assertion failed: !duplicate_event_response [File:.\IGEffectsSystem.cpp] [Line: 188]
+Warning: ImportText: Unexpected termination of entry in parenthesised struct, starting at []: entire struct entry is [(SpecificationType=HS2000_3p_Fired,SpecificationClass=Class'IGSoundEffectsSubsystem.NormalSoundEffectSpecification']
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: WARNING: AEffectsSubsystem::execAddEventResponse() Found that the EventResponse named SwatAIPickLockNewEnd is duplicated in the SoundEffectsSubsystem.
+Log: Assertion failed: !duplicate_event_response [File:.\IGEffectsSystem.cpp] [Line: 188]
+Log: WARNING: AEffectsSubsystem::execAddEventResponse() Found that the EventResponse named NetPlayerPickLockNewEnd is duplicated in the SoundEffectsSubsystem.
+Log: Assertion failed: !duplicate_event_response [File:.\IGEffectsSystem.cpp] [Line: 188]
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: Save=200.257375
+Log: Moving '..\system\Save.tmp' to '..\system\SoundEffectsConfig.u'
+Log: SoundEffectsSubsystem created.
+Log: Resolved  (192.168.0.68)
+Log: In UGameSpyManager::ServerInit().
+Log: In GameSpyWrapper---serverInitGameSpy().
+Log: 1... GameSpy query port: 10481
+Log: [Stats] Connecting on port 10480
+Log: FServerQueryInterface::OnReceivedData(). Responding to ping.
+DevNet: NotifyAcceptingConnection: Server myLevel accept
+NetComeGo: Open myLevel 02/20/26 18:09:24 192.168.0.68:64023
+DevNet: NotifyAcceptingChannel Control 0 server Level SP-Hotel.myLevel: Accepted
+DevNet: Level server received: HELLO REVISION=0 MINVER=2000 VER=2226
+DevNet: Level server received: NETSPEED 15000
+Log: Client netspeed is 15000
+DevNet: Level server received: LOGIN RESPONSE=2086019019 URL=Index.s4m?Name=MPGamer?Class=SwatGame.SwatPlayer?team=255
+DevNet: Login request: Index.s4m?Name=MPGamer?Class=SwatGame.SwatPlayer?team=255
+DevNet: Level server received: VERIFYCONTENT FILE=SwatGear_sm.usx MD5=157c60f02a492d9f9fc23fb13d46f835
+DevNet: Level server received: VERIFYCONTENT FILE=SWAT1stPersonTex.utx MD5=1522ea4a5639ebbe1b4fd82f010a70b3
+DevNet: Level server received: VERIFYCONTENT FILE=SwatFXtex.utx MD5=b2fc7274f74576876718d525e334ce69
+DevNet: Level server received: VERIFYCONTENT FILE=HUD.utx MD5=44a6ee5ca398cad348f8fcfa520d1f3d
+DevNet: Level server received: VERIFYCONTENT FILE=SwatDesignerClasses.u MD5=53e082f02f34d85530410d268b87c14a
+DevNet: Level server received: VERIFYCONTENT FILE=doors_Tex.utx MD5=5f0f176f852158fc5bd574bc3c9a0d1b
+DevNet: Level server received: VERIFYCONTENT FILE=mp_OfficerTex.utx MD5=8fc30267e09c694787cb948755d8947d
+DevNet: Level server received: VERIFYCONTENT FILE=SWATofficerTex.utx MD5=3ede8c6a36c2096a462b8337727b196b
+DevNet: Level server received: VERIFYCONTENT FILE=SWATheavyTex.utx MD5=b923a69c68443a0496cbdb8acb129cf6
+DevNet: Level server received: VERIFYCONTENT FILE=CameraEffectsTex.utx MD5=231c203b8fd900ee051e17afa891c39f
+DevNet: Level server received: VERIFYCONTENT FILE=scripted_tex.utx MD5=00c58515cc2e7170f1f37ee04213a2d2
+DevNet: Level server received: VERIFYCONTENT FILE=SWATmeshFX_sm.usx MD5=7ffff199ed5a9394cb15f9a70eaf4246
+DevNet: Level server received: VERIFYCONTENT FILE=Coronas.utx MD5=8192b102a69198599cf7f7c1e5b3d203
+DevNet: Level server received: VERIFYCONTENT FILE=SwatEffects.u MD5=b6f485013a9c4f23993180fb369695a5
+DevNet: Level server received: VERIFYCONTENT FILE=SwatProtectiveEquipment.u MD5=b195973e5a488c36ead4dda5443b51b3
+DevNet: Level server received: VERIFYCONTENT FILE=SwatAmmo.u MD5=ff22f307789e3d36bdf5f0f5891f721a
+DevNet: Level server received: VERIFYCONTENT FILE=SwatCameraEffects.u MD5=a0001afc620a7ff690af42cabfa0e68f
+DevNet: Level server received: VERIFYCONTENTCLIENTFINISHEDSENDING
+DevNet: Level server received: CRITOBJCNT 40
+DevNet: Level server received: GAMESTATE A1B085BBBB5B098A4137D5D8E57E524E125c6455db3d1a37797831d201fde342
+DevNet: Level server received: GAMESTATE 138EEB84C2C30420430A31153F20AAA7def01110ca93ef4eaf105d891a0d1d35
+DevNet: Level server received: GAMESTATE 1BE2D4B1BBF71D474F3223F6DF1F078F35a9325d9925ea01f8e1890dd5d94c19
+DevNet: Level server received: GAMESTATE 2DE5A5932CABCCA64340F631746AA51Aee40ec3101cb7d148557765be7e3f36a
+DevNet: Level server received: GAMESTATE 0081B78A2F0690CC446523C68AEBF5F6b46a3a981768d72f700800b547a28d3f
+DevNet: Level server received: GAMESTATE E283FC89B392B775420BAC853B86B65Cf78c4adb445bb4f8f88fc0bf719ba3f6
+DevNet: Level server received: GAMESTATE B62955891C843EEF4981D62F72FF142Ea3dbfc540a21177b58c8d9855f484ebf
+DevNet: Level server received: GAMESTATE 57E466A76638A4DD4359FF923C6837779f3d658d488139eff8a93bf880583a52
+DevNet: Level server received: GAMESTATE 00BD71BED9E4020E44DDCA618AB2D43D55bc03d215448f014bbe8cca81e471ca
+DevNet: Level server received: GAMESTATE 37CF718AF4BB2A31460F063107D7561188c6b3c913c7bcda1e24e377e83198a8
+DevNet: Level server received: GAMESTATE A5B8E49A8A3530DD4B5E00C494F9AAB1ed2c7ca53aac187e3698bdfa91d789e1
+DevNet: Level server received: GAMESTATE 834725AB7DCD5550497231C51C6011ED5468c569bdbfa633f2dc4a89a258dab7
+DevNet: Level server received: GAMESTATE 14C0DF8D49DC069040F5B3A0B5E8CD30e531a18c25a8451271e6df381b5eb215
+DevNet: Level server received: GAMESTATE AB36C3AA87C44C1845326C3CFBDA220Cc93892424684d2153d433b2df83281ef
+DevNet: Level server received: GAMESTATE B063C6A2B2AE08CD45683386C7DBE0A68f23629ae27f3c78bfd920513e83128c
+DevNet: Level server received: GAMESTATE 7294F8A15BF99689434C36B3A9B4BC4C206c729bebd028b8379755264b2084b3
+DevNet: Level server received: GAMESTATE F8461C865534B978498FCEB2CA222D9D98b4c4988091697a30aec50b88ae678c
+DevNet: Level server received: GAMESTATE 5084C58A90C31BCF4EB7FA92125BF2C2045b999befb77c111a872fa9bb4f033c
+DevNet: Level server received: GAMESTATE 286771882B926A8E419D52A52BA00134d8720543d4d4a70201ef6e95d5adbb90
+DevNet: Level server received: GAMESTATE 75FBF48641B970DE4113FC870C56B211dacee1fb3a313fa2d08a3c4297c2ea24
+DevNet: Level server received: GAMESTATE F0C3FD8C175D97A147776CA4109F7484382985773497a8bcda3a55c67285905a
+DevNet: Level server received: GAMESTATE B3569080297EF63E46C638FEAB856801e1df12b05bf169f81db78441252430fa
+DevNet: Level server received: GAMESTATE F01A21900486D28D4D2C571FE66B16751000218e5fe791bbfae4d0cd6b0d7756
+DevNet: Level server received: GAMESTATE C9FE579FD01052EE4AEB8DCFFFD43842de815d314408c02caec095c4dccb81d6
+DevNet: Level server received: GAMESTATE CBC834B16C99E57C4E0A0C54570E47DCddd0ccf4c51fd390a313541099285a7b
+DevNet: Level server received: GAMESTATE 61E0558D15C2DF9F496CF70EC1D5F1A1dbac892ee48b881c2bf713a1efa88dfb
+DevNet: Level server received: GAMESTATE E81B84930B17FE1046007FA6688D63461132a8d7056f33abf6a1b4b4586f8b4b
+DevNet: Level server received: GAMESTATE 48E2DFA570C5991B4066C21BB993262655b41959dc206d1d9b1a37598aff26bc
+DevNet: Level server received: GAMESTATE A24549B941ECA15049E20D7C50D18B040fb1bea1ee4c3fea83997e0c81502b0d
+DevNet: Level server received: GAMESTATE 7D8C408B61787C7A4651B3D5180CC37065aa31c087a00a46dccb337f7861a3ca
+DevNet: Level server received: GAMESTATE 4E6D8EBF83A6A4A046AE79CD957905FAbae5e2933bef21e574d6aae7978c84b2
+DevNet: Level server received: GAMESTATE 8DC57BAA21074E59482872C2DA538DDFa96adecf14b6b676dbd6935762d8cdf4
+DevNet: Level server received: GAMESTATE A5C708BCE541542A44313845B20FEC7312a11ce750f766fe569b9a2edc91349a
+DevNet: Level server received: GAMESTATE 12DDE5B483B889FB43D030A54DF484480daa5c59e4568b181533899b3810a95d
+DevNet: Level server received: GAMESTATE F816C5B397282D9E4440701D0E92F1D582c58332562fad3f124ee041fb468ec1
+DevNet: Level server received: GAMESTATE F03EAABF56C896CC4F71131C7F57C27975fcd4c3e8d89dbdce56ad8b4e4da625
+DevNet: Level server received: GAMESTATE 47DBE9B310BCE3784F41FBBAFE59051Ad5ed3ef87e5894bb070febb7dd402527
+DevNet: Level server received: GAMESTATE BADECA9E4A7079FA4804939AB7EC94F0a2525f56294f3298c12f3f302452f5da
+DevNet: Level server received: GAMESTATE EA850781902920B14C319053CFDDF2D004199476bfd4bd1fe31f55f5ce5d9652
+DevNet: Level server received: GAMESTATE 806B788F6097006E4A65021F3ECA670568b9c2c68bc9fcdbde5d6232203ebcdf
+DevNet: Level server received: GAMECONFIGCOUNT 32
+DevNet: Server updated from client about MD5s - ExpectedConfigCount: 32 GivenConfigCount: 32
+DevNet: Level server received: GAMECONFIG CONFIGFILE=SWATPAWN.INI CONFIGMD5=2dab187d9a3368ebf1c87a27c5b5d628
+DevNet: Test MD5 for Config file SWATPAWN.INI - Count is 0
+DevNet: Server MD5: 2dab187d9a3368ebf1c87a27c5b5d628
+DevNet: Client MD5: 2dab187d9a3368ebf1c87a27c5b5d628
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=SWATEQUIPMENT.INI CONFIGMD5=5866f1c2835e90a0cc9ef2f4024362ad
+DevNet: Test MD5 for Config file SWATEQUIPMENT.INI - Count is 1
+DevNet: Server MD5: 5866f1c2835e90a0cc9ef2f4024362ad
+DevNet: Client MD5: 5866f1c2835e90a0cc9ef2f4024362ad
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=SWATGAME.INI CONFIGMD5=70dcffcb8879f3edd0237d65fa39488d
+DevNet: Test MD5 for Config file SWATGAME.INI - Count is 2
+DevNet: Server MD5: 70dcffcb8879f3edd0237d65fa39488d
+DevNet: Client MD5: 70dcffcb8879f3edd0237d65fa39488d
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=SKELETALREGIONINFORMATION.INI CONFIGMD5=76bfa49a0847e0c22a6f5efe013a7e44
+DevNet: Test MD5 for Config file SKELETALREGIONINFORMATION.INI - Count is 3
+DevNet: Server MD5: 76bfa49a0847e0c22a6f5efe013a7e44
+DevNet: Client MD5: 76bfa49a0847e0c22a6f5efe013a7e44
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=STATICLOADOUT.INI CONFIGMD5=2cbdd49bd2b9d15795a9ec76747d5d43
+DevNet: Test MD5 for Config file STATICLOADOUT.INI - Count is 4
+DevNet: Server MD5: 2cbdd49bd2b9d15795a9ec76747d5d43
+DevNet: Client MD5: 2cbdd49bd2b9d15795a9ec76747d5d43
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=SWATPAWNANIMATIONSETS.INI CONFIGMD5=50fb19f4da542910f264b91cbf8bdad0
+DevNet: Test MD5 for Config file SWATPAWNANIMATIONSETS.INI - Count is 5
+DevNet: Server MD5: 50fb19f4da542910f264b91cbf8bdad0
+DevNet: Client MD5: 50fb19f4da542910f264b91cbf8bdad0
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=SOUNDEFFECTS.INI CONFIGMD5=6fac65a4f4e306431111ab427bb1c80e
+DevNet: Test MD5 for Config file SOUNDEFFECTS.INI - Count is 6
+DevNet: Server MD5: 6fac65a4f4e306431111ab427bb1c80e
+DevNet: Client MD5: 6fac65a4f4e306431111ab427bb1c80e
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=AI.INI CONFIGMD5=f8a265100a77c43c673c2f2e83e88c42
+DevNet: Test MD5 for Config file AI.INI - Count is 7
+DevNet: Server MD5: f8a265100a77c43c673c2f2e83e88c42
+DevNet: Client MD5: f8a265100a77c43c673c2f2e83e88c42
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=EFFECTSSYSTEM.INI CONFIGMD5=adfec2cbe706d8ba750ff63e0d42bd7a
+DevNet: Test MD5 for Config file EFFECTSSYSTEM.INI - Count is 8
+DevNet: Server MD5: adfec2cbe706d8ba750ff63e0d42bd7a
+DevNet: Client MD5: adfec2cbe706d8ba750ff63e0d42bd7a
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=OBJECTIVESPECS.INI CONFIGMD5=362bf069264cb1c7ef5e09a763b689ea
+DevNet: Test MD5 for Config file OBJECTIVESPECS.INI - Count is 9
+DevNet: Server MD5: 362bf069264cb1c7ef5e09a763b689ea
+DevNet: Client MD5: 362bf069264cb1c7ef5e09a763b689ea
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=MISSIONOBJECTIVES.INI CONFIGMD5=09d1e0abfb46b78bf314bb4d246f7749
+DevNet: Test MD5 for Config file MISSIONOBJECTIVES.INI - Count is 10
+DevNet: Server MD5: 09d1e0abfb46b78bf314bb4d246f7749
+DevNet: Client MD5: 09d1e0abfb46b78bf314bb4d246f7749
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=LEADERSHIP.INI CONFIGMD5=94dc7b2e913a0e5d7dd8140684369c98
+DevNet: Test MD5 for Config file LEADERSHIP.INI - Count is 11
+DevNet: Server MD5: 94dc7b2e913a0e5d7dd8140684369c98
+DevNet: Client MD5: 94dc7b2e913a0e5d7dd8140684369c98
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=CONVERSATIONS.INI CONFIGMD5=a61a2e0af1a994146e623b21b4e29ba5
+DevNet: Test MD5 for Config file CONVERSATIONS.INI - Count is 12
+DevNet: Server MD5: a61a2e0af1a994146e623b21b4e29ba5
+DevNet: Client MD5: a61a2e0af1a994146e623b21b4e29ba5
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=TRAININGTEXT.INI CONFIGMD5=c74328e98993116a74547bd04a1767d4
+DevNet: Test MD5 for Config file TRAININGTEXT.INI - Count is 13
+DevNet: Server MD5: c74328e98993116a74547bd04a1767d4
+DevNet: Client MD5: c74328e98993116a74547bd04a1767d4
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=PLAYERINTERFACE_PLAYERTAGS.INI CONFIGMD5=507d2f93ae1602b7dfe3b1da699b237f
+DevNet: Test MD5 for Config file PLAYERINTERFACE_PLAYERTAGS.INI - Count is 14
+DevNet: Server MD5: 507d2f93ae1602b7dfe3b1da699b237f
+DevNet: Client MD5: 507d2f93ae1602b7dfe3b1da699b237f
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=PLAYERINTERFACE_LOWREADY.INI CONFIGMD5=58556e133ccccc6b23ef4da2d3f737fb
+DevNet: Test MD5 for Config file PLAYERINTERFACE_LOWREADY.INI - Count is 15
+DevNet: Server MD5: 58556e133ccccc6b23ef4da2d3f737fb
+DevNet: Client MD5: 58556e133ccccc6b23ef4da2d3f737fb
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=PLAYERINTERFACE_USE.INI CONFIGMD5=ab598c81b5560eb72cc0051ddec1ec90
+DevNet: Test MD5 for Config file PLAYERINTERFACE_USE.INI - Count is 16
+DevNet: Server MD5: ab598c81b5560eb72cc0051ddec1ec90
+DevNet: Client MD5: ab598c81b5560eb72cc0051ddec1ec90
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=PLAYERINTERFACE_COMMAND_MP.INI CONFIGMD5=9ac9f764105561930171393484740a28
+DevNet: Test MD5 for Config file PLAYERINTERFACE_COMMAND_MP.INI - Count is 17
+DevNet: Server MD5: 9ac9f764105561930171393484740a28
+DevNet: Client MD5: 9ac9f764105561930171393484740a28
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=PLAYERINTERFACE_COMMAND_SP.INI CONFIGMD5=df9d5dcd2a8f5ef0d3a9a4f82b39a036
+DevNet: Test MD5 for Config file PLAYERINTERFACE_COMMAND_SP.INI - Count is 18
+DevNet: Server MD5: df9d5dcd2a8f5ef0d3a9a4f82b39a036
+DevNet: Client MD5: df9d5dcd2a8f5ef0d3a9a4f82b39a036
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=PLAYERINTERFACE_FIRE.INI CONFIGMD5=99bb7b55a2a5f370edf761ebd58c022c
+DevNet: Test MD5 for Config file PLAYERINTERFACE_FIRE.INI - Count is 19
+DevNet: Server MD5: 99bb7b55a2a5f370edf761ebd58c022c
+DevNet: Client MD5: 99bb7b55a2a5f370edf761ebd58c022c
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=GUIBASE.INI CONFIGMD5=95b2a9b13025c4d7c10232ae9044dac1
+DevNet: Test MD5 for Config file GUIBASE.INI - Count is 20
+DevNet: Server MD5: 95b2a9b13025c4d7c10232ae9044dac1
+DevNet: Client MD5: 95b2a9b13025c4d7c10232ae9044dac1
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=CHARACTERTYPES.INI CONFIGMD5=5033a0d008153e8ddc622d0793fed1b5
+DevNet: Test MD5 for Config file CHARACTERTYPES.INI - Count is 21
+DevNet: Server MD5: 5033a0d008153e8ddc622d0793fed1b5
+DevNet: Client MD5: 5033a0d008153e8ddc622d0793fed1b5
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=IDLEACTIONSLIST.INI CONFIGMD5=b8c4baf7ada827ffe9209999db9ef5d7
+DevNet: Test MD5 for Config file IDLEACTIONSLIST.INI - Count is 22
+DevNet: Server MD5: b8c4baf7ada827ffe9209999db9ef5d7
+DevNet: Client MD5: b8c4baf7ada827ffe9209999db9ef5d7
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=INITIALREACTIONSLIST.INI CONFIGMD5=d620e8aff4aa3fc1d505bf04342960f7
+DevNet: Test MD5 for Config file INITIALREACTIONSLIST.INI - Count is 23
+DevNet: Server MD5: d620e8aff4aa3fc1d505bf04342960f7
+DevNet: Client MD5: d620e8aff4aa3fc1d505bf04342960f7
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=VISUALEFFECTS.INI CONFIGMD5=9fe8b7bce0677f5461b54f4dbe8ffcb1
+DevNet: Test MD5 for Config file VISUALEFFECTS.INI - Count is 24
+DevNet: Server MD5: 9fe8b7bce0677f5461b54f4dbe8ffcb1
+DevNet: Client MD5: 9fe8b7bce0677f5461b54f4dbe8ffcb1
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=ENEMYARCHETYPES.INI CONFIGMD5=d0e484ffabccb2569a9024d3972f320a
+DevNet: Test MD5 for Config file ENEMYARCHETYPES.INI - Count is 25
+DevNet: Server MD5: d0e484ffabccb2569a9024d3972f320a
+DevNet: Client MD5: d0e484ffabccb2569a9024d3972f320a
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=COMMAND.INI CONFIGMD5=e0ce005a9fa116dbe4afe38f96d56c05
+DevNet: Test MD5 for Config file COMMAND.INI - Count is 26
+DevNet: Server MD5: e0ce005a9fa116dbe4afe38f96d56c05
+DevNet: Client MD5: e0ce005a9fa116dbe4afe38f96d56c05
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=HOSTAGEARCHETYPES.INI CONFIGMD5=478b37b145077f3f5dedfd4b67df43f5
+DevNet: Test MD5 for Config file HOSTAGEARCHETYPES.INI - Count is 27
+DevNet: Server MD5: 478b37b145077f3f5dedfd4b67df43f5
+DevNet: Client MD5: 478b37b145077f3f5dedfd4b67df43f5
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=INANIMATEARCHETYPES.INI CONFIGMD5=580c4b9f57662f1f096c132201cbd64d
+DevNet: Test MD5 for Config file INANIMATEARCHETYPES.INI - Count is 28
+DevNet: Server MD5: 580c4b9f57662f1f096c132201cbd64d
+DevNet: Client MD5: 580c4b9f57662f1f096c132201cbd64d
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=COMMANDINTERFACEMENUS_SP.INI CONFIGMD5=9f19803cbe2e2bf334fdb76daf12b7e1
+DevNet: Test MD5 for Config file COMMANDINTERFACEMENUS_SP.INI - Count is 29
+DevNet: Server MD5: 9f19803cbe2e2bf334fdb76daf12b7e1
+DevNet: Client MD5: 9f19803cbe2e2bf334fdb76daf12b7e1
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=COMMANDINTERFACEMENUS_MP.INI CONFIGMD5=e5086ed722384900d97735afd89d23ed
+DevNet: Test MD5 for Config file COMMANDINTERFACEMENUS_MP.INI - Count is 30
+DevNet: Server MD5: e5086ed722384900d97735afd89d23ed
+DevNet: Client MD5: e5086ed722384900d97735afd89d23ed
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=MPARCHETYPES.INI CONFIGMD5=043dd77adc1f2a13bf337722d81eabd1
+DevNet: Test MD5 for Config file MPARCHETYPES.INI - Count is 31
+DevNet: Server MD5: 043dd77adc1f2a13bf337722d81eabd1
+DevNet: Client MD5: 043dd77adc1f2a13bf337722d81eabd1
+DevNet: Equal:      0
+DevNet: Level server received: JOIN
+DevNet: Join request: Index.s4m?Name=MPGamer?Class=SwatGame.SwatPlayer?team=255
+Log: SwatGamePlayerController0 got player TcpipConnection0
+Log: Opening user log chatlog_2026_2_20.txt
+DevNet: Join succeeded: MPGamer
+VoiceChat: (t=41.372): AddVoiceChatter:SP-Hotel.SwatPlayerReplicationInfo0 MPGamer 0
+VoiceChat: (t=41.372): SwatVoiceReplicationInfo0 AddVoiceChannel PRI:SP-Hotel.SwatPlayerReplicationInfo0
+VoiceChat: (t=41.372): Adding member MPGamer (0) to MPGamer (0)
+DevNet: Level server received: OPENVOICE 1
+DevNet: OPENVOICE for PlayerID: 1 with codec: 1
+Log: @@@ Creating VoiceChannel for client
+Log: Opening user log chatlog_2026_2_20.txt
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.': Can't resolve package name
+Warning: Failed to load 'ScriptedTexture mp_OfficerTex.NameTagRed': Failed to find object 'ScriptedTexture mp_OfficerTex.NameTagRed'
+Warning: Failed to load 'ScriptedTexture mp_OfficerTex.NameTagRed': Failed to find object 'ScriptedTexture mp_OfficerTex.NameTagRed'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Missing SkeletalMesh SkeletalMesh FP_AK47.FP_AK47
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Import: Failed to import property 'IdleWeaponCategory': 'IdleWithG36wddwwdw' is not a valid value for enum 'EIdleWeaponStatus'. Treating as 0.
+Warning: Failed to load 'ScriptedTexture Eotech552.opksight': Failed to find object 'ScriptedTexture Eotech552.opksight'
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Failed to load 'Class SwatAmmo.MP5SMG_JSP': Failed to find object 'Class SwatAmmo.MP5SMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.ColtSMG_JSP': Failed to find object 'Class SwatAmmo.ColtSMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.ColtSMGsd_JSP': Failed to find object 'Class SwatAmmo.ColtSMGsd_JSP'
+Warning: Failed to load 'Class SwatAmmo.MP5SDSMG_JSP': Failed to find object 'Class SwatAmmo.MP5SDSMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.M4A1MG_JSP': Failed to find object 'Class SwatAmmo.M4A1MG_JSP'
+Warning: Failed to load 'Class SwatAmmo.SCARMG_JSP': Failed to find object 'Class SwatAmmo.SCARMG_JSP'
+Warning: Failed to load 'Class SwatEquipment.123': Failed to find object 'Class SwatEquipment.123'
+Warning: Failed to load 'Class SwatEquipment.EMPTY': Failed to find object 'Class SwatEquipment.EMPTY'
+Warning: Failed to load 'ScriptedTexture Fg_guns2_Tex.lv': Failed to find object 'ScriptedTexture Fg_guns2_Tex.lv'
+Warning: Failed to load 'ScriptedTexture Fg_guns2_Tex.lv': Failed to find object 'ScriptedTexture Fg_guns2_Tex.lv'
+Warning: Failed to load 'ScriptedTexture NewM4A1Tex.Holored': Failed to find object 'ScriptedTexture NewM4A1Tex.Holored'
+Warning: Failed to load 'Class SwatAmmo.UZISMG_JSP': Failed to find object 'Class SwatAmmo.UZISMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.MP5SMG_JSP': Failed to find object 'Class SwatAmmo.MP5SMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.MP5SDSMG_JSP': Failed to find object 'Class SwatAmmo.MP5SDSMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.XDMHG_AP': Failed to find object 'Class SwatAmmo.XDMHG_AP'
+Warning: Failed to load 'Class SwatAmmo.MP5SMG_JSP': Failed to find object 'Class SwatAmmo.MP5SMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.ColtSMG_JSP': Failed to find object 'Class SwatAmmo.ColtSMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.ColtSMGsd_JSP': Failed to find object 'Class SwatAmmo.ColtSMGsd_JSP'
+Warning: Failed to load 'Class SwatAmmo.MP5SDSMG_JSP': Failed to find object 'Class SwatAmmo.MP5SDSMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.M4A1MG_JSP': Failed to find object 'Class SwatAmmo.M4A1MG_JSP'
+Warning: Failed to load 'Class SwatAmmo.SCARMG_JSP': Failed to find object 'Class SwatAmmo.SCARMG_JSP'
+Warning: Failed to load 'Class SwatEquipment.EMPTY': Failed to find object 'Class SwatEquipment.EMPTY'
+Warning: Failed to load 'Class SwatAmmo.UZISMG_JSP': Failed to find object 'Class SwatAmmo.UZISMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.MP5SMG_JSP': Failed to find object 'Class SwatAmmo.MP5SMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.MP5SDSMG_JSP': Failed to find object 'Class SwatAmmo.MP5SDSMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.XDMHG_AP': Failed to find object 'Class SwatAmmo.XDMHG_AP'
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'MeshAnimation None.': Can't resolve package name
+Log: [Stats] Stat tracking is not activated.
+Log: Opening user log chatlog_2026_2_20.txt
+Log: Opening user log chatlog_2026_2_20.txt
+DevNet: Received unwanted function ServerSetAimRotation in NetPlayerCoop SP-Hotel.NetPlayerCoop0
+Log: Opening user log chatlog_2026_2_20.txt
+Log: Opening user log chatlog_2026_2_20.txt
+Log: Opening user log chatlog_2026_2_20.txt
+Log: Opening user log chatlog_2026_2_20.txt
+Log: Opening user log chatlog_2026_2_20.txt
+Log: Server switch level: ?restart
+Log: Browse: SP-Hotel?Name=MPGamer?dedicated?Class=SwatGame.SwatPlayer?team=255?restart
+Log: LoadMap: SP-Hotel?Name=MPGamer?dedicated?Class=SwatGame.SwatPlayer?team=255
+Log: [dkaplan]: URL.Map = SP-Hotel
+NetComeGo: Close TcpipConnection0 192.168.0.68:64023 02/20/26 18:12:30
+Log: Opening user log chatlog_2026_2_20.txt
+VoiceChat: (t=217.656): RemoveVoiceChatter:SP-Hotel.SwatPlayerReplicationInfo0 MPGamer
+Exit: Socket shut down
+Log: (Havok): Destroying static world for level.
+Log: ****************************************************
+Log:  Beginning level load: 'SP-Hotel'
+Log: ****************************************************
+Log: (Havok): Physical world for ULevel being created.
+Log: (Havok): Using medium solver
+Log: (Havok): Found 3 ragdoll files matching search path '..\HavokData\*.hke'
+Log: (Havok):   Precached ragdoll for file 'HotelSuitBag_rd.hke' in 1 ms.
+Log: (Havok):   Precached ragdoll for file 'PaperTarget_rd.hke' in 1 ms.
+Log: (Havok):   Precached ragdoll for file 'SWATofficer_rd.hke' in 18 ms.
+Log: (Havok): Finished precaching ragdolls
+Log: ****************************************************
+Log:  Finished level load in 0.604 seconds
+Log: ****************************************************
+Log: Collecting garbage
+Log: Purging garbage
+Log: 218620.0ms Unloading: Package EventLogger
+Log: 218620.0ms Unloading: Package SurvivalMod
+Log: MasterServerUplink::Destroy().
+Log: 218620.0ms Unloading: Package warehouse_tex
+Log: 218620.0ms Unloading: Package warehouse_sm
+Log: 218620.0ms Unloading: Package halfway_tex
+Log: 218620.0ms Unloading: Package halfwayhouse_sm
+Log: 218620.0ms Unloading: Package SwatDesignerClasses2
+Log: 218620.0ms Unloading: Package FemaleCasual3Tex
+Log: 218620.0ms Unloading: Package FemaleCasual1Tex
+Log: 218620.0ms Unloading: Package FemaleAnimation
+Log: 218620.0ms Unloading: Package SwatCameraEffects2
+Log: 218620.0ms Unloading: Package SwatCameraEffects
+Log: 218620.0ms Unloading: Package CF_weaponmeshes
+Log: 218620.0ms Unloading: Package SwatProjectile
+Log: 218620.0ms Unloading: Package SwatAmmo2
+Log: 218620.0ms Unloading: Package SwatGui
+Log: 218620.0ms Unloading: Package NightVision
+Log: 218620.0ms Unloading: Package SWAT5_Officer
+Log: 218620.0ms Unloading: Package Suicide
+Log: 218620.0ms Unloading: Package FR_strobe
+Log: 218620.0ms Unloading: Package zznSWATgear_smFR
+Log: 218620.0ms Unloading: Package SwatProtectiveEquipment2
+Log: 218620.0ms Unloading: Package SwatEffects
+Log: 218620.0ms Unloading: Package SwatEd
+Log: 218621.0ms Unloading: Package UWindow
+Log: 218621.0ms Unloading: Package SWATMaleAnimation3
+Log: 218622.0ms Unloading: Package SW_meta
+Log: 218622.0ms Unloading: Package SW_vo
+Log: 218623.0ms Unloading: Package SW_ambients
+Log: 218623.0ms Unloading: Package SW_objects
+Log: 218623.0ms Unloading: Package SW_bounce
+Log: 218623.0ms Unloading: Package SW_weapons
+Log: 218623.0ms Unloading: Package SWsef_weapons
+Log: 218623.0ms Unloading: Package SWEXP_weapons
+Log: 218623.0ms Unloading: Package SW_hits
+Log: 218623.0ms Unloading: Package SW_bullets
+Log: 218623.0ms Unloading: Package SWSAS_weapons
+Log: 218623.0ms Unloading: Package SW_feet
+Log: 218624.0ms Unloading: Package SWEXP_ambience
+Log: 218624.0ms Unloading: Package SW_FRExtra
+Log: 218624.0ms Unloading: Package gui_mp510_tex
+Log: 218624.0ms Unloading: Package SwatEquipmentModels3
+Log: 218624.0ms Unloading: Package SwatEquipmentModels
+Log: 218624.0ms Unloading: Package FP_M4A1mg
+Log: 218624.0ms Unloading: Package FP_Handcuffs
+Log: 218624.0ms Unloading: Package FP_FragGrenade
+Log: 218624.0ms Unloading: Package coltsmg_static
+Log: 218624.0ms Unloading: Package FP_coltsmg
+Log: 218624.0ms Unloading: Package FP_coltsmgsil
+Log: 218624.0ms Unloading: Package SwatEquipmentModelsSKIN
+Log: 218624.0ms Unloading: Package Gunskin_GUI_tex
+Log: 218624.0ms Unloading: Package Fg_guns2_Tex
+Log: 218624.0ms Unloading: Package FP_cole_p226
+Log: 218624.0ms Unloading: Package ColeP226Tex
+Log: 218624.0ms Unloading: Package TP_Cole_p226
+Log: Garbage: objects: 111553->66048; refs: 1104409
+Log: (Havok): Calling HavokInitActor on all 3840 Actors in the level
+Log: (Havok) Initialised level mopp in 0.05 seconds
+Log: Building Collision Octree...
+Log: Finished Building Collision Octree
+Log: Game class is 'SwatGameInfo'
+Init: WinSock: Socket queue 131072 / 131072
+DevNet: TcpNetDriver on port 10480
+Log: Server Package: Core
+Log: Server Package: Engine
+Log: Server Package: IGEffectsSystem
+Log: Server Package: IGVisualEffectsSubsystem
+Log: Server Package: IGSoundEffectsSubsystem
+Log: Server Package: Voting
+Log: Server Package: Editor
+Log: Server Package: UWindow
+Log:    (server-side only)
+Log: Server Package: GamePlay
+Log: Server Package: GUI
+Log: Server Package: SwatEd
+Log: Server Package: IpDrv
+Log:    (server-side only)
+Log: Server Package: Tyrion
+Log: Server Package: AICommon
+Log: Server Package: Scripting
+Log: Server Package: SwatAIAwareness
+Log: Server Package: SwatAICommon
+Log: Server Package: RWOSupport
+Log: Server Package: SwatGame
+Log: Server Package: SwatEffects
+Log: Server Package: SwatEquipment
+Log: Server Package: SwatProtectiveEquipment
+Log: Server Package: SwatProtectiveEquipment2
+Log: Server Package: SwatSimpleEquipment
+Log: Server Package: SwatObjectives
+Log: Server Package: SwatProcedures
+Log: Server Package: SwatGui
+Log: Server Package: SwatAmmo
+Log: Server Package: SwatAmmo2
+Log: Server Package: SwatCameraEffects
+Log: Server Package: SwatCameraEffects2
+Log: Server Package: SWATMaleAnimation
+Log: Server Package: FemaleAnimation
+Log: Server Package: SwatDesignerClasses2
+Log: Spawning: IpDrv.MasterServerUplink
+Log: Spawning: SurvivalMod.SVMod
+Log: Spawning: EventLogger.EventMod
+Log: UGameSpyManager::InitAsServer().
+Log: ...1
+Log: Level is Level SP-Hotel.myLevel
+Log: *** WARNING - PATHS MAY NOT BE VALID ***
+Log: Bringing Level SP-Hotel.myLevel up for play (120)...
+Log: ---------- IsTheEntryLevel = 0, GameEngine=0x2EC2D00, GameEngine->GEntry=0x0, GameEngine->GEntry->GetLevelInfo()=0x0, current LevelInfo=0x1CB4BD00
+VoiceChat: (t=217.656): SwatVoiceReplicationInfo1 ___________________PostNetBeginPlay
+VoiceChat: (t=217.656): SwatVoiceReplicationInfo1 AddVoiceChannel PRI:None
+VoiceChat: (t=217.656): SwatVoiceReplicationInfo1 AddVoiceChannel PRI:None
+VoiceChat: (t=217.656): SwatGameInfo1 VoiceReplicationInfo created: SP-Hotel.SwatVoiceReplicationInfo1
+Log: Resolving ...
+Log: Turning on AssertWithDescription dialog box.
+Log: MasterServerUplink::Reconnect().
+Log: ...Engine URL Port=10480
+Warning: Failed to load 'SWAT5_gui': Can't find file for package 'SWAT5_gui'
+Warning: Failed to load 'Material SWAT5_gui.equip_Striker': Can't find file for package 'SWAT5_gui'
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Material None.'': Can't resolve package name
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Material None.'': Can't resolve package name
+Warning: Failed to load 'Class SwatEquipmentModels2.ExplosiveArmor_FirstPerson': Failed to find object 'Class SwatEquipmentModels2.ExplosiveArmor_FirstPerson'
+Warning: Failed to load 'SWAT5_gui': Can't find file for package 'SWAT5_gui'
+Warning: Failed to load 'Material SWAT5_gui.equip_c2charge': Can't find file for package 'SWAT5_gui'
+Warning: Failed to load 'SWAT5_Cubemaps': Can't find file for package 'SWAT5_Cubemaps'
+Warning: Missing TexEnvMap TexEnvMap SWAT5_Cubemaps.BlackCubemapFace
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Material None.'': Can't resolve package name
+Log: SPAWN FAILED
+Reason: 'Failed because no slice fit and bKeepTrying=false'
+Actors blocking spawn:
+   -> LevelInfo0 (primitive: Model1)
+
+Log: WARNING: SpawnActor failed for Actor SwatMarineBomber6 because it couldn't fit at the spawn location
+Log: Loadmap executed in 2.71 seconds. (0.01 Verify) (0.60 Load) (1.66 Actor Init)
+DevNet: NotifyAcceptingConnection: Server myLevel accept
+NetComeGo: Open myLevel 02/20/26 18:12:32 192.168.0.68:58784
+DevNet: NotifyAcceptingChannel Control 0 server Level SP-Hotel.myLevel: Accepted
+DevNet: Level server received: HELLO REVISION=0 MINVER=2000 VER=2226
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture mp_OfficerTex.NameTagRed': Failed to find object 'ScriptedTexture mp_OfficerTex.NameTagRed'
+Warning: Failed to load 'ScriptedTexture mp_OfficerTex.NameTagRed': Failed to find object 'ScriptedTexture mp_OfficerTex.NameTagRed'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Init: EffectsSystem Configuration: ..\system\SoundEffectsConfig.u is up-to-date.
+Log: [EFFECTS SYSTEM] The SoundEffectsSubsystem's configuration package is up-to-date.
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: WARNING: AEffectsSubsystem::execAddEventResponse() Found that the EventResponse named AK15sdRMR_ThirdPersonFired is duplicated in the SoundEffectsSubsystem.
+Log: Assertion failed: !duplicate_event_response [File:.\IGEffectsSystem.cpp] [Line: 188]
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: WARNING: AEffectsSubsystem::execAddEventResponse() Found that the EventResponse named SwatAIPickLockNewEnd is duplicated in the SoundEffectsSubsystem.
+Log: Assertion failed: !duplicate_event_response [File:.\IGEffectsSystem.cpp] [Line: 188]
+Log: WARNING: AEffectsSubsystem::execAddEventResponse() Found that the EventResponse named NetPlayerPickLockNewEnd is duplicated in the SoundEffectsSubsystem.
+Log: Assertion failed: !duplicate_event_response [File:.\IGEffectsSystem.cpp] [Line: 188]
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: There are no Streams specified for StreamSoundEffectSpecification: 
+Log: Collecting garbage
+Log: Purging garbage
+Log: 222925.0ms Unloading: Package UWindow
+Log: Garbage: objects: 120569->101624; refs: 1035303
+Log: SoundEffectsSubsystem created.
+Log: Resolved  (192.168.0.68)
+DevNet: Level server received: NETSPEED 15000
+Log: Client netspeed is 15000
+DevNet: Level server received: LOGIN RESPONSE=-1659249334 URL=SP-Hotel?Name=MPGamer?Class=SwatGame.SwatPlayer?team=255
+DevNet: Login request: SP-Hotel?Name=MPGamer?Class=SwatGame.SwatPlayer?team=255
+DevNet: Level server received: VERIFYCONTENT FILE=SwatGear_sm.usx MD5=f8a105e84398303ea27ff54a18393ee7
+DevNet: Level server received: VERIFYCONTENT FILE=SWAT1stPersonTex.utx MD5=87c20acb854edac761071a7bf38f36d7
+DevNet: Level server received: VERIFYCONTENT FILE=SwatFXtex.utx MD5=333a35ae9e267459c326b203b6ff31eb
+DevNet: Level server received: VERIFYCONTENT FILE=HUD.utx MD5=cc80a8959c1992a05e4b466caa709100
+DevNet: Level server received: VERIFYCONTENT FILE=SwatDesignerClasses.u MD5=0728ffc35de2f2781355127edabf6110
+DevNet: Level server received: VERIFYCONTENT FILE=doors_Tex.utx MD5=89be3806b60534ed200d859ade65de68
+DevNet: Level server received: VERIFYCONTENT FILE=mp_OfficerTex.utx MD5=42d824247bc645ede370f748214c5e4a
+DevNet: Level server received: VERIFYCONTENT FILE=SWATofficerTex.utx MD5=070de5b0a15d493580d3e62d3107591c
+DevNet: Level server received: VERIFYCONTENT FILE=SWATheavyTex.utx MD5=2ebb71e67fc2f4e99cb87dc18776c4ff
+DevNet: Level server received: VERIFYCONTENT FILE=CameraEffectsTex.utx MD5=6e41f6de6c2a7a447d290751aa675b27
+DevNet: Level server received: VERIFYCONTENT FILE=scripted_tex.utx MD5=ad70e74db209f30ec4e5d8c7daf4af76
+DevNet: Level server received: VERIFYCONTENT FILE=SWATmeshFX_sm.usx MD5=1a8d3ac35d853726c60d60e33024e29f
+DevNet: Level server received: VERIFYCONTENT FILE=Coronas.utx MD5=027327888c581b82f9d0b3884d73cabc
+DevNet: Level server received: VERIFYCONTENT FILE=SwatEffects.u MD5=2a6c2afc8011e8b8575c1969f1f1808e
+DevNet: Level server received: VERIFYCONTENT FILE=SwatProtectiveEquipment.u MD5=0d473a984a448c9893f5524102ca61f3
+DevNet: Level server received: VERIFYCONTENT FILE=SwatAmmo.u MD5=dbcc5b50d198afd9c5fabc0aa46c4875
+DevNet: Level server received: VERIFYCONTENT FILE=SwatCameraEffects.u MD5=79ac5763c53e32c217829e2cd4b33ea8
+DevNet: Level server received: VERIFYCONTENTCLIENTFINISHEDSENDING
+DevNet: Level server received: CRITOBJCNT 40
+DevNet: Level server received: GAMESTATE A1B085BBBB5B098A4137D5D8E57E524E80bf6aad17c0f1a4479b92fd1fc17c76
+DevNet: Level server received: GAMESTATE 138EEB84C2C30420430A31153F20AAA724dc08cea764080df8f19fade481dc68
+DevNet: Level server received: GAMESTATE 1BE2D4B1BBF71D474F3223F6DF1F078Fca414019beeeee2a686ce4051f1986fa
+DevNet: Level server received: GAMESTATE 2DE5A5932CABCCA64340F631746AA51A25dae460f3a223dfb8da6ddd2afb7d91
+DevNet: Level server received: GAMESTATE 0081B78A2F0690CC446523C68AEBF5F68230055ee766c384f329218a8cffc323
+DevNet: Level server received: GAMESTATE E283FC89B392B775420BAC853B86B65C877bc1db08b64ca8bc3f3342a2f912cd
+DevNet: Level server received: GAMESTATE B62955891C843EEF4981D62F72FF142E1ff6ecc59a082b6ec51a66db472bab03
+DevNet: Level server received: GAMESTATE 57E466A76638A4DD4359FF923C6837773be3eb5423660d697516140d73278346
+DevNet: Level server received: GAMESTATE 00BD71BED9E4020E44DDCA618AB2D43Dda5339442649599242f3a6f46da04620
+DevNet: Level server received: GAMESTATE 37CF718AF4BB2A31460F063107D756115964fbaee0f1bbc6656e9e3d865bd8f3
+DevNet: Level server received: GAMESTATE A5B8E49A8A3530DD4B5E00C494F9AAB10ac59093ef7e6814324635aab4435065
+DevNet: Level server received: GAMESTATE 834725AB7DCD5550497231C51C6011EDc001785e5ffda8365c8312e6456962cb
+DevNet: Level server received: GAMESTATE 14C0DF8D49DC069040F5B3A0B5E8CD30ed99e599a311335b8a1fceedbf2f0af7
+DevNet: Level server received: GAMESTATE AB36C3AA87C44C1845326C3CFBDA220Cb13d824f45a37351aee7c95127ff33eb
+DevNet: Level server received: GAMESTATE B063C6A2B2AE08CD45683386C7DBE0A670be54c35f95d0d5231751a8934afbf4
+DevNet: Level server received: GAMESTATE 7294F8A15BF99689434C36B3A9B4BC4Cda42398f14769f1d6c4501a26f00fc3e
+DevNet: Level server received: GAMESTATE F8461C865534B978498FCEB2CA222D9Df82c5e29b7260e6a1ddc40883092e344
+DevNet: Level server received: GAMESTATE 5084C58A90C31BCF4EB7FA92125BF2C235757a5b9e3c2ba350784f8b7d052f3a
+DevNet: Level server received: GAMESTATE 286771882B926A8E419D52A52BA001341ddd8985b56b7818be350ab10cf6df5c
+DevNet: Level server received: GAMESTATE 75FBF48641B970DE4113FC870C56B211147bcc24394898089ef37ebdfcd1ea59
+DevNet: Level server received: GAMESTATE F0C3FD8C175D97A147776CA4109F7484ac37e41924c6b407e28bcd811dedaeea
+DevNet: Level server received: GAMESTATE B3569080297EF63E46C638FEAB85680157dc6cee5948639e0ec0626eed8a89f9
+DevNet: Level server received: GAMESTATE F01A21900486D28D4D2C571FE66B1675a833c39f9ec50f4a343d7766d3febf2f
+DevNet: Level server received: GAMESTATE C9FE579FD01052EE4AEB8DCFFFD4384216a954609e1561ad6d4fe7b08aca1681
+DevNet: Level server received: GAMESTATE CBC834B16C99E57C4E0A0C54570E47DCb6c99ce5b92c40d8be712edcd8bc1830
+DevNet: Level server received: GAMESTATE 61E0558D15C2DF9F496CF70EC1D5F1A1cf252837e063ad6473d1c3aa43c0ef8e
+DevNet: Level server received: GAMESTATE E81B84930B17FE1046007FA6688D6346e53b9ff270e3af0ff3e42840b8a2b807
+DevNet: Level server received: GAMESTATE 48E2DFA570C5991B4066C21BB99326264ef72cd9532e9f202fdb8b9a7a68829b
+DevNet: Level server received: GAMESTATE A24549B941ECA15049E20D7C50D18B046040de395d36dda3b68a698e4dd5ed50
+DevNet: Level server received: GAMESTATE 7D8C408B61787C7A4651B3D5180CC370c4d16c5460c3b6773fa612db08458a6f
+DevNet: Level server received: GAMESTATE 4E6D8EBF83A6A4A046AE79CD957905FAb54c3991565f32cf96f9d320fcf82c1f
+DevNet: Level server received: GAMESTATE 8DC57BAA21074E59482872C2DA538DDF5019899c8f82c59d9901ddfeb640210a
+DevNet: Level server received: GAMESTATE A5C708BCE541542A44313845B20FEC734de2ebd68908ab2a358df6473e2a2efc
+DevNet: Level server received: GAMESTATE 12DDE5B483B889FB43D030A54DF48448df646e223167f83d73259949f8784c06
+DevNet: Level server received: GAMESTATE F816C5B397282D9E4440701D0E92F1D593bfb57e6d9a0c796102d9dcab9fbe19
+DevNet: Level server received: GAMESTATE F03EAABF56C896CC4F71131C7F57C2798bfba6383e062c57172e843e67d5f978
+DevNet: Level server received: GAMESTATE 47DBE9B310BCE3784F41FBBAFE59051A895a27053c7db6660ec32bb062a6db57
+DevNet: Level server received: GAMESTATE BADECA9E4A7079FA4804939AB7EC94F0c181a4eb80ca64a30600d44710d92fb6
+DevNet: Level server received: GAMESTATE EA850781902920B14C319053CFDDF2D0d4eb04c13dfab2a097cabf002ab276e0
+DevNet: Level server received: GAMESTATE 806B788F6097006E4A65021F3ECA6705bc53fc658d6836ed093eadfb4cdca002
+DevNet: Level server received: GAMECONFIGCOUNT 32
+DevNet: Server updated from client about MD5s - ExpectedConfigCount: 32 GivenConfigCount: 32
+DevNet: Level server received: GAMECONFIG CONFIGFILE=SWATPAWN.INI CONFIGMD5=ef2aac1bd2fd3bc97f4832b9d47b423c
+DevNet: Test MD5 for Config file SWATPAWN.INI - Count is 0
+DevNet: Server MD5: ef2aac1bd2fd3bc97f4832b9d47b423c
+DevNet: Client MD5: ef2aac1bd2fd3bc97f4832b9d47b423c
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=SWATEQUIPMENT.INI CONFIGMD5=8b98acd55dba52e9680fa1ca71d59779
+DevNet: Test MD5 for Config file SWATEQUIPMENT.INI - Count is 1
+DevNet: Server MD5: 8b98acd55dba52e9680fa1ca71d59779
+DevNet: Client MD5: 8b98acd55dba52e9680fa1ca71d59779
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=SWATGAME.INI CONFIGMD5=0e08dcd8df858e32672c064f79349c53
+DevNet: Test MD5 for Config file SWATGAME.INI - Count is 2
+DevNet: Server MD5: 0e08dcd8df858e32672c064f79349c53
+DevNet: Client MD5: 0e08dcd8df858e32672c064f79349c53
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=SKELETALREGIONINFORMATION.INI CONFIGMD5=8dae3e963b14bf176de041882ad86472
+DevNet: Test MD5 for Config file SKELETALREGIONINFORMATION.INI - Count is 3
+DevNet: Server MD5: 8dae3e963b14bf176de041882ad86472
+DevNet: Client MD5: 8dae3e963b14bf176de041882ad86472
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=STATICLOADOUT.INI CONFIGMD5=30cd7e003ef7d8aebead1e0559ff3ba5
+DevNet: Test MD5 for Config file STATICLOADOUT.INI - Count is 4
+DevNet: Server MD5: 30cd7e003ef7d8aebead1e0559ff3ba5
+DevNet: Client MD5: 30cd7e003ef7d8aebead1e0559ff3ba5
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=SWATPAWNANIMATIONSETS.INI CONFIGMD5=8652b88d03892533feaa5aad64f1e344
+DevNet: Test MD5 for Config file SWATPAWNANIMATIONSETS.INI - Count is 5
+DevNet: Server MD5: 8652b88d03892533feaa5aad64f1e344
+DevNet: Client MD5: 8652b88d03892533feaa5aad64f1e344
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=SOUNDEFFECTS.INI CONFIGMD5=7552e33b800dac21685353455718a7b0
+DevNet: Test MD5 for Config file SOUNDEFFECTS.INI - Count is 6
+DevNet: Server MD5: 7552e33b800dac21685353455718a7b0
+DevNet: Client MD5: 7552e33b800dac21685353455718a7b0
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=AI.INI CONFIGMD5=ac9f20ef133779cf54c50d56f47f29a2
+DevNet: Test MD5 for Config file AI.INI - Count is 7
+DevNet: Server MD5: ac9f20ef133779cf54c50d56f47f29a2
+DevNet: Client MD5: ac9f20ef133779cf54c50d56f47f29a2
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=EFFECTSSYSTEM.INI CONFIGMD5=7aaf8570c7b7049eac5d59bf9c1d3199
+DevNet: Test MD5 for Config file EFFECTSSYSTEM.INI - Count is 8
+DevNet: Server MD5: 7aaf8570c7b7049eac5d59bf9c1d3199
+DevNet: Client MD5: 7aaf8570c7b7049eac5d59bf9c1d3199
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=OBJECTIVESPECS.INI CONFIGMD5=857684ece122055ba9c8e02ac23b5247
+DevNet: Test MD5 for Config file OBJECTIVESPECS.INI - Count is 9
+DevNet: Server MD5: 857684ece122055ba9c8e02ac23b5247
+DevNet: Client MD5: 857684ece122055ba9c8e02ac23b5247
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=MISSIONOBJECTIVES.INI CONFIGMD5=d55f2798af3b70c8f0efdb0ede84f53a
+DevNet: Test MD5 for Config file MISSIONOBJECTIVES.INI - Count is 10
+DevNet: Server MD5: d55f2798af3b70c8f0efdb0ede84f53a
+DevNet: Client MD5: d55f2798af3b70c8f0efdb0ede84f53a
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=LEADERSHIP.INI CONFIGMD5=9a47ce91595fcf7b4f4d92c822de98cc
+DevNet: Test MD5 for Config file LEADERSHIP.INI - Count is 11
+DevNet: Server MD5: 9a47ce91595fcf7b4f4d92c822de98cc
+DevNet: Client MD5: 9a47ce91595fcf7b4f4d92c822de98cc
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=CONVERSATIONS.INI CONFIGMD5=7b418c7866a8e765c8c2e375618e97eb
+DevNet: Test MD5 for Config file CONVERSATIONS.INI - Count is 12
+DevNet: Server MD5: 7b418c7866a8e765c8c2e375618e97eb
+DevNet: Client MD5: 7b418c7866a8e765c8c2e375618e97eb
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=TRAININGTEXT.INI CONFIGMD5=d2a7f31068c4245d3bdb65d406833158
+DevNet: Test MD5 for Config file TRAININGTEXT.INI - Count is 13
+DevNet: Server MD5: d2a7f31068c4245d3bdb65d406833158
+DevNet: Client MD5: d2a7f31068c4245d3bdb65d406833158
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=PLAYERINTERFACE_PLAYERTAGS.INI CONFIGMD5=99cfc36521d6f33b3a52a0fba47e7bf6
+DevNet: Test MD5 for Config file PLAYERINTERFACE_PLAYERTAGS.INI - Count is 14
+DevNet: Server MD5: 99cfc36521d6f33b3a52a0fba47e7bf6
+DevNet: Client MD5: 99cfc36521d6f33b3a52a0fba47e7bf6
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=PLAYERINTERFACE_LOWREADY.INI CONFIGMD5=20861098d2db9765f9e306f501f91403
+DevNet: Test MD5 for Config file PLAYERINTERFACE_LOWREADY.INI - Count is 15
+DevNet: Server MD5: 20861098d2db9765f9e306f501f91403
+DevNet: Client MD5: 20861098d2db9765f9e306f501f91403
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=PLAYERINTERFACE_USE.INI CONFIGMD5=0cbf31fdfd1a0c15a0199034975876fd
+DevNet: Test MD5 for Config file PLAYERINTERFACE_USE.INI - Count is 16
+DevNet: Server MD5: 0cbf31fdfd1a0c15a0199034975876fd
+DevNet: Client MD5: 0cbf31fdfd1a0c15a0199034975876fd
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=PLAYERINTERFACE_COMMAND_MP.INI CONFIGMD5=d78244d10c8871cea4f2cdbc07bbbcd7
+DevNet: Test MD5 for Config file PLAYERINTERFACE_COMMAND_MP.INI - Count is 17
+DevNet: Server MD5: d78244d10c8871cea4f2cdbc07bbbcd7
+DevNet: Client MD5: d78244d10c8871cea4f2cdbc07bbbcd7
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=PLAYERINTERFACE_COMMAND_SP.INI CONFIGMD5=cf347085beab8fd8ae5ed31550e758d5
+DevNet: Test MD5 for Config file PLAYERINTERFACE_COMMAND_SP.INI - Count is 18
+DevNet: Server MD5: cf347085beab8fd8ae5ed31550e758d5
+DevNet: Client MD5: cf347085beab8fd8ae5ed31550e758d5
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=PLAYERINTERFACE_FIRE.INI CONFIGMD5=a13a46aace7bca2cd8c4c165cfc51bfe
+DevNet: Test MD5 for Config file PLAYERINTERFACE_FIRE.INI - Count is 19
+DevNet: Server MD5: a13a46aace7bca2cd8c4c165cfc51bfe
+DevNet: Client MD5: a13a46aace7bca2cd8c4c165cfc51bfe
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=GUIBASE.INI CONFIGMD5=0924084da5790d2a5a06aafe74e52bf1
+DevNet: Test MD5 for Config file GUIBASE.INI - Count is 20
+DevNet: Server MD5: 0924084da5790d2a5a06aafe74e52bf1
+DevNet: Client MD5: 0924084da5790d2a5a06aafe74e52bf1
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=CHARACTERTYPES.INI CONFIGMD5=7b4da4f757df343cf7f790a31d36d3de
+DevNet: Test MD5 for Config file CHARACTERTYPES.INI - Count is 21
+DevNet: Server MD5: 7b4da4f757df343cf7f790a31d36d3de
+DevNet: Client MD5: 7b4da4f757df343cf7f790a31d36d3de
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=IDLEACTIONSLIST.INI CONFIGMD5=47d533c304b3c385b769778f9591747c
+DevNet: Test MD5 for Config file IDLEACTIONSLIST.INI - Count is 22
+DevNet: Server MD5: 47d533c304b3c385b769778f9591747c
+DevNet: Client MD5: 47d533c304b3c385b769778f9591747c
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=INITIALREACTIONSLIST.INI CONFIGMD5=0015cc70f7adc4b79023ed0472e70282
+DevNet: Test MD5 for Config file INITIALREACTIONSLIST.INI - Count is 23
+DevNet: Server MD5: 0015cc70f7adc4b79023ed0472e70282
+DevNet: Client MD5: 0015cc70f7adc4b79023ed0472e70282
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=VISUALEFFECTS.INI CONFIGMD5=d7bd0843fb68d2ff4fda7bbeb0347189
+DevNet: Test MD5 for Config file VISUALEFFECTS.INI - Count is 24
+DevNet: Server MD5: d7bd0843fb68d2ff4fda7bbeb0347189
+DevNet: Client MD5: d7bd0843fb68d2ff4fda7bbeb0347189
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=ENEMYARCHETYPES.INI CONFIGMD5=c3df91018219f1f47176252c302e0b41
+DevNet: Test MD5 for Config file ENEMYARCHETYPES.INI - Count is 25
+DevNet: Server MD5: c3df91018219f1f47176252c302e0b41
+DevNet: Client MD5: c3df91018219f1f47176252c302e0b41
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=COMMAND.INI CONFIGMD5=3b3c8cedf81e369ed0c4f89c384811ca
+DevNet: Test MD5 for Config file COMMAND.INI - Count is 26
+DevNet: Server MD5: 3b3c8cedf81e369ed0c4f89c384811ca
+DevNet: Client MD5: 3b3c8cedf81e369ed0c4f89c384811ca
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=HOSTAGEARCHETYPES.INI CONFIGMD5=aa0f17b4a179774875f52b19f00c3276
+DevNet: Test MD5 for Config file HOSTAGEARCHETYPES.INI - Count is 27
+DevNet: Server MD5: aa0f17b4a179774875f52b19f00c3276
+DevNet: Client MD5: aa0f17b4a179774875f52b19f00c3276
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=INANIMATEARCHETYPES.INI CONFIGMD5=9f6b7c602b53a58c0227b139a57a6f64
+DevNet: Test MD5 for Config file INANIMATEARCHETYPES.INI - Count is 28
+DevNet: Server MD5: 9f6b7c602b53a58c0227b139a57a6f64
+DevNet: Client MD5: 9f6b7c602b53a58c0227b139a57a6f64
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=COMMANDINTERFACEMENUS_SP.INI CONFIGMD5=894328e8b9ac6a2b10c09a34ce84c63a
+DevNet: Test MD5 for Config file COMMANDINTERFACEMENUS_SP.INI - Count is 29
+DevNet: Server MD5: 894328e8b9ac6a2b10c09a34ce84c63a
+DevNet: Client MD5: 894328e8b9ac6a2b10c09a34ce84c63a
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=COMMANDINTERFACEMENUS_MP.INI CONFIGMD5=cf960cb05c7dadec46d8e82cae310217
+DevNet: Test MD5 for Config file COMMANDINTERFACEMENUS_MP.INI - Count is 30
+DevNet: Server MD5: cf960cb05c7dadec46d8e82cae310217
+DevNet: Client MD5: cf960cb05c7dadec46d8e82cae310217
+DevNet: Equal:      0
+DevNet: Level server received: GAMECONFIG CONFIGFILE=MPARCHETYPES.INI CONFIGMD5=887279cce7f888b036c9083008fd7607
+DevNet: Test MD5 for Config file MPARCHETYPES.INI - Count is 31
+DevNet: Server MD5: 887279cce7f888b036c9083008fd7607
+DevNet: Client MD5: 887279cce7f888b036c9083008fd7607
+DevNet: Equal:      0
+DevNet: Level server received: JOIN
+DevNet: Join request: SP-Hotel?Name=MPGamer?Class=SwatGame.SwatPlayer?team=255
+Log: SwatGamePlayerController1 got player TcpipConnection1
+Log: Opening user log chatlog_2026_2_20.txt
+DevNet: Join succeeded: MPGamer
+VoiceChat: (t=231.856): AddVoiceChatter:SP-Hotel.SwatPlayerReplicationInfo1 MPGamer 0
+VoiceChat: (t=231.856): SwatVoiceReplicationInfo1 AddVoiceChannel PRI:SP-Hotel.SwatPlayerReplicationInfo1
+VoiceChat: (t=231.856): Adding member MPGamer (0) to MPGamer (0)
+DevNet: Level server received: OPENVOICE 1
+DevNet: OPENVOICE for PlayerID: 1 with codec: 1
+Log: @@@ Creating VoiceChannel for client
+Log: Opening user log chatlog_2026_2_20.txt
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'Class None.': Can't resolve package name
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Failed to load 'ScriptedTexture mp_OfficerTex.NameTagRed': Failed to find object 'ScriptedTexture mp_OfficerTex.NameTagRed'
+Warning: Failed to load 'ScriptedTexture mp_OfficerTex.NameTagRed': Failed to find object 'ScriptedTexture mp_OfficerTex.NameTagRed'
+Warning: Failed to load 'ScriptedTexture mp_OfficerTex.NameTagRed': Failed to find object 'ScriptedTexture mp_OfficerTex.NameTagRed'
+Warning: Failed to load 'ScriptedTexture mp_OfficerTex.NameTagRed': Failed to find object 'ScriptedTexture mp_OfficerTex.NameTagRed'
+Warning: Failed to load 'ScriptedTexture Eotech552.red_holo': Failed to find object 'ScriptedTexture Eotech552.red_holo'
+Warning: Missing SkeletalMesh SkeletalMesh FP_AK47.FP_AK47
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Import: Failed to import property 'IdleWeaponCategory': 'IdleWithG36wddwwdw' is not a valid value for enum 'EIdleWeaponStatus'. Treating as 0.
+Warning: Failed to load 'ScriptedTexture Eotech552.opksight': Failed to find object 'ScriptedTexture Eotech552.opksight'
+Warning: Failed to load 'ScriptedTexture gui_sas.FireModeHide': Failed to find object 'ScriptedTexture gui_sas.FireModeHide'
+Warning: Failed to load 'Class SwatAmmo.MP5SMG_JSP': Failed to find object 'Class SwatAmmo.MP5SMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.ColtSMG_JSP': Failed to find object 'Class SwatAmmo.ColtSMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.ColtSMGsd_JSP': Failed to find object 'Class SwatAmmo.ColtSMGsd_JSP'
+Warning: Failed to load 'Class SwatAmmo.MP5SDSMG_JSP': Failed to find object 'Class SwatAmmo.MP5SDSMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.M4A1MG_JSP': Failed to find object 'Class SwatAmmo.M4A1MG_JSP'
+Warning: Failed to load 'Class SwatAmmo.SCARMG_JSP': Failed to find object 'Class SwatAmmo.SCARMG_JSP'
+Warning: Failed to load 'Class SwatEquipment.123': Failed to find object 'Class SwatEquipment.123'
+Warning: Failed to load 'Class SwatEquipment.EMPTY': Failed to find object 'Class SwatEquipment.EMPTY'
+Warning: Failed to load 'ScriptedTexture Fg_guns2_Tex.lv': Failed to find object 'ScriptedTexture Fg_guns2_Tex.lv'
+Warning: Failed to load 'ScriptedTexture Fg_guns2_Tex.lv': Failed to find object 'ScriptedTexture Fg_guns2_Tex.lv'
+Warning: Failed to load 'ScriptedTexture NewM4A1Tex.Holored': Failed to find object 'ScriptedTexture NewM4A1Tex.Holored'
+Warning: Failed to load 'Class SwatAmmo.UZISMG_JSP': Failed to find object 'Class SwatAmmo.UZISMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.MP5SMG_JSP': Failed to find object 'Class SwatAmmo.MP5SMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.MP5SDSMG_JSP': Failed to find object 'Class SwatAmmo.MP5SDSMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.XDMHG_AP': Failed to find object 'Class SwatAmmo.XDMHG_AP'
+Warning: Failed to load 'Class SwatAmmo.MP5SMG_JSP': Failed to find object 'Class SwatAmmo.MP5SMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.ColtSMG_JSP': Failed to find object 'Class SwatAmmo.ColtSMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.ColtSMGsd_JSP': Failed to find object 'Class SwatAmmo.ColtSMGsd_JSP'
+Warning: Failed to load 'Class SwatAmmo.MP5SDSMG_JSP': Failed to find object 'Class SwatAmmo.MP5SDSMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.M4A1MG_JSP': Failed to find object 'Class SwatAmmo.M4A1MG_JSP'
+Warning: Failed to load 'Class SwatAmmo.SCARMG_JSP': Failed to find object 'Class SwatAmmo.SCARMG_JSP'
+Warning: Failed to load 'Class SwatEquipment.EMPTY': Failed to find object 'Class SwatEquipment.EMPTY'
+Warning: Failed to load 'Class SwatAmmo.UZISMG_JSP': Failed to find object 'Class SwatAmmo.UZISMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.MP5SMG_JSP': Failed to find object 'Class SwatAmmo.MP5SMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.MP5SDSMG_JSP': Failed to find object 'Class SwatAmmo.MP5SDSMG_JSP'
+Warning: Failed to load 'Class SwatAmmo.XDMHG_AP': Failed to find object 'Class SwatAmmo.XDMHG_AP'
+Warning: Failed to load 'NULL': Can't resolve package name
+Warning: Failed to load 'MeshAnimation None.': Can't resolve package name
+Log: [Stats] Stat tracking is not activated.
+Log: Opening user log chatlog_2026_2_20.txt
+Log: Opening user log chatlog_2026_2_20.txt
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction49
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction50
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction51
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction52
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction53
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction54
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction55
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction56
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction57
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction58
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction59
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction60
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction61
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction62
+Log: Opening user log chatlog_2026_2_20.txt
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction63
+Warning: Failed to load 'Material Shells.00buck_256': Failed to find object 'Material Shells.00buck_256'
+Log: Opening user log chatlog_2026_2_20.txt
+Log: Opening user log chatlog_2026_2_20.txt
+Log: Opening user log chatlog_2026_2_20.txt
+Log: setActionParameters: WARNING: parameter BoolProperty SwatAICommon.AimAroundGoal.CancelWhenCompliant doesn't exist in action AimAroundAction SP-Hotel.AimAroundAction64
+NetComeGo: Close TcpipConnection1 192.168.0.68:58784 02/20/26 18:15:50
+Log: Opening user log chatlog_2026_2_20.txt
+VoiceChat: (t=417.898): RemoveVoiceChatter:SP-Hotel.SwatPlayerReplicationInfo1 MPGamer
+Log: WLog::OnCommand ID_NotifyExit
+Log: appRequestExit(0)
+Warning: Error deleting file 'X:\SWAT 4\SEF-FR Tactical Edition\System\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\SEF-FR Tactical Edition\System\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\SEF-FR Tactical Edition\Content\Scenarios\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\SEF-FR Tactical Edition\Content\Maps\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\ContentExpansion\System\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\ContentExpansion\Scenarios\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\ContentExpansion\Maps\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\SEF-FR Tactical Edition\Content\Movies\Running.ini'. Error = 0x3 ()
+Warning: Error deleting file 'X:\SWAT 4\ContentExpansion\LocalizedContent\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\ContentExpansion\Sounds\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\SEF-FR Tactical Edition\Content\CustomSkins\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\ContentExpansion\Test\Maps\Running.ini'. Error = 0x3 ()
+Warning: Error deleting file 'X:\SWAT 4\Content\System\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\Content\Scenarios\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\Content\Maps\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\LocalizedContent\Running.ini'. Error = 0x3 ()
+Warning: Error deleting file 'X:\SWAT 4\Content\Sounds\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\SEF-FR Tactical Edition\Content\Sounds\Running.ini'. Error = 0x2 ()
+Warning: Error deleting file 'X:\SWAT 4\SEF-FR Tactical Edition\Content\Movies\Running.ini'. Error = 0x3 ()
+Warning: Error deleting file 'X:\SWAT 4\Content\Test\Maps\Running.ini'. Error = 0x3 ()
+Exit: Preparing to exit.
+Log: Purging garbage
+Log: Unbound to Window.dll
+Log: Unbound to Core.dll
+Log: Unbound to Scripting.dll
+Log: Unbound to Engine.dll
+Log: Unbound to SwatAIAwareness.dll
+Log: Unbound to AICommon.dll
+Log: Unbound to ALAudio.dll
+Log: Unbound to SwatGame.dll
+Log: Unbound to RWOSupport.dll
+Log: Unbound to Tyrion.dll
+Log: Unbound to GUI.dll
+Log: Unbound to SwatAICommon.dll
+Log: Unbound to Editor.dll
+Log: Unbound to ScriptCompiler.dll
+Log: 437515.0ms Unloading: Package SwatGame
+Log: 437516.0ms Unloading: Package Engine
+Log: 437516.0ms Unloading: Package Core
+Log: 437516.0ms Unloading: Package Engine_res
+Log: 437516.0ms Unloading: Package SWAT4editorTex
+Log: 437516.0ms Unloading: Package SwatGear_sm
+Log: 437516.0ms Unloading: Package SwatGearTex
+Log: 437516.0ms Unloading: Package SWAT1stPersonTex
+Log: 437516.0ms Unloading: Package MP5A4_NEW
+Log: 437516.0ms Unloading: Package SwatFXtex
+Log: 437516.0ms Unloading: Package G36Knew
+Log: 437516.0ms Unloading: Package bm4
+Log: 437516.0ms Unloading: Package BenelliNovanew
+Log: 437516.0ms Unloading: Package mich_helmet
+Log: 437516.0ms Unloading: Package Kimber
+Log: 437516.0ms Unloading: Package gui_sas
+Log: 437516.0ms Unloading: Package M870Breach
+Log: 437516.0ms Unloading: Package cuffs_Tex
+Log: 437516.0ms Unloading: Package HG_HS2000_TEX
+Log: 437516.0ms Unloading: Package M4A1_SFM500
+Log: 437516.0ms Unloading: Package MK18_SFM500
+Log: 437516.0ms Unloading: Package Repo_Tex
+Log: 437516.0ms Unloading: Package MetalShaders
+Log: 437516.0ms Unloading: Package UMPnew
+Log: 437516.0ms Unloading: Package cpe_more_tex
+Log: 437516.0ms Unloading: Package MaleGang1Tex
+Log: 437516.0ms Unloading: Package FR_grenades
+Log: 437516.0ms Unloading: Package N_ak74m_tex
+Log: 437516.0ms Unloading: Package qbz191_tex
+Log: 437516.0ms Unloading: Package Glock
+Log: 437516.0ms Unloading: Package AUG_Tex
+Log: 437516.0ms Unloading: Package SWATInstructorTex2
+Log: 437516.0ms Unloading: Package safariland
+Log: 437516.0ms Unloading: Package 92fs
+Log: 437516.0ms Unloading: Package surefireM900
+Log: 437516.0ms Unloading: Package motorola
+Log: 437516.0ms Unloading: Package HUD
+Log: 437516.0ms Unloading: Package EditorSprites
+Log: 437516.0ms Unloading: Package FP_Hand2
+Log: Unbound to IGEffectsSystem.dll
+Log: 437516.0ms Unloading: Package IGEffectsSystem
+Log: 437516.0ms Unloading: Package SWAThands
+Log: 437516.0ms Unloading: Package Editor_res
+Log: 437516.0ms Unloading: Package Hotel_sm
+Log: 437516.0ms Unloading: Package Hotel
+Log: 437516.0ms Unloading: Package Arms_Tex
+Log: 437516.0ms Unloading: Package Silence_Tex
+Log: 437516.0ms Unloading: Package office_Tex
+Log: 437516.0ms Unloading: Package DNA_tex
+Log: 437516.0ms Unloading: Package VIP_Tex
+Log: 437516.0ms Unloading: Package HotelFXtex
+Log: 437516.0ms Unloading: Package barbershop_tex
+Log: 437516.0ms Unloading: Package SwatAICommon
+Log: 437517.0ms Unloading: Package Tyrion
+Log: 437517.0ms Unloading: Package AICommon
+Log: 437517.0ms Unloading: Package SwatAIAwareness
+Log: 437517.0ms Unloading: Package GUI
+Log: 437517.0ms Unloading: Package gui_tex
+Log: 437517.0ms Unloading: Package Scripting
+Log: 437517.0ms Unloading: Package Voting
+Log: Unbound to IGSoundEffectsSubsystem.dll
+Log: 437517.0ms Unloading: Package IGSoundEffectsSubsystem
+Log: 437517.0ms Unloading: Package IGEffectsSystem_EditorTextures
+Log: 437517.0ms Unloading: Package RWOSupport
+Log: 437517.0ms Unloading: Package Gameplay
+Log: Unbound to IpDrv.dll
+Log: 437517.0ms Unloading: Package IpDrv
+Log: 437517.0ms Unloading: Package mp_OfficerTex
+Log: 437517.0ms Unloading: Package SWATMaleAnimation2
+Log: 437517.0ms Unloading: Package SWATofficerTex
+Log: 437517.0ms Unloading: Package LeoMelTextureSet
+Log: 437517.0ms Unloading: Package maleMafiaTex
+Log: 437517.0ms Unloading: Package Swat3Suspect
+Log: 437517.0ms Unloading: Package SWATMaleAnimation
+Log: 437517.0ms Unloading: Package CFDA_Arab
+Log: 437517.0ms Unloading: Package MaleSuitTex
+Log: 437517.0ms Unloading: Package MaleCasual3Tex
+Log: 437517.0ms Unloading: Package MaleCasual4Tex
+Log: 437517.0ms Unloading: Package MaleCasual2Tex
+Log: 437517.0ms Unloading: Package SWATinstructorTex
+Log: 437517.0ms Unloading: Package SWATheavyTex
+Log: 437517.0ms Unloading: Package CultLeaderTextureSet
+Log: 437517.0ms Unloading: Package MaleJanitorTextureSet
+Log: 437517.0ms Unloading: Package MaleDoctorTex
+Log: 437517.0ms Unloading: Package MaleChubbyTex
+Log: 437517.0ms Unloading: Package MaleBarberTex
+Log: 437517.0ms Unloading: Package MaleCasualArmorTex
+Log: 437517.0ms Unloading: Package MaleCasual1Tex
+Log: 437517.0ms Unloading: Package new_plp_tex
+Log: 437517.0ms Unloading: Package maleHomelessTex
+Log: 437517.0ms Unloading: Package SWATbadguyTex
+Log: 437517.0ms Unloading: Package SWATMaleAnimationHOV
+Log: 437517.0ms Unloading: Package TerrAnimation
+Log: 437517.0ms Unloading: Package SWATnoArmourTex
+Log: 437517.0ms Unloading: Package SWATLVL2Tex
+Log: 437517.0ms Unloading: Package cbrn_suspect_tex
+Log: 437517.0ms Unloading: Package CASMtex
+Log: 437517.0ms Unloading: Package PLPLead
+Log: 437517.0ms Unloading: Package 123
+Log: 437517.0ms Unloading: Package 1-Iran
+Log: 437517.0ms Unloading: Package MPofficerskin_tex
+Log: 437517.0ms Unloading: Package Doors_sm
+Log: 437517.0ms Unloading: Package doors_Tex
+Log: 437517.0ms Unloading: Package bullseye_Tex
+Log: 437517.0ms Unloading: Package Paradise_Tex
+Log: 437517.0ms Unloading: Package Tenement_Tex
+Log: 437517.0ms Unloading: Package train
+Log: 437517.0ms Unloading: Package Bar_Tex
+Log: 437517.0ms Unloading: Package Hosp
+Log: 437517.0ms Unloading: Package RedLibrary_Tex
+Log: 437517.0ms Unloading: Package Jewel_Tex
+Log: 437517.0ms Unloading: Package doors_knobs
+Log: 437517.0ms Unloading: Package Power_Tex
+Log: 437517.0ms Unloading: Package CameraEffectsTex
+Log: 437517.0ms Unloading: Package arms_sm
+Log: 437517.0ms Unloading: Package Outdoors_Tex
+Log: 437517.0ms Unloading: Package ProgrammerTestObjectsTex
+Log: 437517.0ms Unloading: Package UWindow_res
+Log: 437517.0ms Unloading: Package CoopArrow
+Log: 437518.0ms Unloading: Package gui_tex2
+Log: 437518.0ms Unloading: Package SWATDoubleDoorAnimations
+Log: 437518.0ms Unloading: Package SWATDoorAnimation
+Log: 437518.0ms Unloading: Package SwatGear2_sm
+Log: 437518.0ms Unloading: Package SwatGear2Tex
+Log: 437518.0ms Unloading: Package druglab
+Log: 437518.0ms Unloading: Package SwatFX2tex
+Log: Unbound to SwatEquipment.dll
+Log: 437518.0ms Unloading: Package SwatEquipment
+Log: 437518.0ms Unloading: Package gear_sef
+Log: 437518.0ms Unloading: Package SwatArmory_Tex
+Log: 437518.0ms Unloading: Package GearTex_sef
+Log: 437518.0ms Unloading: Package GearTex_sas
+Log: 437518.0ms Unloading: Package AimpointM2
+Log: 437518.0ms Unloading: Package bp_3P_tex
+Log: 437518.0ms Unloading: Package XD45
+Log: 437518.0ms Unloading: Package gear_suspects
+Log: 437518.0ms Unloading: Package CF_WeaponTex
+Log: 437518.0ms Unloading: Package SWAT1stPersonTex2
+Log: 437518.0ms Unloading: Package scripted_tex
+Log: 437518.0ms Unloading: Package TaserWire
+Log: 437518.0ms Unloading: Package GU_GearTex
+Log: 437518.0ms Unloading: Package swatmeshfx2_sm
+Log: 437518.0ms Unloading: Package SW_FR
+Log: 437518.0ms Unloading: Package FR_Laser
+Log: 437518.0ms Unloading: Package FRTEGear
+Log: 437518.0ms Unloading: Package FRTEhelmet_Tex
+Log: 437518.0ms Unloading: Package SWAT5_Weapons_Gear
+Log: 437518.0ms Unloading: Package SWAT5_Weapons_Scopes
+Log: 437518.0ms Unloading: Package amc_Tex
+Log: 437518.0ms Unloading: Package SWAT5_Weapons_SG553
+Log: 437518.0ms Unloading: Package SWAT5_Weapons_MP5
+Log: 437518.0ms Unloading: Package Shield_model
+Log: 437518.0ms Unloading: Package Shield_tex
+Log: 437518.0ms Unloading: Package SwatEquipmentModels2
+Log: 437518.0ms Unloading: Package Coronas
+Exit: Game engine shut down
+Log: Unbound to IGVisualEffectsSubsystem.dll
+Log: 437519.0ms Unloading: Package IGVisualEffectsSubsystem
+Log: 437519.0ms Unloading: Package SwatProcedures
+Log: 437519.0ms Unloading: Package Suspect1_officerTex
+Log: 437520.0ms Unloading: Package FP_C2charge
+Log: 437520.0ms Unloading: Package FP_Pepperspray
+Log: 437520.0ms Unloading: Package FP_DoorWedge
+Log: 437520.0ms Unloading: Package FP_stingGrenade
+Log: 437520.0ms Unloading: Package FP_flashbangGrenade
+Log: 437520.0ms Unloading: Package FP_csGasGrenade
+Log: 437520.0ms Unloading: Package Spentmags_sm
+Log: 437520.0ms Unloading: Package gui_FR
+Log: 437520.0ms Unloading: Package SwatProgrammerSampleClasses
+Log: 437520.0ms Unloading: Package gui_tex3
+Log: 437520.0ms Unloading: Package gui_btla
+Log: 437520.0ms Unloading: Package SWAT5_Weapons_SVD
+Log: 437520.0ms Unloading: Package 1stPersonTex_sas
+Log: 437520.0ms Unloading: Package AK15_full_Tex
+Log: 437520.0ms Unloading: Package SWAT5_Weapons_G36C
+Log: 437520.0ms Unloading: Package M16A4_Tex
+Log: 437520.0ms Unloading: Package NewM4A1Tex
+Log: 437520.0ms Unloading: Package Eotech552
+Log: 437520.0ms Unloading: Package mp7_pro_tex
+Log: 437520.0ms Unloading: Package SWAT5_Weapons_QBZ95
+Log: 437520.0ms Unloading: Package SWAT5_Weapons_HK416
+Log: 437520.0ms Unloading: Package VHS
+Log: 437520.0ms Unloading: Package FP_QBZ192
+Log: 437520.0ms Unloading: Package Honey_Badger_Tex
+Log: 437520.0ms Unloading: Package M4A1SOPMODII_TEX
+Log: 437520.0ms Unloading: Package FP_79smg
+Log: 437520.0ms Unloading: Package FP_SAIGA_fix
+Log: 437520.0ms Unloading: Package Saiga12_pro_tex
+Log: 437520.0ms Unloading: Package TP_QBZ192
+Log: 437520.0ms Unloading: Package FP_taser
+Log: 437520.0ms Unloading: Package FP_QBZ95
+Log: 437520.0ms Unloading: Package FP_AK15
+Log: 437520.0ms Unloading: Package M16A2SFM500
+Log: 437520.0ms Unloading: Package SWAT5_Weapons_UMP45
+Log: 437520.0ms Unloading: Package SWAT5Gear_sm
+Log: 437520.0ms Unloading: Package FP_M4A1_New
+Log: 437520.0ms Unloading: Package TP_M4A1_New
+Log: 437520.0ms Unloading: Package FP_FNFAL
+Log: 437520.0ms Unloading: Package FP_HoneyBadger
+Log: 437520.0ms Unloading: Package TP_HoneyBadger
+Log: 437520.0ms Unloading: Package TP_AK15
+Log: 437520.0ms Unloading: Package FP_HK416_New
+Log: 437520.0ms Unloading: Package TP_HK416_New
+Log: 437520.0ms Unloading: Package FP_C7E
+Log: 437520.0ms Unloading: Package CAD_scope
+Log: 437520.0ms Unloading: Package FP_sg552
+Log: 437520.0ms Unloading: Package TP_sg552
+Log: 437520.0ms Unloading: Package FP_M16A1
+Log: 437520.0ms Unloading: Package FP_M16A1_tex
+Log: 437520.0ms Unloading: Package gear_sas
+Log: 437520.0ms Unloading: Package FP_VHS2
+Log: 437521.0ms Unloading: Package FP_AK74M
+Log: 437521.0ms Unloading: Package TP_VHS2
+Log: 437521.0ms Unloading: Package FP_SCARH07
+Log: 437521.0ms Unloading: Package TP_SCARH07
+Log: 437521.0ms Unloading: Package FP_SVD
+Log: 437521.0ms Unloading: Package FP_G36C
+Log: 437521.0ms Unloading: Package TP_G36C
+Log: 437521.0ms Unloading: Package OpticCrosshair
+Log: 437521.0ms Unloading: Package fp_fnp90
+Log: 437521.0ms Unloading: Package p90sight
+Log: 437521.0ms Unloading: Package FP_M16A2sd
+Log: 437521.0ms Unloading: Package gear_m16a2sd
+Log: 437521.0ms Unloading: Package FP_M16A4
+Log: 437521.0ms Unloading: Package m16a4_sm
+Log: 437521.0ms Unloading: Package FP_MK18
+Log: 437521.0ms Unloading: Package MK18_ThirdPerson
+Log: 437521.0ms Unloading: Package FP_MK23
+Log: 437521.0ms Unloading: Package MK23
+Log: 437521.0ms Unloading: Package TP_MK23
+Log: 437521.0ms Unloading: Package FP_MP7A1
+Log: 437521.0ms Unloading: Package TP_MP7A1
+Log: 437521.0ms Unloading: Package fp_pm_g17
+Log: 437521.0ms Unloading: Package HG_PM_sm
+Log: 437521.0ms Unloading: Package TP_pm
+Log: 437521.0ms Unloading: Package FP_HS2000
+Log: 437521.0ms Unloading: Package FP_9mmPistol
+Log: 437521.0ms Unloading: Package SurefireP101
+Log: 437521.0ms Unloading: Package ColtSMG
+Log: 437521.0ms Unloading: Package TP_HS2000
+Log: 437521.0ms Unloading: Package FP_64hg
+Log: 437521.0ms Unloading: Package FP_QSZ92
+Log: 437521.0ms Unloading: Package qsz92_Tex
+Log: 437521.0ms Unloading: Package TP_QSZ92
+Log: 437521.0ms Unloading: Package usp45
+Log: 437521.0ms Unloading: Package FP_HKVP70
+Log: 437521.0ms Unloading: Package VP70_tex
+Log: 437521.0ms Unloading: Package tP_HKVP70
+Log: 437521.0ms Unloading: Package FP_X12
+Log: 437521.0ms Unloading: Package SWAT5_Weapons_Benelli
+Log: 437521.0ms Unloading: Package X12
+Log: 437521.0ms Unloading: Package FP_hk33s
+Log: 437521.0ms Unloading: Package FP_hk33
+Log: 437521.0ms Unloading: Package FP_C8IS
+Log: 437521.0ms Unloading: Package TP_C8A2ISMG
+Log: 437521.0ms Unloading: Package FP_C7IS
+Log: 437521.0ms Unloading: Package TP_C7A2ISMG
+Log: 437521.0ms Unloading: Package FP_ASVAL
+Log: 437521.0ms Unloading: Package as_val_Tex
+Log: 437521.0ms Unloading: Package tP_ASVAL
+Log: 437521.0ms Unloading: Package SWATmeshFX_sm
+Log: 437521.0ms Unloading: Package Con_Tex
+Log: 437521.0ms Unloading: Package spentmag_texture
+Log: 437521.0ms Unloading: Package FP_p226
+Log: 437521.0ms Unloading: Package TP_p226
+Log: 437521.0ms Unloading: Package FP_browHP
+Log: 437521.0ms Unloading: Package TP_browHP
+Log: 437521.0ms Unloading: Package TP_QBZ95
+Log: 437521.0ms Unloading: Package FP_M16A1sd
+Log: 437521.0ms Unloading: Package FP_92fs
+Log: 437521.0ms Unloading: Package TP_92fs
+Log: 437521.0ms Unloading: Package FP_coltHG
+Log: 437521.0ms Unloading: Package Colt1911FL_ThirdPerson
+Log: 437521.0ms Unloading: Package FP_Fiveseven
+Log: 437521.0ms Unloading: Package SWAT5_Weapons_Fiveseven
+Log: 437521.0ms Unloading: Package fiveseven
+Log: 437521.0ms Unloading: Package FiveSeven_ThirdPerson
+Log: 437521.0ms Unloading: Package NineMMpistol_ThirdPerson
+Log: 437521.0ms Unloading: Package FP_P320
+Log: 437521.0ms Unloading: Package FRTE_P320_TEX
+Log: 437521.0ms Unloading: Package TP_P320
+Log: 437521.0ms Unloading: Package FP_Revolver
+Log: 437521.0ms Unloading: Package FP_browHPsd
+Log: 437521.0ms Unloading: Package TP_browHPsd
+Log: 437521.0ms Unloading: Package FP_p226sd
+Log: 437521.0ms Unloading: Package TP_p226sd
+Log: 437521.0ms Unloading: Package FP_FAL
+Log: 437521.0ms Unloading: Package GearTex_sef2
+Log: 437521.0ms Unloading: Package gear_sef2
+Log: 437521.0ms Unloading: Package FP_C8E
+Log: 437521.0ms Unloading: Package TP_C8A2EMG
+Log: 437521.0ms Unloading: Package TP_C7A2eMG
+Log: 437521.0ms Unloading: Package ADANAKM_Tex
+Log: 437521.0ms Unloading: Package Editor
+Log: 437521.0ms Unloading: Package Packages
+Log: 437521.0ms Unloading: Package SwatAmmo
+Log: 437521.0ms Unloading: Package TP_handcuffs
+Log: 437521.0ms Unloading: Package SwatObjectives
+Log: 437521.0ms Unloading: Package SwatSimpleEquipment
+Log: 437521.0ms Unloading: Package acugearTex2
+Log: 437521.0ms Unloading: Package SWAT5_Mask
+Log: 437521.0ms Unloading: Package Beret
+Log: 437521.0ms Unloading: Package SEK_GSG9_tx
+Log: 437521.0ms Unloading: Package SEK_GSG9_eq_sm
+Log: 437521.0ms Unloading: Package SWAT5helmet
+Log: 437521.0ms Unloading: Package zznSWATgear_smZZZ
+Log: 437521.0ms Unloading: Package SWAT5_HUD_Overlay
+Log: 437521.0ms Unloading: Package BFHLSWAT_Tex
+Log: 437522.0ms Unloading: Package VTheadgTEX
+Log: 437522.0ms Unloading: Package acuGearTex
+Log: 437522.0ms Unloading: Package BFHLgear_sm
+Log: 437522.0ms Unloading: Package SwatGearTexZZZ
+Log: 437522.0ms Unloading: Package BBE_Meshes
+Log: 437522.0ms Unloading: Package FRTEEquipGui_Tex
+Log: 437522.0ms Unloading: Package BBE
+Log: 437522.0ms Unloading: Package SwatProtectiveEquipment
+Log: (Havok): Destroying static world for level.
+Exit: Socket shut down
+Log: 437533.0ms Unloading: Package Silence_sm
+Log: 437533.0ms Unloading: Package fiveeyes_sm
+Log: 437533.0ms Unloading: Package FiveeyesTex
+Log: 437533.0ms Unloading: Package MSG90_TEX
+Log: 437533.0ms Unloading: Package Cars
+Log: 437533.0ms Unloading: Package SWATcivilianGear_sm
+Log: 437533.0ms Unloading: Package FemaleNurseTex
+Log: 437533.0ms Unloading: Package FemaleCasual2Tex
+Log: 437533.0ms Unloading: Package FemaleOfficeTex
+Log: 437533.0ms Unloading: Package FemaleHeavyTex
+Log: 437533.0ms Unloading: Package TrainingAnimatedMeshes
+Log: Unbound to SwatGui.dll
+Log: 437533.0ms Unloading: Package SwatDesignerClasses
+Log: 437533.0ms Unloading: Package Bar_sm
+Log: 437533.0ms Unloading: Package Junk_Tex
+Log: 437533.0ms Unloading: Package Con_sm
+Log: 437533.0ms Unloading: Package mac_Tex
+Log: 437533.0ms Unloading: Package Tenement_sm
+Log: 437533.0ms Unloading: Package off_sm
+Log: 437533.0ms Unloading: Package Repo_sm
+Log: 437533.0ms Unloading: Package LocalizedTextures
+Log: 437533.0ms Unloading: Package Barbershop_sm
+Log: 437533.0ms Unloading: Package Furniture_Tex
+Log: 437533.0ms Unloading: Package dna_sm
+Log: 437533.0ms Unloading: Package VIP_sm
+Log: 437533.0ms Unloading: Package Hosp_sm
+Log: 437533.0ms Unloading: Package mac_sm
+Log: 437533.0ms Unloading: Package Power_sm
+Log: 437533.0ms Unloading: Package Jewel_sm
+Log: 437533.0ms Unloading: Package Redlibrary_sm
+Log: 437533.0ms Unloading: Package train_sm
+Log: 437533.0ms Unloading: Package Utility_Tex
+Log: 437533.0ms Unloading: Package Paradise_sm
+Log: 437533.0ms Unloading: Package Druglab_sm
+Log: 437533.0ms Unloading: Package DeadPeople_sm
+Log: 437533.0ms Unloading: Package utility_sm
+Log: 437533.0ms Unloading: Package bullseye_sm
+Log: 437533.0ms Unloading: Package Junk_sm
+Log: 437533.0ms Unloading: Package Cars_sm
+Log: 437533.0ms Unloading: Package trap_kj
+Log: 437533.0ms Unloading: Package Trap_Claymore_Tex
+Log: 437533.0ms Unloading: Package MPbomb
+Log: 437533.0ms Unloading: Package wall_sm
+Log: 437533.0ms Unloading: Package wall_Tex
+Log: 437533.0ms Unloading: Package PerimeterAnimatedMeshes
+Log: 437533.0ms Unloading: Package SP-Hotel
+Log: 437533.0ms Unloading: Package AnimatedDecorMeshes
+Log: 437533.0ms Unloading: Package HotelAnimatedMeshes
+Log: 437533.0ms Unloading: Package TreeLeaves
+Log: 437533.0ms Unloading: Package JewelryAnimatedMeshes
+Log: 437533.0ms Unloading: Package SilenceShrub
+Log: 437533.0ms Unloading: Package VIPanimatedMeshes
+Log: 437533.0ms Unloading: Package REPOhelicopter
+Log: 437533.0ms Unloading: Package ArmsShrub
+Log: 437533.0ms Unloading: Package RedLibraryAnimatedMeshes
+Log: 437534.0ms Unloading: Package BarPullBarber
+Log: 437534.0ms Unloading: Package AbombStageLights
+Log: 437534.0ms Unloading: Package Outdoors_sm
+Log: 437534.0ms Unloading: Package mass_classes
+Log: 437534.0ms Unloading: Package mass_objects
+Log: 437534.0ms Unloading: Package mass_textures
+Log: 437534.0ms Unloading: Package Furniture_Sm
+Log: 437534.0ms Unloading: Package bath_sm
+Log: 437534.0ms Unloading: Package bath_Tex
+Log: 437537.0ms Unloading: Package FP_SAW
+Log: 437537.0ms Unloading: Package 3rd_SAW
+Log: 437537.0ms Unloading: Package SCARL
+Log: 437537.0ms Unloading: Package SWAT5_Weapons_SCAR_H
+Log: 437537.0ms Unloading: Package SWAT5Objects_sm
+Log: 437537.0ms Unloading: Package SWAT5_Objects
+Log: 437537.0ms Unloading: Package SwatArmory_sm
+Log: 437537.0ms Unloading: Package FP_BreachingSG
+Log: 437537.0ms Unloading: Package BreachingSG_ThirdPerson
+Log: 437537.0ms Unloading: Package FP_llrem870
+Log: 437537.0ms Unloading: Package rem870
+Log: 437537.0ms Unloading: Package TP_llrem870
+Log: 437537.0ms Unloading: Package NovaPump_ThirdPerson
+Log: 437537.0ms Unloading: Package FP_coltsdHG
+Log: 437537.0ms Unloading: Package FP_paintball
+Log: 437537.0ms Unloading: Package FP_G36k
+Log: 437537.0ms Unloading: Package TP_G36Knew
+Log: 437537.0ms Unloading: Package FP_G36ks
+Log: 437537.0ms Unloading: Package FP_NovaPumpShotgun
+Log: 437537.0ms Unloading: Package FP_m1super90
+Log: 437537.0ms Unloading: Package FP_m4super90sg
+Log: 437537.0ms Unloading: Package TP_BM4
+Log: 437537.0ms Unloading: Package FP_mp5_new
+Log: 437537.0ms Unloading: Package TP_mp5_new
+Log: 437537.0ms Unloading: Package FP_Rem870Tact
+Log: 437537.0ms Unloading: Package TP_rem870tact
+Log: 437537.0ms Unloading: Package FP_UMPsmg
+Log: 437537.0ms Unloading: Package TP_UMPsmg_new
+Log: 437537.0ms Unloading: Package FP_UMPsmgsd
+Log: 437537.0ms Unloading: Package FP_uzi
+Log: 437537.0ms Unloading: Package FP_Optiwand
+Log: 437537.0ms Unloading: Package Optiwand_ThirdPerson
+Log: 437537.0ms Unloading: Package FP_toolkit
+Log: 437537.0ms Unloading: Package FP_cuffs
+Log: 437537.0ms Unloading: Package FP_C2detonator
+Log: 437539.0ms Unloading: Package SW_FRExtra
+Log: 437539.0ms Unloading: Package SW_meta
+Log: 437539.0ms Unloading: Package SWSAS_weapons
+Log: 437539.0ms Unloading: Package SWsef_weapons
+Log: 437539.0ms Unloading: Package SW_bounce
+Log: 437539.0ms Unloading: Package SW_hits
+Log: 437539.0ms Unloading: Package SWEXP_ambience
+Log: 437539.0ms Unloading: Package SW_objects
+Log: 437539.0ms Unloading: Package SWEXP_weapons
+Log: 437539.0ms Unloading: Package SW_ambients
+Log: 437539.0ms Unloading: Package SW_vo
+Log: 437539.0ms Unloading: Package SW_weapons
+Log: 437539.0ms Unloading: Package SW_bullets
+Log: 437539.0ms Unloading: Package SW_feet
+Log: 437539.0ms Unloading: Package SoundEffectsConfig
+Log: 437540.0ms Unloading: Package SWATMaleAnimation3
+Log: 437540.0ms Unloading: Package field_dress_sm
+Log: 437540.0ms Unloading: Package field_dress_texture
+Log: 437540.0ms Unloading: Package FP_Maglite
+Log: 437540.0ms Unloading: Package maglite_texture
+Log: 437540.0ms Unloading: Package maglite_static
+Log: 437540.0ms Unloading: Package FP_glowstick
+Log: 437540.0ms Unloading: Package FP_NineBangGrenade
+Log: 437540.0ms Unloading: Package FP_BatteringRam
+Log: 437540.0ms Unloading: Package B_ram
+Log: 437540.0ms Unloading: Package TP_ram
+Log: 437540.0ms Unloading: Package FP_super_short
+Log: 437540.0ms Unloading: Package super_short_Tex
+Log: 437540.0ms Unloading: Package TP_super_short
+Log: 437540.0ms Unloading: Package FP_mp5_10MM
+Log: 437540.0ms Unloading: Package TP_mp5_10MM
+Log: 437540.0ms Unloading: Package FP_mp5SMGsilenced
+Log: 437540.0ms Unloading: Package FP_mp5k
+Log: 437540.0ms Unloading: Package FP_mp5SMG
+Log: 437540.0ms Unloading: Package FP_MP5Ktactical
+Log: 437540.0ms Unloading: Package FP_mp5ksd
+Log: 437541.0ms Unloading: Package FP_AK47
+Log: 437541.0ms Unloading: Package ColtAcc
+Log: 437541.0ms Unloading: Package FP_CAR
+Log: 437541.0ms Unloading: Package TP_coltAcc
+Log: 437541.0ms Unloading: Package TP_AK74M
+Log: 437541.0ms Unloading: Package FP_AKS74U
+Log: 437541.0ms Unloading: Package FP_DesertEagleNew
+Log: 437541.0ms Unloading: Package TP_DesertEagleNew
+Log: 437541.0ms Unloading: Package SWAT1stPersonTexFRTE
+Log: 437541.0ms Unloading: Package EventLogger
+Log: 437541.0ms Unloading: Package SurvivalMod
+Log: MasterServerUplink::Destroy().
+Log: 437541.0ms Unloading: Package warehouse_tex
+Log: 437541.0ms Unloading: Package warehouse_sm
+Log: 437541.0ms Unloading: Package halfway_tex
+Log: 437541.0ms Unloading: Package halfwayhouse_sm
+Log: 437541.0ms Unloading: Package SwatDesignerClasses2
+Log: 437541.0ms Unloading: Package FemaleCasual3Tex
+Log: 437541.0ms Unloading: Package FemaleCasual1Tex
+Log: 437541.0ms Unloading: Package FemaleAnimation
+Log: 437541.0ms Unloading: Package SwatCameraEffects2
+Log: 437541.0ms Unloading: Package SwatCameraEffects
+Log: 437541.0ms Unloading: Package CF_weaponmeshes
+Log: 437541.0ms Unloading: Package SwatProjectile
+Log: 437541.0ms Unloading: Package SwatAmmo2
+Log: 437541.0ms Unloading: Package SwatGui
+Log: 437541.0ms Unloading: Package NightVision
+Log: 437541.0ms Unloading: Package SWAT5_Officer
+Log: 437541.0ms Unloading: Package Suicide
+Log: 437541.0ms Unloading: Package FR_strobe
+Log: 437541.0ms Unloading: Package zznSWATgear_smFR
+Log: 437541.0ms Unloading: Package SwatProtectiveEquipment2
+Log: 437541.0ms Unloading: Package SwatEffects
+Log: 437541.0ms Unloading: Package SwatEd
+Log: 437541.0ms Unloading: Package Shells
+Log: 437542.0ms Unloading: Package TP_Cole_p226
+Log: 437542.0ms Unloading: Package ColeP226Tex
+Log: 437542.0ms Unloading: Package FP_cole_p226
+Log: 437543.0ms Unloading: Package Fg_guns2_Tex
+Log: 437543.0ms Unloading: Package Gunskin_GUI_tex
+Log: 437543.0ms Unloading: Package SwatEquipmentModelsSKIN
+Log: 437543.0ms Unloading: Package FP_coltsmgsil
+Log: 437543.0ms Unloading: Package FP_coltsmg
+Log: 437543.0ms Unloading: Package coltsmg_static
+Log: 437543.0ms Unloading: Package FP_FragGrenade
+Log: 437543.0ms Unloading: Package FP_Handcuffs
+Log: 437543.0ms Unloading: Package FP_M4A1mg
+Log: 437543.0ms Unloading: Package SwatEquipmentModels
+Log: 437543.0ms Unloading: Package SwatEquipmentModels3
+Log: 437543.0ms Unloading: Package gui_mp510_tex
+Log: (Havok): Notifiing dependant DLLs of Havok shutdown..
+Log: (Havok): Shutting down base system.
+Log: Garbage: objects: 105063->0; refs: 1035303
+Exit: Object subsystem successfully closed.
+Exit: Exiting.
+Log: Waiting for file streaming thread to finish...
+Uninitialized: Name subsystem shut down
+Uninitialized: Memory Allocation Status
+Uninitialized: Curr Memory  0.494M /  13.617M
+Uninitialized: Peak Memory  628.153M /  636.930M
+Uninitialized: Allocs        2656 Current /  21079693 Total
+Uninitialized: Log file closed, 02/20/26 18:16:11

@@ -3255,7 +3255,7 @@ simulated function OnEffectStarted(Actor inStartedEffect)
 simulated function OnEffectStopped(Actor inStoppedEffect, bool Completed)
 {
 	local IGSoundEffectsSubsystem.SoundInstance StoppedSoundInstance;
-    local name EffectEventName;
+    //local name EffectEventName;
 	StoppedSoundInstance = IGSoundEffectsSubsystem.SoundInstance(inStoppedEffect);
 
 	//log(Name $ " OnEffectStopped - inStoppedEffect: " $ StoppedSoundInstance.toString() $ " StoppedSoundInstance: " $ StoppedSoundInstance $ " LatentSound: " $ LatentSound $ ", Completed = " $ Completed);
@@ -3289,7 +3289,7 @@ simulated function bool CanBeUsedNow()
     return !bHasBeenReportedToTOC && (!class.static.checkConscious(self) || IsArrested());
 }
 
-function bool CheckObstacleInFront()		
+simulated function bool CheckObstacleInFront()		
 	{		
 	    		
 	    local vector StartVect,EndVect;		

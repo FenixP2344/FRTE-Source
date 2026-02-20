@@ -496,8 +496,8 @@ protected latent function NavigateThroughDoor(Door Target)
 
 //	log(m_Pawn.Name $ " finished waiting - PendingDoorInteractor " $ PendingDoorInteractor $ " IsClosed " $ Target.IsClosed() $ " IsBroken " $ SwatDoorTarget.IsBroken() $ " IsOpening " $ Target.IsOpening());
 
-    if (m_Pawn.IsA('SwatEnemy'))
-		m_Pawn.DisableCollisionAvoidance();
+    //if (m_Pawn.IsA('SwatEnemy'))
+		//m_Pawn.DisableCollisionAvoidance();
 
 	if ( (Target.IsClosed() && /*!SwatDoorTarget.IsBroken() &&*/ !Target.IsOpening() &&
 		((PendingDoorInteractor == None) || (PendingDoorInteractor == m_Pawn))) || IswatDoor(Target).isPartialOpen() )
@@ -525,7 +525,7 @@ protected latent function NavigateThroughDoor(Door Target)
 		PostOpenDoorGoal(Target);
 	}
 	
-	if (m_Pawn.IsA('SwatEnemy'))
-		m_Pawn.EnableCollisionAvoidance();
+	//if (m_Pawn.IsA('SwatEnemy'))
+		//m_Pawn.EnableCollisionAvoidance();
 	
 }
