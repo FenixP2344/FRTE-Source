@@ -5,6 +5,7 @@ var Mesh Mesh;
 //for Mesh!=Mesh'SwatMaleAnimation.SwatOfficer'
 var Material FleshMaterial;
 var Material ClothesMaterial;
+var Material PcVestMaterial;
 //for Mesh==Mesh'SwatMaleAnimation.SwatOfficer'
 var Material FaceMaterial;
 var Material VestMaterial;
@@ -70,6 +71,7 @@ function UpdateInstancePrecachables()
     SGI.AddMesh( Mesh );
     SGI.AddMaterial( FleshMaterial );
     SGI.AddMaterial( ClothesMaterial );
+    SGI.AddMaterial( PcVestMaterial );
     SGI.AddMaterial( FaceMaterial );
     SGI.AddMaterial( VestMaterial );
     SGI.AddMaterial( NameMaterial );

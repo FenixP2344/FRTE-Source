@@ -24,7 +24,6 @@ var private CloseDoorGoal		CurrentCloseDoorGoal;
 var private MoveToDoorGoal		CurrentMoveToDoorGoal;
 var private AttackTargetGoal	AttackDoorGoal;
 var private AimAtTargetGoal		CurrentAimAtTargetGoal;
-var protected AttackTargetGoal			CurrentAttackTargetGoal;
 
 // domain data
 var private array<Door>			DoorsInRoom;
@@ -58,9 +57,6 @@ var config float				MaxTimeBeforeClosingDoor;
 var private bool OutForThreat;
 var private Pawn BarricadeThreat;
 
-var config float                AggressiveAttackWhileMovingChance;
-var config float                AttackWhileMovingChance;
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Cleanup
@@ -78,11 +74,11 @@ function cleanup()
 		}
 	}
 	
-	if (CurrentAttackTargetGoal != None)
-	{
-		CurrentAttackTargetGoal.Release();
-		CurrentAttackTargetGoal = None;
-	}
+//	if (CurrentAttackTargetGoal != None)
+	//{
+		//CurrentAttackTargetGoal.Release();
+		//CurrentAttackTargetGoal = None;
+	//}
 
 	if (CurrentAimAroundGoal != None)
 	{
@@ -584,31 +580,6 @@ private latent function CloseOpenedDoor()
 	LockDoor(DoorOpening);
 }
 
-private function bool ShouldAttackWhileMoving()
-{
-	if (ISwatAI(m_Pawn).IsAggressive())
-	{
-		return FRand() < AggressiveAttackWhileMovingChance;
-	}
-	return FRand() < AttackWhileMovingChance;
-}
-
-private function AttackWhileMoving()
-{
-	local Pawn Enemy;
-
-	Enemy = ISwatEnemy(m_Pawn).GetEnemyCommanderAction().GetCurrentEnemy();
-	if(Enemy == None) {
-	    return;
-	}
-
-	CurrentAttackTargetGoal = new class'AttackTargetGoal'(weaponResource(), Enemy);
-    assert(CurrentAttackTargetGoal != None);
-	CurrentAttackTargetGoal.AddRef();
-
-	CurrentAttackTargetGoal.postGoal(self);
-}
-
 private latent function AimAtThreat()
 {
 	assert(DoorOpening != None);
@@ -668,18 +639,14 @@ Begin:
 	ClearDummyMovementGoal();
 
 	CreateDoorOpeningSensor();
-	
-GetInPosition:
-	if (ShouldAttackWhileMoving())
-	{
-		AttackWhileMoving();
-	}
-    MoveToBarricadePoint();
 
 	if (bCanCloseDoors && DoesRoomHaveDoorsToCloseAndLock())
 	{
 		CloseAndLockDoorsInRoom();
 	}
+
+GetInPosition:
+    MoveToBarricadePoint();
 
 	useResources(class'AI_Resource'.const.RU_LEGS);
 

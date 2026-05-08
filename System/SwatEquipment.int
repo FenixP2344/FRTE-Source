@@ -2312,8 +2312,8 @@ RateOfFire=910 RPM
 
 [QBZ191AimMG]
 Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces
-FriendlyName=QBZ-192 with Eotech Sight
-ShortName=QBZ-192 Holo
+FriendlyName=QBZ-192 with HoloSun
+ShortName=QBZ-192 HoloSun
 Manufacturer=CSGC 208
 Caliber=5.8x42mm
 CountryOfOrigin=China
@@ -2325,8 +2325,8 @@ RateOfFire=910 RPM
 
 [QBZ191vAimMG]
 Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a Vertical Grip Make it more precise and better control its recoil when standing still and aiming
-FriendlyName=QBZ-192 Eotech Vertical Grip
-ShortName=QBZ-192 VGrip+Holo
+FriendlyName=QBZ-192 HoloSun Vertical Grip
+ShortName=QBZ-192 VGrip+HoloSun
 Manufacturer=CSGC 208
 Caliber=5.8x42mm
 CountryOfOrigin=China
@@ -2338,8 +2338,8 @@ RateOfFire=910 RPM
 
 [QBZ191fAimMG]
 Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a Angled Forward Grip Make it have good recoil cancellation and improve the accuracy of forward movement
-FriendlyName=QBZ-192 Eotech Angled Forward Grip
-ShortName=QBZ-192 FGrip+Holo
+FriendlyName=QBZ-192 HoloSun Angled Forward Grip
+ShortName=QBZ-192 FGrip+HoloSun
 Manufacturer=CSGC 208
 Caliber=5.8x42mm
 CountryOfOrigin=China
@@ -2351,8 +2351,8 @@ RateOfFire=910 RPM
 
 [QBZ191sdAimMG]
 Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a suppressor making it a more stealthy choice.
-FriendlyName=Suppressed QBZ-192 with Eotech Sight
-ShortName=Sup.QBZ-192 Holo
+FriendlyName=Suppressed QBZ-192 with HoloSun
+ShortName=Sup.QBZ-192 HoloSun
 Manufacturer=CSGC 208
 Caliber=5.8x42mm
 CountryOfOrigin=China
@@ -2364,8 +2364,8 @@ RateOfFire=910 RPM
 
 [QBZ191sdvAimMG]
 Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a suppressor and Vertical Grip making it a more stealthy choice and more precise and better control its recoil when standing still and aiming
-FriendlyName=Suppressed QBZ-192 Eotech Vertical Grip
-ShortName=Sup.QBZ-192 VGrip+Holo
+FriendlyName=Suppressed QBZ-192 HoloSun Vertical Grip
+ShortName=Sup.QBZ-192 VGrip+HoloSun
 Manufacturer=CSGC 208
 Caliber=5.8x42mm
 CountryOfOrigin=China
@@ -2377,8 +2377,8 @@ RateOfFire=910 RPM
 
 [QBZ191sdfAimMG]
 Description=QBZ-192 is a modular assault weapon originating from China, developed for the Chinese People's Liberation Army as its new standard assault rifle system. This type was put into use in 2019 and is a modular solution that covers assault rifles, assault carbines, and designated marksman rifles (DMR) roles through different barrel lengths. It is classified as a support weapon in the Chinese military inventory and uses 5.8 x 42mm ammunition. The QBZ-95 assault rifle, which will replace the unsupported structure, will be included in the inventory of the Chinese armed forces, This configuration comes equipped with a suppressor and Angled Forward Grip making it a more stealthy choice and more precise and have good recoil cancellation and improve the accuracy of forward movement
-FriendlyName=Suppressed QBZ-192 Eotech Angled Forward Grip
-ShortName=Sup.QBZ-192 FGrip+Holo
+FriendlyName=Suppressed QBZ-192 HoloSun Angled Forward Grip
+ShortName=Sup.QBZ-192 FGrip+HoloSun
 Manufacturer=CSGC 208
 Caliber=5.8x42mm
 CountryOfOrigin=China
@@ -2414,23 +2414,10 @@ MagazineSizeString=30
 TotalAmmoString=6 magazine
 RateOfFire=650 RPM
 
-[QBZ95RailAimMG]
-Description=The QBZ-95 (Type 95 Automatic Rifle) is a bullpup style assault rifle manufactured by Arsenal 266, part of Norinco and Arsenal 296, under Jianshe Corp, China South for the People's Liberation Army, the armed forces of the People's Republic of China, Chinese People's Armed Police (para-military police), and Chinese law enforcement. This weapon uses a newly developed ammunition type of Chinese origin, the 5.8x42mm DBP87. The QBZ-95 consists of a system of firearms using a common design. This family includes a carbine variant, a standard rifle, and a light support weapon.
-FriendlyName=QBZ95 TYPE-1 with Longbow Aimpoint
-ShortName=QBZ95-1 with Rail Aim
-Manufacturer=CSGC 208
-Caliber=5.8x42mm
-CountryOfOrigin=China
-ProductionStart=1995
-FireModes=Semi-Automatic, Full-Auto
-MagazineSizeString=30
-TotalAmmoString=6 magazine
-RateOfFire=650 RPM
-
 [QBZ95RailHoloMG]
 Description=The QBZ-95 (Type 95 Automatic Rifle) is a bullpup style assault rifle manufactured by Arsenal 266, part of Norinco and Arsenal 296, under Jianshe Corp, China South for the People's Liberation Army, the armed forces of the People's Republic of China, Chinese People's Armed Police (para-military police), and Chinese law enforcement. This weapon uses a newly developed ammunition type of Chinese origin, the 5.8x42mm DBP87. The QBZ-95 consists of a system of firearms using a common design. This family includes a carbine variant, a standard rifle, and a light support weapon.
-FriendlyName=QBZ95 TYPE-1 with Longbow Eotech
-ShortName=QBZ95-1 with Rail Eotech
+FriendlyName=QBZ95 TYPE-1 with Longbow Holosun
+ShortName=QBZ95-1 with Rail Holosun
 Manufacturer=CSGC 208
 Caliber=5.8x42mm
 CountryOfOrigin=China
@@ -2704,7 +2691,7 @@ FriendlyName=Remington 700 Sniper rifle
 
 [C2Charge]
 Description=The C2 breaching charge is a powerful and devastating method of breaching a door.  The compact and specially designed charge destroys the locking mechanism of the door and forcefully opens the door at the same time.  The noise and shock of the detonation causes people on the opposite side of the door to react in a similar manner to a flashbang detonation, which can provide a tactical advantage for using it instead of the breaching shotgun.  The C2 breaching charge is an explosive and can injure or kill anyone unlucky enough to be directly behind the door.
-FriendlyName=C2 (x5)
+FriendlyName=C2 (x4)
 GivenName=C2 Charge
 
 [LessLethalSG]

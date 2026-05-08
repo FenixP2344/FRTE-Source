@@ -1,3 +1,36 @@
+[ConvIp1_1]
+Caption=It see Owen Garland has gone.
+
+[ConvIp1_2]
+Caption=Entry team to toc, we found the injured officer, he's alive but in bad shape. and we're too late. Garland has already escaped, we loss him.
+
+[ConvIp2_1]
+Caption=Toc to entry team, roger that. We be ready for, Federal units have been notified, Stay sharp.
+
+ConvAp1_1]
+Caption=Highground reporting. The meet is a go, principals in position. Intel confirms that multi-civilians still remain in the west-side Cafeteria.
+
+[ConvAp1_2]
+Caption=Entry team to TOC. We are in position.
+
+[ConvAp1_3]
+Caption=TOC to Entry Team... Copy, Perimeter and Federal units are in position, Ted and Bill are holding the perimeter, Sierra 1 and Sierra 2 will be relieved by HRT. You are cleared for action. Go when ready.
+
+[ConvAp2_1]
+Caption=Entry team to TOC. Package is located and secured.
+
+[ConvAp2_2]
+Caption=Copy that Entry Team, Trailer is standing by. Stay sharp.
+
+[ConvAp3_1]
+Caption=Sierra one reporting. Multiple suspects are spotted in the Cafeteria with hostages be held.
+
+[ConvAp3_2]
+Caption=Entry Team, you're cleared for the further hostage rescue in the Cafe.
+
+[ConvAp3_3]
+Caption=Entry Team to TOC, Copy that, we are on the way.
+
 [B1_RepliedDeployingStingray]
 Caption=Got it Stingray ready.
 

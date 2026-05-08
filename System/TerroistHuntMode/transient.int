@@ -6128,6 +6128,21 @@ Description=Neutralize Lian Niu
 [Neutralize_Jimenez]
 Description=Neutralize Alex Jimenez
 
+[Apollo_Rescue_All_Hostages]
+Description=Rescue all of the civilians
+
+[Apollo_Neutralize_All_Enemies]
+Description=Bring order to chaos
+
+[Standby_Start]
+Description=Standby for action instructions
+
+[Confirm_Evidence]
+Description=Confirm the location of evidence
+
+[Standby_Conv]
+Description=Standby for the next instructions
+
 [Secure_Brochure]
 Description=Secure the Brochure
 

@@ -519,9 +519,11 @@ function InitializeFromArchetypeInstance()
     {
         Skins[0] = Instance.FleshMaterial;
         Skins[1] = Instance.ClothesMaterial;
+        Skins[2] = Instance.PcVestMaterial;
 
         ReplicatedSkins[0] = Skins[0];
         ReplicatedSkins[1] = Skins[1];
+        ReplicatedSkins[2] = Skins[2];
     }
 //}
 

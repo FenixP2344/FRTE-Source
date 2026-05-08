@@ -14,6 +14,7 @@ var config name			   VoiceTypeOverride;
 //for Mesh!=Mesh'SwatMaleAnimation.SwatOfficer'
 var config array<Material> FleshMaterial;
 var config array<Material> ClothesMaterial;
+var config array<Material> PcVestMaterial;
 //for Mesh==Mesh'SwatMaleAnimation.SwatOfficer'
 var config array<Material> FaceMaterial;
 var config array<Material> VestMaterial;
@@ -136,6 +137,8 @@ protected function Validate()
             "it uses the SwatOfficer mesh but it specifies a FleshMaterial");
         ValidateCondition(ClothesMaterial.length == 0,
             "it uses the SwatOfficer mesh but it specifies a ClothesMaterial");
+        ValidateCondition(PcVestMaterial.length == 0,
+            "it uses the SwatOfficer mesh but it specifies a PcVestMaterial");
     }
     else
     {
@@ -146,6 +149,10 @@ protected function Validate()
         ValidateCondition(ClothesMaterial.length > 0, "it is Missing a ClothesMaterial");
         for (i=0; i<ClothesMaterial.length; ++i)
             ValidateCondition(ClothesMaterial[i] != None, "ClothesMaterial number "$i+1$" resolves to None");
+
+        ValidateCondition(PcVestMaterial.length > 0, "it is Missing a PcVestMaterial");
+        for (i=0; i<PcVestMaterial.length; ++i)
+            ValidateCondition(PcVestMaterial[i] != None, "PcVestMaterial number "$i+1$" resolves to None");
 
         //shouldn't specify SwatOfficer materials unles using SwatOfficer Mesh
         ValidateCondition(FaceMaterial.length == 0,
@@ -207,6 +214,7 @@ function InitializeInstance(ArchetypeInstance inInstance,
     {
         Instance.FleshMaterial = FleshMaterial[Rand(FleshMaterial.length)];
         Instance.ClothesMaterial = ClothesMaterial[Rand(ClothesMaterial.length)];
+        Instance.PcVestMaterial = PcVestMaterial[Rand(PcVestMaterial.length)];
     }
     Instance.Morale = RandRange(Morale.Min, Morale.Max);
     Instance.Equipment[3] = None;   //grow the instance's Equipment array to at least 4 large

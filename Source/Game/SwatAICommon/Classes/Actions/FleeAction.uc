@@ -30,7 +30,7 @@ var config private float				MaxAggressiveFleePercentageChance;
 
 var private DistanceToOfficersSensor	DistanceToOfficersSensor;
 var private bool						bUseDistanceToOfficersSensor;
-//var config private float ThreatCooldown;
+var config private float ThreatCooldown;
 
 var private float TimeBeforeRegroup;
 const kTimeToMove = 5.0;
@@ -300,6 +300,8 @@ latent function AttackWhileFleeing()
 	CurrentAttackTargetGoal.AddRef();
 
 	CurrentAttackTargetGoal.postGoal(self);
+	
+    ISwatEnemy(m_Pawn).BecomeAThreat();
 }
 
 
@@ -491,5 +493,5 @@ Begin:
 defaultproperties
 {
     satisfiesGoal = class'EngageOfficerGoal'
-	//ThreatCooldown = 2.0
+	ThreatCooldown = 2.0
 }
