@@ -1655,6 +1655,19 @@ Description=This equipment is a reward item from SWAT4CN CLUB and also represent
 FriendlyName=Suppressed M4A1-Fire custom with Eotech Sight
 ShortName=Sup. M4A1-Fire Eotech.
 
+[PSDMG]
+Description=LWRC PSD is built on LWRC's Personal Security Detail, upgrading the iconic short stroke pneumatic piston system to an ultra compact 8.5-inch barrel configuration. However, the initial PSD design can actually be traced back to 2006. They were previously used by LAPD SWAT which once participated in television program recording and running 6.8SPC Ammo.
+FriendlyName=LWRC PSD Carbine
+ShortName=LWRC PSD
+Manufacturer=LWRC International
+Caliber=6.8x43mm SPC
+CountryOfOrigin=United States
+ProductionStart=2012
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=900 RPM
+
 [M4A1MG]
 Description=The Colt M4A1 carbine is based on the tried and true design of the M16 assault rifle used by the United States Army.  The shorter carbine design makes it a more viable weapon than the M16 in close quarters situations.  Using 5.56x45mm rifle ammunition in both full metal jacket and jacketed hollow point configurations, the M4A1 carbine is the most powerful weapon available to SWAT officers.  It is equipped with a fire mode selector allowing semi-automatic as well as fully automatic firing.
 FriendlyName=M4A1 Carbine
