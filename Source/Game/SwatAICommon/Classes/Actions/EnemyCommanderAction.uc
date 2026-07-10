@@ -9,6 +9,7 @@ class EnemyCommanderAction extends CommanderAction
 
 import enum EnemySkill from ISwatEnemy;
 import enum EnemyState from ISwatEnemy;
+import enum ELeanState from Engine.Pawn;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -176,6 +177,7 @@ var config float								MaxLostPawnDeltaTime;
 const kRotateToSuspiciousNoisePriority = 55;
 const kMultiplayerVisionFallbackUpdateTime = 0.10;
 const kMultiplayerVisionFallbackDot = 0.50;
+const kMultiplayerLeanPeekDistance = 52.0;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -711,27 +713,102 @@ private function bool ShouldUseMultiplayerVisionFallback()
 
 private function bool CanSeePawnForMultiplayerFallback(Pawn TestPawn)
 {
-	local vector DirectionToTarget;
-	local vector ViewDirection;
-	local float DistanceToTarget;
+	local vector TargetPoint;
 
 	if (m_Pawn.CanSee(TestPawn))
 	{
 		return true;
 	}
 
-	DistanceToTarget = VSize(TestPawn.Location - m_Pawn.Location);
+	if (IsPointVisibleForMultiplayerFallback(TestPawn.Location))
+	{
+		return true;
+	}
+
+	TargetPoint = TestPawn.GetChestLocation();
+	if (IsPointVisibleForMultiplayerFallback(TargetPoint))
+	{
+		return true;
+	}
+
+	TargetPoint = TestPawn.GetHeadLocation();
+	if (IsPointVisibleForMultiplayerFallback(TargetPoint))
+	{
+		return true;
+	}
+
+	TargetPoint = TestPawn.GetEyeLocation();
+	if (IsPointVisibleForMultiplayerFallback(TargetPoint))
+	{
+		return true;
+	}
+
+	// Q/E lean can expose the player's camera/head while the pawn origin/chest
+	// remains behind cover.  Native LineOfSightTo/CanSee can miss that case, so
+	// check estimated lean-peek head/eye points explicitly.
+	if (TestPawn.LeanState != kLeanStateNone)
+	{
+		TargetPoint = GetLeanPeekPointForMultiplayerFallback(TestPawn, TestPawn.GetEyeLocation());
+		if (IsPointVisibleForMultiplayerFallback(TargetPoint))
+		{
+			return true;
+		}
+
+		TargetPoint = GetLeanPeekPointForMultiplayerFallback(TestPawn, TestPawn.GetHeadLocation());
+		if (IsPointVisibleForMultiplayerFallback(TargetPoint))
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+private function vector GetLeanPeekPointForMultiplayerFallback(Pawn TestPawn, vector BasePoint)
+{
+	local vector RightVector;
+	local float LeanDirection;
+	local float LeanAmount;
+
+	if (TestPawn.LeanState == kLeanStateLeft)
+	{
+		LeanDirection = -1.0;
+	}
+	else if (TestPawn.LeanState == kLeanStateRight)
+	{
+		LeanDirection = 1.0;
+	}
+	else
+	{
+		return BasePoint;
+	}
+
+	LeanAmount = FMax(TestPawn.LeanAlpha, 0.35);
+	RightVector = vect(0, 1, 0) >> TestPawn.Rotation;
+
+	return BasePoint + (RightVector * LeanDirection * kMultiplayerLeanPeekDistance * LeanAmount);
+}
+
+private function bool IsPointVisibleForMultiplayerFallback(vector TargetPoint)
+{
+	local vector DirectionToTarget;
+	local vector ViewDirection;
+	local vector ViewPoint;
+	local float DistanceToTarget;
+
+	ViewPoint = ISwatAI(m_Pawn).GetViewPoint();
+	DistanceToTarget = VSize(TargetPoint - ViewPoint);
 	if ((m_Pawn.SightRadius > 0.0) && (DistanceToTarget > m_Pawn.SightRadius))
 	{
 		return false;
 	}
 
-	if (!m_Pawn.LineOfSightTo(TestPawn))
+	if (!m_Pawn.FastTrace(TargetPoint, ViewPoint))
 	{
 		return false;
 	}
 
-	DirectionToTarget = Normal(TestPawn.Location - ISwatAI(m_Pawn).GetViewPoint());
+	DirectionToTarget = Normal(TargetPoint - ViewPoint);
 	ViewDirection = Normal(ISwatAI(m_Pawn).GetViewDirection());
 
 	return ((DirectionToTarget Dot ViewDirection) >= kMultiplayerVisionFallbackDot);
