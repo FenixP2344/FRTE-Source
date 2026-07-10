@@ -60,16 +60,22 @@ function TriggerReactedThirdShotSpeech()
 // Suspects
 function TriggerSuspectSpottedSpeech()
 {
+    assert(m_Pawn.IsA('SwatEnemyExtend'));
+
 	TriggerSpeech('ReportedSuspectSpotted', true);
 }
 
 function TriggerSuspectLostSpeech()
 {
+    assert(m_Pawn.IsA('SwatEnemyExtend'));
+
 	TriggerSpeech('AnnouncedLostTarget', true);
 }
 
 function TriggerSuspectDownSpeech(Pawn Suspect)
 {
+    assert(Suspect.IsA('SwatEnemyExtend'));
+
 	if (Suspect.IsIncapacitated())
 	{
 		TriggerSpeech('ReportedSuspectDown', true);
@@ -436,7 +442,7 @@ function TriggerArrestedSuspectSpeech()
 
 function TriggerArrestedReportSpeech(Pawn Target)
 {
-	if (Target.IsA('SwatEnemy'))
+	if (Target.IsA('SwatEnemyExtend'))
 	{
 		TriggerSpeech('ReportedSuspectRestrained');
 	}
@@ -584,7 +590,7 @@ function TriggerLostTargetSpeech()
 
 function TriggerTargetCompliantSpeech(Pawn Target)
 {
-	if (Target.IsA('SwatEnemy'))
+	if (Target.IsA('SwatEnemyExtend'))
 	{
 		TriggerSpeech('AnnouncedSuspectComplied');
 	}

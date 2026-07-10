@@ -1,0 +1,1 @@
+class ZombieMelee extends Shotgun config(SwatEquipment);

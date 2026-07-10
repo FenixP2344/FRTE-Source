@@ -5,6 +5,7 @@ class ServerSettings extends Engine.ReplicationInfo
 import enum EEntryType from SwatStartPointBase;
 import enum EMPMode from Engine.Repo;
 import enum AdminPermissions from SwatAdmin;
+import enum eDifficultyLevel from SwatGUIConfig;
 
 const MAX_MAPS = 40;
 var(ServerSettings) config String         Maps[MAX_MAPS];
@@ -31,6 +32,7 @@ var(ServerSettings) config int            AdditionalRespawnTime "Time (in second
 var(ServerSettings) config bool           bNoLeaders "If true, new 'leader' functionality in SWAT 4 expansion is disabled.";
 var(ServerSettings) config bool           bNoKillMessages "If true, incapacitation/kill/death/arrest messages will not show in the chat.";
 var(ServerSettings) config bool           bEnableSnipers "Enable snipers?";
+var(ServerSettings) config eDifficultyLevel CoopDifficulty "Difficulty used for normal COOP spawning.";
 
 var(ServerSettings) config String         ServerName "Name of the server for display purposes";
 var(ServerSettings) localized config String DefaultServerName "Default name of the server for display purposes";
@@ -79,6 +81,7 @@ replication
         bQuickRoundReset, FriendlyFireAmount, DisabledEquipment, Unused ,
         ServerName, Password, bPassworded, bLAN, AdditionalRespawnTime, CampaignCOOP,
 		bNoLeaders, bNoKillMessages, bEnableSnipers,
+		CoopDifficulty,
 		bIsQMM, QMMUseCustomBriefing, QMMCustomBriefing, QMMScenario,
 		//PVP
 		DeathLimit,RoundTimeLimit,bShowEnemyNames,ArrestRoundTimeDeduction
@@ -209,7 +212,7 @@ function SetServerSettingsNoConfigSave(PlayerController PC,
 		GameType = MPM_COOP;
 	else
 		GameType = newGameType;
-	
+
     MapIndex = newMapIndex;
     NumRounds = newNumRounds;
     MaxPlayers = newMaxPlayers;
@@ -229,7 +232,7 @@ function SetServerSettingsNoConfigSave(PlayerController PC,
 	bNoLeaders = newbNoLeaders;
 	bNoKillMessages = newbNoKillMessages;
 	bEnableSnipers = newbEnableSnipers;
-   
+
     RoundNumber=0;
 }
 
@@ -456,8 +459,9 @@ defaultproperties
 {
 	RemoteRole=ROLE_SimulatedProxy
 	bAlwaysRelevant=True
-    bShouldReplicateDefaultProperties=true
+	bShouldReplicateDefaultProperties=true
 	DefaultServerName="Swat4X Server"
+	CoopDifficulty=DIFFICULTY_Elite
 }
 
 ///////////////////////////////////////////////////////////////////////////////

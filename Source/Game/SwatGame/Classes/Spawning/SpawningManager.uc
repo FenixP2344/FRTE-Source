@@ -122,7 +122,7 @@ function RefreshUnallocatedSpawners(SwatGameInfo Game)
 function array<int> DoSpawning(SwatGameInfo Game, optional bool bTesting)
 {
     local Spawner Spawner;
-    local name Archetype;
+    //local name Archetype;
     local array<Spawner> CandidateSpawners;
     local array<Spawner> ResetSpawners;
     local int Count;
@@ -169,7 +169,7 @@ function array<int> DoSpawning(SwatGameInfo Game, optional bool bTesting)
 
     // Determine the difficulty level
     if(Level.IsCOOPServer && !isCampaignCoop) {	//Are we coop & is campaign disabled?
-      DifficultyLevel = Difficulty_Elite; // Gloves are off in (normal) co-op mode..!
+      DifficultyLevel = ServerSettings(Level.CurrentServerSettings).CoopDifficulty;
     } else {
       DifficultyLevel = Repo.GuiConfig.CurrentDifficulty;
     }
@@ -315,7 +315,7 @@ function array<int> DoSpawning(SwatGameInfo Game, optional bool bTesting)
             {
                 Spawned = CurrentRoster.PickAndSpawnArchetype(Spawner, CustomScenario, bTesting);
             }
-            
+
 
             //for testing, record counts of each type of spawned Actor
             if (Spawned != None)
@@ -391,7 +391,7 @@ function bool IsSpawningFromRosters()
 function DoMPSpawning(SwatGameInfo Game, coerce string MPRosterClassNames,optional bool bTesting)
 {
     local Spawner Spawner;
-    local name Archetype;
+    //local name Archetype;
     local array<Spawner> CandidateSpawners;
     local int Count;
     local int SelectedIndex;
