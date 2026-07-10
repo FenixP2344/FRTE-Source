@@ -1,5 +1,5 @@
 class ZombieHelmetBase extends Engine.ProtectiveEquipment
-    implements IProtectFromTaser, IProtectFromCSGas, IProtectFromC2Charge, IProtectFromPepperSpray, IProtectFromFlashbang;
+    implements IProtectFromTaser, IProtectFromCSGas, IProtectFromPepperSpray, IProtectFromFlashbang;
 
 function QualifyProtectedRegion()
 {
