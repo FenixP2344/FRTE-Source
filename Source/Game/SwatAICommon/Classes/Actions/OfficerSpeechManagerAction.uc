@@ -60,22 +60,24 @@ function TriggerReactedThirdShotSpeech()
 // Suspects
 function TriggerSuspectSpottedSpeech()
 {
-    assert(m_Pawn.IsA('SwatEnemyExtend'));
-
+	if (m_Pawn.IsA('SwatEnemyExtend'))
+	{
 	TriggerSpeech('ReportedSuspectSpotted', true);
+    }
 }
 
 function TriggerSuspectLostSpeech()
 {
-    assert(m_Pawn.IsA('SwatEnemyExtend'));
-
+	if (m_Pawn.IsA('SwatEnemyExtend'))
+	{
 	TriggerSpeech('AnnouncedLostTarget', true);
+	}
 }
 
 function TriggerSuspectDownSpeech(Pawn Suspect)
 {
-    assert(Suspect.IsA('SwatEnemyExtend'));
-
+  if (m_Pawn.IsA('SwatEnemyExtend'))
+  { 
 	if (Suspect.IsIncapacitated())
 	{
 		TriggerSpeech('ReportedSuspectDown', true);
@@ -84,10 +86,13 @@ function TriggerSuspectDownSpeech(Pawn Suspect)
 	{
 		TriggerSpeech('ReportedSuspectNeutralized', true);
 	}
+  }
 }
 
 function TriggerSuspectFleeingSpeech(Pawn Suspect)
 {
+  if (m_Pawn.IsA('SwatEnemyExtend'))
+  {
 	if (ISwatAICharacter(Suspect).IsFemale())
 	{
 		TriggerSpeech('ReportedFemSuspectFleeing', true);
@@ -96,10 +101,13 @@ function TriggerSuspectFleeingSpeech(Pawn Suspect)
 	{
 		TriggerSpeech('ReportedMaleSuspectFleeing', true);
 	}
+  }
 }
 
 function TriggerSuspectWontComplySpeech(Pawn Suspect)
 {
+  if (m_Pawn.IsA('SwatEnemyExtend'))
+  {
 	if (ISwatAICharacter(Suspect).IsFemale())
 	{
 		TriggerSpeech('ReportedFemSuspectWillNotComply', true);
@@ -108,6 +116,7 @@ function TriggerSuspectWontComplySpeech(Pawn Suspect)
 	{
 		TriggerSpeech('ReportedMaleSuspectWillNotComply', true);
 	}
+  }
 }
 
 // Hostages

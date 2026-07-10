@@ -182,7 +182,7 @@ function OnPawnEncounteredVisionNotification()
 {
 	local Pawn Enemy;
 
-	//assert( m_pawn.CanHitTarget(VisionSensor.LastPawnSeen) );
+	assert( m_pawn.CanHitTarget(VisionSensor.LastPawnSeen) );
 		
 	if (VisionSensor.LastPawnSeen != None)
 	{

@@ -1,7 +1,7 @@
 class ZombieHelmetBase extends Engine.ProtectiveEquipment
-    implements IProtectFromTaser, IProtectFromCSGas, IProtectFromPepperSpray, IProtectFromFlashbang;
+    implements IProtectFromTaser, IProtectFromCSGas, IProtectFromC2Charge, IProtectFromPepperSpray, IProtectFromFlashbang;
 
-function QualifyProtectedRegion()
+function QualifyProtectedRegion() 
 {
     assertWithDescription(ProtectedRegion < REGION_Body_Max,
         "[Carlos] The SASmaskBase class "$class.name

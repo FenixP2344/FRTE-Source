@@ -6,7 +6,7 @@ function OnPawnIncapacitated(Pawn Pawn, Actor Incapacitator, bool WasAThreat)
 {
     Super.OnPawnIncapacitated( Pawn, Incapacitator, WasAThreat );
 
-    if (!Pawn.IsA('SwatEnemy')) return; //we don't care
+    if (!Pawn.IsA('SwatEnemyExtend')) return; //we don't care
 
     Add(Pawn, NeutralizedEnemies);
 

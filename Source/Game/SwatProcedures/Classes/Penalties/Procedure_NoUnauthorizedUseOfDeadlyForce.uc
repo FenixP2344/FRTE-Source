@@ -16,7 +16,7 @@ function PostInitHook()
 //interface IInterested_GameEvent_PawnDied implementation
 function OnPawnDied(Pawn Pawn, Actor Killer, bool WasAThreat)
 {
-    if (!Pawn.IsA('SwatEnemy')) return;
+    if (!Pawn.IsA('SwatEnemyExtend')) return;
 
 //    if (WasAThreat)
 //    {
@@ -28,7 +28,7 @@ function OnPawnDied(Pawn Pawn, Actor Killer, bool WasAThreat)
 //        return; //the deadly force was authorized
 //    }
 	
-	if (Pawn.IsA('SwatEnemy') && ISwatEnemy(Pawn).IAmThreat() && !ISwatAI(Pawn).IsCompliant() && !ISwatAI(Pawn).IsArrested() )        
+	if (Pawn.IsA('SwatEnemyExtend') && ISwatEnemy(Pawn).IAmThreat() && !ISwatAI(Pawn).IsCompliant() && !ISwatAI(Pawn).IsArrested() )        
     {
         if (GetGame().DebugLeadership)
             log("[LEADERSHIP] "$class.name
@@ -49,15 +49,15 @@ function OnPawnDied(Pawn Pawn, Actor Killer, bool WasAThreat)
     }
     		
     //running close in front of an officer with a gun is considered a threat		
-    if ( ISwatEnemy(Pawn).GetCurrentState() == EnemyState_Flee )		
-	{		
+    //if ( ISwatEnemy(Pawn).GetCurrentState() == EnemyState_Flee )		
+	//{		
 	        //GetGame().PenaltyTriggeredMessage(Pawn(Killer) , "Enemy flee " $!ISwatEnemy(Pawn).GetEnemyCommanderAction().HasFledWithoutUsableWeapon()$ " " );		
-	        if ( VSize(Pawn.Location - Killer.Location) < 1000 && !ISwatEnemy(Pawn).GetEnemyCommanderAction().HasFledWithoutUsableWeapon() )		
-	        {		
+	        //if ( VSize(Pawn.Location - Killer.Location) < 1000 && !ISwatEnemy(Pawn).GetEnemyCommanderAction().HasFledWithoutUsableWeapon() )		
+	        //{		
 	            //GetGame().PenaltyTriggeredMessage(Pawn(Killer) , "Enemy flee: no penalty");		
-	            return;		
-            }		
-	}			    
+	        //    return;		
+            //}		
+	//}			    
 
 
     AssertNotInArray( Pawn, KilledEnemies, 'KilledEnemies' );
@@ -87,4 +87,9 @@ function int GetCurrentValue()
             $"                           = "$PenaltyPerEnemy * KilledEnemies.length);
 
     return PenaltyPerEnemy * KilledEnemies.length;
+}
+
+function int GetPossible()
+{
+	return 0;
 }

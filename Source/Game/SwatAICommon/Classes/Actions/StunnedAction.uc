@@ -695,6 +695,7 @@ Begin:
 
 		m_Pawn.DisableCollisionAvoidance();
 		PlayReactionAnimation();
+	    m_Pawn.EnableCollisionAvoidance();
 		
 		if ( !ISwatAI(m_Pawn).IsArrestedOnFloor() )
 			m_Pawn.EnableCollisionAvoidance();

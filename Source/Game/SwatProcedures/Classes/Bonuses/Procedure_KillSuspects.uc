@@ -16,7 +16,7 @@ function PostInitHook()
 //interface IInterested_GameEvent_PawnDied implementation
 function OnPawnDied(Pawn Pawn, Actor Killer, bool WasAThreat)
 {
-    if (!Pawn.IsA('SwatEnemy')) return; //we don't care
+    if (!Pawn.IsA('SwatEnemyExtend')) return; //we don't care
 
     Add(Pawn, NeutralizedEnemies);
     if (GetGame().DebugLeadership)
@@ -29,7 +29,7 @@ function OnPawnDied(Pawn Pawn, Actor Killer, bool WasAThreat)
 //interface IInterested_GameEvent_PawnArrested implementation
 function OnPawnArrested( Pawn Pawn, Pawn Arrester )
 {
-    if (!Pawn.IsA('SwatEnemy')) return; //we don't care
+    if (!Pawn.IsA('SwatEnemyExtend')) return; //we don't care
 
     //if it was just arrested, then it shouldn't have been already killed
     AssertNotInArray(Pawn, NeutralizedEnemies, 'KilledEnemies');
@@ -38,7 +38,7 @@ function OnPawnArrested( Pawn Pawn, Pawn Arrester )
 //interface IInterested_GameEvent_PawnIncapacitated implementation
 function OnPawnIncapacitated(Pawn Pawn, Actor Incapacitator, bool WasAThreat)
 {
-    if (!Pawn.IsA('SwatEnemy')) return;
+    if (!Pawn.IsA('SwatEnemyExtend')) return;
 
     //if it was just incapacitated, then it shouldn't have been already killed
     AssertNotInArray(Pawn, NeutralizedEnemies, 'KilledEnemies');

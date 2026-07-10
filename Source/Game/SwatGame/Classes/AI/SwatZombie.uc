@@ -43,7 +43,7 @@ protected function ConstructCharacterAIHook(AI_Resource characterResource)
 {
 
     BecomeAThreat();
-
+	
     characterResource.addAbility(new class'SwatAICommon.InvestigateAction');
     characterResource.addAbility(new class'SwatAICommon.AttackOfficerAction');
     characterResource.addAbility(new class'SwatAICommon.MoveToAttackOfficerAction');
@@ -58,7 +58,7 @@ protected function ConstructCharacterAIHook(AI_Resource characterResource)
 function EnteredZone(ZoneInfo Zone)
 {
 	Super.EnteredZone(Zone);
-
+	
 //	log(Name $ " Entered Zone " $ Zone $ " Zone.bUseFlashlight: " $ Zone.bUseFlashlight);
 
     // toggle flashlight when is Conscious
@@ -68,7 +68,7 @@ function EnteredZone(ZoneInfo Zone)
 		SetDesiredFlashlightState(Zone.bUseFlashlight);
 	}
 	else
-    if (IsIncapacitated())
+    if (IsIncapacitated())	
     {
 		// don't toggle flashlight when dead/incapacitated
         SetDesiredFlashlightState(false);
@@ -85,7 +85,7 @@ protected function ConstructMovementAI()
     local AI_Resource movementResource;
 
 	BecomeAThreat();
-
+    
 	movementResource = AI_Resource(movementAI);
     assert(movementResource != none);
 
@@ -103,21 +103,21 @@ protected function ConstructWeaponAI()
     local AI_Resource weaponResource;
 
 	BecomeAThreat();
-
+	
     weaponResource = AI_Resource(weaponAI);
     assert(weaponResource != None);
 
     // Create Tyrion abilities
     weaponResource.addAbility(new class'Tyrion.AI_DummyWeapon');
-
+    
     // Create Swat specific abilities
     weaponResource.addAbility(new class'SwatAICommon.ReloadAction');
     weaponResource.addAbility(new class'SwatAICommon.AimAroundAction');
     weaponResource.addAbility(new class'SwatAICommon.AimBetweenPointsAction');
-    weaponResource.addAbility(new class'SwatAICommon.AttackTargetAction');
+    weaponResource.addAbility(new class'SwatAICommon.AttackTargetAction');    
 	weaponResource.addAbility(new class'SwatAICommon.AimAtTargetAction');
 	weaponResource.addAbility(new class'SwatAICommon.AimAtPointAction');
-	weaponResource.addAbility(new class'SwatAICommon.IdleAimAroundAction');
+	weaponResource.addAbility(new class'SwatAICommon.IdleAimAroundAction');	
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -128,10 +128,10 @@ event bool IgnoresSeenPawnsOfType(class<Pawn> SeenType)
 {
 
 	BecomeAThreat();
-
+	
     // we can only see SwatOfficers or SwatPlayers
     return (ClassIsChildOf(SeenType, class'SwatGame.SwatZombie') ||
-            ClassIsChildOf(SeenType, class'SwatGame.SwatUndercover') ||
+            ClassIsChildOf(SeenType, class'SwatGame.SwatUndercover') || 
 			ClassIsChildOf(SeenType, class'SwatGame.SwatHostage') ||
 		    ClassIsChildOf(SeenType, class'SwatGame.SwatTrainer') ||
 			ClassIsChildOf(SeenType, class'SwatGame.SniperPawn'));
@@ -144,7 +144,7 @@ protected function InitializePatrolling(PatrolList Patrol)
 {
 
 	BecomeAThreat();
-
+	
     // only give the enemy patrolling if we have a patrol
     if (Patrol != None)
     {
@@ -247,7 +247,7 @@ function float GetTimeToWaitBetweenFiring(FiredWeapon Weapon)
 function ReactToC2Detonation(Actor C2Charge, float StunRadius, float AIStunDuration)
 {
 	BecomeAThreat();
-
+	
 	if (IsConscious())
 	{
 		BecomeAThreat();
@@ -284,17 +284,17 @@ function OnPawnDied(Pawn Pawn, Actor Killer, bool WasAThreat)
 		BecomeAThreat();
 	   }
 	}
-}
+}	
 
 function OnPawnIncapacitated(Pawn Pawn, Actor Incapacitator, bool WasAThreat)
-{
-    //running close in front of an officer with a gun is considered a threat
-    if ( ISwatEnemy(Pawn).GetCurrentState() == EnemyState_Flee )
-	{
-        if ( VSize(Pawn.Location - Incapacitator.Location) < 9999 && !ISwatEnemy(Pawn).GetEnemyCommanderAction().HasFledWithoutUsableWeapon() )
-        {
+{	
+    //running close in front of an officer with a gun is considered a threat		
+    if ( ISwatEnemy(Pawn).GetCurrentState() == EnemyState_Flee )		
+	{			
+        if ( VSize(Pawn.Location - Incapacitator.Location) < 9999 && !ISwatEnemy(Pawn).GetEnemyCommanderAction().HasFledWithoutUsableWeapon() )		
+        {		
 		BecomeAThreat();
-        }
+        }		
    }
 }
 

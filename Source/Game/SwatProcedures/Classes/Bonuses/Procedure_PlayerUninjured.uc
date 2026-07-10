@@ -58,4 +58,9 @@ function string Status()
         $"/"$NumSwatPlayers;
 }
 
+function int GetPossible()
+{
+	return Bonus;
+}
+
 ///////////////////////////////////////

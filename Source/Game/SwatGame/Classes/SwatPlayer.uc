@@ -3063,7 +3063,8 @@ simulated function ClientDoGassedReaction( float Duration )
 private function bool CantBeDazed()
 {
 	return ( Level.NetMode == NM_Client ) ||												// Clients handle their own dazing
-		   ( HasProtection( 'IProtectFromSting' ) ) ||										// Has protection from sting effects
+		   ( HasProtection( 'IProtectFromSting' ) ) && !LoadOut.HasZombieArmor() ||			// Has protection from sting effects
+		   ( LoadOut.HasZombieArmor() ) ||													// Zombie protection\
 		   ( Controller != None && Controller.bGodMode ) ||									// Gods can not be dazed!
 		   ( class'Pawn'.static.CheckDead( self ) );										// Dead people are beyond dazing
 }
@@ -3521,6 +3522,13 @@ simulated function ClientDoTasedReaction( float PlayerDuration )
 simulated function bool IsVulnerableToTaser()
 {
 	if ( LoadOut.HasCeramicArmor() )
+		{
+			return false;
+		}
+	else
+		return true;
+		
+	if ( LoadOut.HasZombieArmor() )
 		{
 			return false;
 		}

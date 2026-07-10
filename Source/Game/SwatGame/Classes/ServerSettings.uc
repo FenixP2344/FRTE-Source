@@ -212,7 +212,7 @@ function SetServerSettingsNoConfigSave(PlayerController PC,
 		GameType = MPM_COOP;
 	else
 		GameType = newGameType;
-
+	
     MapIndex = newMapIndex;
     NumRounds = newNumRounds;
     MaxPlayers = newMaxPlayers;
@@ -232,7 +232,7 @@ function SetServerSettingsNoConfigSave(PlayerController PC,
 	bNoLeaders = newbNoLeaders;
 	bNoKillMessages = newbNoKillMessages;
 	bEnableSnipers = newbEnableSnipers;
-
+   
     RoundNumber=0;
 }
 

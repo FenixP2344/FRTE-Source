@@ -125,7 +125,7 @@ latent function ReadyWeapon()
 	checkPawn(); //attacker better not be arrested
 
     CurrentWeapon = FiredWeapon(m_Pawn.GetActiveItem());
-
+	
 	// if we don't have a weapon equipped, first check and see if an item is being equipped
 //	log(m_Pawn.Name $ " current weapon: " $ CurrentWeapon);
 	if (CurrentWeapon == None)
@@ -221,9 +221,9 @@ latent function AttackTarget()
 	}
 
     ISwatAI(m_pawn).UnLockAim();
-
+	
 	LatentAimAtActor(Target);
-
+	
     // @HACK: See comments in ISwatAI::LockAim for more info.
     ISwatAI(m_pawn).LockAim();
 
@@ -235,11 +235,11 @@ latent function AttackTarget()
 
   // wait until we can hit the target (make sure the target is still conscious too!)
   while(!bSuppressiveFire && !m_Pawn.CanHitTarget(Target) && !m_Pawn.CanShootTarget(Target) &&((TargetPawn == None) || class'Pawn'.static.checkConscious(TargetPawn)))
-  {
+  {		
 		if (m_Pawn.logTyrion)
 			log(m_Pawn.Name $ " is waiting to be able to hit target " $ TargetPawn);
-
-		if (Level.TimeSeconds >= TimeToStopTryingToAttack || //we cant hold forever....
+		
+		if (Level.TimeSeconds >= TimeToStopTryingToAttack || //we cant hold forever.... 
 		    FiredWeapon(m_Pawn.GetActiveItem()) == None )  //...imagine shoot without a gun...
 		{
 			if (m_Pawn.logTyrion)
@@ -247,7 +247,7 @@ latent function AttackTarget()
 
 			instantFail(ACT_TIME_LIMIT_EXCEEDED);
 		}
-
+		
     yield();
   }
 
@@ -286,12 +286,12 @@ latent function AttackTarget()
 
 latent function WildGunnerAttackTarget()
 {
-    local FiredWeapon CurrentWeapon;
-
+    local FiredWeapon CurrentWeapon;	
+	
 	checkPawn(); //attacker better not be arrested
-
+	
 	StartActionTime = Level.TimeSeconds;
-
+	
 	ReadyWeapon();
 
     CurrentWeapon = FiredWeapon(m_Pawn.GetActiveItem());
@@ -348,7 +348,7 @@ latent function WildGunnerAttackTarget()
   else if (ISwatAI(m_pawn).AnimIsWeaponAimSet())
   {
 	// make sure the correct aim behavior is set (in case it got unset when we couldn't aim at the desired target)
-	ISwatAI(m_Pawn).SetUpperBodyAnimBehavior(kUBAB_AimWeapon, kUBABCI_AttackTargetAction);
+	ISwatAI(m_Pawn).SetUpperBodyAnimBehavior(kUBAB_AimWeapon, kUBABCI_AttackTargetAction);  
   }
     // @HACK: See comments in ISwatAI::UnlockAim for more info.
     ISwatAI(m_pawn).UnlockAim();
@@ -431,21 +431,21 @@ protected latent function ShootInAimDirection(FiredWeapon CurrentWeapon)
 {
 	local float TimeElapsed;
 	local float MandatedWait;
-
+	
 	checkPawn(); //attacker better not be arrested
-
+	
 	// allows us to change our fire mode
 	SetFireMode(CurrentWeapon);
 
 	if (WaitTimeBeforeFiring > 0)
 		Sleep(WaitTimeBeforeFiring);
-
+		
 		LatentAimAtActor(Target);
-
+		
 	// Make sure we wait a minimum of MandatedWait before firing, so shooting isn't instant
 	TimeElapsed = Level.TimeSeconds - StartActionTime;
 	MandatedWait = ISwatAI(m_Pawn).GetTimeToWaitBeforeFiring();
-	if(TimeElapsed < MandatedWait)
+	if(TimeElapsed < MandatedWait) 
 	{
 		Sleep(MandatedWait - TimeElapsed);
 	}
@@ -481,11 +481,11 @@ private function bool ShouldContinueAttackingWithLessLethal()
 	}
 
 	Item = FiredWeapon(m_Pawn.GetActiveItem());
-	if(Item == None || !Item.IsLessLethal()											||
-		(Item.IsA('Taser') && ISwatAI(target).IsTased())								|| // Tase only once...
-		(Item.IsA('CSBallLauncher') && ISwatAI(target).IsGassed())						|| // Pepperball is uselss on already gassed people
+	if(Item == None || !Item.IsLessLethal()  					   						|| 
+		(Item.IsA('Taser') && ISwatAI(target).IsTased()) 								|| // Tase only once...
+		(Item.IsA('CSBallLauncher') && ISwatAI(target).IsGassed()) 						|| // Pepperball is uselss on already gassed people
 		(Item.IsA('BeanbagShotgunBase') && ShotsFired > 2 && ISwatAI(target).IsStung()) || // Only shoot three times with the beanbag shotgun.
-		(Item.IsA('GrenadeLauncherBase')))					   // Don't use the grenade launcher. It's stupid.
+		(Item.IsA('GrenadeLauncherBase')))                            					   // Don't use the grenade launcher. It's stupid.
 	{
 		return false;
 	}
@@ -515,7 +515,7 @@ private function CheckPawn()
 		Level.GetLocalPlayerController().ConsoleMessage( " BUG! " $ m_pawn.name $ " - Restrained bug prevented! ");
 		log(m_pawn.name $ " - Restrained bug prevented! ");
 		instantFail(ACT_INSUFFICIENT_RESOURCES_AVAILABLE);
-	}
+	}	
 }
 
 state Running
@@ -547,14 +547,14 @@ state Running
 	while (class'Pawn'.static.checkConscious(m_Pawn) &&										// while we are conscious AND
 		   ((TargetPawn == None) || class'Pawn'.static.checkConscious(TargetPawn)) &&		// the other person is conscious AND
 		   (!m_Pawn.IsA('SwatOfficer') || TargetPawn.IsA('SwatPlayer') ||					// we are not a SWAT officer OR we are targetting the player, OR...
-			IsTargetAThreat() ||															// the target is a threat (pointing gun at people, etc) OR
+			IsTargetAThreat() || 															// the target is a threat (pointing gun at people, etc) OR
 			(FiredWeapon(m_Pawn.GetActiveItem()).IsLessLethal() &&							// we are using a less lethal item
 				ShouldContinueAttackingWithLessLethal())									// we should continue using that less lethal item
 			))
 	{
-
+		
 		checkPawn(); //attacker better not be arrested
-
+		
 		if ( targetSensor.queryObjectValue() == None )
 		{
 			if (m_Pawn.logTyrion)

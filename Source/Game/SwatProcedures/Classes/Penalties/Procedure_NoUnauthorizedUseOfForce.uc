@@ -20,7 +20,7 @@ function OnPawnDied(Pawn Pawn, Actor Killer, bool WasAThreat)
 {
     //note that if it was previously incapacitated, then it can't be a threat
 
-    if (!Pawn.IsA('SwatEnemy')) return; //we don't care
+    if (!Pawn.IsA('SwatEnemyExtend')) return; //we don't care
 
     if (GetGame().DebugLeadership && IsInArray( Pawn, IncapacitatedEnemies ) )
         log("[LEADERSHIP] "$class.name
@@ -33,7 +33,7 @@ function OnPawnDied(Pawn Pawn, Actor Killer, bool WasAThreat)
 //interface IInterested_GameEvent_PawnIncapacitated implementation
 function OnPawnIncapacitated(Pawn Pawn, Actor Incapacitator, bool WasAThreat)
 {
-    if (!Pawn.IsA('SwatEnemy')) return;
+    if (!Pawn.IsA('SwatEnemyExtend')) return;
 
 //    if (WasAThreat)
 //   {
@@ -45,7 +45,7 @@ function OnPawnIncapacitated(Pawn Pawn, Actor Incapacitator, bool WasAThreat)
 //       return; //the force was authorized
 //    }
 
-    if (Pawn.IsA('SwatEnemy') && ISwatEnemy(Pawn).IAmThreat())
+    if (Pawn.IsA('SwatEnemyExtend') && ISwatEnemy(Pawn).IAmThreat())
     {
         if (GetGame().DebugLeadership)
             log("[LEADERSHIP] "$class.name
@@ -67,15 +67,15 @@ function OnPawnIncapacitated(Pawn Pawn, Actor Incapacitator, bool WasAThreat)
 
 
     //running close in front of an officer with a gun is considered a threat		
-    if ( ISwatEnemy(Pawn).GetCurrentState() == EnemyState_Flee )		
-	{		
+    //if ( ISwatEnemy(Pawn).GetCurrentState() == EnemyState_Flee )		
+	//{		
         //GetGame().PenaltyTriggeredMessage(Pawn(Killer) , "Enemy flee");		
-        if ( VSize(Pawn.Location - Incapacitator.Location) < 1000 && !ISwatEnemy(Pawn).GetEnemyCommanderAction().HasFledWithoutUsableWeapon() )		
-        {		
+        //if ( VSize(Pawn.Location - Incapacitator.Location) < 1000 && !ISwatEnemy(Pawn).GetEnemyCommanderAction().HasFledWithoutUsableWeapon() )		
+        //{		
         //GetGame().PenaltyTriggeredMessage(Pawn(Killer) , "Enemy flee: no penalty");		
-        return;		
-        }		
-   }
+        //return;		
+        //}		
+   //}
 
     AssertNotInArray( Pawn, IncapacitatedEnemies, 'IncapacitatedEnemies' );
     Add( Pawn, IncapacitatedEnemies );
@@ -104,4 +104,9 @@ function int GetCurrentValue()
             $"                           = "$PenaltyPerEnemy * IncapacitatedEnemies.length);
 
     return PenaltyPerEnemy * IncapacitatedEnemies.length;
+}
+
+function int GetPossible()
+{
+	return 0;
 }

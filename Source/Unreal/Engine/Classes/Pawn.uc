@@ -886,8 +886,8 @@ simulated function DisplayDebug(Canvas Canvas, out float YL, out float YPos)
 simulated function vector CalcDrawOffset()
 {
 	local vector DrawOffset;
-	local PlayerController OwnerController;
-    local HandheldEquipment EquippedItem;
+	//local PlayerController OwnerController;
+    //local HandheldEquipment EquippedItem;
 	local float FirstPersonFOV;
 
     AssertWithDescription(Hands != None,

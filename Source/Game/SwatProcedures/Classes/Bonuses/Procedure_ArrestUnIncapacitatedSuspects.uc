@@ -13,7 +13,7 @@ function PostInitHook()
 //interface IInterested_GameEvent_PawnArrested implementation
 function OnPawnArrested( Pawn Pawn, Pawn Arrester )
 {
-    if (!Pawn.IsA('SwatEnemy')) return; //we don't care
+    if (!Pawn.IsA('SwatEnemyExtend')) return; //we don't care
 
     //stick it in the correct arrests array
     if (!IsInArray(Pawn, IncapacitatedEnemies))
@@ -32,7 +32,7 @@ function OnPawnIncapacitated(Pawn Pawn, Actor Incapacitator, bool WasAThreat)
 {
     Super.OnPawnIncapacitated( Pawn, Incapacitator, WasAThreat );
 
-    if (!Pawn.IsA('SwatEnemy')) return; //we don't care
+    if (!Pawn.IsA('SwatEnemyExtend')) return; //we don't care
 
     Remove(Pawn, NeutralizedEnemies);
     if (GetGame().DebugLeadership)

@@ -1,0 +1,1 @@
+class Colt733MG extends MachineGun;

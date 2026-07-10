@@ -315,7 +315,7 @@ function array<int> DoSpawning(SwatGameInfo Game, optional bool bTesting)
             {
                 Spawned = CurrentRoster.PickAndSpawnArchetype(Spawner, CustomScenario, bTesting);
             }
-
+            
 
             //for testing, record counts of each type of spawned Actor
             if (Spawned != None)

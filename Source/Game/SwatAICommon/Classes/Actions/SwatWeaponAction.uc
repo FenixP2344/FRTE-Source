@@ -41,14 +41,14 @@ function initAction(AI_Resource r, AI_Goal goal)
 // Accuracy
 
 // @TODO: Crombie
-// currently just for enemies!
+// currently just for enemies! 
 // UPDATE: Not used for now!
 function vector GetAimSpot(vector vTargetLocation, vector vProjStart)
 {
     local vector vAimSpot;
 
     vAimSpot  = vTargetLocation;
-    vAimSpot += GetSkillLevelAimErrorOffset(vTargetLocation, vProjStart);
+    vAimSpot += GetSkillLevelAimErrorOffset(vTargetLocation, vProjStart);    
 
     return vAimSpot;
 }
@@ -207,19 +207,19 @@ final latent function LatentAimAtActor(Actor Target, optional float MaxWaitTime)
 			yield();
 		}
 		//////////////////////////////
-
+		
         //ISwatAI(m_pawn).AimAtActor(Target);
 		if ( ( target.isa('SwatPawn') || target.isa('SwatPlayer') ) && !FiredWeapon(m_pawn.GetActiveItem()).isa('Pepperspray') )
 		{
-
+			
 			ISwatAI(m_pawn).AimAtpoint(Target.GetBoneCoords('Bip01_Spine2').Origin);
-
+			
 			//add time to avoid quickscope shooting
 			TargetDirection = Normal( m_pawn.location - target.location);
 			ViewDirectionNoZ = vector(m_pawn.Rotation);
 			fDot =  ViewDirectionNoZ Dot TargetDirection;
 			//log (m_pawn.name $ " attacking " $ target.name $ " fdot is: " $ fdot );
-
+			
 			if ( fdot > 0.5 )
 			{
 				//log ( m_pawn.name $ " quick scope added time on target 0.8" );
@@ -235,16 +235,16 @@ final latent function LatentAimAtActor(Actor Target, optional float MaxWaitTime)
 				//log ( m_pawn.name $ " quick scope added time on target 0.2" );
 				MaxWaitTime = MaxWaitTime + (0.4 * TurnDelayScale);
 			}
-
+			 
 		}
 	    else
 			ISwatAI(m_pawn).AimAtActor(Target);
-
-
-
-
+		
+		
+		
+		
         // wait until we aim at what we want to
-        while ((!ISwatAI(m_pawn).AnimIsAimedAtDesired() && HasWeaponEquipped()) ||
+        while ((!ISwatAI(m_pawn).AnimIsAimedAtDesired() && HasWeaponEquipped()) || 
 			    ISwatAI(m_Pawn).AnimAreAimingChannelsMuted())
         {
 //			log("aiming at actor update - AnimIsAimedAtDesired: " $ ISwatAI(m_pawn).AnimIsAimedAtDesired() $ " HasWeaponEquipped: " $ HasWeaponEquipped() $ " AnimAreAimingChannelsMuted: " $ ISwatAI(m_Pawn).AnimAreAimingChannelsMuted());
@@ -271,7 +271,7 @@ final function AimAtActor(Actor Target)
 	{
 		if (ISwatAI(m_Pawn).AnimCanAimAtDesiredActor(Target))
         {
-
+			
 			ISwatAI(m_pawn).AimAtActor(Target);
 		}
 	}
@@ -291,7 +291,7 @@ latent function SetGunDirection( Actor Target ) // possible bug fixer
 			ISwatEnemy(m_Pawn).BecomeAThreat();
 			yield();
 		}
-
+		
 		UpdateThreatToTarget(Target);
         cTarget = Target.GetBoneCoords('Bip01_Spine2');
         vTarget = cTarget.Origin;
@@ -320,15 +320,15 @@ latent function ShootWeaponAt(Actor Target)
 	assertWithDescription((Target != None), "SwatWeaponAction::ShootWeaponAt - Target is None!");
 	assertWithDescription((m_Pawn != None), "SwatWeaponAction::ShootWeaponAt - m_Pawn is None!");
 
-    CurrentWeapon = FiredWeapon(m_pawn.GetActiveItem());
+    CurrentWeapon = FiredWeapon(m_pawn.GetActiveItem());    
 
 	if(CurrentWeapon.bAbleToMelee)
 	{
 		DistanceFromTarget = Vsize( m_Pawn.Location - Target.Location ) ;
-
-		if( DistanceFromTarget < 150  ) //melee range = 150
-		{
-			if (m_Pawn.IsA('SwatOfficer') )
+		
+		if( DistanceFromTarget < 150  ) //melee range = 150 
+		{		
+			if (m_Pawn.IsA('SwatOfficer') ) 
 			{
 				if ( !CurrentWeapon.IsLessLethal() ) //no need to punch when less lethal
 				{
@@ -346,14 +346,14 @@ latent function ShootWeaponAt(Actor Target)
 				{
 					CurrentWeapon.Melee();
 					sleep(1.0); //wait for melee to finish
-
+			
 					if (FRand() < 0.2 )
 						return; //80% chance to punch or punch AND fire
 				}
 			}
 		}
 	}
-
+		
     // if the weapon's not empty, use it
 	if (CurrentWeapon!= None && !CurrentWeapon.IsEmpty())
     {
@@ -361,7 +361,7 @@ latent function ShootWeaponAt(Actor Target)
 		{
 			EndTrace = Target.Location;
 			if (CurrentWeapon.WillOfficerAvoidBadShot(Target, !CurrentWeapon.bIsLessLethal, EndTrace) ) //make sure Officers will avoid unintended casualties as trained professionals
-			{
+			{ 
 			  ISwatAI(m_Pawn).SetWeaponTarget(Target);
 			  CurrentWeapon.LatentUse();
 			}
@@ -419,7 +419,7 @@ function FiredWeapon GetOtherWeapon()
 	if (CurrentWeapon == PrimaryWeapon)
 		return GetBackupWeapon();
 	else
-		return PrimaryWeapon;
+		return PrimaryWeapon; 
 }
 
 

@@ -20,7 +20,7 @@ function PostInitHook()
 
 function OnPawnIncapacitated(Pawn Pawn, Actor Incapacitator, bool WasAThreat)
 {
-    if( !Pawn.IsA('SwatEnemy') )
+    if( !Pawn.IsA('SwatEnemyExtend') )
         return;   //we only care about Suspects
 
 	if(IsInArray(Pawn, ReportedDownedSuspects))
@@ -34,7 +34,7 @@ function OnPawnIncapacitated(Pawn Pawn, Actor Incapacitator, bool WasAThreat)
 
 function OnPawnDied(Pawn Pawn, Actor Killer, bool WasAThreat)
 {
-    if( !Pawn.IsA('SwatEnemy') )
+    if( !Pawn.IsA('SwatEnemyExtend') )
         return;
 
     if(IsInArray(Pawn, UnevacuatedDownedSuspects))
@@ -48,7 +48,7 @@ function OnPawnDied(Pawn Pawn, Actor Killer, bool WasAThreat)
 
 function OnReportableReportedToTOC(IAmReportableCharacter ReportedCharacter, Pawn Reporter)
 {
-    if (!ReportedCharacter.IsA('SwatEnemy') )
+    if (!ReportedCharacter.IsA('SwatEnemyExtend') )
         return;   //we only care about enemies
 
     if (GetGame().DebugLeadership)
@@ -87,4 +87,9 @@ function int GetCurrentValue()
             $"                           = "$PenaltyPerDownedSuspect * ReportableDownedSuspects);
 
     return PenaltyPerDownedSuspect * ReportableDownedSuspects;
+}
+
+function int GetPossible()
+{
+	return 0;
 }
