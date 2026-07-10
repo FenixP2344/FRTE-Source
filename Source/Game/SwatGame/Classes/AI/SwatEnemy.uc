@@ -1232,7 +1232,7 @@ function float GetTimeToWaitBeforeFiring()
 // FR0.68 Data Backup
 //  if ( Level.NetMode != NM_Standalone )
 //  {
-
+	  
 //  switch(Skill)
 //  {
 //    case EnemySkill_High:
@@ -1252,7 +1252,7 @@ function float GetTimeToWaitBeforeFiring()
 //    case EnemySkill_Medium:
 //      return RandRange(class'SwatEnemyConfig'.default.MediumSkillMinTimeBeforeShootingSP, class'SwatEnemyConfig'.default.MediumSkillMaxTimeBeforeShootingSP);
 //    case EnemySkill_Low:
-//      return RandRange(class'SwatEnemyConfig'.default.LowSkillMinTimeBeforeShootingSP, class'SwatEnemyConfig'.default.LowSkillMaxTimeBeforeShootingSP);
+//      return RandRange(class'SwatEnemyConfig'.default.LowSkillMinTimeBeforeShootingSP, class'SwatEnemyConfig'.default.LowSkillMaxTimeBeforeShootingSP);  
 //  	}
 //  }
 }
@@ -1419,7 +1419,7 @@ simulated function EnteredZone(ZoneInfo Zone)
 		switch(Skill)
 		{
 			case EnemySkill_High:
-				if(FRand() <= 0.5)
+				if(FRand() <= 0.5) 
 					SetDesiredFlashlightState(Zone.bUseFlashlight);
 			    break;
 			case EnemySkill_Medium:

@@ -2,7 +2,7 @@
 // Marine leads 
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatMarineLead extends SwatEnemy;
+class SwatMarineLead extends SwatEnemyExtend;
 
 import enum EquipmentSlot from Engine.HandheldEquipment;
 import enum Pocket from Engine.HandheldEquipment;

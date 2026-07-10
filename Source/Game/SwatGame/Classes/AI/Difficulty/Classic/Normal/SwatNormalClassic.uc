@@ -2,7 +2,7 @@
 // This is Classic AI Based like a Vanilla Career 
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatNormalClassic extends SwatEnemy;
+class SwatNormalClassic extends SwatEnemyExtend;
 
 import enum EquipmentSlot from Engine.HandheldEquipment;
 import enum Pocket from Engine.HandheldEquipment;

@@ -2,7 +2,7 @@
 // Low Threat Suspect just like vanilla, we need Following Standard ROE
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatEasyLowThreat extends SwatEnemy;
+class SwatEasyLowThreat extends SwatEnemyExtend;
 
 import enum EquipmentSlot from Engine.HandheldEquipment;
 import enum Pocket from Engine.HandheldEquipment;

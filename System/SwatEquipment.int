@@ -367,6 +367,19 @@ MagazineSizeString=15
 TotalAmmoString=4 magazine
 RateOfFire=390 RPM
 
+[MP443HG]
+Description=The MP443 'Raven' semi-automatic pistol is a Russian-developed handgun designed under the leadership of Vladimir Yarygin and produced by the Izhevsk Mechanical Plant. It fires 9×19mm Parabellum rounds. This pistol was developed in response to the Russian military's new pistol trials that started in 1993. It was selected in May 2000 and recommended for military use, with the Russian Ministry of Defense giving it the designation 6P35, while its commercial model is known as the MP-443 'Raven.' It has been in service since 2003, and its main users include the military of Russia and Kazakhstan, as well as special units of the Interior Ministry.
+FriendlyName=MP443
+ShortName=MP443
+Manufacturer=Izhevsk Mechanical Plant
+Caliber=9x19mm
+CountryOfOrigin=Russia
+ProductionStart=2000
+FireModes=Semi-Automatic
+MagazineSizeString=18
+TotalAmmoString=4 magazine
+RateOfFire=480 RPM
+
 [P320HG]
 Description=The SIG Sauer P320 is a semi-automatic pistol developed based on the P250, serving as a derivative model. The P320 primarily inherits the frame of the P250, including its modular trigger mechanism design, but features a completely redesigned slide. This is because the P320 replaces the rotating hammer with a sliding striker. The firing mechanism operates similarly to the semi-double-action mode of Glock pistols, where the striker is pre-compressed halfway during the ready position but does not fully engage. When the trigger is pulled, it completes the compression and releases the striker. As a result, like most SIG pistols, the P320 lacks a manual safety but includes an automatic striker safety, which only releases the striker when the trigger is fully pulled to reduce accidental discharges.
 FriendlyName=P320 M18
@@ -481,58 +494,6 @@ CountryOfOrigin=West Germany
 ProductionStart=1968
 FireModes=Semi-Automatic, 3-rd. Burst, Full-Auto
 MagazineSizeString=30
-TotalAmmoString=6 magazine
-RateOfFire=700 RPM
-
-[SG55284MG]
-Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=SG 552-84 custom
-ShortName=SG 552-84
-Manufacturer=Sig Sauer
-Caliber=5.56x45mm Mk.262
-CountryOfOrigin=Switzerland
-ProductionStart=1998
-FireModes=Semi-Automatic, Full-Auto
-MagazineSizeString=25
-TotalAmmoString=6 magazine
-RateOfFire=700 RPM
-
-[SilencedSG55284MG]
-Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=Suppressed SG 552-84 custom
-ShortName=Sup. SG 552-84
-Manufacturer=Sig Sauer
-Caliber=5.56x45mm Mk.262
-CountryOfOrigin=Switzerland
-ProductionStart=1998
-FireModes=Semi-Automatic, Full-Auto
-MagazineSizeString=25
-TotalAmmoString=6 magazine
-RateOfFire=700 RPM
-
-[SG552Aim84MG]
-Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=SG 552-84 custom with Aimpoint
-ShortName=SG 552-84 with Aimpoint
-Manufacturer=Sig Sauer
-Caliber=5.56x45mm Mk.262
-CountryOfOrigin=Switzerland
-ProductionStart=1998
-FireModes=Semi-Automatic, Full-Auto
-MagazineSizeString=25
-TotalAmmoString=6 magazine
-RateOfFire=700 RPM
-
-[SilencedSG552Aim84MG]
-Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=Suppressed SG 552-84 custom with Aimpoint
-ShortName=Sup. SG 552-84 with Aimpoint
-Manufacturer=Sig Sauer
-Caliber=5.56x45mm Mk.262
-CountryOfOrigin=Switzerland
-ProductionStart=1998
-FireModes=Semi-Automatic, Full-Auto
-MagazineSizeString=25
 TotalAmmoString=6 magazine
 RateOfFire=700 RPM
 
@@ -1526,6 +1487,31 @@ MagazineSizeString=25
 TotalAmmoString=6 magazine
 RateOfFire=600 RPM
 
+[Colt733MG]
+Description=The Model 733, also known as M16A2 Commando, is a shortened carbine version of the M16A2 rifle. The first versions of this carbine were deployed in the Vietnam War, introduced in 1966 in response to the U.S military's desire for a shorter M16. The Model 733 was introduced in 1985 as a 11.5 inch barreled version of the Model 653, intended for tactical police and security work.
+FriendlyName=Colt 733
+ShortName=Colt 733
+Manufacturer=Colt
+Caliber=5.56x45mm NATO
+CountryOfOrigin=United States
+ProductionStart=1985
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazines
+RateOfFire=700 RPM
+
+[Colt733sdMG]
+Description=The Model 733, also known as M16A2 Commando, is a shortened carbine version of the M16A2 rifle. The first versions of this carbine were deployed in the Vietnam War, introduced in 1966 in response to the U.S military's desire for a shorter M16. The Model 733 was introduced in 1985 as a 11.5 inch barreled version of the Model 653, intended for tactical police and security work. This configuration comes equipped with a sound and flash suppressor for when stealth is paramount.
+FriendlyName=Colt 733 Suppressed
+ShortName=Sup. Colt 733
+Manufacturer=Colt
+CountryOfOrigin=United States
+ProductionStart=1985 
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazines
+RateOfFire=700 RPM
+
 [C7A2isMG]
 Description="The Colt C7 Rifle with Elcan is based on the tried and true design of the M16 assault rifle used by the United States Army.  The shorter carbine design makes it a more viable weapon than the M16 in close quarters situations.  Using .223 caliber rifle ammunition in both full metal jacket and jacketed hollow point configurations, the Colt carbine is the most powerful weapon available to SWAT officers.  It is equipped with a fire mode selector allowing semi-automatic as well as fully automatic firing."
 FriendlyName=Diemaco C7A2 Rifle
@@ -1659,6 +1645,45 @@ ShortName=Sup. M4A1-Fire Eotech.
 Description=LWRC PSD is built on LWRC's Personal Security Detail, upgrading the iconic short stroke pneumatic piston system to an ultra compact 8.5-inch barrel configuration. However, the initial PSD design can actually be traced back to 2006. They were previously used by LAPD SWAT which once participated in television program recording and running 6.8SPC Ammo.
 FriendlyName=LWRC PSD Carbine
 ShortName=LWRC PSD
+Manufacturer=LWRC International
+Caliber=6.8x43mm SPC
+CountryOfOrigin=United States
+ProductionStart=2012
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=900 RPM
+
+[PSDsdMG]
+Description=LWRC PSD is built on LWRC's Personal Security Detail, upgrading the iconic short stroke pneumatic piston system to an ultra compact 8.5-inch barrel configuration. However, the initial PSD design can actually be traced back to 2006. They were previously used by LAPD SWAT which once participated in television program recording and running 6.8SPC Ammo and a suppressor for when stealth is paramount.
+FriendlyName=Suppressed LWRC PSD Carbine
+ShortName=Sup. LWRC PSD
+Manufacturer=LWRC International
+Caliber=6.8x43mm SPC
+CountryOfOrigin=United States
+ProductionStart=2012
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=900 RPM
+
+[PSDT1MG]
+Description=LWRC PSD is built on LWRC's Personal Security Detail, upgrading the iconic short stroke pneumatic piston system to an ultra compact 8.5-inch barrel configuration. However, the initial PSD design can actually be traced back to 2006. They were previously used by LAPD SWAT which once participated in television program recording and running 6.8SPC Ammo and an aimpoint sight for ease of use against long range targets.
+FriendlyName=LWRC PSD Carbine with MircoT1 Sight
+ShortName=LWRC PSD MircoT1.
+Manufacturer=LWRC International
+Caliber=6.8x43mm SPC
+CountryOfOrigin=United States
+ProductionStart=2012
+FireModes=Semi-Automatic, Full-Auto
+MagazineSizeString=30
+TotalAmmoString=6 magazine
+RateOfFire=900 RPM
+
+[PSDsdT1MG]
+Description=LWRC PSD is built on LWRC's Personal Security Detail, upgrading the iconic short stroke pneumatic piston system to an ultra compact 8.5-inch barrel configuration. However, the initial PSD design can actually be traced back to 2006. They were previously used by LAPD SWAT which once participated in television program recording and running 6.8SPC Ammo and a suppressor and aimpoint sight for ease of use against long range targets.
+FriendlyName=Suppressed LWRC PSD Carbine with MircoT1 Sight
+ShortName=Sup. LWRC PSD MircoT1.
 Manufacturer=LWRC International
 Caliber=6.8x43mm SPC
 CountryOfOrigin=United States
@@ -1891,34 +1916,6 @@ ShortName=Sup. HK416-76
 Description=This equipment is a reward item from CN SWAT CLUB and also represents personal honor.
 FriendlyName=Suppressed HK416 with UH1 Sight 76 Custom
 ShortName=Sup. HK416 Holo-76
-
-[HK416MikuFansMG]
-Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=HK416 Assault Rifle SuperGamer Custom
-ShortName=HK416-SuperGamer
-Manufacturer=Heckler & Koch
-Caliber=5.56x45mm NATO
-CountryOfOrigin=Germany
-ProductionStart=2004
-FireModes=Semi-Automatic, Full-Auto
-MagazineSizeString=30
-TotalAmmoString=6 magazine
-RateOfFire=900 RPM
-
-[HK416HoloMikuFansMG]
-Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=HK416 Assault Rifle with UH1 Sight SuperGamer Custom
-ShortName=HK416 Holo-SuperGamer
-
-[HK416sdMikuFansMG]
-Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=Suppressed HK416 Assault Rifle SuperGamer Custom
-ShortName=Sup. HK416-SuperGamer
-
-[HK416HolosdMikuFansMG]
-Description=This equipment is a reward item from SWAT4CN CLUB and also represents personal honor.
-FriendlyName=Suppressed HK416 with UH1 Sight SuperGamer Custom
-ShortName=Sup. HK416 Holo-SuperGamer
 
 [HK416MG]
 Description=The Heckler & Koch HK416 (HK M4) is an assault rifle/carbine designed and manufactured by Heckler & Koch. It is based on the AR-15 platform, and was originally conceived as an improvement based on the Colt M4 carbine family issued to the U.S. military, with the notable inclusion of an HK-proprietary short-stroke gas piston system derived from the Heckler & Koch G36 assault rifle.

@@ -3,7 +3,7 @@
 // SwatAICommon.OfficerCommanderAction
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatMarineBomber extends SwatEnemy;
+class SwatMarineBomber extends SwatEnemyExtend;
 
 import enum EquipmentSlot from Engine.HandheldEquipment;
 import enum Pocket from Engine.HandheldEquipment;
@@ -105,27 +105,11 @@ event bool IgnoresSeenPawnsOfType(class<Pawn> SeenType)
             ClassIsChildOf(SeenType, class'SwatGame.SwatLowThreat') ||
             ClassIsChildOf(SeenType, class'SwatGame.SwatUndercover') || 
 			ClassIsChildOf(SeenType, class'SwatGame.SwatMarineLead') ||
-			ClassIsChildOf(SeenType, class'SwatGame.SwatMarineBomber') ||				
+			ClassIsChildOf(SeenType, class'SwatGame.SwatMarineBomber') ||
+			ClassIsChildOf(SeenType, class'SwatGame.SwatClassic') ||
 			ClassIsChildOf(SeenType, class'SwatGame.SwatHostage') ||
 		    ClassIsChildOf(SeenType, class'SwatGame.SwatTrainer') ||
 			ClassIsChildOf(SeenType, class'SwatGame.SniperPawn'));
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// Doors
-///////////////////////////////////////////////////////////////////////////////
-
-protected function InitializeDoorKnowledge(Door inDoor, PawnDoorKnowledge DoorKnowledge)
-{
-
-	BecomeAThreat();
-	
-	assert(inDoor != None);
-	assert(inDoor.IsA('SwatDoor'));
-	assert(DoorKnowledge != None);
-
-	// if the door was initially locked, we belive that already (whether it's currently true or not)
-	DoorKnowledge.SetBelievesDoorLocked(SwatDoor(inDoor).WasDoorInitiallyLocked());
 }
 
 // Enemies force locked doors to open

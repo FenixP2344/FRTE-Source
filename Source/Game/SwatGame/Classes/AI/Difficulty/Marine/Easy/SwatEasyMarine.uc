@@ -3,7 +3,7 @@
 // SwatAICommon.OfficerCommanderAction
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatEasyMarine extends SwatEnemy;
+class SwatEasyMarine extends SwatEnemyExtend;
 
 import enum EquipmentSlot from Engine.HandheldEquipment;
 import enum Pocket from Engine.HandheldEquipment;

@@ -3,7 +3,7 @@
 // See SwatEnemy::ConstructCharacterAIHook
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatGangsterB extends SwatEnemy
+class SwatGangsterB extends SwatEnemyExtend
 	implements SwatAICommon.ISwatWildGunner;
 
 var bool bIsFiring;

@@ -2,7 +2,7 @@
 // Middle threat Suspect, if he behavior with suspected resistance, you can use deadly force
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatHardMiddleThreat extends SwatEnemy;
+class SwatHardMiddleThreat extends SwatEnemyExtend;
 
 import enum EquipmentSlot from Engine.HandheldEquipment;
 import enum Pocket from Engine.HandheldEquipment;

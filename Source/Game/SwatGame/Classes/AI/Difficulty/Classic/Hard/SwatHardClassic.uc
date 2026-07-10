@@ -2,7 +2,7 @@
 // This is Classic AI Based like a Vanilla Career 
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatHardClassic extends SwatEnemy
+class SwatHardClassic extends SwatEnemyExtend
 	implements SwatAICommon.ISwatWildGunner;
 
 var bool bIsFiring;

@@ -3,7 +3,7 @@
 // Authorized to use lethal force at any time
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatEasyHighThreat extends SwatEnemy;
+class SwatEasyHighThreat extends SwatEnemyExtend;
 
 import enum EquipmentSlot from Engine.HandheldEquipment;
 import enum Pocket from Engine.HandheldEquipment;
