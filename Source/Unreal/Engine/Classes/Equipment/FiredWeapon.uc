@@ -1175,7 +1175,7 @@ simulated function bool HandleShieldImpact(
     local vector MomentumVector;
     local int Damage;
     local float MomentumLostToProtection;
-    local float DamageModifierRange;
+    //local float DamageModifierRange;
     local float DamageModifier, ExternalDamageModifier;
 	local IAmShield Shield;
 	local int ArmorLevel;
@@ -2915,7 +2915,7 @@ simulated function bool HandleShieldImpactMP(
     local vector MomentumVector;
     local int Damage;
     local float MomentumLostToProtection;
-    local float DamageModifierRange;
+    //local float DamageModifierRange;
     local float DamageModifier, ExternalDamageModifier;
 	local IAmShield Shield;
 	local int ArmorLevel;

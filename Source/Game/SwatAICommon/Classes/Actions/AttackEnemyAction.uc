@@ -30,7 +30,7 @@ const kMaxAttackEnemyUpdateTime = 0.25;
 
 function float selectionHeuristic( AI_Goal goal )
 {
-	if(IsFallingIn())
+	if(IsMovingTo() || IsFallingIn() || IsMovingAndClearing())
 	{
 		return 0.0;
 	}
@@ -109,9 +109,9 @@ private function MoveToAttackEnemy()
 {
 	local SwatAIRepository SwatAIRepo;
 	SwatAIRepo = SwatAIRepository(Level.AIRepo);
-	
+
 	assert(!SwatAIRepo.GetElementSquad().IsMovingInFormation()); //dont spread if in formation!
-	
+
 	// only move to attack the enemy if we should
 	if (m_Pawn.logAI)
 		log(m_Pawn.Name $ " will move to attack the enemy");

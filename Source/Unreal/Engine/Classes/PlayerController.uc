@@ -1260,7 +1260,7 @@ exec function FPFOV(float F)
 
 exec function SetFOVBias(float F)
 {
-	local float fFOV;
+	//local float fFOV;
 
 	FOVBias = F;
 }

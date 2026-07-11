@@ -43,7 +43,7 @@ function UpdateObjectives()
     local MissionObjectives theObjectives;
     local int i;
     local SwatGameReplicationInfo SGRI;
-	local class<Objective> ObjectiveClass;
+	//local class<Objective> ObjectiveClass;
 
     if( GC.CurrentMission == None )
         return;

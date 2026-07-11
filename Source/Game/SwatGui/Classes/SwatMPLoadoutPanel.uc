@@ -123,6 +123,7 @@ protected function MagazineCountChange(GUIComponent Sender) {
 function bool CheckValidity( class EquipmentClass, eNetworkValidity type )
 {
 	local int i;
+	local ServerSettings Settings;
 
 	// Check for server disabled equipment
 	for(i = 0; i < ServerDisabledEquipment.Length; i++)
@@ -131,6 +132,18 @@ function bool CheckValidity( class EquipmentClass, eNetworkValidity type )
 		{
 			return false;
 		}
+	}
+
+	// PVP skin validity: prevent SWAT-only skins on suspects and suspect-only
+	// skins on SWAT. COOP remains unrestricted because all players are SWAT.
+	Settings = ServerSettings(PlayerOwner().Level.CurrentServerSettings);
+	if( Settings != None &&
+		Settings.GameType != MPM_COOP &&
+		Settings.GameType != MPM_COOPQMM &&
+		EquipmentClass != None &&
+		Left(string(EquipmentClass), 4) != "Swat" )
+	{
+		return CheckTeamValidity(GetSkinTeamValidity(EquipmentClass));
 	}
 
     return (type == NETVALID_MPOnly) || (Super.CheckValidity( EquipmentClass, type ));
@@ -174,13 +187,17 @@ function bool CheckWeightBulkValidity()
 	Weight = MyCurrentLoadOut.GetTotalWeight();
 	Bulk = MyCurrentLoadOut.GetTotalBulk();
 
+	log("MP Panel weight:" $ Weight $ " bulk " $ bulk $ " ");
+
 	if(Weight > MyCurrentLoadOut.GetMaximumWeight())
 	{
+		log("Check weight false " $ MyCurrentLoadOut.GetMaximumWeight() $ " ");
 	    TooMuchWeightModal();
 	    return false;
 	}
 	else if(Bulk > MyCurrentLoadOut.GetMaximumBulk())
 	{
+		log("Check bulk false " $ MyCurrentLoadOut.GetMaximumbulk() $ " ");
 	    TooMuchBulkModal();
 	    return false;
 	}
@@ -192,6 +209,36 @@ function bool CheckWeightBulkValidity()
 	}
 
 	return true;
+}
+
+function bool CheckTeamValidity( eTeamValidity type )
+{
+	local bool IsSuspect;
+
+	if (PlayerOwner().Level.IsPlayingCOOP)
+	{
+		IsSuspect = false;
+	}
+	else
+	{
+		assert(PlayerOwner() != None);
+
+		// Immediately after travel the local team may not be replicated yet.
+		// Keep the client-side loadout permissive; the server still rejects
+		// illegal loadouts.
+		if (PlayerOwner().PlayerReplicationInfo == None ||
+			NetTeam(PlayerOwner().PlayerReplicationInfo.Team) == None)
+		{
+			return true;
+		}
+
+		// Team 1 is Suspects in stock SWAT4 PVP.
+		IsSuspect = (NetTeam(PlayerOwner().PlayerReplicationInfo.Team).GetTeamNumber() == 1);
+	}
+
+	return Super.CheckTeamValidity( type ) ||
+		(type == TEAMVALID_SuspectsOnly && IsSuspect) ||
+		(type == TEAMVALID_SWATOnly && !IsSuspect);
 }
 
 defaultproperties

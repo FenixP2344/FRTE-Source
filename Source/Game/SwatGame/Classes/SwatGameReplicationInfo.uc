@@ -26,6 +26,7 @@ var float ServerCountdownTime;
 // if we just used a bool, they couldn't tell whether false meant "really
 // false" or "false because it hasn't been replicated yet".
 var int ShowTeammateNames;
+var int ShowEnemyNames;
 
 var int TotalNumberOfBombs;
 var int DiffusedBombs;
@@ -64,7 +65,7 @@ var String NextMap;
 replication
 {
 	reliable if ( bNetDirty && (Role == ROLE_Authority) )
-		NextMap, ServerCountdownTime, ShowTeammateNames,
+		NextMap, ServerCountdownTime, ShowTeammateNames, ShowEnemyNames,
         TotalNumberOfBombs, DiffusedBombs,
         ObjectiveHidden, ObjectiveNames, ObjectiveStatus, ProcedureCalculations, ProcedureValue,
         RoundTime, SpecialTime, TimedObjectiveIndex, bWaitingForPlayers,
@@ -347,7 +348,7 @@ function int ServerChooseSoundEffectToPlay( name EffectSpecification, Actor Sour
     return SoundRef.SoundSetIndex;
 }
 
-function StartReferendum(PlayerController PC, class<Voting.Referendum> ReferendumClass, optional PlayerController Target, optional String TargetStr)
+function StartReferendum(PlayerController PC, class<Voting.Referendum> ReferendumClass, optional PlayerController Target, optional String TargetStr, optional EMPMode GameType)
 {
 	if(RefMgr == None)
 		return;
@@ -358,7 +359,7 @@ function StartReferendum(PlayerController PC, class<Voting.Referendum> Referendu
 		return;
 	}
 
-	if(RefMgr.StartNewReferendum(PC, ReferendumClass, Target, TargetStr))
+	if(RefMgr.StartNewReferendum(PC, ReferendumClass, Target, TargetStr, GameType))
 	{
 		VoteYes(PC);
 	}

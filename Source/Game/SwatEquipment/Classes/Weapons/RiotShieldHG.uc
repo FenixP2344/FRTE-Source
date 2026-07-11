@@ -1,73 +1,21 @@
-class RiotShieldHG extends Handgun;
+class RiotShieldHG extends ShieldHandgun;
 
-///////////////////////////////////////////////////////////////////////////////////
-var() float MomentumToPenetrate;
-var() float BlockedDamageFactor;
-var() float PenetratedDamageFactor; 
-var() float RiotShieldHealth;
+var private bool DebugTrace;
 
-///////////////////////////////////////////////////////////////////////////////////
+simulated function EquippedHook()
+{
+	super.EquippedHook();
+	if (Ammo == None)
+	{
+		Ammo = new class'LessLethalNoAmmo';
+		ShotgunAmmo(Ammo).StartingRounds=1;
+		ShotgunAmmo(Ammo).CurrentRounds=1;
+		Log("LessLethal No Ammo " $ Ammo.name $ " Rounds " $ ShotgunAmmo(Ammo).StartingRounds);
+	}
 	
-//which slot should be equipped after this item becomes unavailable
-simulated function EquipmentSlot GetSlotForReequip()
-{
-    return Slot_PrimaryWeapon;
 }
 
-//simulated function EquipmentSlot GetSlotForUnable()
-//{
-//    return Slot_Detonator;
-//}
-///////////////////////////////////////////////////////////////////////////////////
-// HERE I WANT TO RETURN TO PRIMARY WEAPON IF IM IN DANGER!!! - TO BE FIX
-///////////////////////////////////////////////////////////////////////////////////
-simulated function ShieldHealth()
-{
-	if (MomentumToPenetrate < 400.000000);
-		GetSlotForReequip();
-}
-
-///////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////
-
-// Decompiled with UE Explorer.
-
-
-
-
-
-
-
-// Decompiled with UE Explorer.
-
-
-
-
-
-
-// Decompiled with UE Explorer.
 defaultproperties
 {
-	AttachmentBone=Torso
-	ProtectedRegion=REGION_Torso
-    BlockedDamageFactor=0.0
-    bProjTarget=true
-	ArmorProtection=Level_3
-    MomentumToPenetrate=400
-    bCollideActors=true
-    bBlockHavok=true
+	IgnoreAmmoOverrides=true
 }

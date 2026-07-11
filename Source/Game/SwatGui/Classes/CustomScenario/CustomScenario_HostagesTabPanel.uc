@@ -675,7 +675,7 @@ function PopulateFieldsFromScenario(bool NewScenario)
 {
     local CustomScenario Scenario;
     local HostageArchetype Archetype;
-    local CustomScenario.ArchetypeData ArchetypeData;
+    //local CustomScenario.ArchetypeData ArchetypeData;
     local int i,j;
 
     RosterList.List.Clear();

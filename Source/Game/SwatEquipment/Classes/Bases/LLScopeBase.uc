@@ -126,24 +126,21 @@ simulated event RenderTexture(ScriptedTexture inTexture)
 
 simulated function Tick(float DeltaTime)
 {
-	if( HasScope )
+	Super.Tick(DeltaTime);
+
+	if( HasScope && FirstPersonModel != None && ScopeScreen != None &&
+		Level.GetLocalPlayerController() != None )
 	{
-	  FirstPersonModel.Skins[0] =  FirstSkin; 
-	  if(FirstPersonModel != None)
-	  {
+	  FirstPersonModel.Skins[0] = FirstSkin;
 		FirstPersonModel.Skins[ScopeIndex] = ScopeShader;
-	  }
-		ScopeScreen.Revision++;
+	  ScopeScreen.Revision++;
 
 	  if (!Level.GetLocalPlayerController().WantsZoom) 
 	  {
-		if(FirstPersonModel != None)
-		{
-		  FirstPersonModel.Skins[ScopeIndex] = BlankScope;
-		}
+		FirstPersonModel.Skins[ScopeIndex] = BlankScope;
 	  }
 	 
-		ViewportCalcView(ScopeLocation, ScopeRotation);	
+	  ViewportCalcView(ScopeLocation, ScopeRotation);
     }
 }
 

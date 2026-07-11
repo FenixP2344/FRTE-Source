@@ -28,9 +28,9 @@ var config float       StandardLimpPenalty;
 var config float PawnModelApparentBaseEyeHeight;        //the apparent Z distance between the pawn's origin and the eyes of the 3rd person model when standing
 var config float PawnModelApparentCrouchEyeHeight;      //the apparent Z distance between the pawn's origin and the eyes of the 3rd person model when standing
 
+var config class<HandheldEquipment> GivenFlashbangClass;
 var config class<HandheldEquipment> GivenNinebangClass;
 var config class<HandheldEquipment> GivenFragClass;
-var config class<HandheldEquipment> GivenFlashbangClass;
 var config class<HandheldEquipment> GivenGasClass;
 var config class<HandheldEquipment> GivenStingerClass;
 var config class<HandheldEquipment> GivenC2Class;
@@ -131,6 +131,11 @@ static function float GetPawnModelApparentCrouchEyeHeight()
 	return default.PawnModelApparentCrouchEyeHeight;
 }
 
+static function class<HandheldEquipment> GetGivenFlashbangClass()
+{
+	return default.GivenFlashbangClass;
+}
+
 static function class<HandheldEquipment> GetGivenNinebangClass()
 {
 	return default.GivenNinebangClass;
@@ -139,11 +144,6 @@ static function class<HandheldEquipment> GetGivenNinebangClass()
 static function class<HandheldEquipment> GetGivenFragClass()
 {
 	return default.GivenFragClass;
-}
-
-static function class<HandheldEquipment> GetGivenFlashbangClass()
-{
-	return default.GivenFlashbangClass;
 }
 
 static function class<HandheldEquipment> GetGivenGasClass()

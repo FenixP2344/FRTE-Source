@@ -10,6 +10,7 @@ var(SWATGui) private EditInline Config GUIButton BanButton;
 var(SWATGui) private EditInline Config GUIButton LeaderButton;
 
 var(SWATGui) private EditInline Config GUIListBox MapList;
+var(SWATGui) private EditInline Config GUIComboBox GameTypes;
 var(SWATGui) private EditInline Config GUIButton MapButton;
 var(SWATGui) private EditInline Config GUIButton NextMapButton;
 var(SWATGui) private EditInline Config GUIButton EndMapButton;
@@ -31,6 +32,7 @@ var(SWATGui) private EditInline Config GUIImage  LevelScreenshot;
 var(DEBUG) private GUIList FullMapList;
 
 var private bool bPrevEnabled;
+var private bool bInitialisingGameTypes;
 
 function InitComponent(GUIComponent MyOwner)
 {
@@ -45,6 +47,10 @@ function InitComponent(GUIComponent MyOwner)
 	LeaderButton.OnClick = OnPlayerReferendumClicked;
 
 	MapButton.OnClick = OnMapButtonClicked;
+	if( GameTypes == None )
+		GameTypes = GUIComboBox(AddComponent("GUI.GUIComboBox", self.Name$"_GameTypes", true));
+	if( GameTypes != None )
+		GameTypes.OnChange = OnGameTypesChange;
 
 	NextMapButton.OnClick = OnSimpleReferendumClicked;
 	EndMapButton.OnClick = OnSimpleReferendumClicked;
@@ -150,6 +156,11 @@ private function SetVotingEnabled(optional bool bForceRefresh)
 
 		MapList.SetVisibility(bEnabled);
 		MapList.SetEnabled(bEnabled);
+		if( GameTypes != None )
+		{
+			GameTypes.SetVisibility(bEnabled);
+			GameTypes.SetEnabled(bEnabled);
+		}
 
 		MapButton.SetVisibility(bEnabled);
 		MapButton.SetEnabled(bEnabled);
@@ -190,6 +201,7 @@ private function SetVotingEnabled(optional bool bForceRefresh)
 private function InternalOnActivate()
 {
 	InitialiseTeamMembers();
+	InitialiseGameTypes();
 
 	SetVotingEnabled(true);
 
@@ -225,6 +237,11 @@ private function InternalOnActivate()
 	{
 		MapList.Hide();
 		MapList.DisableComponent();
+		if( GameTypes != None )
+		{
+			GameTypes.Hide();
+			GameTypes.DisableComponent();
+		}
 
 		LoadMapsButton.Hide();
 		LoadMapsButton.DisableComponent();
@@ -239,6 +256,11 @@ private function InternalOnActivate()
 	{
 		MapList.Show();
 		MapList.EnableComponent();
+		if( GameTypes != None )
+		{
+			GameTypes.Show();
+			GameTypes.EnableComponent();
+		}
 
         MapButton.Show();
 		MapButton.EnableComponent();
@@ -303,8 +325,10 @@ private function InitialiseMapList()
 {
     local int i, j;
     local LevelSummary Summary;
+	local EMPMode GameType;
 
     MapList.Clear();
+	GameType = GetSelectedVoteGameType();
 
     for( i = 0; i < FullMapList.ItemCount; i++ )
     {
@@ -312,7 +336,7 @@ private function InitialiseMapList()
 
         for( j = 0; j < Summary.SupportedModes.Length; j++ )
         {
-            if( Summary.SupportedModes[j] == EMPMode.MPM_COOP )
+            if( Summary.SupportedModes[j] == GameType )
             {
                 MapList.List.Add( FullMapList.GetItemAtIndex(i), Summary, Summary.Title );
                 break;
@@ -322,6 +346,69 @@ private function InitialiseMapList()
 
     MapList.List.Sort();
 	MapList.List.SetIndex(0);
+}
+
+private function EMPMode GetSelectedVoteGameType()
+{
+	local ServerSettings Settings;
+
+	if( GameTypes != None && GameTypes.GetIndex() >= 0 )
+		return EMPMode(GameTypes.GetInt());
+
+	Settings = ServerSettings(PlayerOwner().Level.CurrentServerSettings);
+	if( Settings != None )
+		return Settings.GameType;
+
+	return EMPMode.MPM_COOP;
+}
+
+private function InitialiseGameTypes()
+{
+	local ServerSettings Settings;
+	local int i;
+
+	if( GameTypes == None )
+	{
+		InitialiseMapList();
+		return;
+	}
+
+	Settings = ServerSettings(PlayerOwner().Level.CurrentServerSettings);
+	if( Settings == None )
+		return;
+
+	bInitialisingGameTypes = true;
+	GameTypes.Clear();
+
+	// COOP votes remain COOP-only. PVP servers can vote between all stock
+	// competitive modes but cannot jump into COOP/QMM mid-session.
+	if( Settings.GameType == MPM_COOP || Settings.GameType == MPM_COOPQMM )
+	{
+		GameTypes.AddItem(GC.GetGameModeName(MPM_COOP),,, int(EMPMode.MPM_COOP));
+	}
+	else
+	{
+		for( i = 0; i < EMPMode.EnumCount; ++i )
+		{
+			if( EMPMode(i) != MPM_COOP && EMPMode(i) != MPM_COOPQMM )
+				GameTypes.AddItem(GC.GetGameModeName(EMPMode(i)),,, i);
+		}
+	}
+
+	bInitialisingGameTypes = false;
+
+	// Default to the server's current mode. Without this, opening the voting
+	// panel on VIP/RD/S&G silently selected Barricaded Suspects.
+	if( GameTypes.List.FindExtraIntData(int(Settings.GameType)) < 0 )
+		GameTypes.SetIndex(0);
+
+	InitialiseMapList();
+}
+
+private function OnGameTypesChange(GUIComponent Sender)
+{
+	if( !bInitialisingGameTypes )
+		InitialiseMapList();
 }
 
 private function OnLoadMapsClicked(GUIComponent Sender)
@@ -393,6 +480,7 @@ private function OnSimpleReferendumClicked(GUIComponent Sender)
 private function OnMapButtonClicked(GUIComponent Sender)
 {
 	local String MapName;
+	local EMPMode GameType;
 
 	MapName = MapList.List.Get();
 
@@ -402,7 +490,8 @@ private function OnMapButtonClicked(GUIComponent Sender)
 	if (SwatPlayerController(PlayerOwner()) == None)
 		return;
 
-	SwatPlayerController(PlayerOwner()).ServerStartReferendum(PlayerOwner(), class'SwatGame.MapChangeReferendum', None, MapName);
+	GameType = GetSelectedVoteGameType();
+	SwatPlayerController(PlayerOwner()).ServerStartReferendum(PlayerOwner(), class'SwatGame.MapChangeReferendum', None, MapName, GameType);
 
 	if (SwatMPPage(Controller.TopPage()) != None)
 		SwatMPPage(Controller.TopPage()).ResumeGame();

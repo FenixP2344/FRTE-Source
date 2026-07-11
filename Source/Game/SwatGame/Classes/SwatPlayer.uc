@@ -1384,6 +1384,12 @@ function ServerRequestQualify( Actor DefaultFireFocusActor )
     theNetPlayer = NetPlayer( DefaultFireFocusActor );
     if ( theNetPlayer != None )
     {
+        // Player arrests are an adversarial multiplayer feature. Never allow
+        // a client to start cuffing another player in COOP, even if that
+        // player is currently affected by a less-lethal weapon.
+        if ( theEquipment.IsA( 'Cuffs' ) && Level.IsPlayingCOOP )
+            return;
+
         if ( theEquipment.IsA( 'Cuffs' ) && !theNetPlayer.CanBeArrestedNow() )
             return;
 
@@ -3521,19 +3527,7 @@ simulated function ClientDoTasedReaction( float PlayerDuration )
 //returns false if the ICanBeTased has some inherent protection from Taser, ie. officers wearing ceramics
 simulated function bool IsVulnerableToTaser()
 {
-	if ( LoadOut.HasCeramicArmor() )
-		{
-			return false;
-		}
-	else
-		return true;
-		
-	if ( LoadOut.HasZombieArmor() )
-		{
-			return false;
-		}
-	else
-		return true;
+	return !LoadOut.HasCeramicArmor() && !LoadOut.HasZombieArmor();
 }
 
 //IReactToC2Detonation Implementation
@@ -3845,6 +3839,11 @@ simulated function bool CanBeArrestedNow()
 {
     local HandheldEquipment theActiveItem;
     local HandheldEquipment thePendingItem;
+
+    // COOP teammates must never become valid handcuff targets. PVP keeps the
+    // original non-lethal/arrest behavior because IsPlayingCOOP is false.
+    if (Level.IsPlayingCOOP)
+        return false;
 
     if (checkDead(self))
         return false;

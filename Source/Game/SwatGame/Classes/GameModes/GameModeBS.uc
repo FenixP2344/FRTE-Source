@@ -93,11 +93,11 @@ function OnPawnArrested( Pawn player, Pawn Arrester )
     SwatScore = Teams[0].NetScoreInfo.GetScore();
     SuspectsScore = Teams[1].NetScoreInfo.GetScore();
 
-    if ( SwatScore >= ScoreLimitForRound )
+    if ( ScoreLimitForRound > 0 && SwatScore >= ScoreLimitForRound )
     {
         NetRoundFinished( SRO_SwatVictoriousNormal );
     }
-    else if ( SuspectsScore >= ScoreLimitForRound )
+    else if ( ScoreLimitForRound > 0 && SuspectsScore >= ScoreLimitForRound )
     {
         NetRoundFinished( SRO_SuspectsVictoriousNormal );
     }
@@ -126,11 +126,11 @@ function OnPlayerDied(PlayerController player, Controller killer)
     SwatScore = Teams[0].NetScoreInfo.GetScore();
     SuspectsScore = Teams[1].NetScoreInfo.GetScore();
 
-    if ( SwatScore >= ScoreLimitForRound )
+    if ( ScoreLimitForRound > 0 && SwatScore >= ScoreLimitForRound )
     {
         NetRoundFinished( SRO_SwatVictoriousNormal );
     }
-    else if ( SuspectsScore >= ScoreLimitForRound )
+    else if ( ScoreLimitForRound > 0 && SuspectsScore >= ScoreLimitForRound )
     {
         NetRoundFinished( SRO_SuspectsVictoriousNormal );
     }

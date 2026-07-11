@@ -1128,8 +1128,8 @@ function StopFollowingLeader()
 protected function SetupOfficerRoles()
 {
 	local Pawn FirstOfficer, SecondOfficer ,ShieldOfficer;
-	local array<Pawn> Sort;
-	local int i;
+	//local array<Pawn> Sort;
+	//local int i;
 	
 	//shield in 3rd position
 	ShieldOfficer = GetFirstShieldOfficer();

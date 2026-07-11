@@ -7,7 +7,11 @@ var bool bSwitchingMaps;
 
 simulated function String ReferendumDescription()
 {
-	return FormatTextString(ReferendumDescriptionText, CallerPRI.PlayerName, TargetStr);
+	return FormatTextString(
+		ReferendumDescriptionText,
+		CallerPRI.PlayerName,
+		TargetStr,
+		SwatRepo(Level.GetRepo()).GuiConfig.GetGameModeName(NewGameType));
 }
 
 function ReferendumDecided(bool YesVotesWin)
@@ -34,7 +38,7 @@ function Timer()
 	bSwitchingMaps = false;
 
 	// Modify the server settings for the new game type
-	ServerSettings(Level.CurrentServerSettings).MapChangingByVote(EMPMode.MPM_COOP);
+	ServerSettings(Level.CurrentServerSettings).MapChangingByVote(NewGameType);
 
 	// Travel to the new map
 	SwatRepo(Level.GetRepo()).NetSwitchLevelsFromMapVote(TargetStr);
@@ -42,5 +46,5 @@ function Timer()
 
 defaultproperties
 {
-	ReferendumDescriptionText="%1 has started a vote to change the map to %2"
+	ReferendumDescriptionText="%1 has started a vote to change the map to %2 (%3)"
 }

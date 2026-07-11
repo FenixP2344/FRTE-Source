@@ -261,7 +261,7 @@ function MutateLevelRosters(SpawningManager SpawningManager, out array<Roster> R
 {
     local EnemyRoster EnemyRoster;
     local HostageRoster HostageRoster;
-    local Roster.CustomScenarioDataForArchetype CustomData;
+    //local Roster.CustomScenarioDataForArchetype CustomData;
     local Archetype.ChanceArchetypePair ChanceArchetypePair;
     local CustomScenarioCreatorMissionSpecificData MissionData;
     local int CampaignEnemies, CampaignHostages;

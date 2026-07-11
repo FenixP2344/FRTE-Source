@@ -126,8 +126,22 @@ log( self$"::SetAdminServerSettings( "$PC$", ServerName="$newServerName$", Passw
     bLAN = newbLAN;
 }
 
-function SetPVPSettings(int newDeathLimit,int newRoundTimeLimit,bool newbShowEnemyNames,float newArrestRoundTimeDeduction)
+function SetPVPSettings(PlayerController PC, int newDeathLimit, int newRoundTimeLimit, bool newbShowEnemyNames, float newArrestRoundTimeDeduction)
 {
+	if(Level.Game.IsA('SwatGameInfo') && PC != None &&
+		!SwatGameInfo(Level.Game).Admin.ActionAllowed(PC, AdminPermissions.Permission_ChangeSettings))
+	{
+		log("Couldn't set PVP settings: not an admin");
+		return;
+	}
+
+	if( newDeathLimit < 0 )
+		newDeathLimit = 0;
+	if( newRoundTimeLimit < 0 )
+		newRoundTimeLimit = 0;
+	if( newArrestRoundTimeDeduction <= 0.0 )
+		newArrestRoundTimeDeduction = 30.0;
+
 	DeathLimit=newDeathLimit;
 	RoundTimeLimit=newRoundTimeLimit;
 	bShowEnemyNames=newbShowEnemyNames;
@@ -462,6 +476,8 @@ defaultproperties
 	bShouldReplicateDefaultProperties=true
 	DefaultServerName="Swat4X Server"
 	CoopDifficulty=DIFFICULTY_Elite
+	bShowEnemyNames=false
+	ArrestRoundTimeDeduction=30.0
 }
 
 ///////////////////////////////////////////////////////////////////////////////

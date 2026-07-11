@@ -1455,7 +1455,7 @@ function EncounterEnemy(Pawn NewEnemy)
 		SetCurrentEnemy(NewEnemy);
 
 			//a threat before the animation
-		if ((m_Pawn.IsA('SwatEnemy')) && ((!m_Pawn.IsA('SwatUndercover')) || (!m_Pawn.IsA('SwatGuard'))) && !ISwatEnemy(m_Pawn).IsAThreat())
+		if ((m_Pawn.IsA('SwatEnemy')) && (!m_Pawn.IsA('SwatUndercover')) && (!m_Pawn.IsA('SwatGuard')) && !ISwatEnemy(m_Pawn).IsAThreat())
 		{
 			ISwatEnemy(m_Pawn).BecomeAThreat();
 		}
@@ -1621,7 +1621,7 @@ latent function EngageCurrentEnemy()
 	}
 
 	//a threat before the animation
-	if ((m_Pawn.IsA('SwatEnemy')) && ((!m_Pawn.IsA('SwatUndercover')) || (!m_Pawn.IsA('SwatGuard'))) && !ISwatEnemy(m_Pawn).IsAThreat())
+	if ((m_Pawn.IsA('SwatEnemy')) && (!m_Pawn.IsA('SwatUndercover')) && (!m_Pawn.IsA('SwatGuard')) && !ISwatEnemy(m_Pawn).IsAThreat())
 	{
 		ISwatEnemy(m_Pawn).BecomeAThreat();
 		yield();
@@ -2102,7 +2102,7 @@ latent function AmbushCompliant()
 
 
 	//a threat before the animation
-	if ((m_Pawn.IsA('SwatEnemy')) && ((!m_Pawn.IsA('SwatUndercover')) || (!m_Pawn.IsA('SwatGuard'))) && !ISwatEnemy(m_Pawn).IsAThreat())
+	if ((m_Pawn.IsA('SwatEnemy')) && (!m_Pawn.IsA('SwatUndercover')) && (!m_Pawn.IsA('SwatGuard')) && !ISwatEnemy(m_Pawn).IsAThreat())
 	{
 		ISwatEnemy(m_Pawn).BecomeAThreat();
 		yield();

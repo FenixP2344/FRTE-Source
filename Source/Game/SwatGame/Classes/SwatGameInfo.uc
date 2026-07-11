@@ -625,6 +625,11 @@ function SetupNameDisplay()
     else
         SGRI.ShowTeammateNames = 1;
 
+	if ( ServerSettings(Level.CurrentServerSettings).bShowEnemyNames )
+        SGRI.ShowEnemyNames = 2;
+    else
+        SGRI.ShowEnemyNames = 1;
+
 	mplog( "...ShowTeammateNames="$SGRI.ShowTeammateNames );
 }
 
@@ -2228,7 +2233,7 @@ function BroadcastDeathMessage(Controller Killer, Controller Other, class<Damage
 			}
 			IP = PlayerController(Other).GetPlayerNetworkAddress();
 		}
-	    else
+	    else if( KillerTeam == VictimTeam )
 	    {
 			MsgType = 'TeamKill';
 
@@ -2238,8 +2243,24 @@ function BroadcastDeathMessage(Controller Killer, Controller Other, class<Damage
 			{
 				VictimPC = PlayerController(Other);
 				KillerPC.Stats.TeamKilled(damageType.name, VictimPC);
+				IP = KillerPC.GetPlayerNetworkAddress();
 			}
-			IP = KillerPC.GetPlayerNetworkAddress();
+		}
+		else
+		{
+			if( KillerTeam != 0 )
+				MsgType = 'SuspectsKill';
+			else
+				MsgType = 'SwatKill';
+
+			// dbeswick: stats
+			KillerPC = PlayerController(Killer);
+			if (KillerPC != None)
+			{
+				VictimPC = PlayerController(Other);
+				KillerPC.Stats.Killed(damageType.name, VictimPC);
+				IP = KillerPC.GetPlayerNetworkAddress();
+			}
 		}
 	}
 	else if(Other.IsA('PlayerController') && NetPlayer(Other.Pawn) != None)

@@ -425,6 +425,12 @@ function bool IsInDanger()
 latent function Cower()
 {
 	assert(CurrentCowerGoal == None);
+	
+	   //forced arrest after the first issued comply(Only Hostages)   - Probe
+       if (ISwatHostage(m_Pawn) != None  && !ISwatHostage(m_Pawn).isa('SwatOfficer') )
+       {
+	    ISwatHostage(m_Pawn).SetCanBeArrested(true);
+	   }	
 
 	CurrentCowerGoal = new class'CowerGoal'(characterResource());
 	assert(CurrentCowerGoal != None);
