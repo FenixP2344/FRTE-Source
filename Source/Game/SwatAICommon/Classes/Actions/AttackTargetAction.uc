@@ -110,7 +110,7 @@ function OnSensorMessage( AI_Sensor sensor, AI_SensorData value, Object userData
 	if (m_Pawn.logTyrion)
 		log("AttackTargetAction received sensor message from " $ sensor.name $ " value is "$ value.objectData);
 
-	bCanHitTarget = true;
+	bCanHitTarget = (value.objectData != None);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
