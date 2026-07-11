@@ -26,7 +26,7 @@ var int VOIPIgnoreStaticArray[MAX_PLAYERS];	//list of PlayerIDs ignored by this 
 replication
 {
     reliable if( Role<ROLE_Authority )
-        ServerSetSettings, ServerSetSettingsNoConfigSave, ServerSetAdminSettings, ServerSetQMMSettings, ServerSetDirty, ServerAddMap, ServerClearMaps, ServerQuickRestart, ServerCoopQMMRestart, ServerUpdateCampaignProgression;
+        ServerSetSettings, ServerSetSettingsNoConfigSave, ServerSetAdminSettings, ServerSetQMMSettings, ServerSetPVPSettings, ServerSetDirty, ServerAddMap, ServerClearMaps, ServerQuickRestart, ServerCoopQMMRestart, ServerUpdateCampaignProgression;
 
     // replicated functions sent to server by owning client
     reliable if( Role < ROLE_Authority )
@@ -635,6 +635,16 @@ function ServerSetQMMSettings(ServerSettings Settings, CustomScenario NewScenari
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+// Set PVP-specific ServerSettings on the server
+///////////////////////////////////////////////////////////////////////////////
+
+function ServerSetPVPSettings(ServerSettings Settings, int newDeathLimit, int newRoundTimeLimit, bool newbShowEnemyNames, float newArrestRoundTimeDeduction)
+{
+	if( Settings != None )
+		Settings.SetPVPSettings(self, newDeathLimit, newRoundTimeLimit, newbShowEnemyNames, newArrestRoundTimeDeduction);
+}
+
+///////////////////////////////////////////////////////////////////////////////
 // Set the Admin ServerSettings on the server
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -862,9 +872,9 @@ function bool VOIPIsSpeaking(int PlayerID)
 // Voting replicated function
 ///////////////////////////////////////////////////////////////////////////////
 
-exec function ServerStartReferendum(PlayerController PC, class<Voting.Referendum> ReferendumClass, optional PlayerController Target, optional String TargetStr)
+exec function ServerStartReferendum(PlayerController PC, class<Voting.Referendum> ReferendumClass, optional PlayerController Target, optional String TargetStr, optional EMPMode GameType)
 {
-  SwatGameReplicationInfo(Level.GetGameReplicationInfo()).StartReferendum(PC, ReferendumClass, Target, TargetStr);
+  SwatGameReplicationInfo(Level.GetGameReplicationInfo()).StartReferendum(PC, ReferendumClass, Target, TargetStr, GameType);
 }
 
 exec function ServerStartReferendumForPlayer(PlayerController PC, class<Voting.Referendum> ReferendumClass, string PlayerName)

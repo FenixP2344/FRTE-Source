@@ -3141,7 +3141,7 @@ simulated function SwatDoor GetDoorFocus(optional bool PreferOpenDoor, optional 
 //returns the location of the last actor in the list of PendingCommandFoci
 simulated function vector GetLastFocusLocation()
 {
-    local Color Color;
+    //local Color Color;
 
 #if !IG_SWAT_DISABLE_VISUAL_DEBUGGING // ckline: prevent cheating in network games
     if (DebugTerminalLocation)

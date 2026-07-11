@@ -2,7 +2,7 @@
 // Low Threat Suspect just like vanilla, we need Following Standard ROE
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatLowThreat extends SwatEnemy
+class SwatLowThreat extends SwatEnemyExtend
 	implements SwatAICommon.ISwatWildGunner;
 
 var bool bIsFiring;

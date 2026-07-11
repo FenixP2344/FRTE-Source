@@ -3,7 +3,7 @@
 // before being detected can earn additional bonuses
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatModeTH extends SwatEnemy;
+class SwatModeTH extends SwatEnemyExtend;
 
 import enum EquipmentSlot from Engine.HandheldEquipment;
 import enum Pocket from Engine.HandheldEquipment;

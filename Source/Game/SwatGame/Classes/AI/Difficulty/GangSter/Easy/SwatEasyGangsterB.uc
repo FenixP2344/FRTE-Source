@@ -3,7 +3,7 @@
 // See SwatEnemy::ConstructCharacterAIHook
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatEasyGangsterB extends SwatEnemy;
+class SwatEasyGangsterB extends SwatEnemyExtend;
 
 import enum EquipmentSlot from Engine.HandheldEquipment;
 import enum Pocket from Engine.HandheldEquipment;

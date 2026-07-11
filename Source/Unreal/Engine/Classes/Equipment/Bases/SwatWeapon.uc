@@ -30,7 +30,9 @@ enum WeaponEquipClass
     WeaponClass_LessLethal,               // Less-lethal shotguns, tasers, and pepperball
     WeaponClass_GrenadeLauncher,          // Grenade Launchers (ARWEN 37, HK69)
     WeaponClass_Shield,                   // RiotShield (Shield and Pistol)
+    WeaponClass_Opreator,                 // Opreator (Primary and Secondary)
     WeaponClass_RewardSkins,              // RewardSkins
+    WeaponClass_Melee,                    // CQC
     WeaponClass_Test,                     // Test Weapon
 };
 
@@ -1059,8 +1061,8 @@ simulated function bool HandleProtectiveEquipmentBallisticImpact(
     local bool PenetratesProtection;
     local vector MomentumVector;
     local int Damage;
-    local float ActualVelocity;
-    local float VelocityRatio;
+    //local float ActualVelocity;
+    //local float VelocityRatio;
     local float OriginalKillEnergy;
     local float StartingKillEnergy;
     local float KillChance;
@@ -1379,7 +1381,7 @@ simulated function bool HandleShieldImpact(
     local vector MomentumVector;
     local int Damage;
     local float MomentumLostToProtection;
-    local float DamageModifierRange;
+    //local float DamageModifierRange;
     local float DamageModifier, ExternalDamageModifier;
 	local IAmShield Shield;
 	local int ArmorLevel;
@@ -1729,7 +1731,7 @@ simulated function bool HandleShieldImpactMP(
     local vector MomentumVector;
     local int Damage;
     local float MomentumLostToProtection;
-    local float DamageModifierRange;
+    //local float DamageModifierRange;
     local float DamageModifier, ExternalDamageModifier;
 	local IAmShield Shield;
 	local int ArmorLevel;

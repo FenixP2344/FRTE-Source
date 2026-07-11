@@ -962,7 +962,7 @@ function PopulateFieldsFromScenario(bool NewScenario)
 {
     local CustomScenario Scenario;
     local EnemyArchetype Archetype;
-    local CustomScenario.ArchetypeData ArchetypeData;
+    //local CustomScenario.ArchetypeData ArchetypeData;
     local int i,j;
 
     RosterList.List.Clear();

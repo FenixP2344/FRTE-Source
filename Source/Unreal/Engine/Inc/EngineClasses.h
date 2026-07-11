@@ -1270,8 +1270,9 @@ enum EquipmentSlot
 	 Slot_AmmoBandolier      =15,
 	 Slot_Maglite            =16,
 	 Slot_Bandage            =17,
-	 kNumEquipmentSlots      =18,
-	 Slot_MAX                =19,
+	 Slot_Ninebang           =18,
+	 kNumEquipmentSlots      =19,
+	 Slot_MAX                =20,
 };
 
 // "event"	function whose parameters correspond to	"struct AHandheldEquipment_eventGetPerfectFireStart_Parms"	is declared	in "..\Engine\Classes\Equipment\HandheldEquipment.uc"
@@ -6998,6 +6999,7 @@ public:
     BITFIELD bIsCrouched:1;
     BITFIELD bTryToUncrouch:1;
     BITFIELD bCanCrouch:1;
+    BITFIELD bShoulderLook:1;
     BITFIELD bIsCurrentMeshRenderZValid:1;
     FLOAT CurrentMeshRenderZ;
     class AController* LastUnPossessedController;

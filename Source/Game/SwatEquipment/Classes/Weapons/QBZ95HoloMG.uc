@@ -1,4 +1,4 @@
-class QBZ95HoloMG extends QBZ95MG config(SwatEquipment);
+class QBZ95HoloMG extends ScopeBase config(SwatEquipment);
 
 
 

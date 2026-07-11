@@ -9,6 +9,7 @@ class EnemyCommanderAction extends CommanderAction
 
 import enum EnemySkill from ISwatEnemy;
 import enum EnemyState from ISwatEnemy;
+import enum ELeanState from Engine.Pawn;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -174,6 +175,9 @@ var config float								MaxLostPawnDeltaTime;
 */
 // Constants
 const kRotateToSuspiciousNoisePriority = 55;
+const kMultiplayerVisionFallbackUpdateTime = 0.10;
+const kMultiplayerVisionFallbackDot = 0.50;
+const kMultiplayerLeanPeekDistance = 52.0;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -243,7 +247,7 @@ function cleanup()
 		CurrentPickUpWeaponGoal.Release();
 		CurrentPickUpWeaponGoal = None;
 	}
-	
+
 	if (CurrentAttackTargetGoal != None)
 	{
 		CurrentAttackTargetGoal.Release();
@@ -299,15 +303,15 @@ function RemoveNonDeathGoals()
 		CurrentPickUpWeaponGoal.Release();
 		CurrentPickUpWeaponGoal = None;
 	}
-	
+
 	if (CurrentAttackTargetGoal != None)
 	{
 		CurrentAttackTargetGoal.unPostGoal(self);
 		CurrentAttackTargetGoal.Release();
 		CurrentAttackTargetGoal = None;
 	}
-	
-	
+
+
 }
 
 // prevent the AI from doing anything
@@ -659,18 +663,14 @@ protected function DisableSensingSystems()
 function OnPawnEncounteredVisionNotification()
 {
 	local Pawn Enemy;
-	
-	//assert( m_pawn.CanHitTarget(VisionSensor.LastPawnSeen) );
-	
+
 	if (VisionSensor.LastPawnSeen != None)
 	{
 		Enemy = VisionSensor.LastPawnSeen;
 	}
 	else
 	{
-		assert(VisionSensor.LastPawnLost != none);
-
-		Enemy = VisionSensor.LastPawnSeen;
+		return;
 	}
 
 	DeactivateLostPawnTimer();
@@ -679,7 +679,7 @@ function OnPawnEncounteredVisionNotification()
 		log(m_Pawn.Name $ " OnPawnEncounteredVisionNotification - VisionSensor.LastPawnSeen: " $ VisionSensor.LastPawnSeen $ " LostPawnTimer: " $ LostPawnTimer $ " CurrentEnemy: " $CurrentEnemy);
 
 	EncounterEnemy(Enemy);
-	
+
 }
 
 function OnPawnLostVisionNotification()
@@ -704,6 +704,181 @@ function OnPawnLostVisionNotification()
 			}
 		}
 	}
+}
+
+private function bool ShouldUseMultiplayerVisionFallback()
+{
+	return ((Level.NetMode == NM_ListenServer) || (Level.NetMode == NM_DedicatedServer));
+}
+
+private function bool CanSeePawnForMultiplayerFallback(Pawn TestPawn)
+{
+	local vector TargetPoint;
+
+	if (m_Pawn.CanSee(TestPawn))
+	{
+		return true;
+	}
+
+	if (IsPointVisibleForMultiplayerFallback(TestPawn.Location))
+	{
+		return true;
+	}
+
+	TargetPoint = TestPawn.GetChestLocation();
+	if (IsPointVisibleForMultiplayerFallback(TargetPoint))
+	{
+		return true;
+	}
+
+	TargetPoint = TestPawn.GetHeadLocation();
+	if (IsPointVisibleForMultiplayerFallback(TargetPoint))
+	{
+		return true;
+	}
+
+	TargetPoint = TestPawn.GetEyeLocation();
+	if (IsPointVisibleForMultiplayerFallback(TargetPoint))
+	{
+		return true;
+	}
+
+	// Q/E lean can expose the player's camera/head while the pawn origin/chest
+	// remains behind cover.  Native LineOfSightTo/CanSee can miss that case, so
+	// check estimated lean-peek head/eye points explicitly.
+	if (TestPawn.LeanState != kLeanStateNone)
+	{
+		TargetPoint = GetLeanPeekPointForMultiplayerFallback(TestPawn, TestPawn.GetEyeLocation());
+		if (IsPointVisibleForMultiplayerFallback(TargetPoint))
+		{
+			return true;
+		}
+
+		TargetPoint = GetLeanPeekPointForMultiplayerFallback(TestPawn, TestPawn.GetHeadLocation());
+		if (IsPointVisibleForMultiplayerFallback(TargetPoint))
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+private function vector GetLeanPeekPointForMultiplayerFallback(Pawn TestPawn, vector BasePoint)
+{
+	local vector RightVector;
+	local float LeanDirection;
+	local float LeanAmount;
+
+	if (TestPawn.LeanState == kLeanStateLeft)
+	{
+		LeanDirection = -1.0;
+	}
+	else if (TestPawn.LeanState == kLeanStateRight)
+	{
+		LeanDirection = 1.0;
+	}
+	else
+	{
+		return BasePoint;
+	}
+
+	LeanAmount = FMax(TestPawn.LeanAlpha, 0.35);
+	RightVector = vect(0, 1, 0) >> TestPawn.Rotation;
+
+	return BasePoint + (RightVector * LeanDirection * kMultiplayerLeanPeekDistance * LeanAmount);
+}
+
+private function bool IsPointVisibleForMultiplayerFallback(vector TargetPoint)
+{
+	local vector DirectionToTarget;
+	local vector ViewDirection;
+	local vector ViewPoint;
+	local float DistanceToTarget;
+
+	ViewPoint = ISwatAI(m_Pawn).GetViewPoint();
+	DistanceToTarget = VSize(TargetPoint - ViewPoint);
+	if ((m_Pawn.SightRadius > 0.0) && (DistanceToTarget > m_Pawn.SightRadius))
+	{
+		return false;
+	}
+
+	if (!m_Pawn.FastTrace(TargetPoint, ViewPoint))
+	{
+		return false;
+	}
+
+	DirectionToTarget = Normal(TargetPoint - ViewPoint);
+	ViewDirection = Normal(ISwatAI(m_Pawn).GetViewDirection());
+
+	return ((DirectionToTarget Dot ViewDirection) >= kMultiplayerVisionFallbackDot);
+}
+
+private function Pawn FindVisiblePlayerForMultiplayerFallback()
+{
+	local Controller Iter;
+	local Pawn TestPawn;
+	local Pawn BestPawn;
+	local float TestDistance;
+	local float BestDistance;
+
+	for (Iter = Level.ControllerList; Iter != None; Iter = Iter.NextController)
+	{
+		if (!Iter.IsA('PlayerController'))
+		{
+			continue;
+		}
+
+		TestPawn = Iter.Pawn;
+		if ((TestPawn == None) ||
+			!TestPawn.IsA('SwatPlayer') ||
+			!class'Pawn'.static.checkConscious(TestPawn) ||
+			TestPawn.IsArrested())
+		{
+			continue;
+		}
+
+		if (CanSeePawnForMultiplayerFallback(TestPawn))
+		{
+			TestDistance = VSize(TestPawn.Location - m_Pawn.Location);
+			if ((BestPawn == None) || (TestDistance < BestDistance))
+			{
+				BestPawn = TestPawn;
+				BestDistance = TestDistance;
+			}
+		}
+	}
+
+	return BestPawn;
+}
+
+private function bool TryMultiplayerVisionFallback()
+{
+	local Pawn SeenPlayer;
+
+	if (!ShouldUseMultiplayerVisionFallback() ||
+		(CurrentEnemy != None) ||
+		bIgnoreCurrentEnemy ||
+		m_Pawn.IsCompliant() ||
+		m_Pawn.IsArrested() ||
+		!class'Pawn'.static.checkConscious(m_Pawn))
+	{
+		return false;
+	}
+
+	SeenPlayer = FindVisiblePlayerForMultiplayerFallback();
+	if (SeenPlayer == None)
+	{
+		return false;
+	}
+
+	if (m_Pawn.logAI)
+	{
+		log(m_Pawn.Name $ " MP vision fallback encountered visible player " $ SeenPlayer);
+	}
+
+	EncounterEnemy(SeenPlayer);
+	return (CurrentEnemy != None);
 }
 
 private function ActivateLostPawnTimer()
@@ -812,16 +987,16 @@ function OnHeardNoise()
 	{
 		if ( isDeadlyNoise(SoundCategory))
 		{
-			
+
 			if ((HeardPawn != None)  //
-				&& ISwatAI(m_Pawn).IsOtherActorAThreat(HeardPawn) 
+				&& ISwatAI(m_Pawn).IsOtherActorAThreat(HeardPawn)
 				&& !m_Pawn.IsA('SwatGuard')
 				)
 			{
-				
+
 				if ( m_Pawn.LineOfSightTo(HeardPawn) || DoWeKnowAboutPawn(HeardPawn) )
 				{//		log(m_Pawn.Name $ " going to encounter enemy");
-					
+
 					ISwatAI(m_pawn).GetKnowledge().UpdateKnowledgeAboutPawn(HeardPawn);
 					EncounterEnemy(HeardPawn);
 				}
@@ -833,16 +1008,16 @@ function OnHeardNoise()
 						BecomeSuspicious(SoundOrigin,true,false); //barricade only
 				}
 			}
-				
+
 		}
-		else	
+		else
 		{
 			Distance = VSize(HeardActor.Location - m_Pawn.Location);
-			if ((HeardPawn != None) && 
+			if ((HeardPawn != None) &&
 			//ISwatAI(m_Pawn).IsOtherActorAThreat(HeardPawn) &&
 			(DoesSoundCauseUsToKnowAboutPawn(SoundCategory) || DoWeKnowAboutPawn(HeardPawn)))
 			{
-				
+
 				if ( m_Pawn.LineOfSightTo(HeardPawn) || Distance < 400  ) //sound sixth sense in close range
 				{
 					//		log(m_Pawn.Name $ " going to encounter enemy");
@@ -850,7 +1025,7 @@ function OnHeardNoise()
 					EncounterEnemy(HeardPawn);
 					return;
 				}
-				else 
+				else
 				{
 					if ( Distance < 800 )
 					{
@@ -860,7 +1035,7 @@ function OnHeardNoise()
 					}
 				}
 			}
-		
+
 
 			if (SoundCategory == 'Footsteps')
 			{
@@ -893,7 +1068,7 @@ function OnHeardNoise()
 				// if we heard sniper fire, we shouldn't investigate, otherwise we let BecomeSuspicious determine what we should do
 				BecomeSuspicious(SoundOrigin, ((HeardPawn != None) && HeardPawn.IsA('SniperPawn')));
 			}
-		
+
 		}
 	}
 }
@@ -1164,7 +1339,7 @@ protected function NotifyBecameCompliant()
 		CurrentPatrolGoal.Release();
 		CurrentPatrolGoal = None;
 	}
-	
+
 	if (CurrentAttackTargetGoal != None)
 	{
 		CurrentAttackTargetGoal.unPostGoal(self);
@@ -1278,13 +1453,13 @@ function EncounterEnemy(Pawn NewEnemy)
 	if (ShouldEncounterEnemy(NewEnemy))
 	{
 		SetCurrentEnemy(NewEnemy);
-		
+
 			//a threat before the animation
 		if ((m_Pawn.IsA('SwatEnemy')) && ((!m_Pawn.IsA('SwatUndercover')) || (!m_Pawn.IsA('SwatGuard'))) && !ISwatEnemy(m_Pawn).IsAThreat())
 		{
 			ISwatEnemy(m_Pawn).BecomeAThreat();
-		}	
-		
+		}
+
 
 		// we are now aware
         ISwatEnemy(m_Pawn).SetCurrentState(EnemyState_Aware);
@@ -1438,21 +1613,21 @@ latent function ReactInitiallyToEnemy()
 
 latent function EngageCurrentEnemy()
 {
-	
+
 	if ( m_pawn.IsArrested() || IswatPawn(m_pawn).IsBeingArrestedNow() || !class'Pawn'.static.checkConscious(m_Pawn) )
 	{
 		//abort
 		return;
 	}
-	
+
 	//a threat before the animation
 	if ((m_Pawn.IsA('SwatEnemy')) && ((!m_Pawn.IsA('SwatUndercover')) || (!m_Pawn.IsA('SwatGuard'))) && !ISwatEnemy(m_Pawn).IsAThreat())
 	{
 		ISwatEnemy(m_Pawn).BecomeAThreat();
 		yield();
-	}	
-		
-	
+	}
+
+
 	// If we had an engagement goal, drop it
 	if(CurrentEngageOfficerGoal != None)
 	{
@@ -1502,20 +1677,22 @@ function InterruptCurrentEngagement()
 	}
 }
 
-function FiredWeapon GetBackupWeapon()
-{
-	return ISwatEnemy(m_Pawn).GetBackupWeapon();
-}
 
-function FiredWeapon GetPrimaryWeapon()
-{
-	return ISwatEnemy(m_Pawn).GetPrimaryWeapon();
-}
+//function FiredWeapon GetBackupWeapon()
+//{
+	//return ISwatEnemy(m_Pawn).GetBackupWeapon();
+//}
 
-function bool AllowedToUseWeaponAgainst(FiredWeapon Weapon, Pawn TargetPawn, int ShotsFired)
-{
-	return Weapon.ShouldSuspectUseAgainst(TargetPawn, ShotsFired);
-}
+//function FiredWeapon GetPrimaryWeapon()
+//{
+	//return ISwatEnemy(m_Pawn).GetPrimaryWeapon();
+//}
+
+//function bool AllowedToUseWeaponAgainst(FiredWeapon Weapon, Pawn TargetPawn, int ShotsFired)
+//{
+	//return Weapon.ShouldSuspectUseAgainst(TargetPawn, ShotsFired);
+//}
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -1605,7 +1782,7 @@ function NotifyDoorWedged(Door WedgedDoor)
 
 	// we're supposed to call down the chain
 	super.NotifyDoorWedged(WedgedDoor);
-	
+
 	//local ISwatDoor SD;
 	//local SwatAIRepository SwatAIRepo;
 	//local Controller C;
@@ -1615,9 +1792,9 @@ function NotifyDoorWedged(Door WedgedDoor)
 
 	CreateBarricadeGoal(WedgedDoor.Location, false, false);
 	//let the enemy remove wedges if they are high skill
-    //if( ISwatEnemy(m_Pawn).GetEnemySkill() == EnemySkill_High  && ( FRand() > 0.5 ) ) //  EnemySkill_High with 50% chance       
-    //{    
-	   
+    //if( ISwatEnemy(m_Pawn).GetEnemySkill() == EnemySkill_High  && ( FRand() > 0.5 ) ) //  EnemySkill_High with 50% chance
+    //{
+
 		//for (C = Level.ControllerList; C != none && !DoRemoveWedge ; C = C.nextController)
 		//{
 			//if (C.bIsPlayer)
@@ -1628,29 +1805,29 @@ function NotifyDoorWedged(Door WedgedDoor)
 			//}
 
 		//}
-		
+
 		//DoRemoveWedge=true;
-		
+
 		// do remove wedge
 		//if (SD != None && DoRemoveWedge )
 		//{
 		// do some speech
 			ISwatEnemy(m_Pawn).GetEnemySpeechManagerAction().TriggerDoorBlockedSpeech();
-			
+
 			//if( !SD.IsLocked() ) //if door is not locked
-			//{	
-				
+			//{
+
 				//actually remove the wedge from the door
-				//SD.EnemyRemoveWedge(m_Pawn);  
-				
+				//SD.EnemyRemoveWedge(m_Pawn);
+
 				//barricade after opening
 				//CreateBarricadeGoal(WedgedDoor.Location, false, false);
-						
+
 				//let officers know the wedge is gone. UpdateOfficersKnowledge()
 				//SwatAIRepo = SwatAIRepository(m_Pawn.Level.AIRepo);
 				//assert(SwatAIRepo != None);
 
-				//SwatAIRepo.NotifyOfficersDoorWedgeRemoved(WedgedDoor); 
+				//SwatAIRepo.NotifyOfficersDoorWedgeRemoved(WedgedDoor);
 			//}
 			//else
 			//{
@@ -1658,13 +1835,13 @@ function NotifyDoorWedged(Door WedgedDoor)
 				//CreateBarricadeGoal(WedgedDoor.Location, false, false);
 			//}
 		//}
-		
+
     //}
     //else // barricade!
-	//{ 
+	//{
 		// we're supposed to call down the chain
 		//super.NotifyDoorWedged(WedgedDoor);
-		
+
 		//CreateBarricadeGoal(WedgedDoor.Location, false, false);
 	//}
 }
@@ -1765,7 +1942,7 @@ function Pawn GetBetterEnemy()
 function FindBetterEnemy()
 {
 	local Pawn NewEnemy;
-	
+
 	if (CurrentEnemy != None)
 	{
 	    if (! m_Pawn.LineOfSightTo(CurrentEnemy))
@@ -1783,7 +1960,7 @@ function FindBetterEnemy()
 			SetCurrentEnemy(None);
 		}
 	}
-	
+
 }
 
 latent function FinishedEngagingEnemies()
@@ -1827,7 +2004,7 @@ latent function DecideToStayCompliant()
 	local HandHeldEquipmentModel FoundWeaponModel;
 
 	log(name @ "DecideToStayCompliant: init check with morale:" @ GetCurrentMorale() );
-	
+
 	if(m_Pawn.IsA('SwatGuard') || m_Pawn.IsA('SwatUndercover'))
 	{
 		// Don't let guards or Jennings become uncompliant again, this is just dumb
@@ -1846,7 +2023,7 @@ latent function DecideToStayCompliant()
 		      	break;
 		    }
 	    }
-		
+
 		// Sleep for a random amount of time for this "tick"
 		// This might seem high, but keep in mind that half the values are going to be below this and the effect can stack.
 		Sleep(FRand() * 2.0);
@@ -1854,13 +2031,13 @@ latent function DecideToStayCompliant()
 		// Increase moral when not being guarded (unobserved)
 		if (ISwatAI(m_Pawn).IsUnobservedByOfficers())
 			ChangeMorale( GetUnobservedComplianceMoraleModification(), "Unobserved Compliance" );
-		
+
 		if (GetCurrentMorale() >= class'EnemyCommanderActionConfig'.default.LeaveCompliantStateMoraleThreshold)
 			FoundWeaponModel = ISwatEnemy(m_Pawn).FindNearbyWeaponModel();
 
 		if (m_pawn.logTyrion)
 			log(name @ "DecideToStayCompliant: morale now:" @ GetCurrentMorale());
-		
+
 	}
 
 	if (ISwatAI(m_Pawn).IsBeingArrestedNow())
@@ -1903,16 +2080,16 @@ latent function AmbushCompliant()
 {
 	//we ambush officers!
 	log("DecideToStayCompliant: AmbushCompliant() with morale:");
-		
+
 	// Sleep for a random amount of time for this "tick"
 	Sleep(frand() * 20.0);
-	
+
 	if ( m_pawn.IsArrested() || IswatPawn(m_pawn).IsBeingArrestedNow() || !class'Pawn'.static.checkConscious(m_Pawn) )
 	{
 		//abort
 		return;
 	}
-	
+
 	// AI stopped being compliant
 	ISwatAI(m_Pawn).SetIsCompliant(false);
 	RemoveComplianceGoal();
@@ -1922,29 +2099,29 @@ latent function AmbushCompliant()
 	m_pawn.ShouldCrouch(false);
 	m_Pawn.ChangeAnimation();				// will swap in anim set
 	ISwatAI(m_Pawn).SetIdleCategory('');	// remove compliance idles
-	
-	
+
+
 	//a threat before the animation
 	if ((m_Pawn.IsA('SwatEnemy')) && ((!m_Pawn.IsA('SwatUndercover')) || (!m_Pawn.IsA('SwatGuard'))) && !ISwatEnemy(m_Pawn).IsAThreat())
 	{
 		ISwatEnemy(m_Pawn).BecomeAThreat();
 		yield();
-	}	
-		
-	
+	}
+
+
 	//equip
 	ISwatEnemy(m_Pawn).GetBackupWeapon().LatentWaitForIdleAndEquip();
-	
+
 	// try engaging again if not during arrest process...
 	if (CurrentEngageOfficerGoal == None )
 	{
 		bHasFledWithoutUsableWeapon = false;	// don't cower except very rarely
-				
+
 		CurrentEngageOfficerGoal = new class'EngageOfficerGoal'(AI_Resource(m_Pawn.characterAI), 90);
 		assert(CurrentEngageOfficerGoal != None);
 		CurrentEngageOfficerGoal.AddRef();
 		CurrentEngageOfficerGoal.postGoal(self);
-		WaitForGoal(CurrentEngageOfficerGoal);		
+		WaitForGoal(CurrentEngageOfficerGoal);
 	}
 }
 
@@ -1956,7 +2133,7 @@ private function CheckPawn()
 		Level.GetLocalPlayerController().ConsoleMessage( " BUG! " $ m_pawn.name $ " - Restrained bug prevented! ");
 		log(m_pawn.name $ " - Restrained bug prevented! ");
 		instantFail(ACT_INSUFFICIENT_RESOURCES_AVAILABLE);
-	}	
+	}
 }
 */
 
@@ -1969,14 +2146,14 @@ state Running
 	// wait until something happens
 	if (m_Pawn.IsCompliant())
 	{
-		
+
 		if (CurrentAttackTargetGoal != None)
 		{
 			CurrentAttackTargetGoal.unPostGoal(self);
 			CurrentAttackTargetGoal.Release();
 			CurrentAttackTargetGoal = None;
 		}
-		
+
 		if (CurrentEngageOfficerGoal != None)
 		{
 			CurrentEngageOfficerGoal.unPostGoal(self);
@@ -1984,19 +2161,42 @@ state Running
 			CurrentEngageOfficerGoal.Release();
 			CurrentEngageOfficerGoal = None;
 		}
-		
+
 		if ( ISwatEnemy(m_Pawn).GetBackupWeapon() != None && !bAlreadyComplied && !ISwatPawn(m_pawn).IsBeingArrestedNow() && !m_pawn.IsArrested() ) //we just ambush once
 			AmbushCompliant();
 		else
 			DecideToStayCompliant();
-		
+
 		bAlreadyComplied = true;
-		
+
 		yield();		// prevent runaway loop in rare case
 		goto('Begin');
 	}
+	else if (ShouldUseMultiplayerVisionFallback())
+	{
+		while ((CurrentEnemy == None) &&
+			   !bIgnoreCurrentEnemy &&
+			   !m_Pawn.IsCompliant() &&
+			   !m_Pawn.IsArrested() &&
+			   class'Pawn'.static.checkConscious(m_Pawn))
+		{
+			if (TryMultiplayerVisionFallback())
+			{
+				break;
+			}
+
+			Sleep(kMultiplayerVisionFallbackUpdateTime);
+		}
+
+		if ((CurrentEnemy == None) && !bIgnoreCurrentEnemy)
+		{
+			goto('Begin');
+		}
+	}
 	else
+	{
 		pause();
+	}
 
 	// wait one tick to allow information to disseminate (such as if we heard a noise, etc.)
 	yield();

@@ -3,7 +3,7 @@
 // but not threaten hostages. SwatAICommon.OfficerCommanderAction
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatHardPLPThreat extends SwatEnemy;
+class SwatHardPLPThreat extends SwatEnemyExtend;
 
 import enum EquipmentSlot from Engine.HandheldEquipment;
 import enum Pocket from Engine.HandheldEquipment;

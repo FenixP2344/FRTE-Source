@@ -88,3 +88,8 @@ function bool IsMaxed()
 {
     return GetCurrentValue() == Bonus;
 }
+
+function int GetPossible()
+{
+	return Bonus;
+}

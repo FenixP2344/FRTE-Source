@@ -33,7 +33,7 @@ function cleanup()
 // FIXME: Define this somewhere higher up in the hierarchy so we aren't defining this twice
 private function bool CanOfficerUseBreachingShotgun(Pawn Officer)
 {
-	local HandheldEquipment Equipment;
+	//local HandheldEquipment Equipment;
 	local FiredWeapon Weapon;
 
 	assert(class'Pawn'.static.checkConscious(Officer));

@@ -1,0 +1,1 @@
+class USP45sdHG extends Handgun config(SwatEquipment);

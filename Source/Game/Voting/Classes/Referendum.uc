@@ -14,7 +14,7 @@ var EMPMode NewGameType;
 replication
 {
   reliable if(bNetDirty && (Role == ROLE_Authority))
-    CallerPC, CallerPRI, TargetPC, TargetStr, TargetPRI;
+    CallerPC, CallerPRI, TargetPC, TargetStr, TargetPRI, NewGameType;
 }
 
 simulated function String ReferendumDescription();

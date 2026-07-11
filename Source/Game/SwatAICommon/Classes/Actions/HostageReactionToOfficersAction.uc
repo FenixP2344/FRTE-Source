@@ -177,14 +177,14 @@ state Running
 {
 Begin:
 	useResources(class'AI_Resource'.const.RU_ARMS);
+	
+	   //forced arrest after the first issued comply(Only Hostages)   - Probe
+       if (ISwatHostage(m_Pawn) != None  && !ISwatHostage(m_Pawn).isa('SwatOfficer') )
+       {
+	    ISwatHostage(m_Pawn).SetCanBeArrested(true);
+	   }		
 
 	PointToThreatAnimation = GetThreatAnimation();
-	
-		//forced arrest after the first issued comply
-		if (ISwatHostage(m_Pawn) != None  && !ISwatHostage(m_Pawn).isa('SwatOfficer') )
-		{
-			ISwatHostage(m_Pawn).SetCanBeArrested(true);
-		}
 
 	if ((PointToThreatAnimation != '') &&  ! ISwatHostage(m_Pawn).GetHostageCommanderAction().IsInDanger())
 	{

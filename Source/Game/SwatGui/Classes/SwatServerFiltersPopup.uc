@@ -24,13 +24,22 @@ var(SWATGui) private EditInline Config GUICheckBoxButton	MyHideIncompatibleModsC
 
 function InitComponent(GUIComponent MyOwner)
 {
+	local int i;
+
 	  Super.InitComponent(MyOwner);
 
     MyPingCheck.OnChange=InternalOnChange;
     MyGameTypeCheck.OnChange=InternalOnChange;
 
-    MyGameTypeCombo.AddItem(GC.GetGameModeName(MPM_COOP));
-    MyGameTypeCombo.AddItem(GC.GetGameModeName(MPM_COOPQMM));
+	MyGameTypeCombo.Clear();
+	MyGameTypeCombo.List.TypeOfSort=SORT_Numeric;
+	MyGameTypeCombo.List.UpdateSortFunction();
+
+	for( i = 0; i < EMPMode.EnumCount; ++i )
+	{
+		MyGameTypeCombo.AddItem(GC.GetGameModeName(EMPMode(i)),,, i);
+	}
+	MyGameTypeCombo.List.Sort();
 }
 
 function InternalOnActivate()
@@ -39,7 +48,7 @@ function InternalOnActivate()
     MyPingCheck.bForceUpdate = true;
     MyPingCheck.SetChecked( GC.theServerFilters.MaxPing >= 0 );
 
-    MyGameTypeCombo.List.SetIndex( GC.theServerFilters.GameType );
+    MyGameTypeCombo.List.FindExtraIntData( int(GC.theServerFilters.GameType) );
     MyGameTypeCheck.bForceUpdate = true;
     MyGameTypeCheck.SetChecked( GC.theServerFilters.bFilterGametype );
     MyPasswordedCheck.SetChecked( GC.theServerFilters.bPassworded );
@@ -62,7 +71,7 @@ protected function Confirm()
     else
         GC.theServerFilters.MaxPing = -1;
 
-    GC.theServerFilters.GameType = EMPMode(MyGameTypeCombo.GetIndex());
+    GC.theServerFilters.GameType = EMPMode(MyGameTypeCombo.GetInt());
 
     GC.theServerFilters.bFilterGametype = MyGameTypeCheck.bChecked;
     GC.theServerFilters.bPassworded = MyPasswordedCheck.bChecked;

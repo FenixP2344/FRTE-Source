@@ -38,7 +38,7 @@ function OnPawnDied(Pawn Pawn, Actor Killer, bool WasAThreat)
 // IInterested_GameEvent_PawnArrested implementation
 function OnPawnArrested( Pawn Pawn, Pawn Arrester )
 {
-  if(Pawn.IsA('SwatEnemy')) {
+  if(Pawn.IsA('SwatEnemyExtend')) {
     // Send an enemy arrested stat event
     GetGame().CampaignStats_TrackSuspectArrested();
   } else if(Pawn.IsA('SwatHostage')) {
@@ -58,7 +58,7 @@ function OnPawnIncapacitated(Pawn Pawn, Actor Incapacitator, bool WasAThreat)
   } else if(Pawn.IsA('SwatOfficer')) {
     // Send an officer incapacitated stat event
     GetGame().CampaignStats_TrackOfficerIncapacitation();
-  } else if(Pawn.IsA('SwatEnemy')) {
+  } else if(Pawn.IsA('SwatEnemyExtend')) {
     // Send an enemy incapacitated stat event
     GetGame().CampaignStats_TrackSuspectIncapacitated();
   }

@@ -172,12 +172,19 @@ function bool ClusterPointValidForRoundStart( SwatMPStartCluster thePoint )
 function OnPawnArrested( Pawn Arrestee, Pawn Arrester )
 {
 	local NetPlayer np;
+	local float TimeDeduction;
 
 	// round time is deducted when swat make an arrest
-	if (NetPlayer(Arrester).GetTeamNumber() == 0 && NetPlayer(Arrestee).GetTeamNumber() == 1)
+	if (NetPlayer(Arrester) != None && NetPlayer(Arrestee) != None &&
+		ServerSettings(Level.CurrentServerSettings).RoundTimeLimit > 0 &&
+		NetPlayer(Arrester).GetTeamNumber() == 0 && NetPlayer(Arrestee).GetTeamNumber() == 1)
 	{
-		SwatGameReplicationInfo(SGI.GameReplicationInfo).ServerCountdownTime -= 30.0f;
-		SGI.Broadcast(None, string(30.0f), 'SmashAndGrabArrestTimeDeduction');
+		TimeDeduction = ServerSettings(Level.CurrentServerSettings).ArrestRoundTimeDeduction;
+		if( TimeDeduction <= 0.0 )
+			TimeDeduction = 30.0;
+
+		SwatGameReplicationInfo(SGI.GameReplicationInfo).ServerCountdownTime -= TimeDeduction;
+		SGI.Broadcast(None, string(TimeDeduction), 'SmashAndGrabArrestTimeDeduction');
 	}
 
 	np = NetPlayer(Arrestee);

@@ -57,3 +57,8 @@ function int GetCurrentValue()
 
     return PenaltyPerHostage * InjuredHostages.length;
 }
+
+function int GetPossible()
+{
+	return 0;
+}

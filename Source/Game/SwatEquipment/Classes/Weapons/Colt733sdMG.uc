@@ -1,0 +1,1 @@
+class Colt733sdMG extends Colt733MG config(SwatEquipment);

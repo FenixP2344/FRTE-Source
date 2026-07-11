@@ -1,0 +1,1 @@
+class MK23sdHG extends Handgun config(SwatEquipment);

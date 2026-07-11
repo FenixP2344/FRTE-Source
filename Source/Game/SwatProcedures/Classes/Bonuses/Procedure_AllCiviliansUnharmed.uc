@@ -64,4 +64,9 @@ function string Status()
         $"/"$NumHostages;
 }
 
+function int GetPossible()
+{
+	return Bonus;
+}
+
 ///////////////////////////////////////

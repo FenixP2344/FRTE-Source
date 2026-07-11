@@ -28,6 +28,9 @@ var(SWATGui) EditInline Config GUIButton						EquipmentButton;
 
 var(SWATGui) EditInline Config GUIButton						ProfileButton;
 
+// Selected multiplayer mode. Updated by SwatServerSetupQuickPanel.
+var(SWATGui) EMPMode CurGameType;
+
 var() private config localized string BackButtonHelpString;
 var() private config localized string CancelButtonHelpString;
 var() private config localized string QuitButtonHelpString;
@@ -306,11 +309,13 @@ function SaveServerSettings()
 	AdminPanel.SaveServerSettings();
 	VotingPanel.SaveServerSettings();
 
+	CurGameType = QuickSetupPanel.GetSelectedGameMode();
+
     //
     // Set all server settings
     //
     SwatPlayerController(PlayerOwner()).ServerSetSettings( Settings,
-                                EMPMode.MPM_COOP,
+                                CurGameType,
                                 QuickSetupPanel.SelectedIndex,
                                 QuickSetupPanel.MyRoundsBox.Value,
                                 AdvancedSetupPanel.MyMaxPlayersBox.Value,
@@ -335,6 +340,19 @@ function SaveServerSettings()
 		None,
 		false,
 		0);
+
+	// Keep PVP round rules synchronized without changing COOP mission timers.
+	if( CurGameType != EMPMode.MPM_COOP && CurGameType != EMPMode.MPM_COOPQMM )
+	{
+		// QuickPanel supplies safe defaults when legacy GUI configs do not
+		// bind the optional score/time controls.
+		SwatPlayerController(PlayerOwner()).ServerSetPVPSettings(Settings,
+			QuickSetupPanel.GetPVPDeathLimit(),
+			QuickSetupPanel.GetPVPRoundTimeLimit(),
+			AdvancedSetupPanel.MyShowEnemyButton.bChecked,
+			-1.0);
+	}
+
     GC.SaveConfig();
 }
 

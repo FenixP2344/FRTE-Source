@@ -31,6 +31,11 @@ var(SWATGui) EditInline Config GUIButton		   MyUpButton;
 var(SWATGui) EditInline Config GUIButton		   MyDownButton;
 var(SWATGui) EditInline Config GUIButton           MyLoadMapsButton;
 
+// PVP settings. Older FRTE SwatGui.ini builds may not bind these controls,
+// so every access to them is intentionally guarded against None.
+var(SWATGui) EditInline Config GUINumericEdit       MyDeathLimitBox;
+var(SWATGui) EditInline Config GUINumericEdit       MyTimeLimitBox;
+
 //Level information
 var(SWATGui) EditInline Config GUIImage            MyLevelScreenshot;
 var(SWATGui) EditInline Config GUILabel            MyIdealPlayerCount;
@@ -44,6 +49,7 @@ var(DEBUG) int SelectedIndex;
 var() private config localized string SelectedIndexColorString;
 
 var(DEBUG) private string PreviousMap;
+var(DEBUG) private EMPMode PreviousGameType;
 
 //level summary info
 var(DEBUG) private Material NoScreenshotAvailableImage;
@@ -79,9 +85,60 @@ var() private config localized array<String> MapFilterString;
 
 ///////////////////////////////////////////
 // New feature in SEFv4: Don't load the maps all in one go, instead process one map per Tick
-
 var private array<String> MapsToLoad;
 var private int CurrentMapLoadIndex;
+
+function EMPMode GetSelectedGameMode()
+{
+	local int SelectedMode;
+
+	if( MyMapTypeBox == None || MyMapTypeBox.GetIndex() < 0 )
+		return EMPMode.MPM_COOP;
+
+	SelectedMode = MyMapTypeBox.GetInt();
+	if( SelectedMode < 0 || SelectedMode >= EMPMode.EnumCount )
+		return EMPMode.MPM_COOP;
+
+	return EMPMode(SelectedMode);
+}
+
+function int GetPVPDeathLimit()
+{
+	local ServerSettings Settings;
+
+	// Zero is a valid value and means no score limit.
+	if( MyDeathLimitBox != None )
+		return MyDeathLimitBox.Value;
+
+	Settings = ServerSettings(PlayerOwner().Level.PendingServerSettings);
+	if( Settings != None && Settings.DeathLimit > 0 )
+		return Settings.DeathLimit;
+
+	return 50;
+}
+
+function int GetPVPRoundTimeLimit()
+{
+	local ServerSettings Settings;
+	local EMPMode SelectedMode;
+
+	// Zero is a valid value and means no round time limit.
+	if( MyTimeLimitBox != None )
+		return MyTimeLimitBox.Value;
+
+	Settings = ServerSettings(PlayerOwner().Level.PendingServerSettings);
+	if( Settings != None && Settings.RoundTimeLimit > 0 )
+		return Settings.RoundTimeLimit;
+
+	SelectedMode = GetSelectedGameMode();
+	if( SelectedMode == EMPMode.MPM_RapidDeployment )
+		return 600;
+	if( SelectedMode == EMPMode.MPM_VIPEscort )
+		return 720;
+
+	// Barricaded Suspects and Smash & Grab use a 15 minute default.
+	return 900;
+}
 
 function LoadNextMap()
 {
@@ -110,8 +167,8 @@ function LoadNextMap()
 		AllMissionSummaries[AllMissionSummaries.Length] = Summary;
 	}
 
-	LoadAvailableMaps( EMPMode.MPM_COOP, MyMapFilterBox.List.GetExtraIntData() );
-	LoadMapList( EMPMode.MPM_COOP );
+	LoadAvailableMaps( GetSelectedGameMode(), MyMapFilterBox.List.GetExtraIntData() );
+	LoadMapList( GetSelectedGameMode() );
 }
 
 function RegularMissionFrame()
@@ -173,6 +230,20 @@ function InitComponent(GUIComponent MyOwner)
 
     FullMapList = GUIList(AddComponent("GUI.GUIList", self.Name$"_FullMapList", true ));
 
+	// FRTE's SwatGui.ini still contains the original PVP controls, but its
+	// parent panel no longer binds them. Recreate them by their configured
+	// object names so Source-only installs regain score/time controls.
+	if( MyDeathLimitBox == None )
+	{
+		MyDeathLimitBox = GUINumericEdit(AddComponent("GUI.GUINumericEdit", self.Name$"_ScoreLimit", true));
+		AddComponent("GUI.GUILabel", self.Name$"_scorelimitlabel", true);
+	}
+	if( MyTimeLimitBox == None )
+	{
+		MyTimeLimitBox = GUINumericEdit(AddComponent("GUI.GUINumericEdit", self.Name$"_GameTimeLimit", true));
+		AddComponent("GUI.GUILabel", self.Name$"_roundtime", true);
+	}
+
     LoadFullMapList();
 
     MyUseGameSpyBox.AddItem( LANString );
@@ -196,8 +267,17 @@ function InitComponent(GUIComponent MyOwner)
 	MyLoadMapsButton.OnClick= OnLoadMapsButtonClicked;
 
 	MyMapTypeBox.Clear();
-	MyMapTypeBox.List.Add(QMMString, , , , true);
-	MyMapTypeBox.List.Add(MissionsString, , , , false);
+	MyMapTypeBox.List.TypeOfSort=SORT_Numeric;
+	MyMapTypeBox.List.UpdateSortFunction();
+
+	// Restore every stock multiplayer mode. The old FRTE code replaced this
+	// list with only "Missions" and "Quick Missions", which forced COOP.
+	for( i = 0; i < EMPMode.EnumCount; ++i )
+	{
+		MyMapTypeBox.List.Add(GC.GetGameModeName(EMPMode(i)), , , i, false);
+	}
+	MyMapTypeBox.List.Sort();
+	MyMapTypeBox.SetIndex(0);
 
 	MyMapTypeBox.OnChange=InternalOnChange;
     MyUseGameSpyBox.OnChange=InternalOnChange;
@@ -240,7 +320,7 @@ function InternalOnChange(GUIComponent Sender)
 			OnMapFilterChanged( ServerSetupMapFilters(MyMapFilterBox.GetInt()) );
 			break;
 		case MyMapTypeBox:
-			OnMapTypeChanged( MyMapTypeBox.List.GetExtraBoolData() );
+			OnGameModeChanged( GetSelectedGameMode() );
 			break;
     }
 }
@@ -281,6 +361,10 @@ function SetSubComponentsEnabled( bool bSetEnabled )
 	MyMapFilterBox.SetEnabled(bSetEnabled);
 	MyMapTypeBox.SetEnabled(bSetEnabled);
 	MyLoadMapsButton.SetEnabled(bSetEnabled);
+	if( MyDeathLimitBox != None )
+		MyDeathLimitBox.SetEnabled(bSetEnabled);
+	if( MyTimeLimitBox != None )
+		MyTimeLimitBox.SetEnabled(bSetEnabled);
 
     MyRemoveButton.SetVisibility( bSetEnabled );
     MyAddButton.SetVisibility( bSetEnabled );
@@ -322,6 +406,31 @@ function DoResetDefaultsForGameMode( EMPMode NewMode )
         MyRoundsBox.SetValue( 5 );
     }
 
+	if( MyDeathLimitBox != None )
+	{
+		if( NewMode == EMPMode.MPM_BarricadedSuspects )
+		{
+			MyDeathLimitBox.SetValue( 50, true );
+		}
+		else
+		{
+			MyDeathLimitBox.DisableComponent();
+		}
+	}
+
+	if( MyTimeLimitBox != None )
+	{
+		if( NewMode == EMPMode.MPM_RapidDeployment )
+			MyTimeLimitBox.SetValue( 600, true );
+		else if( NewMode == EMPMode.MPM_VIPEscort )
+			MyTimeLimitBox.SetValue( 720, true );
+		else if( NewMode == EMPMode.MPM_BarricadedSuspects ||
+				 NewMode == EMPMode.MPM_SmashAndGrab )
+			MyTimeLimitBox.SetValue( 900, true );
+		else
+			MyTimeLimitBox.DisableComponent();
+	}
+
     MyNoRespawnButton.SetChecked(false);
 }
 
@@ -341,6 +450,18 @@ function LoadServerSettings( optional bool ReadOnly )
         Settings = ServerSettings(PlayerOwner().Level.CurrentServerSettings);
     else
         Settings = ServerSettings(PlayerOwner().Level.PendingServerSettings);
+
+	//
+	// Restore the actual game type. QMM is stored as COOP plus bIsQMM by
+	// ServerSettings, so expose it as the dedicated QMM enum in the GUI.
+	//
+	if( Settings.bIsQMM )
+		MyMapTypeBox.List.FindExtraIntData(int(EMPMode.MPM_COOPQMM));
+	else
+		MyMapTypeBox.List.FindExtraIntData(int(Settings.GameType));
+
+	PreviousGameType = GetSelectedGameMode();
+	OnGameModeChanged( PreviousGameType );
 
     //
     // Select the current map
@@ -365,7 +486,10 @@ function LoadServerSettings( optional bool ReadOnly )
     MyPasswordedButton.bForceUpdate = true;
     MyNoRespawnButton.SetChecked( Settings.bNoRespawn );
     MyQuickResetBox.SetChecked( Settings.bQuickRoundReset );
-	MyMapTypeBox.List.FindExtraBoolData(Settings.bIsQMM);
+	if( MyDeathLimitBox != None )
+		MyDeathLimitBox.SetValue(Settings.DeathLimit, true);
+	if( MyTimeLimitBox != None )
+		MyTimeLimitBox.SetValue(Settings.RoundTimeLimit, true);
 
     //
     // Update the general server information/player name
@@ -398,7 +522,8 @@ function SaveServerSettings()
     //
     // Save all maps
     //
-	Settings.bIsQMM = MyMapTypeBox.List.GetExtraBoolData();
+	Settings.GameType = GetSelectedGameMode();
+	Settings.bIsQMM = (Settings.GameType == EMPMode.MPM_COOPQMM);
     SwatPlayerController(PlayerOwner()).ServerClearMaps( Settings );
 
     for( i = 0; i < SelectedMaps.Num(); i++ )
@@ -423,7 +548,8 @@ function SaveServerSettings()
     //  - LAN / Internet
     //  - Selected Map
     //
-    if( Settings.bLAN != !SwatServerSetupMenu.bUseGameSpy ||
+    if( Settings.GameType != PreviousGameType ||
+		Settings.bLAN != !SwatServerSetupMenu.bUseGameSpy ||
         PreviousMap != SelectedMaps.List.GetItemAtIndex(SelectedIndex) )
     {
         SwatPlayerController(PlayerOwner()).ServerSetDirty( Settings );
@@ -450,7 +576,7 @@ function SaveServerSettings()
 function OnMapFilterChanged( ServerSetupMapFilters NewFilter )
 {
 	// Just load the available maps
-	LoadAvailableMaps(EMPMode.MPM_COOP, NewFilter);
+	LoadAvailableMaps(GetSelectedGameMode(), NewFilter);
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -572,20 +698,25 @@ function OnGameModeChanged( EMPMode NewMode )
 {
     log( self$"::OnGameModeChanged( "$GetEnum(EMPMode,NewMode)$" )" );
 
-    //load the available map list
-    LoadAvailableMaps( NewMode, 0 );
+	SwatServerSetupMenu.CurGameType = NewMode;
+	OnMapTypeChanged( NewMode == EMPMode.MPM_COOPQMM );
 
-    //load the Map rotation for the new game mode
-    LoadMapList( NewMode );
+	if( NewMode != EMPMode.MPM_COOPQMM )
+	{
+		MyMapFilterBox.SetIndex(0);
 
-    SetSubComponentsEnabled( SwatServerSetupMenu.bIsAdmin );
-    SwatServerSetupMenu.ResetDefaultsForGameMode( NewMode );
+		// Load only maps and rotations valid for the selected PVP/COOP mode.
+		LoadAvailableMaps( NewMode, 0 );
+		LoadMapList( NewMode );
+	}
 
-    SwatServerSetupMenu.RefreshEnabled();
+	SetSubComponentsEnabled( SwatServerSetupMenu.bIsAdmin );
+	SwatServerSetupMenu.ResetDefaultsForGameMode( NewMode );
+	SwatServerSetupMenu.RefreshEnabled();
+	DisplayLevelSummary( LevelSummary( AvailableMaps.List.GetObject() ) );
 
-    DisplayLevelSummary( LevelSummary( AvailableMaps.List.GetObject() ) );
-
-    SetTimer(0.03);
+	if( NewMode != EMPMode.MPM_COOPQMM )
+		SetTimer(0.03);
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -891,7 +1022,7 @@ function OnSelectedMapsChanged( GUIComponent Sender )
 {
 	local LevelSummary Summary;
 
-    MapListOnChange( EMPMode.MPM_COOP );
+    MapListOnChange( GetSelectedGameMode() );
 
     if( SelectedMaps.Num() <= 1 )
         SetSelectedMapsIndex( 0 );

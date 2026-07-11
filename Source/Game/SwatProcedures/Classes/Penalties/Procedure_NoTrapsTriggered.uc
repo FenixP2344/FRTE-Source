@@ -39,6 +39,11 @@ function int GetCurrentValue()
   return PenaltyPerTrap * NumTrapsTriggered;
 }
 
+function int GetPossible()
+{
+	return 0;
+}
+
 /*defaultproperties
 {
   NumTrapsTriggered = 0

@@ -930,6 +930,18 @@ protected function UpdateCategorizationInfo(bool bPrimaryWeapon) {
       }
     }
   }
+  
+  if(bPrimaryWeapon) {
+    //log("Prune the candidate weapons so that primary weapons are not included in the secondary weapons list...");
+    for(i = 0; i < CandidateWeapons.Length; i++) {
+      if(CandidateWeapons[i].default.AllowedSlots == WeaponEquip_SecondaryOnly) {
+        CandidateWeapons.Remove(i, 1);
+        i--; // Step backwards so we don't get out of sync
+      }
+    }
+  }
+  
+  
 
   //log("Rebuild cache and/or apply it...");
   if(bPrimaryWeapon && CachedAvailablePrimaryTypes.Length == 0) {
@@ -1227,9 +1239,11 @@ defaultproperties
     EquipmentCategoryNames(8)="Less Lethal"
     EquipmentCategoryNames(9)="Grenade Launchers"
     EquipmentCategoryNames(10)="Shield"
-    EquipmentCategoryNames(11)="Reward Skins"
-    EquipmentCategoryNames(12)="Test"
-    EquipmentCategoryNames[13]="Uncategorized"
+    EquipmentCategoryNames(11)="Opreator"
+    EquipmentCategoryNames(12)="Reward Skins"
+    EquipmentCategoryNames(13)="CQC Melee"
+    EquipmentCategoryNames(14)="Test"
+    EquipmentCategoryNames[15]="Uncategorized"
 
     DefaultPrimaryClass=WeaponClass_AssaultRifle
     DefaultSecondaryClass=WeaponClass_Pistol

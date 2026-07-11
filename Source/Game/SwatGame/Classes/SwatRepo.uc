@@ -204,7 +204,13 @@ event Tick( Float DeltaSeconds )
             if( Level.NetMode == NM_DedicatedServer && !AnyPlayersOnServer() )
                 return;
 
-            GetSGRI().ServerCountdownTime-=DeltaSeconds;
+			// RoundTimeLimit == 0 means no mid-game time limit. Keep pre-game
+			// and post-game timers unchanged.
+			if( GuiConfig.SwatGameState != GAMESTATE_MidGame ||
+				ServerSettings(Level.CurrentServerSettings).RoundTimeLimit > 0 )
+			{
+				GetSGRI().ServerCountdownTime-=DeltaSeconds;
+			}
 
             // Notify the SwatGameInfo, so the GameMode can take any necessary actions.
             if( !bDelayedFinish )
@@ -240,7 +246,8 @@ event Tick( Float DeltaSeconds )
                     break;
                 case GAMESTATE_MidGame:
                     //TimeLimit Reached?
-                    if( GetSGRI().ServerCountdownTime <= 0 )
+                    if( ServerSettings(Level.CurrentServerSettings).RoundTimeLimit > 0 &&
+						GetSGRI().ServerCountdownTime <= 0 )
                     {
                         if( bDelayedFinish )
                         {
@@ -1075,6 +1082,7 @@ log("[dkaplan] >>> NetStartNextRound()" );
 	
 	//PVP settings
 	ServerSettings(Level.PendingServerSettings).SetPVPSettings(
+	  None,
 	  CurrentSettings.DeathLimit,
 	  CurrentSettings.RoundTimeLimit,
 	  CurrentSettings.bShowEnemyNames,

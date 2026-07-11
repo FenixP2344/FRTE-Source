@@ -555,6 +555,7 @@ function NotifyHit(float Damage, Pawn HitInstigator)
 
 	if ((EnemyInstigator != None) && !IsIncapacitated())
 	{
+		UnBecomeAThreat();
 		// if we are a god we don't attack the player (request by paul)
 		if (! Controller.bGodMode)
 		{
@@ -1223,12 +1224,6 @@ function float GetTimeToWaitBeforeFiring()
 		case EnemySkill_Low:
 			TimeToWait = RandRange(class'SwatEnemyConfig'.default.LowSkillMinTimeBeforeShooting, class'SwatEnemyConfig'.default.LowSkillMaxTimeBeforeShooting);
 			break;
-	}
-
-	if (Level.NetMode != NM_Standalone)
-	{
-		// Extra lag time compensation
-		TimeToWait += 0.3f;
 	}
 
 	return TimeToWait;

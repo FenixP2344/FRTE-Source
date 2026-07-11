@@ -807,12 +807,28 @@ simulated function Material GetCustomMaterial( MaterialPocket pock )
 	return None;
 }
 
+simulated function bool HasNoCeramicArmor()
+{
+    if ( PocketEquipment[Pocket.Pocket_BodyArmor] != None )
+        return PocketEquipment[Pocket.Pocket_BodyArmor].IsA('NoBodyArmor') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('NoBodyArmorHov') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('LightKevlarBodyArmor') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('LightKevlarBodyArmorHov') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('LightSteelBodyArmor') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('LightSteelBodyArmorHov') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('HeavyKevlarBodyArmor') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('HeavyKevlarBodyArmorHov') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('HeavySteelBodyArmor') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('HeavySteelBodyArmorHov');
+    else
+        return false; // The VIP has no armor in Pocket_BodyArmor.
+}
+
 simulated function bool HasCeramicArmor()
 {
     if ( PocketEquipment[Pocket.Pocket_BodyArmor] != None )
         return PocketEquipment[Pocket.Pocket_BodyArmor].IsA('LightCeramicBodyArmor') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('LightCeramicBodyArmorHov') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('HeavyCeramicBodyArmor') || PocketEquipment[Pocket.Pocket_BodyArmor].IsA('HeavyCeramicBodyArmorHov');
     else
         return false; // The VIP has no armor in Pocket_BodyArmor.
+}
+
+simulated function bool HasZombieArmor()
+{
+    if ( PocketEquipment[Pocket.Pocket_BodyArmor] != None )
+        return PocketEquipment[Pocket.Pocket_BodyArmor].IsA('ZombieArmorBase');
+    else
+        return false;
 }
 
 

@@ -1,0 +1,1 @@
+interface IProtectFromC2Charge;

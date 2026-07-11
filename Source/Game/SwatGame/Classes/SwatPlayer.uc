@@ -1384,6 +1384,12 @@ function ServerRequestQualify( Actor DefaultFireFocusActor )
     theNetPlayer = NetPlayer( DefaultFireFocusActor );
     if ( theNetPlayer != None )
     {
+        // Player arrests are an adversarial multiplayer feature. Never allow
+        // a client to start cuffing another player in COOP, even if that
+        // player is currently affected by a less-lethal weapon.
+        if ( theEquipment.IsA( 'Cuffs' ) && Level.IsPlayingCOOP )
+            return;
+
         if ( theEquipment.IsA( 'Cuffs' ) && !theNetPlayer.CanBeArrestedNow() )
             return;
 
@@ -3063,7 +3069,8 @@ simulated function ClientDoGassedReaction( float Duration )
 private function bool CantBeDazed()
 {
 	return ( Level.NetMode == NM_Client ) ||												// Clients handle their own dazing
-		   ( HasProtection( 'IProtectFromSting' ) ) ||										// Has protection from sting effects
+		   ( HasProtection( 'IProtectFromSting' ) ) && !LoadOut.HasZombieArmor() ||			// Has protection from sting effects
+		   ( LoadOut.HasZombieArmor() ) ||													// Zombie protection\
 		   ( Controller != None && Controller.bGodMode ) ||									// Gods can not be dazed!
 		   ( class'Pawn'.static.CheckDead( self ) );										// Dead people are beyond dazing
 }
@@ -3520,12 +3527,7 @@ simulated function ClientDoTasedReaction( float PlayerDuration )
 //returns false if the ICanBeTased has some inherent protection from Taser, ie. officers wearing ceramics
 simulated function bool IsVulnerableToTaser()
 {
-	if ( LoadOut.HasCeramicArmor() )
-		{
-			return false;
-		}
-	else
-		return true;
+	return !LoadOut.HasCeramicArmor() && !LoadOut.HasZombieArmor();
 }
 
 //IReactToC2Detonation Implementation
@@ -3837,6 +3839,11 @@ simulated function bool CanBeArrestedNow()
 {
     local HandheldEquipment theActiveItem;
     local HandheldEquipment thePendingItem;
+
+    // COOP teammates must never become valid handcuff targets. PVP keeps the
+    // original non-lethal/arrest behavior because IsPlayingCOOP is false.
+    if (Level.IsPlayingCOOP)
+        return false;
 
     if (checkDead(self))
         return false;

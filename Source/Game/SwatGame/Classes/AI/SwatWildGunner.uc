@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // WildGunners shoot wildy and inaccurately with their light machine gun
 
-class SwatWildGunner extends SwatEnemy
+class SwatWildGunner extends SwatEnemyExtend
 	implements SwatAICommon.ISwatWildGunner;
 
 var bool bIsFiring;

@@ -157,6 +157,7 @@ AUTOGENERATE_NAME(InstantReEquipFiredWeapon)
 AUTOGENERATE_NAME(IsAThreat)
 AUTOGENERATE_NAME(IsAggressive)
 AUTOGENERATE_NAME(IsArrested)
+AUTOGENERATE_NAME(IsBeingArrestedNow)
 AUTOGENERATE_NAME(IsBlueTeam)
 AUTOGENERATE_NAME(IsCompliant)
 AUTOGENERATE_NAME(IsDisabled)
@@ -989,6 +990,11 @@ struct IISwatAI_IsOtherActorAThreat_Parms
 	  class AActor* otherActor;
 	  BITFIELD ReturnValue;
 };
+// "event"	function whose parameters correspond to	"struct IISwatAI_eventIsBeingArrestedNow_Parms"	is declared	in "..\SwatAICommon\Classes\ISwatAI.uc"
+struct IISwatAI_IsBeingArrestedNow_Parms
+{
+	  BITFIELD ReturnValue;
+};
 // "event"	function whose parameters correspond to	"struct IISwatAI_eventIsArrested_Parms"	is declared	in "..\SwatAICommon\Classes\ISwatAI.uc"
 struct IISwatAI_IsArrested_Parms
 {
@@ -1462,6 +1468,12 @@ struct UCommanderAction_eventSetDebugBlackboardInfo_Parms
 struct UCommanderAction_eventSetDebugMoraleHistoryInfo_Parms
 {
 };
+// Constant kMultiplayerLeanPeekDistance is declared in "..\SwatAICommon\Classes\Actions\EnemyCommanderAction.uc"
+#define UCONST_kMultiplayerLeanPeekDistance 52.0
+// Constant kMultiplayerVisionFallbackDot is declared in "..\SwatAICommon\Classes\Actions\EnemyCommanderAction.uc"
+#define UCONST_kMultiplayerVisionFallbackDot 0.50
+// Constant kMultiplayerVisionFallbackUpdateTime is declared in "..\SwatAICommon\Classes\Actions\EnemyCommanderAction.uc"
+#define UCONST_kMultiplayerVisionFallbackUpdateTime 0.10
 // Constant kRotateToSuspiciousNoisePriority is declared in "..\SwatAICommon\Classes\Actions\EnemyCommanderAction.uc"
 #define UCONST_kRotateToSuspiciousNoisePriority 55
 
@@ -2640,6 +2652,13 @@ public:
 		   Parms.ReturnValue=0;
 		   Parms.otherActor=otherActor;
         ProcessFunction(FindFunctionChecked(SWATAICOMMON_IsOtherActorAThreat),&Parms);
+		   return Parms.ReturnValue;
+	  }
+	  BITFIELD IsBeingArrestedNow()
+	  {
+        IISwatAI_IsBeingArrestedNow_Parms Parms;
+		   Parms.ReturnValue=0;
+        ProcessFunction(FindFunctionChecked(SWATAICOMMON_IsBeingArrestedNow),&Parms);
 		   return Parms.ReturnValue;
 	  }
 	  BITFIELD IsArrested()

@@ -1084,7 +1084,8 @@ enum eVoiceType
 	 VOICETYPE_VIP           =6,
 	 VOICETYPE_ReadyOrNot    =7,
 	 VOICETYPE_RainbowAgent  =8,
-	 VOICETYPE_MAX           =9,
+	 VOICETYPE_Ranger        =9,
+	 VOICETYPE_MAX           =10,
 };
 // Enum eFloatOptions is declared in "..\SwatGame\Classes\SwatGUIConfig.uc"
 enum eFloatOptions

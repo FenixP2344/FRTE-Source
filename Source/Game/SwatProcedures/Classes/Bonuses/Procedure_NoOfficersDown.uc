@@ -61,4 +61,9 @@ function string Status()
         $"/"$( GetNumActors( class'SwatPlayer' ) + GetNumActors( class'SwatOfficer' ) );
 }
 
+function int GetPossible()
+{
+	return Bonus;
+}
+
 ///////////////////////////////////////

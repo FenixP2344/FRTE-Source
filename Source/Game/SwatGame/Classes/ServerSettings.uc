@@ -5,6 +5,7 @@ class ServerSettings extends Engine.ReplicationInfo
 import enum EEntryType from SwatStartPointBase;
 import enum EMPMode from Engine.Repo;
 import enum AdminPermissions from SwatAdmin;
+import enum eDifficultyLevel from SwatGUIConfig;
 
 const MAX_MAPS = 40;
 var(ServerSettings) config String         Maps[MAX_MAPS];
@@ -31,6 +32,7 @@ var(ServerSettings) config int            AdditionalRespawnTime "Time (in second
 var(ServerSettings) config bool           bNoLeaders "If true, new 'leader' functionality in SWAT 4 expansion is disabled.";
 var(ServerSettings) config bool           bNoKillMessages "If true, incapacitation/kill/death/arrest messages will not show in the chat.";
 var(ServerSettings) config bool           bEnableSnipers "Enable snipers?";
+var(ServerSettings) config eDifficultyLevel CoopDifficulty "Difficulty used for normal COOP spawning.";
 
 var(ServerSettings) config String         ServerName "Name of the server for display purposes";
 var(ServerSettings) localized config String DefaultServerName "Default name of the server for display purposes";
@@ -79,6 +81,7 @@ replication
         bQuickRoundReset, FriendlyFireAmount, DisabledEquipment, Unused ,
         ServerName, Password, bPassworded, bLAN, AdditionalRespawnTime, CampaignCOOP,
 		bNoLeaders, bNoKillMessages, bEnableSnipers,
+		CoopDifficulty,
 		bIsQMM, QMMUseCustomBriefing, QMMCustomBriefing, QMMScenario,
 		//PVP
 		DeathLimit,RoundTimeLimit,bShowEnemyNames,ArrestRoundTimeDeduction
@@ -123,8 +126,22 @@ log( self$"::SetAdminServerSettings( "$PC$", ServerName="$newServerName$", Passw
     bLAN = newbLAN;
 }
 
-function SetPVPSettings(int newDeathLimit,int newRoundTimeLimit,bool newbShowEnemyNames,float newArrestRoundTimeDeduction)
+function SetPVPSettings(PlayerController PC, int newDeathLimit, int newRoundTimeLimit, bool newbShowEnemyNames, float newArrestRoundTimeDeduction)
 {
+	if(Level.Game.IsA('SwatGameInfo') && PC != None &&
+		!SwatGameInfo(Level.Game).Admin.ActionAllowed(PC, AdminPermissions.Permission_ChangeSettings))
+	{
+		log("Couldn't set PVP settings: not an admin");
+		return;
+	}
+
+	if( newDeathLimit < 0 )
+		newDeathLimit = 0;
+	if( newRoundTimeLimit < 0 )
+		newRoundTimeLimit = 0;
+	if( newArrestRoundTimeDeduction <= 0.0 )
+		newArrestRoundTimeDeduction = 30.0;
+
 	DeathLimit=newDeathLimit;
 	RoundTimeLimit=newRoundTimeLimit;
 	bShowEnemyNames=newbShowEnemyNames;
@@ -456,8 +473,11 @@ defaultproperties
 {
 	RemoteRole=ROLE_SimulatedProxy
 	bAlwaysRelevant=True
-    bShouldReplicateDefaultProperties=true
+	bShouldReplicateDefaultProperties=true
 	DefaultServerName="Swat4X Server"
+	CoopDifficulty=DIFFICULTY_Elite
+	bShowEnemyNames=false
+	ArrestRoundTimeDeduction=30.0
 }
 
 ///////////////////////////////////////////////////////////////////////////////

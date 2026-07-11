@@ -3,7 +3,7 @@
 // See SwatEnemy::ConstructCharacterAIHook
 ///////////////////////////////////////////////////////////////////////////////
 
-class SwatPolice extends SwatEnemy;
+class SwatPolice extends SwatEnemyExtend;
 
 import enum EquipmentSlot from Engine.HandheldEquipment;
 import enum Pocket from Engine.HandheldEquipment;
@@ -86,6 +86,7 @@ event bool IgnoresSeenPawnsOfType(class<Pawn> SeenType)
 			ClassIsChildOf(SeenType, class'SwatGame.SwatOfficer') ||
 			ClassIsChildOf(SeenType, class'SwatGame.SwatPolice') ||
 			ClassIsChildOf(SeenType, class'SwatGame.SwatHostage') ||
+			ClassIsChildOf(SeenType, class'SwatGame.SwatClassic') ||
 		    ClassIsChildOf(SeenType, class'SwatGame.SwatTrainer') ||
 			ClassIsChildOf(SeenType, class'SwatGame.SniperPawn'));
 }

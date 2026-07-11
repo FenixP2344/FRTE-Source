@@ -19,7 +19,7 @@ function PostInitHook()
 //interface IInterested_GameEvent_PawnIncapacitated implementation
 function OnPawnIncapacitated(Pawn Pawn, Actor Incapacitator, bool WasAThreat)
 {
-    if (!Pawn.IsA('SwatEnemy')) return; //we don't care
+    if (!Pawn.IsA('SwatEnemyExtend')) return; //we don't care
 
     if (GetGame().DebugLeadership)
         log("[LEADERSHIP] "$class.name
@@ -55,4 +55,9 @@ function int GetCurrentValue()
 
         return 0;
     }
+}
+
+function int GetPossible()
+{
+	return Bonus;
 }
