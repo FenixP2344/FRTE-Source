@@ -7,6 +7,179 @@ If you would like to get more infro of FRTE, you're welcome to join in the SEF:F
 FAQ: https://www.moddb.com/mods/sef-fr-tactical-edition/tutorials/necessary-instructions
 
 
+
+#### FRTE v1.4 Beta6 Changelog####
+
+Added:
+- Added LWRC PSD(6.8x43mm) and MircoT1/Suppressor variant
+- Added Colt Model 733 and Suppressor variant
+- Added map "Apollo Motel" briefing and timeline
+
+Misc:
+- Replaced QBZ95 melee animation
+- Replaced firstperson effects of various head gear
+- Map "Apollo Motel" finally perfected
+
+Bug Fix:
+- Fixed a crash issue in the map 'Apollo Motel'
+- Fixed the issue of inconsistency between M4 Super90 Shotgun and its variant ammo count
+- Fixed the issue of loss shooting in multiplayer for beanbags
+- Fixed the issue suspects would forcefully shoot when affected by cs gas
+- Fixed the issue of abnormal weight of QBZ192 suppressor variant
+- Fixed the issue of shield collision blocking throwing
+- Fixed the issue of excessive shooting sound in LessLethal SPAS12
+- Fixed the issue of incorrect appearance of PLP in the map 'Apollo Motel'
+
+
+#### FRTE v1.4 Beta4/Beta5 merge Changelog ####
+
+Added:
+- Added "SWAT: Urban Justice" Commemorative Headgear
+- Added "SWAT: Urban Justice" Commemorative Skin
+- Added weapon animations (MK23/USP45/HS2000)
+- Added QBZ192/QBZ95 Holosun sight and replace Eotech552 and Aimpoint
+- Added Extra Campaign map "Apollo Motel (incomplete, temporarily available for gameplay)"
+- Added R700 Sniper Rifle (Suspect Exclusive)
+- Added a new traptype-Claymore
+
+Balance:
+- Adjust the damage beanbag ammunition to reduce its susceptibility to disability or death
+- Adjusted some attributes of Lesslethal Nova, Lesslethal M870, and Lesslethal SPAS12
+- The unequip rate of C2 detonator decreased from 1.0 to 0.3
+- The quantity of C2 has been reduced by one (original x5, modified x4), DamageAngle has increased from 140 to 80, StunRadius has decreased from 1000 to 600, and StunDuration has decreased from 5sec to 3sec
+- The suspect's auditory range has been increased from 800 to 1000
+- Map adjustment: FRTE version of OldGraniteHotel adds more Enemy Spawners, and the positions of suspects in each game will be more random
+- Adjust the grenade launcher return to vanilla function
+- Adjusted some Ammo to make their damage more reasonable (357Python/MP7/AK47/AK74M/AK15/ASVAL/HS2000/MK23/USP45/HS2000/FiveSeven)
+
+Misc:
+- QBZ95 longbow Aimpoint and Eotech holographic variants removed, merged into Holosun variant
+- Replaced with a more stable gamelaunch exe and made it 4GB compatible
+
+Bug Fix:
+- Fixed the issue suspects sometimes shooting without reason, executing of hostages without reason
+- Fixed the issue of HS2000 ads zoom too far from the camera lens
+- Fixed the issue a conversation on the "Rosemary Medical Center" could not be triggered properly
+- Fixed the issue preview image of the map "Rosemary Medical Center" was incorrect in multiplayer
+- Fixed the issue of abnormal damage from T79 smg
+- Fixed the issue of abnormal thirdperson shooter in GLOCK18 fully automatic mode
+- Fixed the issue of suspects surrendering and being arrested in the terrorist hunt
+- Fixed the issue of shield+P320 not being able to equip properly in the terrorist hunt
+- Fixed the issue where the suspect would remove the door wedge
+- Fixed the issue of classic and lowthreat suspects triggering "Unauthorized use of deadlyforce" abnormally
+- Fixed the issue of abnormal impact range of QBZ95 gunshots
+- Possible fix a rare crash issue
+
+#### FRTE v1.4 Beta3 Changelog ####
+
+Added:
+- Added 3 competition maps (Coopmatch prefix)
+- Added Cole Reward Weapon P226
+
+Balance:
+- The chance of AP ammo used by some high skill suspects has increased
+- Five eyes members use AKM for precise shooting use AP ammo chance 100%
+- Rys-t helmet has been adjusted from Level 3X to Level 3, and the required kinetic energy for breakdown has been adjusted from 600 to 400
+- Ballistic helmet has been adjusted from Level 4 to Level 3X, and the percentage of non penetrating injuries has been adjusted from 0.55 to 0.3
+- AK47Classic restores flashlight function
+- M249 adjusted , increased the lethality rate of FMJ/JHP, and modified recoil, weapon sway recovery, and zeroing characteristics (like vanilla)
+- Score System adjusted:
+  * Remove 'Player uninjured' from (Additional) and return to within 100 total 
+  * Suspects incapacitated back to previous version +0.5 Bonus
+  * Suspects neutralized no longer receive any bonuses
+
+Misc:
+- Added "Rosemary Medical Center" loading screen and preview images
+- Replace the appearance of "Rosemary Medical Center" injured detective
+
+Bug Fix:
+- Fixed the issue of the map "Underground"suspect body blocking the evidence interaction point
+- Fixed the issue where SWAT AI sometimes cannot execute the BreachingShotgun command
+- Fixed some English text errors in the SWAT3 campaign briefing
+- Fixed the issue in the classic map "Tenment" suspect have GP5gasmask
+- Fixed the issue the thirdperson and drop evidence of the AK74M used by the suspect were inconsistent
+- Fixed the issue of the top rupture of the Balaclava in the HOV model
+- Fixed the issue of AUG not having thirdperson muzzle flame effect
+- Fixed several compilation warning issues
+- Possible fix the issue of frequent server crashes
+- Possible fix for movement of Suspect restraint floor
+
+#### FRTE v1.4 Beta Changelog ####
+
+Added/Rework:
+- Rework M4A1 mesh(replace the original)
+- Rework HK416 and added UH-1 variant(replace the original)
+- Rework MP5 and added Reflex variant(replace the original)
+- Added MP5SD6 and eotech variant
+- Added LessLethal M4A1 Aimpoint and Eotech variant
+- Added the voiceline of 'Five Eyes Member'
+- Added a new launch logo
+
+Balance:
+- The shield+Handgun has been enabled in multiplayer
+- Remove unauthorized use of force penalties caused by StingGrenade on hostages
+- ROE adjustment will no longer allow additional shooting of Incapacitated suspects, and any form of behavior that causes the death of Incapacitated suspects will be subject to penalties (including HighThreatLevel)
+
+Misc:
+- Change the penalties 'unauthorized use of force' to 'injured hostages'
+- Map "LA City Hall" mission "Disable the protective devices of Bomb" will now be hidden at the beginning of the game and will only be displayed when the player witnesses the device
+- Map "LA City Hall" Nuclear Trigger Effect Adjustment
+- Flashlight cone return back to vanilla
+- The rog doll system return back to vanilla
+- Adjustment of Suspect Attack Behavior (to prevent before shoot in multiplayer mode without seeing the suspect's gun aiming)
+- Some FiveEyes member who use AKM now use semi-automatic precision shooting
+- Some Five Eyes members who use UZI now hide their weapons inside their outerwear and are no longer visible
+- Adjust some Five Eyes members gun holding movements
+
+Bug Fix:
+- Fixed the issue some abnormal penalties in ROE
+- Fixed the issue of not having the "M1Super90" in career mode
+- Fixed the issue of LR300 and TMP sound errors
+- Fixed the issue of RPK shooting flame not displaying
+- Fixed the issue of triggering traps without visual and sound effects in multiplayer mode
+- Fixed the issue where the laser device on the map "LA City Hall" could not be triggered
+- Fixed the issue of abnormal display of SG553ACOG when using classic zoom style
+- Fixed the issue of thirdperson with the supershort shotgun
+- Fixed the issue where SWAT AI was unable to correctly recognize supershort shotguns
+- Fixed the issue of incorrect firstperson positioning in the C8 assault rifle
+- Fixed the issue where the GUI display quantity of Nineband did not match the actual quantity
+- Fixed the issue of abnormal bonuses discovered when killing enemies in the 'Terrorists Hunt Mode'
+
+#### FRTE v1.4 Alpha Changelog ####
+
+Added:
+- Added new AK74M mesh and OKP-7(replace the original)
+- Added P320 and reflex
+- Added SuperShort Shotgun in slot4
+- Added Rys helmet (Replace K6-3)
+- Added a new suspect type"Five Eyes"and exclusive weapons
+- Added a new mission map "Sky Tower Canary Daily and Rosemary Medical Center"
+- Added a new menu background music
+- Added a new weapon category 'Opreator'
+- Added keysettings for 'Equip Ninebang Grenade'
+
+Balance:
+- Ninebang has been removed from slots 1-3, and only allows equipment with the Pack in slot 6 (increased to x3, original x2)
+- Wedge quantity adjusted to x6 (original x3)
+- Equipment slot function and name adjustment: slot 4 only Breaching, slot 5 tactical, and slot 6 support 
+- Medic Pouch moved to slot 6 (formerly slot 4)
+- adjustments have been made to the weight and bulk of all breaching devices
+- Optiwand's weight and bulk have been slightly reduced
+
+Misc:
+- Career lead voice adjustment: Lead reporting will no longer have radio sound effects in single player career mode
+- M4SOP2 moved to the new category "Opreator" (formerly marksmanrifle category)
+- Remove SG553 holo variant
+- The distance for door interaction has increased to 90 (previously 80)
+- Score system readjusted:
+* Suspect Incapacitated will now receive the same score as Suspect Arrest
+* Player Uninjured and Secure All Evidence will no longer be included in the total score of 100 and will be treated as additional bonuses
+
+Bug Fix:
+- Fixed some issues with maps not Spawned HVT
+- Fixed some map rendering issues
+
+
 #### FRTE v1.39 Patch1 Changelog ####
 
 Added:
