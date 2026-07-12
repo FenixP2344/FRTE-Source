@@ -101,7 +101,6 @@ var bool		bWantsToCrouch;		// if true crouched (physics will automatically reduc
 var const bool	bIsCrouched;		// set by physics to specify that pawn is currently crouched
 var const bool	bTryToUncrouch;		// when auto-crouch during movement, continually try to uncrouch
 var() bool		bCanCrouch;			// if true, this pawn is capable of crouching
-var bool		bShoulderLook;		// if true, restrict rotation while shoulder looking
 
 #if IG_SMOOTH_PHYSICS_STEPPING
 var private bool bIsCurrentMeshRenderZValid;
@@ -124,6 +123,7 @@ var private bool bForceCrouch;       // Used in VIP mode; if true the pawn will 
 // We handle leaning similarly to how Unreal handles crouching. [darren]
 var bool        bWantsToLeanLeft;
 var bool        bWantsToLeanRight;
+var bool		bShoulderLook;		//Shoulder Look
 
 enum ELeanState
 {

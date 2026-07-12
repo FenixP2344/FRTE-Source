@@ -1226,6 +1226,12 @@ function float GetTimeToWaitBeforeFiring()
 			break;
 	}
 
+	if (Level.NetMode != NM_Standalone)
+	{
+		// Extra lag time compensation
+		TimeToWait += 0.3f;
+	}
+
 	return TimeToWait;
 
 

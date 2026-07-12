@@ -826,11 +826,10 @@ simulated function bool HasCeramicArmor()
 simulated function bool HasZombieArmor()
 {
     if ( PocketEquipment[Pocket.Pocket_BodyArmor] != None )
-        return PocketEquipment[Pocket.Pocket_BodyArmor].IsA('ZombieArmorBase');
+        return PocketEquipment[Pocket.Pocket_BodyArmor].IsA('ZombieArmor');
     else
-        return false;
+        return false; // The VIP has no armor in Pocket_BodyArmor.
 }
-
 
 simulated function bool HasHeavyArmor()
 {
