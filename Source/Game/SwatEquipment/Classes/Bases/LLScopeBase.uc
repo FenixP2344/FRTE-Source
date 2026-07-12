@@ -128,16 +128,21 @@ simulated function Tick(float DeltaTime)
 {
 	Super.Tick(DeltaTime);
 
-	if( HasScope && FirstPersonModel != None && ScopeScreen != None &&
-		Level.GetLocalPlayerController() != None )
+	if( HasScope && Level.GetLocalPlayerController() != None )
 	{
-	  FirstPersonModel.Skins[0] = FirstSkin;
-		FirstPersonModel.Skins[ScopeIndex] = ScopeShader;
-	  ScopeScreen.Revision++;
+	  if(FirstPersonModel != None)
+	  {
+	    FirstPersonModel.Skins[0] = FirstSkin;
+	    FirstPersonModel.Skins[ScopeIndex] = ScopeShader;
+	  }
+	    ScopeScreen.Revision++;
 
 	  if (!Level.GetLocalPlayerController().WantsZoom) 
 	  {
-		FirstPersonModel.Skins[ScopeIndex] = BlankScope;
+		if(FirstPersonModel != None)
+		{
+		  FirstPersonModel.Skins[ScopeIndex] = BlankScope;
+		}
 	  }
 	 
 	  ViewportCalcView(ScopeLocation, ScopeRotation);
