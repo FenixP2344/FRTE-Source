@@ -2178,6 +2178,30 @@ state Running
 	}
 	else
 		pause();
+		
+	if (ShouldUseMultiplayerVisionFallback())
+	{
+		while ((CurrentEnemy == None) &&
+			   !bIgnoreCurrentEnemy &&
+			   !m_Pawn.IsCompliant() &&
+			   !m_Pawn.IsArrested() &&
+			   class'Pawn'.static.checkConscious(m_Pawn))
+		{
+			if (TryMultiplayerVisionFallback())
+			{
+				break;
+			}
+
+			Sleep(kMultiplayerVisionFallbackUpdateTime);
+		}
+
+		if ((CurrentEnemy == None) && !bIgnoreCurrentEnemy)
+		{
+			goto('Begin');
+		}
+	}
+	else
+		pause();
 
 	// wait one tick to allow information to disseminate (such as if we heard a noise, etc.)
 	yield();
