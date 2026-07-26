@@ -97,6 +97,59 @@ simulated function PostUpdate(SwatGamePlayerController Player)
 // (End of Update Sequence)
 //
 
+// "Come here" order: the crosshair is on a suspect/hostage who is kneeling in
+// compliance but has not been cuffed yet. Everything about this context lives
+// in PlayerInterface_Use.ini under [SummonCompliantAI UseInterfaceContext],
+// including its Range.
+simulated function bool SpecialCondition_SummonCompliant(Actor Target)
+{
+    local SwatAI TargetAI;
+
+    TargetAI = SwatAI(Target);
+    if (TargetAI == None)
+        return false;
+
+    return TargetAI.CanBeSummonedByPlayer();
+}
+
+// Returns the configured summon context, or None if it isn't in the ini.
+simulated function UseInterfaceContext GetSummonContext()
+{
+    local int i;
+
+    for (i = 0; i < Contexts.Length; ++i)
+        if (Contexts[i] != None && Contexts[i].Name == 'SummonCompliantAI')
+            return UseInterfaceContext(Contexts[i]);
+
+    return None;
+}
+
+// Returns true if the summon order was sent, in which case Interact() must not
+// fall through to the normal use behaviour.
+simulated function bool TrySummonFocus(SwatGamePlayerController PC)
+{
+    local UseInterfaceContext SummonContext;
+    local SwatAI TargetAI;
+    local float Distance;
+
+    SummonContext = GetSummonContext();
+    if (SummonContext == None)
+        return false;       // feature not configured in the ini
+
+    TargetAI = SwatAI(Foci[0].Actor);
+    if (TargetAI == None || PC == None || PlayerPawn == None)
+        return false;
+
+    // Re-run the full context test so the ini's Range / Type / HasA rules apply
+    // to the actual order, not just to the on-screen prompt.
+    Distance = VSize(Foci[0].Location - PlayerPawn.Location);
+    if (!ContextMatches(PlayerPawn, TargetAI, SummonContext, Distance, false))
+        return false;
+
+    PC.ServerRequestSummonAI(TargetAI);
+    return true;
+}
+
 simulated function Interact()
 {
     local ICanBeUsed Target;
@@ -117,6 +170,13 @@ simulated function Interact()
             return;         //nothing to use
 
         PC = SwatGamePlayerController(Level.GetLocalPlayerController());
+
+        //a compliant, un-cuffed character can be told to come over. That is a
+        //  separate order from CanBeUsedNow(), which covers reporting and
+        //  restraining, so it gets first refusal here.
+        if (TrySummonFocus(PC))
+            return;
+
         if (Target.CanBeUsedNow())
         {
             log( "...UniqueID="$Target.UniqueID() );

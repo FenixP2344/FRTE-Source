@@ -46,7 +46,8 @@ protected function ConstructCharacterAIHook(AI_Resource characterResource)
 	
     characterResource.addAbility(new class'SwatAICommon.InvestigateAction');
     characterResource.addAbility(new class'SwatAICommon.AttackOfficerAction');
-    characterResource.addAbility(new class'SwatAICommon.MoveToAttackOfficerAction');
+    // Zombies charge instead of taking up firing positions.
+    characterResource.addAbility(new class'SwatAICommon.ZombieChargeAction');
 	characterResource.addAbility(new class'SwatAICommon.ReactToBeingShotAction');
 }
 
@@ -91,7 +92,8 @@ protected function ConstructMovementAI()
 
     super.constructMovementAI();
 
-	movementResource.addAbility(new class'SwatAICommon.MoveToAttackOfficerAction');
+	// Zombies charge instead of taking up firing positions.
+	movementResource.addAbility(new class'SwatAICommon.ZombieChargeAction');
 }
 
 ///////////////////////////////////////////////////////////////////////////////

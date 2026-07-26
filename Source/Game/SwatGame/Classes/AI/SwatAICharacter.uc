@@ -1161,6 +1161,11 @@ simulated function OnArrestedSwatPawn(Pawn Arrester)
 
     Super.OnArrestedSwatPawn(Arrester);
 
+    // A compliant AI drops its blocking collision in NotifyBecameCompliant().
+    // Forced / on-the-floor arrests never go through that path, so a cuffed
+    // suspect or hostage kept blocking players. Match compliant behaviour here.
+    ClearBlockingCollisionForArrest();
+
     // If we are on the server in a multiplayer game, make the IAmCuffed's
     // third person model replicatable, so clients will see it. On clients in
     // COOP mode, AI's don't really equip their IAmCuffed's. They see the

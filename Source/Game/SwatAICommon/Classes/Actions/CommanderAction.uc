@@ -592,6 +592,11 @@ function PostComplianceGoal()
 	// compliant AIs have a smaller collision radius
 	ISwatAI(m_Pawn).NotifyBecameCompliant();
 
+	// FIX: always re-enable arrestability when re-complying, so that
+	// an enemy who surrendered, got up, and then surrendered again can
+	// still be cuffed.
+	ISwatAICharacter(m_Pawn).SetCanBeArrested(true);
+
 	// allow subclasses to extend functionality
 	NotifyBecameCompliant();
 
@@ -673,6 +678,23 @@ function NotifyBeginArrest(Pawn inRestrainer)
 	CurrentRestrainedGoal.AddRef();
 
 	CurrentRestrainedGoal.postGoal(self);
+}
+
+// Called when a player uses the "come here" interaction on a compliant,
+// un-cuffed character. SwatAI::CanBeSummonedByPlayer() has already verified
+// that this pawn is conscious, compliant and not restrained.
+function NotifySummonedByPlayer(Pawn inSummoner)
+{
+	local SummonComplyGoal CurrentSummonComplyGoal;
+
+	if (inSummoner == None)
+		return;
+
+	CurrentSummonComplyGoal = new class'SummonComplyGoal'(characterResource(), inSummoner);
+	assert(CurrentSummonComplyGoal != None);
+	CurrentSummonComplyGoal.AddRef();
+
+	CurrentSummonComplyGoal.postGoal(self);
 }
 
 function NotifyArrestFloor(Pawn inRestrainer)
@@ -864,9 +886,9 @@ function RemoveNonDeathGoals()
 	// remove the stunned by c2 goal
 	if (CurrentStunnedByC2Goal != None)
 	{
-		CurrentPepperSprayedGoal.unPostGoal(self);
-		CurrentPepperSprayedGoal.Release();
-		CurrentPepperSprayedGoal = None;
+		CurrentStunnedByC2Goal.unPostGoal(self);
+		CurrentStunnedByC2Goal.Release();
+		CurrentStunnedByC2Goal = None;
 	}
 
 	// remove the stung goal

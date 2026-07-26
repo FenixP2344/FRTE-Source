@@ -1434,6 +1434,19 @@ simulated function bool ShouldWalkInIronsights()
     return false; // Only weapons do
 }
 
+// True if this item must always aim down sights, ignoring the user's
+// "Disable Ironsights" (traditional lean-in zoom) option.
+simulated function bool ForceIronsights()
+{
+    return false; // Only specific optic weapons force ironsights
+}
+
+// True while this item is mid-reload. Aiming is suppressed for the duration.
+simulated function bool IsBeingReloadedForAiming()
+{
+    return false; // Only fired weapons can be reloaded
+}
+
 simulated function vector GetIronsightsLocationOffset()
 {
 	local vector IronsightsLocation;

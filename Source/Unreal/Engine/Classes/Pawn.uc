@@ -463,7 +463,8 @@ replication
 #if IG_SWAT
         bForceCrouch, KillerLocation,
 #endif
-        bIsWalking, bIsTyping, PlayerReplicationInfo, AnimAction, DeathHitDamageType, DeathHitLocation,HeadScale;
+        bIsWalking, bIsTyping, PlayerReplicationInfo, AnimAction, DeathHitDamageType, DeathHitLocation,HeadScale,
+        bShoulderLook;
 	reliable if( bTearOff && bNetDirty && (Role==ROLE_Authority) )
 		DeathHitMomentum;
     //TMC removed

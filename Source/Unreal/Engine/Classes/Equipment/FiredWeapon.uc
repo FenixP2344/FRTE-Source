@@ -221,6 +221,12 @@ simulated function bool IsBeingReloaded()
 	return ReloadingStatus != ActionStatus_Idle;
 }
 
+// Aiming is suppressed while this weapon reloads.
+simulated function bool IsBeingReloadedForAiming()
+{
+	return IsBeingReloaded();
+}
+
 //
 // Ammo Interface
 //

@@ -211,13 +211,17 @@ function bool ShouldHideCrosshairsDueToIronsights()
     // Not in zoom, so we don't have to worry about this
     return false;
   }
-  if(GetIronsightsDisabled())
+
+  Equipment = Pawn.GetActiveItem();
+
+  // Optic weapons force ironsights, so they keep ironsights crosshair rules
+  // even when the player disabled ironsights globally.
+  if(GetIronsightsDisabled() && (Equipment == None || !Equipment.ForceIronsights()))
   {
     // We use the traditional zoom method instead of ironsights
     return false;
   }
 
-  Equipment = Pawn.GetActiveItem();
   if(!Equipment.ShouldHideCrosshairsInIronsights())
   {
     // The currently selected piece of equipment always shows the crosshair when zooming

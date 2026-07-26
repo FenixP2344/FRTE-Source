@@ -277,7 +277,8 @@ replication
 
     // replicated functions sent to server by owning client
     reliable if( Role < ROLE_Authority )
-        ServerToggleDesiredFlashlightState,ServerToggleDesiredNVGState ,ServerSetLowReadyStatus;
+        ServerToggleDesiredFlashlightState,ServerToggleDesiredNVGState ,ServerSetLowReadyStatus,
+        ServerSetShoulderLook, ServerSetWalking;
 
 	// replicated functions sent to server by owning client			
     reliable if ( Role == ROLE_Authority )
@@ -1206,6 +1207,23 @@ simulated function SetLowReady(bool bEnable, optional name Reason)
 simulated protected function bool CanPawnUseLowReady() { return false; }
 
 ///////////////////////////////////////
+
+// Executes only on server.
+// The owning client drives shoulder look, so mirror it on the server (and from
+// there out to every other client) or remote players never see the pose.
+function ServerSetShoulderLook( bool bEnable )
+{
+    bShoulderLook = bEnable;
+}
+
+// Executes only on server.
+// Walking is decided by the owning client (ironsights, walk key, ...). Without
+// this the server keeps overwriting bIsWalking, so ADS never slowed the pawn
+// down in multiplayer.
+function ServerSetWalking( bool bNewIsWalking )
+{
+    SetWalking( bNewIsWalking );
+}
 
 // Executes only on server.
 function ServerSetLowReadyStatus( bool bEnable, name Reason )

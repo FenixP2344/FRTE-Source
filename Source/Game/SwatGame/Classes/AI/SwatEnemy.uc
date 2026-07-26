@@ -318,6 +318,7 @@ protected function ConstructCharacterAI()
     characterResource.addAbility(new class'SwatAICommon.InvestigateAction');
 	characterResource.addAbility(new class'SwatAICommon.RestrainedAction');
 	characterResource.addAbility(new class'SwatAICommon.RestrainedFloorAction');
+	characterResource.addAbility(new class'SwatAICommon.SummonComplyAction');
 	characterResource.addAbility(new class'SwatAICommon.TakeCoverAction');
 	characterResource.addAbility(new class'SwatAICommon.EnemyComplianceAction');
 	characterResource.addAbility(new class'SwatAICommon.EnemyCowerAction');
@@ -1074,12 +1075,15 @@ function bool ShouldDropWeaponInstantly()
 		case EnemySkill_High:
 			//Chance = HighSkillComplyInstantDropChance;
 			Chance = class'SwatEnemyConfig'.default.HighSkillFullBodyHitChance;
+			break;
 		case EnemySkill_Medium:
 			//Chance = MediumSkillComplyInstantDropChance;
 			Chance = class'SwatEnemyConfig'.default.MediumSkillFullBodyHitChance;
+			break;
 		case EnemySkill_Low:
 			//Chance = LowSkillComplyInstantDropChance;
 			Chance = class'SwatEnemyConfig'.default.LowSkillFullBodyHitChance;
+			break;
 	}
 	return (FRand() < Chance);
 }
@@ -1096,12 +1100,15 @@ function bool GetNoDropWeaponChance()
 		case EnemySkill_High:
 			//Chance = HighSkillComplyInstantDropChance;
 			Chance = class'SwatEnemyConfig'.default.HighSkillNoDropChance;
+			break;
 		case EnemySkill_Medium:
 			//Chance = MediumSkillComplyInstantDropChance;
 			Chance = class'SwatEnemyConfig'.default.MediumSkillNoDropChance;
+			break;
 		case EnemySkill_Low:
 			//Chance = LowSkillComplyInstantDropChance;
 			Chance = class'SwatEnemyConfig'.default.LowSkillNoDropChance;
+			break;
 	}
 	return (FRand() < Chance);
 }
@@ -1109,6 +1116,36 @@ function bool GetNoDropWeaponChance()
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Threat
+
+// Player/officer body collision should discover this suspect.
+// Covers shouldering/bumping an unaware AI from behind without a clean vision event.
+simulated function ReactToBumped(Actor Other)
+{
+	local Pawn OtherPawn;
+	local EnemyCommanderAction Commander;
+
+	Super.ReactToBumped(Other);
+
+	if (!class'Pawn'.static.checkConscious(self) || IsCompliant() || IsArrested())
+		return;
+
+	OtherPawn = Pawn(Other);
+	if ((OtherPawn == None) || !class'Pawn'.static.checkConscious(OtherPawn))
+		return;
+
+	if (!OtherPawn.IsA('SwatPlayer') && !OtherPawn.IsA('SwatOfficer'))
+		return;
+
+	Commander = GetEnemyCommanderAction();
+	if (Commander != None)
+	{
+		if (logAI)
+			log(Name $ " ReactToBumped discovered " $ OtherPawn.Name);
+
+		// EncounterEnemy sets Aware + engagement; safe if already engaging same target.
+		Commander.EncounterEnemy(OtherPawn);
+	}
+}
 
 function BecomeAThreat()
 {
@@ -1225,6 +1262,7 @@ function float GetTimeToWaitBeforeFiring()
 			TimeToWait = RandRange(class'SwatEnemyConfig'.default.LowSkillMinTimeBeforeShooting, class'SwatEnemyConfig'.default.LowSkillMaxTimeBeforeShooting);
 			break;
 	}
+
 
 	if (Level.NetMode != NM_Standalone)
 	{
@@ -1446,3 +1484,4 @@ defaultproperties
     Mesh = SkeletalMesh'SWATMaleAnimation2.MaleGang1'
     Texture = Texture'SWATgearTex.Placeholder'
 }
+

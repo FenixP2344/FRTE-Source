@@ -373,6 +373,13 @@ function bool ShouldIgnoreDisabledZoom() {
 	return IgnoreZoomSetting;
 }
 
+// Weapons may opt out of the user's "Disable Ironsights" option via config,
+// or by overriding this in a specific optic base class.
+simulated function bool ForceIronsights()
+{
+	return IgnoreZoomSetting;
+}
+
 static function bool IsUsableByPlayer()
 {
 	return default.PlayerUsable;

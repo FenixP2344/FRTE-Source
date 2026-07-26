@@ -285,6 +285,13 @@ var eVoiceType VoiceType;
 var bool WantsLowReady;
 var bool WantedZoom;
 
+// When true, aiming is disabled for as long as the active weapon reloads.
+// Not a config var: this is a gameplay rule, identical for every client.
+var bool bBlockZoomWhileReloading;
+
+// Last walking state we told the server about (multiplayer ADS slowdown).
+var private bool LastReplicatedWalking;
+
 //class size adjustment
 /*var MovingMode unused1;
 var MovingMode unused2;
@@ -327,7 +334,7 @@ replication
         ServerViewportActivate, ServerViewportDeactivate,
         ServerHandleViewportFire, ServerHandleViewportReload,
 		ServerDisableSpecialInteractions, ServerMPCommandIssued,
-		ServerDiscordTest, ServerDiscordTest2, ServerGiveItem ,PullDoor ,PartialDoorPush, PartialDoorPull, ServerRequestLoveTap;
+		ServerDiscordTest, ServerDiscordTest2, ServerGiveItem ,PullDoor ,PartialDoorPush, PartialDoorPull, ServerRequestLoveTap, ServerRequestSummonAI;
 		
 }
 
@@ -3007,6 +3014,41 @@ exec function FinishArrest( bool Success )
     }
 }
 
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// "Come here" order for compliant characters
+//
+
+// Executes on the server.
+// SwatAI::OnSummonedByPlayer() re-checks compliance / restraint / consciousness,
+// so a client cannot use this to summon an incapacitated or cuffed character.
+function ServerRequestSummonAI( Pawn Target )
+{
+    local SwatAI TargetAI;
+    local name SpeechEvent;
+
+    if (Pawn == None || Target == None)
+        return;
+
+    TargetAI = SwatAI(Target);
+    if (TargetAI == None)
+        return;
+
+    //don't trust the client's range check
+    if (VSize(Target.Location - Pawn.Location) > class'SummonSettings'.default.SummonMaxRange)
+        return;
+
+    if (!TargetAI.CanBeSummonedByPlayer())
+        return;
+
+    TargetAI.OnSummonedByPlayer( Pawn );
+
+    //the officer calls them over. Broadcast so everyone in MP hears it.
+    SpeechEvent = class'SummonSettings'.default.SummonSpeechEvent;
+    if (SpeechEvent != '')
+        Pawn.BroadcastEffectEvent( SpeechEvent, Target );
+}
 
 exec function Interact()
 {
@@ -5688,6 +5730,9 @@ exec function ToggleLowReadyUP()
 	
     if (SwatPlayer(Pawn) != None && GC.ExtraIntOptions[6] == 1 && SwatPlayer(Pawn).GetActiveItem().IsIdle() ){
 		if (!WantsZoom && !SwatPlayer(Pawn).IsLowReady() && !WantedZoom) {
+			if (!CanZoomNow())
+				return; // reloading: keep the weapon down
+
 			ToggleZoomMLR();
 			return;
 		}
@@ -5721,9 +5766,57 @@ exec function ToggleLowReadyDOWN()
 	
 }
 
-exec function ToggleZoomMLR() {	
+///////////////////////////////////////////////////////////////////////////////
+//
+// Reloading blocks aiming
+//
+// While the active weapon is being reloaded the player may not enter ironsights
+// or the traditional lean-in zoom, and an aim already in progress is cancelled.
+
+simulated function bool IsReloadingActiveItem()
+{
+	local FiredWeapon Weapon;
+
+	if (Pawn == None)
+		return false;
+
+	Weapon = FiredWeapon(Pawn.GetActiveItem());
+	if (Weapon == None)
+		return false;
+
+	return Weapon.IsBeingReloaded();
+}
+
+// Returns true when the player is allowed to start (or keep) aiming.
+simulated function bool CanZoomNow()
+{
+	return !bBlockZoomWhileReloading || !IsReloadingActiveItem();
+}
+
+// Drops any active aim. Used when a reload starts while the player is aiming.
+simulated function CancelZoomForReload()
+{
+	if (!WantsZoom && !WantedZoom)
+		return;
+
+	SetZoom(false, true);
+	WantedZoom = false;
+
+	if (SwatPlayer(Pawn) != None)
+	{
+		WantsLowReady = false;
+		SwatPlayer(Pawn).SetLowReady(false);
+	}
+}
+
+exec function ToggleZoomMLR() {
 	if ( SwatPlayer(Pawn) == None ) return;
-	
+
+	// Refuse to raise the sights while reloading. If we are already aiming we
+	// fall through, so the player can still lower the weapon manually.
+	if ( !WantsZoom && !WantedZoom && !CanZoomNow() )
+		return;
+
 	WantedZoom=!WantedZoom; //desired zoom state
 	ToggleZoom();
 	WantsLowReady=false;
@@ -6199,13 +6292,22 @@ exec function ToggleNVGLightDown()
 
 exec function ShoulderLook()
 {
+	local SwatPawn theSwatPawn;
+
 	if ( Pawn == None )
 		return;
 
 	Pawn.bShoulderLook = !Pawn.bShoulderLook;
+
+	// Mirror the state on the server so it reaches the other clients; without
+	// this, free look only ever worked in single player.
+	theSwatPawn = SwatPawn(Pawn);
+	if ( theSwatPawn != None && Level.NetMode != NM_Standalone && Role < ROLE_Authority )
+		theSwatPawn.ServerSetShoulderLook( Pawn.bShoulderLook );
+
 	//reset all Reload states
     SetZoom(false, true);
-        
+
 	WantedZoom=false;
 
 	if ( !Pawn.bShoulderLook )
@@ -6589,6 +6691,8 @@ function ServerSetAlwaysRun( bool NewValue )
 // is running when the 'bRun' button is down, instead of when it is up
 function HandleWalking()
 {
+    local bool ShouldBeWalking;
+    local SwatPawn theWalkPawn;
     local bool WantsToWalk; //versus run
     local HandheldEquipment ActiveItem;
 	local SwatGuiConfig GC;
@@ -6614,8 +6718,23 @@ function HandleWalking()
     {
 		ActiveItem = Pawn.GetActiveItem();
         //WantsToWalk = bool(bRun) == Repo.GuiConfig.bAlwaysRun; // MCJ: old version.
-        WantsToWalk = (WantsZoom && ActiveItem.ShouldWalkInIronsights()) || bool(bRun) == bAlwaysRun;		
-		         Pawn.SetWalking( WantsToWalk && !Region.Zone.IsA('WarpZoneInfo') );
+        WantsToWalk = (WantsZoom && ActiveItem.ShouldWalkInIronsights()) || bool(bRun) == bAlwaysRun;
+		ShouldBeWalking = WantsToWalk && !Region.Zone.IsA('WarpZoneInfo');
+		Pawn.SetWalking( ShouldBeWalking );
+
+		// In multiplayer the server owns bIsWalking, so tell it whenever our local
+		// decision changes. Otherwise ADS never slows the pawn down for anyone but
+		// the listen server host.
+		if ( Level.NetMode != NM_Standalone && Role < ROLE_Authority
+			&& ShouldBeWalking != LastReplicatedWalking )
+		{
+			theWalkPawn = SwatPawn(Pawn);
+			if ( theWalkPawn != None )
+			{
+				theWalkPawn.ServerSetWalking( ShouldBeWalking );
+				LastReplicatedWalking = ShouldBeWalking;
+			}
+		}
 
         if (aForward == 0 && aStrafe == 0)
         {
@@ -7256,4 +7375,5 @@ defaultproperties
 	
 	bBattleRoomControl=1
 	bBattleRoomRotation=1
+    bBlockZoomWhileReloading=true
 }

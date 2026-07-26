@@ -147,7 +147,7 @@ simulated function UpdateHandsForRendering()
     ADSInertia = (1 - ViewInertia) * 8;
 
     // Update animation progress, interpolating towards default view or ADS view as applicable.
-    if (OwnerController != None && OwnerController.WantsZoom && !OwnerController.GetIronsightsDisabled() && !EquippedItem.IsA('MagliteTorch') && !EquippedItem.IsA('ShieldHandgun') && !EquippedItem.IsA('TaserShield') && !EquippedItem.IsA('BatteringRam')) {  
+    if (OwnerController != None && OwnerController.WantsZoom && !EquippedItem.IsBeingReloadedForAiming() && (!OwnerController.GetIronsightsDisabled() || EquippedItem.ForceIronsights()) && !EquippedItem.IsA('MagliteTorch') && !EquippedItem.IsA('ShieldHandgun') && !EquippedItem.IsA('TaserShield') && !EquippedItem.IsA('BatteringRam')) {  
     	AnimationProgress = AnimationProgress + ADSInertia * deltaTime;
 		SetLowReady(false); // not low ready anymore
     } else {

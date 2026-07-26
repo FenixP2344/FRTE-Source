@@ -100,6 +100,15 @@ simulated function PostUpdate(SwatGamePlayerController Player)
     if (!ShouldLowReady)
         LowReadyReason = '';
 
+	// Reloading always wins: drop the sights and refuse to raise them again
+	// until the reload finishes.
+	if (!Player.CanZoomNow())
+	{
+		Player.CancelZoomForReload();
+		PlayerPawn.SetLowReady(ShouldLowReady, LowReadyReason);
+		return;
+	}
+
 	if (GC.ExtraIntOptions[6] == 0) //if auto-lowready
 	{
 		PlayerPawn.SetLowReady(ShouldLowReady, LowReadyReason);

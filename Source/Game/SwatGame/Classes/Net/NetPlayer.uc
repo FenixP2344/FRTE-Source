@@ -42,6 +42,26 @@ var config private float IdealCuffingDistanceBetweenPawns;
 
 var protected int TeamNumber;
 
+///////////////////////////////////////////////////////////////////////////////
+//
+// Replication
+
+replication
+{
+    // Server tells every client which team this player is on, so that
+    // RefreshTeamMarkers (which runs on every client for every replicated
+    // NetPlayer) can pick the right coloured glowstick / light strip.
+    reliable if (Role == ROLE_Authority)
+        TeamNumber;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+// PVP team identification markers (head glowstick + back light strip).
+// Config lives on TeamMarkerSettings (non-native) so NetPlayer's native
+// class layout stays locked. Runtime marker refs are found by iterating
+// DynamicActors, not stored as member vars.
+
 // Mesh for VIP
 var Mesh VIPMesh;
 
@@ -167,7 +187,86 @@ simulated event PostNetBeginPlay()
 
     //mplog(self$" calling SwatPlayer.RefreshCameraEffects("$self$")");
     RefreshCameraEffects(self);
-	
+
+    RefreshTeamMarkers();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// PVP team markers
+//
+// Every machine spawns its own local markers, so no extra replication is
+// needed: the team assignment already reaches clients through the pawn class
+// and PlayerReplicationInfo.
+
+simulated function RefreshTeamMarkers()
+{
+    local int MarkerTeam;
+
+    if (Level.NetMode == NM_DedicatedServer)
+        return; // nothing is rendered on a dedicated server
+
+    DestroyTeamMarkers();
+
+    if (!class'TeamMarkerSettings'.default.bEnableTeamMarkers)
+        return;
+
+    // COOP is one-sided, so markers stay off there unless explicitly enabled.
+    if (Level.IsPlayingCOOP && !class'TeamMarkerSettings'.default.bTeamMarkersInCoop)
+        return;
+
+    if (IsTheVIP())
+        return; // the VIP already has a distinctive mesh
+
+    MarkerTeam = GetTeamNumber();
+
+    if (MarkerTeam == 0)
+    {
+        SpawnTeamMarker(class'BlueTeamHeadMarker');
+        SpawnTeamMarker(class'BlueTeamBackMarker');
+    }
+    else
+    {
+        SpawnTeamMarker(class'RedTeamHeadMarker');
+        SpawnTeamMarker(class'RedTeamBackMarker');
+    }
+}
+
+simulated function TeamMarker SpawnTeamMarker(class<TeamMarker> MarkerClass)
+{
+    local TeamMarker Marker;
+
+    if (MarkerClass == None)
+        return None;
+
+    Marker = Spawn(MarkerClass, self);
+    if (Marker == None)
+        return None;
+
+    AttachToBone(Marker, Marker.AttachmentBone);
+
+    return Marker;
+}
+
+simulated function DestroyTeamMarkers()
+{
+    local TeamMarker M;
+
+    foreach DynamicActors(class'TeamMarker', M)
+    {
+        if (M.Owner == self)
+        {
+            DetachFromBone(M);
+            M.Destroy();
+        }
+    }
+}
+
+simulated event Destroyed()
+{
+    DestroyTeamMarkers();
+
+    Super.Destroyed();
 }
 
 simulated event PostBeginPlay()
@@ -1165,4 +1264,6 @@ defaultproperties
 
     VIPMesh=SkeletalMesh'SWATMaleAnimation2.MaleSuit2'
     //ViewportOverlayMaterial=Material'HUD.officerviewport'
+
+
 }

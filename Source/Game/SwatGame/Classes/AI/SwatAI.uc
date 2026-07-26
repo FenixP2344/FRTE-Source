@@ -18,6 +18,7 @@ class SwatAI extends SwatRagdollPawn
 import enum AIThrowSide from SwatAICommon.ISwatAI;
 import enum EUpperBodyAnimBehavior from ISwatAI;
 import enum EUpperBodyAnimBehaviorClientId from UpperBodyAnimBehaviorClients;
+import enum ELeanState from Engine.Pawn;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -749,6 +750,16 @@ function HandheldEquipment GetRestrainedHandcuffs()
 	// overridden in subclass SwatAICharacter
 	assert(false);
 	return None;
+}
+
+// Cuffed / compliant characters must not block player movement.
+// Overridden usage: compliance, and forced or on-the-floor arrests.
+simulated function ClearBlockingCollisionForArrest()
+{
+	if (bBlockActors || bBlockPlayers)
+	{
+		SetCollision(bCollideActors, false, false);
+	}
 }
 
 function NotifyBecameCompliant()
@@ -2160,6 +2171,201 @@ event bool CanHitTarget(Actor Target)
 	
 }
 
+// Pawn.CanShootTarget defaults to false forever. AttackTargetAction waits on:
+//   !CanHitTarget && !CanShootTarget
+// so a false CanHit (common on MP / partial peeks) previously meant "aim forever".
+// Provide a slightly looser, script-side shoot-line test for AI.
+event bool CanShootTarget(Actor Target)
+{
+	local Pawn TargetPawn;
+	local vector StartTrace;
+	local vector RightVector;
+	local vector UpVector;
+	local vector ForwardVector;
+	local vector BasePoint;
+	local vector PeekPoint;
+	local float LeanDirection;
+	local float LeanAmount;
+	local float PeekDistance;
+	local int DistanceIndex;
+	local int HeightIndex;
+
+	if ((Target == None) || (FiredWeapon(GetActiveItem()) == None))
+		return false;
+
+	// Prefer the strict check when it already succeeds.
+	if (CanHitTarget(Target))
+		return true;
+
+	StartTrace = GetEyeLocation();
+	TargetPawn = Pawn(Target);
+
+	if (TargetPawn != None)
+	{
+		if (!class'Pawn'.static.checkConscious(TargetPawn))
+			return false;
+
+		// Core body samples
+		if (FastTrace(TargetPawn.GetChestLocation(), StartTrace))
+			return true;
+		if (FastTrace(TargetPawn.GetHeadLocation(), StartTrace))
+			return true;
+		if (FastTrace(TargetPawn.GetEyeLocation(), StartTrace))
+			return true;
+		if (FastTrace(TargetPawn.Location, StartTrace))
+			return true;
+
+		RightVector = vect(0, 1, 0) >> TargetPawn.Rotation;
+		UpVector = vect(0, 0, 1);
+		ForwardVector = vector(TargetPawn.Rotation);
+
+		// Always sample both shoulders / upper-arm edges.
+		// Tiny QE peeks often expose only a shoulder or arm, not center chest/head.
+		if (FastTrace(TargetPawn.GetChestLocation() + (RightVector * 12.0), StartTrace))
+			return true;
+		if (FastTrace(TargetPawn.GetChestLocation() - (RightVector * 12.0), StartTrace))
+			return true;
+		if (FastTrace(TargetPawn.GetChestLocation() + (RightVector * 20.0), StartTrace))
+			return true;
+		if (FastTrace(TargetPawn.GetChestLocation() - (RightVector * 20.0), StartTrace))
+			return true;
+		if (FastTrace(TargetPawn.GetChestLocation() + (RightVector * 28.0), StartTrace))
+			return true;
+		if (FastTrace(TargetPawn.GetChestLocation() - (RightVector * 28.0), StartTrace))
+			return true;
+
+		// Upper shoulder / arm height (between chest and head)
+		BasePoint = TargetPawn.GetChestLocation() + (UpVector * 12.0);
+		if (FastTrace(BasePoint + (RightVector * 16.0), StartTrace))
+			return true;
+		if (FastTrace(BasePoint - (RightVector * 16.0), StartTrace))
+			return true;
+		if (FastTrace(BasePoint + (RightVector * 24.0), StartTrace))
+			return true;
+		if (FastTrace(BasePoint - (RightVector * 24.0), StartTrace))
+			return true;
+
+		// Slightly forward of shoulders (weapon/hand often sticks past cover)
+		if (FastTrace(BasePoint + (RightVector * 20.0) + (ForwardVector * 10.0), StartTrace))
+			return true;
+		if (FastTrace(BasePoint - (RightVector * 20.0) + (ForwardVector * 10.0), StartTrace))
+			return true;
+
+		// Anti QE peek: multi-tier lean offsets (16/28/44) x body heights.
+		LeanDirection = 0.0;
+		if ((TargetPawn.LeanState == kLeanStateLeft) || TargetPawn.bWantsToLeanLeft)
+			LeanDirection = -1.0;
+		else if ((TargetPawn.LeanState == kLeanStateRight) || TargetPawn.bWantsToLeanRight)
+			LeanDirection = 1.0;
+
+		if (LeanDirection != 0.0)
+		{
+			// Tiny peeks can have very low LeanAlpha; keep a usable floor.
+			LeanAmount = FMax(TargetPawn.LeanAlpha, 0.25);
+			RightVector = vect(0, 1, 0) >> TargetPawn.Rotation;
+
+			for (DistanceIndex = 0; DistanceIndex < 3; DistanceIndex++)
+			{
+				if (DistanceIndex == 0)
+					PeekDistance = 16.0;
+				else if (DistanceIndex == 1)
+					PeekDistance = 28.0;
+				else
+					PeekDistance = 44.0; // matches Pawn default LeanHorizontalDistance
+
+				for (HeightIndex = 0; HeightIndex < 4; HeightIndex++)
+				{
+					if (HeightIndex == 0)
+						BasePoint = TargetPawn.GetEyeLocation();
+					else if (HeightIndex == 1)
+						BasePoint = TargetPawn.GetHeadLocation();
+					else if (HeightIndex == 2)
+						BasePoint = TargetPawn.GetChestLocation() + (UpVector * 10.0);
+					else
+						BasePoint = TargetPawn.GetChestLocation();
+
+					PeekPoint = BasePoint + (RightVector * LeanDirection * PeekDistance * LeanAmount);
+					if (FastTrace(PeekPoint, StartTrace))
+						return true;
+
+					// Camera/gun often leads the mesh center a bit.
+					PeekPoint = PeekPoint + (ForwardVector * 8.0);
+					if (FastTrace(PeekPoint, StartTrace))
+						return true;
+				}
+			}
+		}
+		else if (TargetPawn.bShoulderLook)
+		{
+			RightVector = vect(0, 1, 0) >> TargetPawn.Rotation;
+			for (DistanceIndex = 0; DistanceIndex < 3; DistanceIndex++)
+			{
+				if (DistanceIndex == 0)
+					PeekDistance = 12.0;
+				else if (DistanceIndex == 1)
+					PeekDistance = 20.0;
+				else
+					PeekDistance = 28.0;
+
+				PeekPoint = TargetPawn.GetEyeLocation() + (RightVector * PeekDistance);
+				if (FastTrace(PeekPoint, StartTrace))
+					return true;
+				PeekPoint = TargetPawn.GetHeadLocation() + (RightVector * PeekDistance);
+				if (FastTrace(PeekPoint, StartTrace))
+					return true;
+				PeekPoint = TargetPawn.GetChestLocation() + (UpVector * 10.0) + (RightVector * PeekDistance);
+				if (FastTrace(PeekPoint, StartTrace))
+					return true;
+			}
+		}
+		else
+		{
+			// No lean flags: still sample small lateral peeks (arm-only exposure).
+			RightVector = vect(0, 1, 0) >> TargetPawn.Rotation;
+			for (DistanceIndex = 0; DistanceIndex < 2; DistanceIndex++)
+			{
+				if (DistanceIndex == 0)
+					PeekDistance = 14.0;
+				else
+					PeekDistance = 22.0;
+
+				PeekPoint = TargetPawn.GetChestLocation() + (UpVector * 8.0) + (RightVector * PeekDistance);
+				if (FastTrace(PeekPoint, StartTrace))
+					return true;
+				PeekPoint = TargetPawn.GetChestLocation() + (UpVector * 8.0) - (RightVector * PeekDistance);
+				if (FastTrace(PeekPoint, StartTrace))
+					return true;
+				PeekPoint = TargetPawn.GetHeadLocation() + (RightVector * PeekDistance);
+				if (FastTrace(PeekPoint, StartTrace))
+					return true;
+				PeekPoint = TargetPawn.GetHeadLocation() - (RightVector * PeekDistance);
+				if (FastTrace(PeekPoint, StartTrace))
+					return true;
+			}
+		}
+
+		// Reciprocal exposure: if they can see us, re-check upper body edges.
+		if (TargetPawn.LineOfSightTo(self))
+		{
+			if (FastTrace(TargetPawn.GetChestLocation(), StartTrace))
+				return true;
+			if (FastTrace(TargetPawn.GetChestLocation() + (RightVector * 18.0), StartTrace))
+				return true;
+			if (FastTrace(TargetPawn.GetChestLocation() - (RightVector * 18.0), StartTrace))
+				return true;
+			if (FastTrace(TargetPawn.GetHeadLocation(), StartTrace))
+				return true;
+		}
+	}
+	else
+	{
+		if (FastTrace(Target.Location, StartTrace))
+			return true;
+	}
+
+	return false;
+}
+
 simulated function SEFDebugSensor()
 {
   bDebugSensor = !bDebugSensor;
@@ -3279,6 +3485,51 @@ simulated function OnEffectStopped(Actor inStoppedEffect, bool Completed)
 // Allows the player to report the status of an unconscious or arrested ai to
 // toc.
 
+///////////////////////////////////////////////////////////////////////////////
+//
+// "Come here" summon
+//
+// Deliberately narrow: only a conscious, compliant (kneeling), NOT restrained
+// and NOT incapacitated character may be summoned. Anyone already cuffed, on
+// the floor, downed or dead is excluded, so a player can never drag an
+// incapacitated body around.
+
+simulated function bool CanBeSummonedByPlayer()
+{
+	// must still be alive and on their feet/knees
+	if (!class'Pawn'.static.checkConscious(self))
+		return false;
+
+	if (IsIncapacitated())
+		return false;
+
+	// must be complying (kneeling with hands up)
+	if (!IsCompliant())
+		return false;
+
+	// never once the cuffs are on, and never while lying on the floor
+	if (IsArrested() || IsArrestedOnFloor() || IsBeingArrestedNow())
+		return false;
+
+	return true;
+}
+
+// Executes on the server. Tells the commander to walk this character over to
+// the summoning officer.
+function OnSummonedByPlayer(Pawn Summoner)
+{
+	if (Summoner == None)
+		return;
+
+	if (!CanBeSummonedByPlayer())
+		return;
+
+	if (GetCommanderAction() == None)
+		return;
+
+	GetCommanderAction().NotifySummonedByPlayer(Summoner);
+}
+
 simulated function bool CanBeUsedNow()
 {
 	    //arrested on floor		
@@ -3329,6 +3580,8 @@ simulated function OnUsed(Pawn Other)
 	        if (Vsize(self.Location - Other.Location ) < 150 )		
 	        {		
 	            SetArrestedOnFloor( true);		
+	            // lying on the floor must never block players
+	            ClearBlockingCollisionForArrest();
 	            GetCommanderAction().NotifyArrestFloor(Other);		
 	        }		
 	    }		
@@ -3435,3 +3688,4 @@ defaultproperties
 
 	bAlwaysTestPathReachability = false
 }
+

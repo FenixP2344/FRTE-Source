@@ -223,6 +223,7 @@ native function bool RejectFocus(
 simulated function bool SpecialCondition_Zulu() { return false; }
 simulated function bool SpecialCondition_Uncompliant(Actor Target) { return false; }
 simulated function bool SpecialCondition_CanBeArrested(Actor Target) { return false; }
+simulated function bool SpecialCondition_SummonCompliant(Actor Target) { return false; }
 simulated function bool SpecialCondition_LowReadyPawn(SwatPlayer Player, Actor Target) { return false; }
 simulated function bool SpecialCondition_Shield(SwatPlayer Player, Actor Target) { return false; }
 simulated function bool SpecialCondition_CuffsOnPlayer(SwatPlayer Player, Actor Target) { return false; }
@@ -446,6 +447,13 @@ function bool ContextMatches(SwatPlayer Player, Actor Target, PlayerInterfaceCon
 				break;
 			case 'CanBeArrested':
 				if(!SpecialCondition_CanBeArrested(Target))
+				{
+					return false;
+				}
+				break;
+			case 'SummonCompliantAI':
+				// Only a kneeling, un-cuffed, conscious character can be called over.
+				if(!SpecialCondition_SummonCompliant(Target))
 				{
 					return false;
 				}
