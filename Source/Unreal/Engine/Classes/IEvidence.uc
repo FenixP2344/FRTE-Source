@@ -1,1 +1,2 @@
-interface IEvidence extends ICanBeUsed;
+interface IEvidence extends ICanBeUsed
+    dependsOn(Pawn);

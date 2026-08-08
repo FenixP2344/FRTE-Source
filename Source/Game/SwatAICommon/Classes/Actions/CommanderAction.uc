@@ -680,6 +680,20 @@ function NotifyBeginArrest(Pawn inRestrainer)
 	CurrentRestrainedGoal.postGoal(self);
 }
 
+// How many seconds this AI has been kneeling in compliance, or -1 if the
+// compliance goal is not currently posted. Used by the summon feature to
+// require a short grace period before a just-compliant character is callable.
+function float GetTimeSinceCompliant()
+{
+	if (CurrentComplianceGoal == None)
+		return -1.0;
+
+	if (CurrentComplianceGoal.GetCompliantStartTime() == 0.0)
+		return -1.0;
+
+	return Level.TimeSeconds - CurrentComplianceGoal.GetCompliantStartTime();
+}
+
 // Called when a player uses the "come here" interaction on a compliant,
 // un-cuffed character. SwatAI::CanBeSummonedByPlayer() has already verified
 // that this pawn is conscious, compliant and not restrained.

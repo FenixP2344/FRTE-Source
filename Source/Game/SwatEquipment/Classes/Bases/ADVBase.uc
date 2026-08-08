@@ -10,6 +10,15 @@ var(StrobeLight) StrobeLight AttachedStrobeLight;
 var(StrobeLight) vector StrobePositionOffset; 
 var bool CanSeeIRLaser;
 
+// Advanced imaging helmet: thermal fusion (mode 2) directly, locked.
+simulated function ActivateEffect()
+{
+	//class'SwatPlayerExtras'.default.NVGMode = 2;
+	class'SwatPlayerExtras'.default.NVGMode = 0;
+	class'SwatPlayerExtras'.default.bNVGModeLocked = true;
+	Super.ActivateEffect();
+}
+
 function QualifyProtectedRegion() 
 {
     assertWithDescription(ProtectedRegion < REGION_Body_Max,

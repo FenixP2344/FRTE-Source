@@ -11,6 +11,7 @@ class ComplianceGoal extends SwatCharacterGoal;
 
 var private bool	bHasCompliedAlready;
 var private bool	bCanBeArrested;
+var private float	CompliantStartTime;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -25,6 +26,16 @@ function bool CanBeArrested()
 function SetCanBeArrested()
 {
 	bCanBeArrested = true;
+}
+
+function SetCompliantStartTime(float Time)
+{
+	CompliantStartTime = Time;
+}
+
+function float GetCompliantStartTime()
+{
+	return CompliantStartTime;
 }
 
 function bool HasCompliedAlready()

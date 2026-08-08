@@ -941,6 +941,29 @@ simulated function SetMPBlockingVolume(bool Enabled)
 	}
 }
 
+// [fix] DS door-frame backtracking: the door leaves (DoorModel) only exist on
+// the server (SingleDoor/DoubleDoor spawn them when NetMode != NM_Client), so
+// while the door leaf swings open/closed the server must not block players
+// with them -- the client has no leaf collision, so prediction passes through
+// and ServerMove's correction snaps the player back. Player blocking of a
+// stationary closed door is handled by DoorBufferVolume, present on every
+// machine, so the leaves can be unblocked during the swing without losing
+// the "can't camp the closed door" rule in MP.
+simulated private function SetDoorModelsBlockPlayers(bool bBlock)
+{
+	local int i;
+	local array<Actor> Models;
+	local DoorModel DM;
+
+	Models = GetDoorModels();
+	for (i = 0; i < Models.length; ++i)
+	{
+		DM = DoorModel(Models[i]);
+		if (DM != None)
+			DM.SetCollision(true, bBlock, bBlock);
+	}
+}
+
 simulated function SetAntiportal(bool Enabled)
 {
 	if (bIsAntiPortal && DoorAntiPortal != None)
@@ -1652,6 +1675,11 @@ Begin:
 		SetAntiPortalAndMPBlockingVolume(false); // off
 	}
 
+	// [fix] DS rubber-band: while the door leaf swings, server must not block
+	// players with leaves the client cannot see (client has no DoorModel).
+	if (Level.NetMode != NM_Standalone)
+		SetDoorModelsBlockPlayers(false);
+
     ReactivateNearbyRagdolls();
     StartMoving();
 
@@ -1667,6 +1695,12 @@ Begin:
 	if (CurrentPosition == DoorPosition_Closed)
 	{
 		SetAntiPortalAndMPBlockingVolume(true); // on
+
+		// [fix] restore leaf blocking only once the door is fully closed and
+		// still; the DoorBufferVolume (present on all machines) already keeps
+		// players off a closed door, so this is safe and stays symmetric.
+		if (Level.NetMode != NM_Standalone)
+			SetDoorModelsBlockPlayers(true);
 	}
 
     OnMoveEnded();

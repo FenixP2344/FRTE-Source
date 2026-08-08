@@ -22,10 +22,15 @@ var config float SummonMaxRange;
 // Leave empty for no speech.
 var config name SummonSpeechEvent;
 
+// Grace period (seconds) a suspect/hostage must have been kneeling before the
+// player can call them over.
+var config float MinCompliantTimeForSummon;
+
 ///////////////////////////////////////////////////////////////////////////////
 
 defaultproperties
 {
     SummonMaxRange = 300.0
     SummonSpeechEvent = SummonCompliantSuspect
+    MinCompliantTimeForSummon = 1.5
 }

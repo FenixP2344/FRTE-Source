@@ -60,6 +60,17 @@ function OnUsingByToolkitBegan( Pawn User );
 // Called when qualifying completes successfully.
 function OnUsedByToolkit(Pawn User)
 {
+    local SwatPawn UserPawn;
+
+    // The wedge is reclaimed by whoever removes it with a toolkit: the person
+    // who pulls it off the door keeps it (so removing your own wedge refunds
+    // what you consumed, and removing someone else's gives it to you).
+    UserPawn = SwatPawn(User);
+    if (UserPawn != None)
+    {
+        UserPawn.GivenEquipmentFromPawn(class'SwatPlayerConfig'.static.GetGivenWedgeClass());
+    }
+
     OnRemoved();
 }
 

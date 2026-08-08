@@ -3496,6 +3496,8 @@ simulated function OnEffectStopped(Actor inStoppedEffect, bool Completed)
 
 simulated function bool CanBeSummonedByPlayer()
 {
+	local SwatGamePlayerController LPC;
+
 	// must still be alive and on their feet/knees
 	if (!class'Pawn'.static.checkConscious(self))
 		return false;
@@ -3510,6 +3512,23 @@ simulated function bool CanBeSummonedByPlayer()
 	// never once the cuffs are on, and never while lying on the floor
 	if (IsArrested() || IsArrestedOnFloor() || IsBeingArrestedNow())
 		return false;
+
+	// grace period: a just-kneeled character cannot be called over until they
+	// have been on the ground for MinCompliantTimeForSummon seconds.
+	LPC = SwatGamePlayerController(Level.GetLocalPlayerController());
+	if (LPC != None && LPC.GetSummonDelayTracker() != None)
+	{
+		// client / listen-server: approximate the compliant time from the
+		// replicated bIsCompliant flag
+		if (LPC.GetSummonDelayTracker().GetTimeSinceCompliant(self) < class'SummonSettings'.default.MinCompliantTimeForSummon)
+			return false;
+	}
+	else if (GetCommanderAction() != None)
+	{
+		// dedicated server: the commander action is authoritative
+		if (GetCommanderAction().GetTimeSinceCompliant() < class'SummonSettings'.default.MinCompliantTimeForSummon)
+			return false;
+	}
 
 	return true;
 }

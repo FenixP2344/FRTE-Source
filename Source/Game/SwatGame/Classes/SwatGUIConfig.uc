@@ -192,7 +192,6 @@ enum eExtraInts
 var() config            array<string>    ExtraStrOptions "Extra (usermod) options for saving, as strings";
 var() config            array<int>       ExtraIntOptions "Extra (usermod) options for saving, as integers";
 
-
 var(MPSettings) config           int           NetSpeedSelection "Selected speed for network connection";
 
 var(MPSettings) Config float MPPostMissionTime "Time (in seconds) between when the round has been completed and the MPPage is brought up";
@@ -713,6 +712,13 @@ final function eVoiceType GetVoiceTypeForCurrentPlayer()
 }
 
 
+// PIP (picture-in-picture) scope mode: when enabled, scope weapons use the new
+// gated PIP rendering instead of the original scope camera.
+static function bool IsPIPModeEnabled()
+{
+	return default.ExtraIntOptions[9] == 1;
+}
+
 defaultproperties
 {
     FirstTimeThrough=true
@@ -765,4 +771,5 @@ defaultproperties
     VoiceTypeChoices(9)="Ranger"
 
     ExtraIntOptions[3]=0
+    ExtraIntOptions[9]=1
 }

@@ -1,4 +1,4 @@
-class NVGHelmet extends NVGogglesBase;
+class GPNVGFast extends NVGogglesBase;
 
 var(Mesh) protected config StaticMesh AltActivatedMesh;
 var(Mesh) protected config StaticMesh AltDeactivatedMesh;
@@ -30,9 +30,10 @@ simulated function SetNVGMesh( bool Activation )
 	}
 }
 
-// Old single-tube goggles: original green phosphor.
+// Quad goggles: white-phosphor blue-white image (like a RON tube).
 simulated function ActivateEffect()
 {
+	//class'SwatPlayerExtras'.default.NVGMode = 1;
 	class'SwatPlayerExtras'.default.NVGMode = 0;
 	class'SwatPlayerExtras'.default.bNVGModeLocked = true;
 	Super.ActivateEffect();

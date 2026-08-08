@@ -66,9 +66,28 @@ function RenderToScale(Canvas C, Texture T)
 
 function PostRender(Canvas C)
 {
-	// Need to call Super.PostRender() before checking the value of bHideHud
-	// so that we can render Hands without rendering HUD
-    Super.PostRender(C);
+	local SwatPawn ViewPawn;
+
+	// Tint the intensified scene before drawing the HUD so interface colors stay
+	// readable. Thermal pawn skins supply luminance; the wash selects the active
+	// phosphor or fused-thermal channel.
+	if (PlayerOwner != None)
+	{
+		ViewPawn = SwatPawn(PlayerOwner.ViewTarget);
+		if (ViewPawn == None)
+			ViewPawn = SwatPawn(PlayerOwner.Pawn);
+		if (ViewPawn != None && ViewPawn.bIsWearingNightvision)
+			DrawNVGOverlay(C);
+	}
+
+	// Call the native HUD first so the thermal brackets remain visible above
+	// GUI text and controls. DrawNVGOverlay already ran before this pass so it
+	// tints the scene without recoloring the interface.
+	Super.PostRender(C);
+
+	if (PlayerOwner != None && ViewPawn != None && ViewPawn.bIsWearingNightvision &&
+		class'SwatPlayerExtras'.default.NVGMode == 3)
+		DrawThermalOutlines(C, ViewPawn);
 
     if (bHideHud) return;
     
@@ -85,6 +104,281 @@ function PostRender(Canvas C)
 }
 
 
+
+
+// Mode-specific phosphor wash over the native monochrome NV pass. The native
+// camera effect supplies the intensified luminance; this pass controls the
+// tube character without replacing pawn materials or changing HUD geometry.
+function DrawNVGOverlay(Canvas C)
+{
+	local byte SavedStyle;
+	local byte Mode;
+	local byte OverlayR;
+	local byte OverlayG;
+	local byte OverlayB;
+	local byte OverlayAlpha;
+	local color SavedColor;
+	local font SavedFont;
+	local float SavedSpaceX;
+	local float SavedSpaceY;
+	local float SavedOrgX;
+	local float SavedOrgY;
+	local float SavedClipX;
+	local float SavedClipY;
+	local float SavedCurYL;
+	local float SavedZ;
+	local bool SavedCenter;
+	local bool SavedNoSmooth;
+	local float SavedX;
+	local float SavedY;
+
+	if (C == None || C.WhiteTex == None)
+		return;
+
+	SavedStyle = C.Style;
+	SavedColor = C.DrawColor;
+	SavedFont = C.Font;
+	SavedSpaceX = C.SpaceX;
+	SavedSpaceY = C.SpaceY;
+	SavedOrgX = C.OrgX;
+	SavedOrgY = C.OrgY;
+	SavedClipX = C.ClipX;
+	SavedClipY = C.ClipY;
+	SavedX = C.CurX;
+	SavedY = C.CurY;
+	SavedCurYL = C.CurYL;
+	SavedZ = C.Z;
+	SavedCenter = C.bCenter;
+	SavedNoSmooth = C.bNoSmooth;
+	Mode = class'SwatPlayerExtras'.default.NVGMode;
+	if (Mode > 3)
+		Mode = 0;
+
+	// User mode 1 (NVGMode 0) is the native DLL image only. Do not add a
+	// scripted full-screen wash on top of the native phosphor pass.
+	if (Mode == 0)
+		return;
+
+	// User modes 2-4 select the scripted thermal/fusion/AI presentation.
+	switch (Mode)
+	{
+		case 1:
+			// Blue-white phosphor wash (quad goggles / GPNVGFast, RON style).
+			OverlayR = 160;
+			OverlayG = 190;
+			OverlayB = 255;
+			OverlayAlpha = class'SwatPlayerExtras'.default.NVGWhiteHotAlpha;
+			break;
+		case 2:
+			// Mode 3 gets its green/yellow/red color from the pawn surface;
+			// keep only a very light ENVG-B lift behind it.
+			OverlayR = 32;
+			OverlayG = 48;
+			OverlayB = 24;
+			OverlayAlpha = 12;
+			break;
+		case 3:
+			OverlayR = 72;
+			OverlayG = 255;
+			OverlayB = 72;
+			OverlayAlpha = class'SwatPlayerExtras'.default.NVGOverlayAlpha;
+			break;
+	}
+
+	// STY_Alpha makes DrawRect respect DrawColor.A.
+	C.Style = ERenderStyle.STY_Alpha;
+	C.SetDrawColor(OverlayR, OverlayG, OverlayB, OverlayAlpha);
+	C.SetPos(0, 0);
+	C.DrawRect(C.WhiteTex, C.SizeX, C.SizeY);
+
+	C.Style = SavedStyle;
+	C.DrawColor = SavedColor;
+	C.Font = SavedFont;
+	C.SpaceX = SavedSpaceX;
+	C.SpaceY = SavedSpaceY;
+	C.OrgX = SavedOrgX;
+	C.OrgY = SavedOrgY;
+	C.ClipX = SavedClipX;
+	C.ClipY = SavedClipY;
+	C.CurYL = SavedCurYL;
+	C.Z = SavedZ;
+	C.bCenter = SavedCenter;
+	C.bNoSmooth = SavedNoSmooth;
+	C.SetPos(SavedX, SavedY);
+}
+
+// User mode 4: optional AI screen-space search brackets. Thermal modes 2 and
+// 3 never call this function; their colors belong to the pawn surface.
+function DrawThermalOutlines(Canvas C, SwatPawn LocalPawn)
+{
+	local SwatPawn P;
+	local vector Screen;
+	local vector TopScreen;
+	local vector BottomScreen;
+	local vector CameraLocation;
+	local rotator CameraRotation;
+	local Actor ViewActor;
+	local float BoxWidth;
+	local float BoxHeight;
+	local float CenterX;
+	local float TopY;
+	local float BottomY;
+	local float ScaleX;
+	local float ScaleY;
+	//local int Layer;
+	//local float LayerScale;
+	//local float LayerWidth;
+	//local float LayerHeight;
+	//local float LayerTop;
+	local color LayerColor;
+	//local byte LayerAlpha;
+	local byte SavedStyle;
+	local color SavedColor;
+	local font SavedFont;
+	local float SavedSpaceX;
+	local float SavedSpaceY;
+	local float SavedOrgX;
+	local float SavedOrgY;
+	local float SavedClipX;
+	local float SavedClipY;
+	local float SavedCurYL;
+	local float SavedZ;
+	local bool SavedCenter;
+	local bool SavedNoSmooth;
+	local float SavedX;
+	local float SavedY;
+	local GUIController G;
+	local byte Mode;
+
+	if (C == None || C.WhiteTex == None || LocalPawn == None || PlayerOwner == None ||
+		PlayerOwner.Player == None || PlayerOwner.Player.GUIController == None)
+		return;
+	if (SwatGamePlayerController(PlayerOwner) == None)
+		return;
+
+	G = GUIController(PlayerOwner.Player.GUIController);
+	if (G == None)
+		return;
+	if (G.ViewportOwner == None)
+		return;
+	if (G.ResolutionX <= 0 || G.ResolutionY <= 0)
+		return;
+	if (C.SizeX <= 0 || C.SizeY <= 0)
+		return;
+	Mode = class'SwatPlayerExtras'.default.NVGMode;
+	if (Mode != 3)
+		return;
+
+	SwatGamePlayerController(PlayerOwner).PlayerCalcView(
+		ViewActor, CameraLocation, CameraRotation);
+	if (ViewActor == None)
+		return;
+	ScaleX = float(C.SizeX) / float(G.ResolutionX);
+	ScaleY = float(C.SizeY) / float(G.ResolutionY);
+	SavedStyle = C.Style;
+	SavedColor = C.DrawColor;
+	SavedFont = C.Font;
+	SavedSpaceX = C.SpaceX;
+	SavedSpaceY = C.SpaceY;
+	SavedOrgX = C.OrgX;
+	SavedOrgY = C.OrgY;
+	SavedClipX = C.ClipX;
+	SavedClipY = C.ClipY;
+	SavedX = C.CurX;
+	SavedY = C.CurY;
+	SavedCurYL = C.CurYL;
+	SavedZ = C.Z;
+	SavedCenter = C.bCenter;
+	SavedNoSmooth = C.bNoSmooth;
+	foreach DynamicActors(class'SwatPawn', P)
+	{
+		if (!IsThermalVisible(P, LocalPawn, CameraLocation, CameraRotation))
+			continue;
+
+		Screen = G.WorldToScreen(P.Location, CameraLocation, CameraRotation);
+		TopScreen = G.WorldToScreen(P.Location + vect(0,0,1) * P.CollisionHeight,
+			CameraLocation, CameraRotation);
+		BottomScreen = G.WorldToScreen(P.Location - vect(0,0,1) * P.CollisionHeight,
+			CameraLocation, CameraRotation);
+		if (Screen.X != Screen.X || TopScreen.Y != TopScreen.Y ||
+			BottomScreen.Y != BottomScreen.Y)
+			continue;
+		if (Abs(Screen.X) > 100000.0 || Abs(TopScreen.Y) > 100000.0 ||
+			Abs(BottomScreen.Y) > 100000.0)
+			continue;
+		if (Screen.X < -float(G.ResolutionX) ||
+			Screen.X > float(G.ResolutionX) * 2.0 ||
+			TopScreen.Y < -float(G.ResolutionY) * 2.0 ||
+			TopScreen.Y > float(G.ResolutionY) * 2.0 ||
+			BottomScreen.Y < -float(G.ResolutionY) * 2.0 ||
+			BottomScreen.Y > float(G.ResolutionY) * 2.0)
+			continue;
+
+		CenterX = Screen.X * ScaleX;
+		TopY = TopScreen.Y * ScaleY;
+		BottomY = BottomScreen.Y * ScaleY;
+		BoxHeight = Abs(BottomY - TopY);
+		if (BoxHeight < 8.0)
+			continue;
+		BoxHeight = FClamp(BoxHeight, 18.0, float(C.SizeY) * 0.9);
+		BoxWidth = FClamp(BoxHeight * 0.34, 8.0, float(C.SizeX) * 0.18);
+
+		// Mode 4 = AI search brackets, one colour per faction:
+		// red = suspect, yellow = hostage, green = teammate.
+		C.Style = ERenderStyle.STY_Alpha;
+		if (P.IsA('SwatEnemy'))
+			LayerColor = class'Engine.Canvas'.Static.MakeColor(255, 64, 28);
+		else if (P.IsA('SwatHostage'))
+			LayerColor = class'Engine.Canvas'.Static.MakeColor(255, 214, 48);
+		else
+			LayerColor = class'Engine.Canvas'.Static.MakeColor(48, 224, 112);
+		C.SetDrawColor(LayerColor.R, LayerColor.G, LayerColor.B, 220);
+		C.SetPos(CenterX - BoxWidth * 0.5, TopY);
+		C.DrawBracket(BoxWidth, BoxHeight, FClamp(BoxWidth * 0.32, 4.0, 14.0));
+	}
+
+	C.Style = SavedStyle;
+	C.DrawColor = SavedColor;
+	C.Font = SavedFont;
+	C.SpaceX = SavedSpaceX;
+	C.SpaceY = SavedSpaceY;
+	C.OrgX = SavedOrgX;
+	C.OrgY = SavedOrgY;
+	C.ClipX = SavedClipX;
+	C.ClipY = SavedClipY;
+	C.CurYL = SavedCurYL;
+	C.Z = SavedZ;
+	C.bCenter = SavedCenter;
+	C.bNoSmooth = SavedNoSmooth;
+	C.SetPos(SavedX, SavedY);
+}
+
+function bool IsThermalVisible(SwatPawn P, SwatPawn LocalPawn, vector CameraLocation, rotator CameraRotation)
+{
+	local vector ToPawn;
+
+	if (P == None || P == LocalPawn || P.bDeleteMe || P.Health <= 0)
+		return false;
+	if (P.bHidden || P.DrawType == DT_None)
+		return false;
+
+	ToPawn = P.Location - CameraLocation;
+	if (VSize(ToPawn) < 32.0 || Normal(ToPawn) Dot vector(CameraRotation) <= 0.0)
+		return false;
+
+	return FastTrace(P.Location + vect(0,0,1) * P.CollisionHeight * 0.5, CameraLocation);
+}
+
+function color ThermalBracketColor(SwatPawn P, SwatPawn LocalPawn)
+{
+	if (P.IsA('SwatEnemy'))
+		return class'Engine.Canvas'.Static.MakeColor(255, 92, 42, 220);
+	if (P.IsA('SwatHostage'))
+		return class'Engine.Canvas'.Static.MakeColor(255, 244, 196, 220);
+	if (P.GetTeamNumber() == LocalPawn.GetTeamNumber())
+		return class'Engine.Canvas'.Static.MakeColor(128, 224, 255, 220);
+	return class'Engine.Canvas'.Static.MakeColor(255, 168, 64, 220);
+}
 
 simulated event WorldSpaceOverlays()
 {

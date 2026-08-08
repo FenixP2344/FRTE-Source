@@ -160,40 +160,16 @@ function AffectVictims()
         {
             OriginForTrace = Location + vector(AffectDirection) * 10;
 
-            if (FastTrace(VictimActor.Location, OriginForTrace))
-            {
-#if !IG_SWAT_DISABLE_VISUAL_DEBUGGING // ckline: prevent cheating in network games
-                if (DebugBlast)
-                    Level.GetLocalPlayerController().myHUD.AddDebugLine(
-                            OriginForTrace,
-                            VictimActor.Location,
-                            class'Engine.Canvas'.Static.MakeColor(255,0,0),
-                            60
-                            );
-#endif
+            // SEF-FR: C2 blast damage ignores geometry (doors/walls). The
+            // distance + cone checks above are enough; drop the LOS trace.
+            Momentum = DamageMomentumMagnitude * Normal( VictimActor.Location - OriginForTrace);
 
-                // Calculate damage momentum
-                Momentum = DamageMomentumMagnitude * Normal( VictimActor.Location - OriginForTrace);
-
-                VictimActor.TakeDamage(
-                        Damage,
-                        DeployedBy,
-                        VictimActor.Location,
-                        Momentum,
-                        class'ConcussiveDamageType');
-            }
-            else
-            {
-#if !IG_SWAT_DISABLE_VISUAL_DEBUGGING // ckline: prevent cheating in network games
-                if (DebugBlast)
-                    Level.GetLocalPlayerController().myHUD.AddDebugLine(
-                            OriginForTrace,
-                            VictimActor.Location,
-                            class'Engine.Canvas'.Static.MakeColor(0,255,0),
-                            60
-                            );
-#endif
-            }
+            VictimActor.TakeDamage(
+                    Damage,
+                    DeployedBy,
+                    VictimActor.Location,
+                    Momentum,
+                    class'ConcussiveDamageType');
         }
     }
 }

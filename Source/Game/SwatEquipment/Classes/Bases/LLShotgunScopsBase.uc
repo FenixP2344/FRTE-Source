@@ -1,8 +1,16 @@
-///////////////////////////////////////////////////////////////////////////////
-class ScopeBase extends ClipBasedWeapon;
+class LLShotgunScopsBase extends RoundBasedWeapon
+  config(SwatEquipment);
 
-import enum LeanWalkState from SwatGame.SwatPlayer;
-///////////////////////////////////////////////////////////////////////////////
+var config float Damage;
+
+var config float PlayerStingDuration;
+var config float HeavilyArmoredPlayerStingDuration;
+var config float NonArmoredPlayerStingDuration;
+var config float AIStingDuration;
+var config float OfficerUseRangeMin;
+var config float OfficerUseRangeMax;
+var config int OfficerUseTargetMinHealth;
+var config int OfficerUseMaxShotsWhenStung;
 
 //SCOPE CAMERA
 var (Scope) config  bool  HasScope;
@@ -18,13 +26,71 @@ var (Scope) private vector ScopeLocation;
 var (Scope) private rotator ScopeRotation;    
 var (Scope) private config Material FirstSkin;                 //used to avoid missing FirstPersonModel.Skin[0] texture.... god knows why....
 
-//Other Element Hide
-var (Scope) config  bool  HasHide;
-var (Scope) private config ScriptedTexture HideScreen;          // Scripted texture that we draw into
-var (Scope) private config Material        HideShader;          // Shader applied to the first person mesh when active
-var (Scope) private config Material        BlankElement;        // Material to use when the viewport isn't active
-var (Scope) private config const int	   ElementIndex;         // texture index to apply scope camera   
-var (Scope) private config Material FirstElementSkin;                 //used to avoid missing FirstPersonModel.Skin[0] texture.... god knows why....
+
+simulated function DealDamage(Actor Victim, int Damage, Pawn Instigator, Vector HitLocation, Vector MomentumVector, class<DamageType> DamageType )
+{
+    // Don't deal damage for pawns, instead make them effected by the sting grenade
+    if ( Victim.IsA( 'Pawn' ) )
+    {
+      IReactToDazingWeapon(Victim).ReactToLessLeathalShotgun(Pawn(Owner), Damage, MomentumVector, PlayerStingDuration, HeavilyArmoredPlayerStingDuration, NonArmoredPlayerStingDuration, AIStingDuration, DamageType);
+
+      log("Called ReactToLessLeathalShotgun on: "$Victim$", Damage="$Damage$"" );
+
+      // This is now handled in ReactToLessLeathalShotgun
+      //Super.DealDamage( Victim, Damage, Instigator, HitLocation, MomentumVector, DamageType );
+    }
+    // Otherwise deal damage, cept for ExplodingStaticMesh that is....
+    else if ( !Victim.IsA('ExplodingStaticMesh') )
+    {
+        Super.DealDamage( Victim, Damage, Instigator, HitLocation, MomentumVector, DamageType );
+    }
+}
+
+// Less-lethal should never spawn blood effects
+simulated function bool  ShouldSpawnBloodForVictim( Pawn PawnVictim, int Damage )
+{
+    return false;
+}
+
+simulated function bool ShouldOfficerUseAgainst(Pawn OtherActor, int ShotsFired)
+{
+    local SwatPawn SwatPawn;
+    local float Distance;
+
+    SwatPawn = SwatPawn(OtherActor);
+    if (SwatPawn == None)
+    {
+        return false;
+    }
+
+    // Don't use them -at all- against hostages
+    if (SwatPawn.IsA('SwatHostage'))
+    {
+        return false;
+    }
+
+    // Don't shoot the target if lower than X health
+    if (SwatPawn.Health < OfficerUseTargetMinHealth)
+    {
+        return false;
+    }
+
+    if (SwatPawn.IsStung() && ShotsFired >= OfficerUseMaxShotsWhenStung)
+    {   
+        // Don't shoot more than 3 times if the target is stunned
+        return false;
+    }
+
+    Distance = VSize(Owner.Location - OtherActor.Location);
+    if (Distance < OfficerUseRangeMin || Distance > OfficerUseRangeMax)
+    {   
+        // Outside of the range
+        log (Name$"::ShouldOfficerUseAgainst("$OtherActor.Name$") for "$Owner.Name$": not using the LL now because Distance of "$Distance$" falls outside the range.");
+        return false;
+    }
+
+    return super.ShouldOfficerUseAgainst(OtherActor, ShotsFired);
+}
 
 //*******************************************************
 //SCOPE CAMERA 
@@ -35,9 +101,6 @@ simulated function PostBeginPlay()
 	
 	if( HasScope )
 		Disable('Tick');
-		
-	if( HasHide )
-	    Disable('Tick');
 }
 
 simulated function OnGivenToOwner()
@@ -61,31 +124,11 @@ simulated function OnGivenToOwner()
 			FirstPersonModel.Skins[0] = FirstSkin;
 		}
 	}
-	
-	 if( HasHide )
-	{
-   
-		if ( Pawn(Owner) != None && Pawn(Owner).Controller == Level.GetLocalPlayerController() )
-		{	 
-			HideScreen.Client = Self;
-			HideScreen.bNotifyClientBeforeRendering = true;
-			HideScreen.SetSize(SizeX, SizeY);
-			Disable('Tick');
-		
-			assert( FirstPersonModel != None );  
-			
-			//missing Skin[0] texture workaround
-			FirstPersonModel.Skins[0] = FirstSkin;
-		}
-	}
 }
 
 simulated function EquippedHook()
 {
 	if( HasScope )
-		Enable('Tick');
-		
-	if( HasHide )
 		Enable('Tick');
 	
     Super.EquippedHook();
@@ -94,9 +137,6 @@ simulated function EquippedHook()
 simulated function UnequippedHook()
 {
 	if( HasScope )
-		Disable('Tick');
-		
-	if( HasHide )
 		Disable('Tick');
 
   Super.UnequippedHook();
@@ -112,15 +152,6 @@ simulated event Destroyed()
 			ScopeScreen.Client = None;
 		}
 	}
-	
-	if( HasHide )
-	{
-		if (HideScreen != None && HideScreen.Client == Self)
-		{
-			// prevent GC failure due to hanging actor refs
-			HideScreen.Client = None;
-		}
-	}
 
 	Super.Destroyed();
 }
@@ -134,8 +165,6 @@ simulated event RenderTexture(ScriptedTexture inTexture)
 
     ViewportCalcView(ScopeLocation, ScopeRotation);
     ScopeScreen.DrawPortal(0, 0, SizeX, SizeY, Level.GetLocalPlayerController(), ScopeLocation, ScopeRotation, FOV);
-   
-    HideScreen.DrawPortal(0, 0, SizeX, SizeY, Level.GetLocalPlayerController(), ScopeLocation, ScopeRotation, FOV);
     //LCDScreen.DrawTile(SizeX/2, SizeY/2,  512, 512, 0, 0, 512, 512, ReticleTexture, White);
 }
 
@@ -152,33 +181,16 @@ simulated function Tick(float DeltaTime)
 	  }
 	    ScopeScreen.Revision++;
 
-	  if (!ShouldRenderScopePortal()) 
+	  if (!Level.GetLocalPlayerController().WantsZoom) 
 	  {
 		if(FirstPersonModel != None)
 		{
 		  FirstPersonModel.Skins[ScopeIndex] = BlankScope;
 		}
 	  }
-	  
-	if( HasHide && Level.GetLocalPlayerController() != None )
-	{
-	  if(FirstPersonModel != None)
-	  {
-	    FirstPersonModel.Skins[0] = FirstElementSkin;
-	    FirstPersonModel.Skins[ElementIndex] = HideShader;
-	  }
-	    HideScreen.Revision++;
-
-	  if (!Level.GetLocalPlayerController().WantsZoom) 
-	  {
-		if(FirstPersonModel != None)
-		{
-		  FirstPersonModel.Skins[ElementIndex] = BlankElement;
-		}
-      }
-     }
-      	      ViewportCalcView(ScopeLocation, ScopeRotation);
-	    }
+	 
+	  ViewportCalcView(ScopeLocation, ScopeRotation);
+    }
 }
 
 simulated function  ViewportCalcView(out Vector CameraLocation, out Rotator CameraRotation)
@@ -193,41 +205,24 @@ simulated function  ViewportCalcView(out Vector CameraLocation, out Rotator Came
     }
 }
 
-// Returns true if the scope portal should be shown. Original behaviour: only
-// while zoomed. When the PIP option is enabled in the options menu the portal
-// is additionally hidden while the weapon is low (manual or forced) and while
-// leaning / craning the neck over the shoulder.
-simulated function bool ShouldRenderScopePortal()
-{
-	local SwatGamePlayerController LPC;
-	local SwatPawn PlayerPawn;
-
-	LPC = SwatGamePlayerController(Level.GetLocalPlayerController());
-	if (LPC == None)
-		return false;
-
-	if (!LPC.WantsZoom)
-		return false;
-
-	// keep the original behaviour when the PIP option is off
-	if (!class'SwatGUIConfig'.static.IsPIPModeEnabled())
-		return true;
-
-	PlayerPawn = SwatPawn(LPC.Pawn);
-	if (PlayerPawn != None && PlayerPawn.IsLowReady())
-		return false;
-	if (LPC.Pawn != None && LPC.Pawn.bShoulderLook)
-		return false;
-	if (SwatPlayer(LPC.Pawn) != None && SwatPlayer(LPC.Pawn).LWS != Lean_Cent)
-		return false;
-
-	return true;
-}
-
 ///////////////////////////////////////////////////////////////////////////////
 // Optic weapons always aim down sights: ignore the user's
 // "Disable Ironsights" (traditional zoom) setting.
 simulated function bool ForceIronsights()
 {
 	return true;
+}
+
+
+defaultproperties
+{
+    Slot=Slot_Invalid
+	bIsLessLethal=true
+	WoodBreachingChance = 0;
+	MetalBreachingChance = 0;
+	bPenetratesDoors=false
+    OfficerUseRangeMin=256
+    OfficerUseRangeMax=1024
+    OfficerUseMaxShotsWhenStung=3
+    OfficerUseTargetMinHealth=80
 }

@@ -4815,7 +4815,18 @@ function ServerStartLeaning(LeanWalkState RemoteLWS)
 	if ( Level.NetMode == NM_DedicatedServer || Level.NetMode == NM_ListenServer )
 	{
 		LWS = RemoteLWS;
-		//log("Lean " $ self.name $ " : " $ LWS $ "." );
+
+		// mirror the lean onto the Hands so server-side AI vision checks can
+		// detect a QE-leaning player (Hands.LeanState: -1 left / 0 centre / 1 right)
+		if (Gethands() != None)
+		{
+			if (RemoteLWS == Lean_Right)
+				Gethands().LeanState = 1;
+			else if (RemoteLWS == Lean_Left)
+				Gethands().LeanState = -1;
+			else
+				Gethands().LeanState = 0;
+		}
 	}
 }
 

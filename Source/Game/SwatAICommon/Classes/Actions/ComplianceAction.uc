@@ -240,6 +240,10 @@ state Running
 
     Comply();
 
+	// record when the pawn finished kneeling, so the summon feature can
+	// require a short grace period before a just-compliant AI is callable
+	ComplianceGoal(achievingGoal).SetCompliantStartTime(Level.TimeSeconds);
+
 	// let the hive know that we're on the ground and have finished animating
 	SwatAIRepository(m_Pawn.Level.AIRepo).GetHive().NotifyCompliantAIFinishedComplying(m_Pawn);
 

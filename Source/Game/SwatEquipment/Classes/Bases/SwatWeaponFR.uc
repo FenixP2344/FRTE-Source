@@ -1,6 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 class SwatWeaponFR extends Engine.SwatWeapon;
 //Extended SwatWeapon class to avoid native restrictions
+
+import enum LeanWalkState from SwatGame.SwatPlayer;
 ///////////////////////////////////////////////////////////////////////////////
 
 //LASER 
@@ -15,6 +17,24 @@ var (Laser) config vector IRLaserPosition_1stPerson;
 var (Laser) config rotator IRLaserRotation_1stPerson;
 var (Laser) config vector IRLaserPosition_3rdPerson;
 var (Laser) config rotator IRLaserRotation_3rdPerson;
+
+//*******************************************************
+//PIP SCOPE (independent of the classic ScopeBase camera)
+//*******************************************************
+// Picture-in-picture optic: the lens renders a live magnified portal that is
+// only shown while actually aiming down sights - never while low-ready
+// (manual or forced) and never while leaning / craning the neck.
+var (PIP) config bool HasPIP;                          // enable the PIP lens on this weapon
+var (PIP) private config ScriptedTexture PIPScreen;    // texture the portal renders into
+var (PIP) private config Material PIPShader;           // lens shader (portal + reticle) while ADS
+var (PIP) private config Material PIPBlank;            // blank lens when the portal is hidden
+var (PIP) private config const int PIPSkinIndex;       // first-person model skin slot for the lens
+var (PIP) private config const int PIPSizes;           // portal texture size (square)
+var (PIP) private config const int PIPFOV;             // portal FOV (small = magnified, large ~= 1x)
+var (PIP) private config const int PIPXAdjust;         // push the portal camera forward to avoid clipping
+var (PIP) private vector PIPLocation;
+var (PIP) private rotator PIPRotation;
+var (PIP) private config Material PIPFirstSkin;        // skin[0] restoration workaround
 
 //*******************************************************
 //LASER
@@ -160,4 +180,122 @@ simulated function DestroyLaser()
 simulated function bool HasIrLaser()
 {
 	return bHasIRLaser;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// PIP scope lifecycle - mirrors the classic ScopeBase camera but self-contained.
+
+simulated function PostBeginPlay()
+{
+	Super.PostBeginPlay();
+
+	if (HasPIP)
+		Disable('Tick');
+}
+
+simulated function OnGivenToOwner()
+{
+	Super.OnGivenToOwner();
+
+	if (HasPIP)
+	{
+		if (Pawn(Owner) != None && Pawn(Owner).Controller == Level.GetLocalPlayerController())
+		{
+			PIPScreen.Client = Self;
+			PIPScreen.bNotifyClientBeforeRendering = true;
+			PIPScreen.SetSize(PIPSizes, PIPSizes);
+			Disable('Tick');
+
+			assert(FirstPersonModel != None);
+			// missing Skin[0] workaround
+			FirstPersonModel.Skins[0] = PIPFirstSkin;
+		}
+	}
+}
+
+simulated function EquippedHook()
+{
+	if (HasPIP)
+		Enable('Tick');
+
+	Super.EquippedHook();
+}
+
+simulated function UnequippedHook()
+{
+	if (HasPIP)
+		Disable('Tick');
+
+	Super.UnequippedHook();
+}
+
+simulated event Destroyed()
+{
+	if (HasPIP)
+	{
+		if (PIPScreen != None && PIPScreen.Client == Self)
+			PIPScreen.Client = None;
+	}
+
+	Super.Destroyed();
+}
+
+// Render the portal into the lens texture from the desired view.
+simulated event RenderTexture(ScriptedTexture inTexture)
+{
+	ViewportCalcViewPIP(PIPLocation, PIPRotation);
+	PIPScreen.DrawPortal(0, 0, PIPSizes, PIPSizes, Level.GetLocalPlayerController(), PIPLocation, PIPRotation, PIPFOV);
+}
+
+simulated function Tick(float DeltaTime)
+{
+	local SwatGamePlayerController LPC;
+	local SwatPawn PlayerPawn;
+	local bool bRenderPIP;
+
+	Super.Tick(DeltaTime);
+
+	if (!HasPIP)
+		return;
+
+	LPC = SwatGamePlayerController(Level.GetLocalPlayerController());
+	if (LPC == None)
+		return;
+
+	if (FirstPersonModel != None)
+	{
+		FirstPersonModel.Skins[0] = PIPFirstSkin;
+		FirstPersonModel.Skins[PIPSkinIndex] = PIPShader;
+	}
+
+	// The portal only renders while actually aiming down sights, and never
+	// while the weapon is low (manual or forced) or while leaning / craning
+	// the neck over the shoulder.
+	PlayerPawn = SwatPawn(LPC.Pawn);
+	bRenderPIP = LPC.WantsZoom
+		&& (PlayerPawn == None || !PlayerPawn.IsLowReady())
+		&& (LPC.Pawn == None || !LPC.Pawn.bShoulderLook)
+		&& (SwatPlayer(LPC.Pawn) == None || SwatPlayer(LPC.Pawn).LWS == Lean_Cent);
+
+	if (bRenderPIP)
+	{
+		PIPScreen.Revision++;
+		ViewportCalcViewPIP(PIPLocation, PIPRotation);
+	}
+	else if (FirstPersonModel != None)
+	{
+		FirstPersonModel.Skins[PIPSkinIndex] = PIPBlank;
+	}
+}
+
+simulated function ViewportCalcViewPIP(out Vector CameraLocation, out Rotator CameraRotation)
+{
+	local vector X, Y, Z;
+
+	if (FirstPersonModel != None)
+	{
+		GetPerfectFireStart(CameraLocation, CameraRotation);
+		GetAxes(CameraRotation, X, Y, Z);
+		CameraLocation = CameraLocation + X * PIPXAdjust;
+	}
 }

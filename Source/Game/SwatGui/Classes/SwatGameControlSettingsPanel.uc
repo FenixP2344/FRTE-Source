@@ -19,6 +19,7 @@ var(SWATGui) private EditInline Config GUICheckBoxButton MyDisableZoomBox;
 var(SWATGui) private EditInline Config GUICheckBoxButton MyManualLowReadyBox;
 var(SWATGui) private EditInline Config GUICheckBoxButton MyMinimalHudBox;
 var(SWATGui) private EditInline Config GUICheckBoxButton MyDisablePenaltyMessageBox;
+var(SWATGui) private EditInline Config GUICheckBoxButton MyPIPCheckbox;
 var(SWATGui) private EditInline Config GUICheckBoxButton MyHideFPModelCheckbox;
 var(SWATGui) private EditInline Config GUICheckBoxButton MyHideCrosshairsCheckbox;
 var(SWATGui) private EditInline Config GUICheckBoxButton MyDisableInertiaCheckbox;
@@ -261,6 +262,15 @@ function SaveSettings()
     {
         GC.ExtraIntOptions[8] = 0;
     }
+
+	if(MyPIPCheckbox.bChecked)
+    {
+        GC.ExtraIntOptions[9] = 1;
+    }
+    else
+    {
+        GC.ExtraIntOptions[9] = 0;
+    }
 	
 
 	GC.bShowCustomSkins = MyCustomSkinsCheck.bChecked;
@@ -319,6 +329,7 @@ function LoadSettings()
 	MyManualLowReadyBox.SetChecked(GC.ExtraIntOptions[6] == 1);
 	MyMinimalHudBox.SetChecked(GC.ExtraIntOptions[7] == 1);
 	MyDisablePenaltyMessageBox.SetChecked(GC.ExtraIntOptions[8] == 1);
+	MyPIPCheckbox.SetChecked(GC.ExtraIntOptions[9] == 1);
 	
     MouseXMultiplier = float(PlayerOwner().ConsoleCommand("Get WinDrv.WindowsClient MouseXMultiplier"));
     MouseYMultiplier = float(PlayerOwner().ConsoleCommand("Get WinDrv.WindowsClient MouseYMultiplier"));

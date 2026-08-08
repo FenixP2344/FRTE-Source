@@ -6,6 +6,9 @@ class SwatGamePlayerController extends SwatPlayerController
     dependson(PlayerFocusInterface)
     native;
 
+import enum EColorOperation from Engine.Combiner;
+import enum EAlphaOperation from Engine.Combiner;
+
 import enum EAnimationSet from AnimationSetManager;
 import enum EquipmentSlot from Engine.HandheldEquipment;
 import enum Pocket from Engine.HandheldEquipment;
@@ -24,6 +27,7 @@ var private FlashbangCameraEffect   FlashbangCameraEffect;
 var private CSGasCameraEffect       CSGasCameraEffect;
 var private StingCameraEffect       StingCameraEffect;
 var private PepperSprayCameraEffect PepperSprayCameraEffect;
+
 var private NVGogglesCameraEffect	NVGogglesCameraEffect;
 
 var SwatPlayer SwatPlayer;
@@ -96,6 +100,7 @@ var private float RecoilBackDuration;
 var private float RecoilForeDuration;
 var private float RecoilMagnitude;
 var private float LastRecoilFunctionValue;
+
 var bool DebugShouldRecoil;
 var bool SpecialInteractionsDisabled;
 
@@ -285,12 +290,6 @@ var eVoiceType VoiceType;
 var bool WantsLowReady;
 var bool WantedZoom;
 
-// When true, aiming is disabled for as long as the active weapon reloads.
-// Not a config var: this is a gameplay rule, identical for every client.
-var bool bBlockZoomWhileReloading;
-
-// Last walking state we told the server about (multiplayer ADS slowdown).
-var private bool LastReplicatedWalking;
 
 //class size adjustment
 /*var MovingMode unused1;
@@ -622,6 +621,11 @@ function ClientRestart()
 {
     if (Level.GetEngine().EnableDevTools)
         mplog( self$"---SGPC::ClientRestart()." );
+
+    // Remove any camera kick owned by the previous life before Super assigns
+    // the new pawn/view rotation. No recoil state may cross a respawn.
+    if (self == Level.GetLocalPlayerController())
+        ResetRecoilState(true);
 
     Super.ClientRestart();
 
@@ -2594,6 +2598,10 @@ simulated private function InternalEquipSlot(coerce EquipmentSlot Slot)
 
     if ( SwatPlayer.ValidateEquipSlot( Slot ))
     {
+        // Let the old weapon's artificial camera offset settle during the
+        // equip animation instead of donating recoil/cap usage to the new gun.
+        ReleaseRecoilForEquipmentChange();
+
 		//reset all Low ready states
         SetZoom(false, true);
 		
@@ -3027,6 +3035,7 @@ function ServerRequestSummonAI( Pawn Target )
 {
     local SwatAI TargetAI;
     local name SpeechEvent;
+    local name VoiceTag;
 
     if (Pawn == None || Target == None)
         return;
@@ -3045,9 +3054,23 @@ function ServerRequestSummonAI( Pawn Target )
     TargetAI.OnSummonedByPlayer( Pawn );
 
     //the officer calls them over. Broadcast so everyone in MP hears it.
+    // Pass the player's own voicetype as the effect-event Tag so MP plays the
+    // selected voice actor (e.g. Jackson), not the default team-leader line.
     SpeechEvent = class'SummonSettings'.default.SummonSpeechEvent;
     if (SpeechEvent != '')
-        Pawn.BroadcastEffectEvent( SpeechEvent, Target );
+    {
+        if ( NetPlayer(Pawn) != None )
+            VoiceTag = SwatRepo(Level.GetRepo()).GuiConfig.GetTagForVoiceType( NetPlayer(Pawn).VoiceType );
+        Pawn.BroadcastEffectEvent( SpeechEvent, Target, , , , , , , VoiceTag );
+    }
+}
+
+simulated function SummonDelayTracker GetSummonDelayTracker()
+{
+	if (class'SwatPlayerExtras'.default.LocalSummonDelayTracker == None)
+		class'SwatPlayerExtras'.default.LocalSummonDelayTracker = Spawn(class'SummonDelayTracker', self);
+
+	return class'SwatPlayerExtras'.default.LocalSummonDelayTracker;
 }
 
 exec function Interact()
@@ -5451,10 +5474,15 @@ event PlayerTick(float dTime)
     {
         //mplog( "...currently autofiring in SGPC::PlayerTick().");
         SwatPawn(Pawn).bWantsToContinueAutoFiring = bFire > 0;
-        if ( !SwatPawn(Pawn).bWantsToContinueAutoFiring && Level.NetMode != NM_Standalone && Pawn.IsControlledByLocalHuman() )
+        if ( !SwatPawn(Pawn).bWantsToContinueAutoFiring )
         {
-            //mplog( Pawn$" is  no longer pressing the Fire key on an AutoFire weapon...calling Pawn::ServerEndFiringWeapon().");
-            Pawn.ServerEndFiringWeapon();
+            FinishAutomaticRecoil();
+
+            if ( Level.NetMode != NM_Standalone && Pawn.IsControlledByLocalHuman() )
+            {
+                //mplog( Pawn$" is  no longer pressing the Fire key on an AutoFire weapon...calling Pawn::ServerEndFiringWeapon().");
+                Pawn.ServerEndFiringWeapon();
+            }
         }
     }
 
@@ -5524,9 +5552,226 @@ simulated function RefreshCameraEffects(SwatPlayer Victim)
 
 	if (Victim.bIsWearingNightvision)
 	{
-		AddCameraEffect(NVGogglesCameraEffect, true, true, false);   //enforce unique class and object, and don't replace if already exists
+		// User mode 1 (NVGMode 0) is the DLL/native NVG pass. The scripted
+		// thermal and AI modes deliberately do not inherit its green wash.
+		// Only mode 0 (green) uses the native DLL pass. Mode 1 (blue-white
+		// phosphor) and mode 2 (thermal) are script-only.
+		if (class'SwatPlayerExtras'.default.NVGMode == 0)
+			AddCameraEffect(NVGogglesCameraEffect, true, true, false);   //enforce unique class and object, and don't replace if already exists
+
+		// Thermal fusion (modes 2/3) renders only through the player's own
+		// eyes. While the optiwand camera viewport is active the camera feed
+		// must not be painted with the thermal material.
+		if ((class'SwatPlayerExtras'.default.NVGMode == 1 ||
+			class'SwatPlayerExtras'.default.NVGMode == 2) &&
+			ActiveViewport == None)
+			ApplyThermalVision();
+		else
+			RemoveThermalVision();
+	}
+	else
+	{
+		RemoveThermalVision();
 	}
 }
+
+// Build the mode 2/3 thermal material from each pawn's original skin. Mode 2
+// keeps stable silver/gray luminance. Mode 3 builds a surface pseudo-color
+// map from two explicit channels: low luminance drives green, high luminance
+// drives red, and the overlap produces yellow in the middle. This avoids the
+// UE2 Combiner mask path, which treats DesaturateMaterial alpha as opaque.
+function ApplyThermalVision()
+{
+	local int i;
+	local int j;
+	local int Slot;
+	local int ThermalMode;
+	local SwatPawn P;
+	local Material AppliedMaterial;
+
+	ThermalMode = int(class'SwatPlayerExtras'.default.NVGMode);
+	if (ThermalMode != 1 && ThermalMode != 2)
+	{
+		RemoveThermalVision();
+		return;
+	}
+
+	if (class'SwatPlayerExtras'.default.bThermalMaterialsApplied &&
+		class'SwatPlayerExtras'.default.ThermalAppliedMode == ThermalMode)
+		return;
+
+	// Cycling while NVG stays on must rebuild the material graph for the new
+	// mode, otherwise the previous gray/rainbow skin remains cached.
+	RemoveThermalVision();
+
+	foreach DynamicActors(class'SwatPawn', P)
+	{
+		if (P == None || P.bDeleteMe)
+			continue;
+
+		Slot = class'SwatPlayerExtras'.default.ThermalPawns.Length;
+		class'SwatPlayerExtras'.default.ThermalPawns[Slot] = P;
+		class'SwatPlayerExtras'.default.ThermalSavedUnlit[Slot] = byte(P.bUnlit);
+		class'SwatPlayerExtras'.default.ThermalSavedAmbientGlow[Slot] = P.AmbientGlow;
+		class'SwatPlayerExtras'.default.ThermalSavedScaleGlow[Slot] = P.ScaleGlow;
+		class'SwatPlayerExtras'.default.ThermalSavedStyle[Slot] = P.Style;
+		class'SwatPlayerExtras'.default.ThermalSkinCounts[Slot] = P.Skins.Length;
+
+		for (j = 0; j < P.Skins.Length; ++j)
+		{
+			i = class'SwatPlayerExtras'.default.ThermalSavedSkins.Length;
+			class'SwatPlayerExtras'.default.ThermalSavedSkins[i] = P.Skins[j];
+			AppliedMaterial = BuildThermalMaterial(P.Skins[j], byte(ThermalMode));
+			if (AppliedMaterial != None)
+				P.Skins[j] = AppliedMaterial;
+		}
+
+		// Mode 2 is deliberately bright white-hot. Mode 3 keeps normal lighting
+		// so the colored surface retains volume and edge shading.
+		if (ThermalMode == 1)
+		{
+			P.bUnlit = true;
+			P.AmbientGlow = 160;
+			P.ScaleGlow = 1.0;
+		}
+		else
+		{
+			P.bUnlit = false;
+			P.AmbientGlow = 64;
+			P.ScaleGlow = 1.0;
+		}
+		P.Style = ERenderStyle.STY_Normal;
+	}
+
+	class'SwatPlayerExtras'.default.ThermalAppliedMode = ThermalMode;
+	class'SwatPlayerExtras'.default.bThermalMaterialsApplied = true;
+}
+
+function BitmapMaterial FindThermalBitmap(Material Source)
+{
+	local Shader SourceShader;
+	local Modifier SourceModifier;
+	local Combiner SourceCombiner;
+
+	if (Source == None)
+		return None;
+
+	if (BitmapMaterial(Source) != None)
+		return BitmapMaterial(Source);
+
+	SourceShader = Shader(Source);
+	if (SourceShader != None)
+		return FindThermalBitmap(SourceShader.Diffuse);
+
+	SourceModifier = Modifier(Source);
+	if (SourceModifier != None)
+		return FindThermalBitmap(SourceModifier.Material);
+
+	SourceCombiner = Combiner(Source);
+	if (SourceCombiner != None)
+		return FindThermalBitmap(SourceCombiner.Material1);
+
+	return None;
+}
+
+function Material BuildThermalMaterial(Material Source, byte ThermalMode)
+{
+	local BitmapMaterial SourceBitmap;
+	local DesaturateMaterial GrayMaterial;
+	local ColorModifier FallbackTint;
+
+	if (Source == None)
+		return None;
+
+	SourceBitmap = FindThermalBitmap(Source);
+	if (SourceBitmap == None)
+	{
+		// Shader/FinalBlend skins without a bitmap source keep their detail
+		// through a restrained tint rather than turning white.
+		FallbackTint = new class'ColorModifier';
+		if (FallbackTint == None)
+			return Source;
+		FallbackTint.Material = Source;
+		if (ThermalMode == 1)
+			FallbackTint.Color = class'Engine.Canvas'.Static.MakeColor(190,190,190,255);
+		else
+			FallbackTint.Color = class'Engine.Canvas'.Static.MakeColor(220,128,48,255);
+		return FallbackTint;
+	}
+
+	GrayMaterial = new class'DesaturateMaterial';
+	if (GrayMaterial == None)
+		return Source;
+	GrayMaterial.SourceBitmap = SourceBitmap;
+	GrayMaterial.GreyColorChooser = vect(0.30,0.59,0.11);
+	GrayMaterial.GreyWeight = vect(1.0,1.0,1.0);
+	GrayMaterial.NVGogglesDesaturate = true;
+
+	// User mode 2 (ThermalMode 1) = white-hot: plain grey desaturation.
+	if (ThermalMode == 2)
+		return GrayMaterial;
+
+	// User mode 3 (ThermalMode 2) = warm pseudo-colour tint on the ORIGINAL
+	// skin texture (a DesaturateMaterial nested in a tint forces the renderer
+	// to greyscale). The warm tint is the stable coloured path and keeps the
+	// body's volume/edge shading; a true per-pixel rainbow needs a gradient
+	// texture that UE2 script cannot author.
+	FallbackTint = new class'ColorModifier';
+	if (FallbackTint == None)
+		return Source;
+	FallbackTint.Material = Source;
+	FallbackTint.Color = class'Engine.Canvas'.Static.MakeColor(255, 150, 60, 255);
+	return FallbackTint;
+}
+
+function RemoveThermalVision()
+{
+	local int i;
+	local int j;
+	local int SkinIndex;
+	local int SkinCount;
+	local SwatPawn TP;
+
+	for (i = 0; i < class'SwatPlayerExtras'.default.ThermalPawns.Length; ++i)
+	{
+		TP = class'SwatPlayerExtras'.default.ThermalPawns[i];
+		if (TP != None && !TP.bDeleteMe)
+		{
+			if (i < class'SwatPlayerExtras'.default.ThermalSavedUnlit.Length)
+				TP.bUnlit = class'SwatPlayerExtras'.default.ThermalSavedUnlit[i] != 0;
+			if (i < class'SwatPlayerExtras'.default.ThermalSavedAmbientGlow.Length)
+				TP.AmbientGlow = class'SwatPlayerExtras'.default.ThermalSavedAmbientGlow[i];
+			if (i < class'SwatPlayerExtras'.default.ThermalSavedScaleGlow.Length)
+				TP.ScaleGlow = class'SwatPlayerExtras'.default.ThermalSavedScaleGlow[i];
+			if (i < class'SwatPlayerExtras'.default.ThermalSavedStyle.Length)
+				TP.Style = ERenderStyle(class'SwatPlayerExtras'.default.ThermalSavedStyle[i]);
+
+			SkinCount = 0;
+			if (i < class'SwatPlayerExtras'.default.ThermalSkinCounts.Length)
+				SkinCount = class'SwatPlayerExtras'.default.ThermalSkinCounts[i];
+			TP.Skins.Length = SkinCount;
+			SkinIndex = 0;
+			for (j = 0; j < i; ++j)
+				SkinIndex += class'SwatPlayerExtras'.default.ThermalSkinCounts[j];
+			for (j = 0; j < SkinCount; ++j)
+			{
+				if (SkinIndex + j < class'SwatPlayerExtras'.default.ThermalSavedSkins.Length)
+					TP.Skins[j] = class'SwatPlayerExtras'.default.ThermalSavedSkins[SkinIndex + j];
+			}
+		}
+	}
+
+	class'SwatPlayerExtras'.default.ThermalPawns.Length = 0;
+	class'SwatPlayerExtras'.default.ThermalSavedUnlit.Length = 0;
+	class'SwatPlayerExtras'.default.ThermalSavedAmbientGlow.Length = 0;
+	class'SwatPlayerExtras'.default.ThermalSavedScaleGlow.Length = 0;
+	class'SwatPlayerExtras'.default.ThermalSavedStyle.Length = 0;
+	class'SwatPlayerExtras'.default.ThermalSavedSkins.Length = 0;
+	class'SwatPlayerExtras'.default.ThermalSkinCounts.Length = 0;
+	class'SwatPlayerExtras'.default.bThermalMaterialsApplied = false;
+	class'SwatPlayerExtras'.default.ThermalAppliedMode = -1;
+}
+
 
 event RenderTexture(ScriptedTexture inTexture)
 {
@@ -5553,12 +5798,51 @@ simulated function UpdateLooking(float dTime)
 simulated function UpdateRecoil()
 {
     local float Time;
+    local FiredWeapon ActiveWeapon;
 
-    if (!Recoiling) return;
+    // Recoil is a local camera effect. Other controllers must not consume the
+    // shared local-state holder, and a new pawn must never inherit old punch.
+    if (self != Level.GetLocalPlayerController())
+        return;
+
+    if (class'SwatPlayerExtras'.default.RecoilPawn != SwatPawn(Pawn))
+        ResetRecoilState(false);
 
     Time = Level.TimeSeconds;
 
-    if (Time > RecoilStartTime + RecoilBackDuration + RecoilForeDuration)
+    // Super.PlayerTick has already applied this frame's mouse input. Recovery
+    // therefore subtracts only the tracked recoil offset from the current view.
+    if (class'SwatPlayerExtras'.default.bAutomaticRecoilActive)
+    {
+        if (Pawn != None)
+            ActiveWeapon = FiredWeapon(Pawn.GetActiveItem());
+        // Recover when firing stops, not just when the button is released:
+        // an emptied magazine with the trigger still held must settle too.
+        if (bFire == 0 || ActiveWeapon == None ||
+            ActiveWeapon.NeedsReload() || ActiveWeapon.IsEmpty())
+            FinishAutomaticRecoil();
+    }
+
+    if (class'SwatPlayerExtras'.default.bRecoilRecovering)
+    {
+        UpdateRecoilRecovery(Time);
+        return;
+    }
+
+    if (!Recoiling) return;
+
+    // Automatic fire holds each completed kick. The next shot starts from the
+    // held artificial offset, producing a bounded CS/RON-style climb.
+    if (class'SwatPlayerExtras'.default.bAutomaticRecoilActive &&
+        Time >= RecoilStartTime + RecoilBackDuration)
+    {
+        UpdateRecoilBack(RecoilStartTime + RecoilBackDuration);
+        Recoiling = false;
+        LastRecoilFunctionValue = 0.0;
+        return;
+    }
+
+    if (Time >= RecoilStartTime + RecoilBackDuration + RecoilForeDuration)
     {
         FinishRecoiling();
         return;
@@ -5568,6 +5852,112 @@ simulated function UpdateRecoil()
         UpdateRecoilBack(Time);
     else
         UpdateRecoilFore(Time);
+}
+
+simulated function ResetRecoilState(optional bool bRemoveFromCurrentView)
+{
+    if (bRemoveFromCurrentView &&
+        (class'SwatPlayerExtras'.default.AppliedRecoilPitch != 0.0 ||
+        class'SwatPlayerExtras'.default.AppliedRecoilYaw != 0.0))
+    {
+        ApplyRecoilOffsetDelta(
+            -class'SwatPlayerExtras'.default.AppliedRecoilPitch,
+            -class'SwatPlayerExtras'.default.AppliedRecoilYaw);
+    }
+
+    class'SwatPlayerExtras'.default.RecoilPawn = SwatPawn(Pawn);
+    class'SwatPlayerExtras'.default.AppliedRecoilPitch = 0.0;
+    class'SwatPlayerExtras'.default.AppliedRecoilYaw = 0.0;
+    class'SwatPlayerExtras'.default.RecoilShotBasePitch = 0.0;
+    class'SwatPlayerExtras'.default.RecoilShotBaseYaw = 0.0;
+    class'SwatPlayerExtras'.default.RecoilYawMagnitude = 0.0;
+    class'SwatPlayerExtras'.default.RecoilYawDirection = 0;
+    class'SwatPlayerExtras'.default.bAutomaticRecoilActive = false;
+    class'SwatPlayerExtras'.default.bRecoilRecovering = false;
+    class'SwatPlayerExtras'.default.RecoilRecoveryPitch = 0.0;
+    class'SwatPlayerExtras'.default.RecoilRecoveryYaw = 0.0;
+    Recoiling = false;
+    LastRecoilFunctionValue = 0.0;
+}
+
+simulated function ReleaseRecoilForEquipmentChange()
+{
+    if (self != Level.GetLocalPlayerController() ||
+        class'SwatPlayerExtras'.default.RecoilPawn != SwatPawn(Pawn))
+        return;
+
+    // A different weapon owns a different recoil curve. Remove the old
+    // artificial offset from the current view before the equip request so the
+    // next weapon starts from the player's actual mouse aim, not the previous
+    // weapon's accumulated pitch/yaw or recovery state.
+    ResetRecoilState(true);
+}
+
+simulated function UpdateRecoilRecovery(float Time)
+{
+    local float Alpha;
+    local float Progress;
+    local float TargetPitch;
+    local float TargetYaw;
+    local float RecoveryDuration;
+
+    RecoveryDuration = class'SwatPlayerExtras'.default.RecoilRecoveryDuration;
+    if (RecoveryDuration <= 0.0)
+        Progress = 1.0;
+    else
+        Progress = FClamp(
+            (Time - class'SwatPlayerExtras'.default.RecoilRecoveryStartTime) /
+            RecoveryDuration,
+            0.0,
+            1.0);
+
+    // Smoothstep settles the artificial punch without snapping the view or
+    // overwriting mouse movement that happened during the firing sequence.
+    Alpha = Progress * Progress * (3.0 - 2.0 * Progress);
+    TargetPitch = class'SwatPlayerExtras'.default.RecoilRecoveryPitch * (1.0 - Alpha);
+    TargetYaw = class'SwatPlayerExtras'.default.RecoilRecoveryYaw * (1.0 - Alpha);
+    ApplyRecoilOffsetDelta(
+        TargetPitch - class'SwatPlayerExtras'.default.AppliedRecoilPitch,
+        TargetYaw - class'SwatPlayerExtras'.default.AppliedRecoilYaw);
+
+    if (Progress >= 1.0)
+    {
+        class'SwatPlayerExtras'.default.bRecoilRecovering = false;
+        class'SwatPlayerExtras'.default.RecoilRecoveryPitch = 0.0;
+        class'SwatPlayerExtras'.default.RecoilRecoveryYaw = 0.0;
+        class'SwatPlayerExtras'.default.RecoilYawMagnitude = 0.0;
+    }
+}
+
+simulated function CancelRecoilRecovery()
+{
+    if (!class'SwatPlayerExtras'.default.bRecoilRecovering)
+        return;
+
+    // A new shot takes ownership of the current artificial offset. Keeping it
+    // avoids a one-frame camera snap when firing again during recovery.
+    class'SwatPlayerExtras'.default.bRecoilRecovering = false;
+    class'SwatPlayerExtras'.default.RecoilRecoveryPitch = 0.0;
+    class'SwatPlayerExtras'.default.RecoilRecoveryYaw = 0.0;
+}
+
+simulated function BeginRecoilRecovery()
+{
+    if (Abs(class'SwatPlayerExtras'.default.AppliedRecoilPitch) < 0.01 &&
+        Abs(class'SwatPlayerExtras'.default.AppliedRecoilYaw) < 0.01)
+    {
+        class'SwatPlayerExtras'.default.AppliedRecoilPitch = 0.0;
+        class'SwatPlayerExtras'.default.AppliedRecoilYaw = 0.0;
+        class'SwatPlayerExtras'.default.bRecoilRecovering = false;
+        return;
+    }
+
+    class'SwatPlayerExtras'.default.bRecoilRecovering = true;
+    class'SwatPlayerExtras'.default.RecoilRecoveryStartTime = Level.TimeSeconds;
+    class'SwatPlayerExtras'.default.RecoilRecoveryPitch =
+        class'SwatPlayerExtras'.default.AppliedRecoilPitch;
+    class'SwatPlayerExtras'.default.RecoilRecoveryYaw =
+        class'SwatPlayerExtras'.default.AppliedRecoilYaw;
 }
 
 simulated function FinishRecoiling()
@@ -5581,28 +5971,106 @@ simulated function FinishRecoiling()
     UpdateRecoilFore(Time);
 
     Recoiling = false;
+    LastRecoilFunctionValue = 0.0;
+
+    if (class'SwatPlayerExtras'.default.bAutomaticRecoilActive)
+        BeginRecoilRecovery();
+}
+
+// Apply only the delta generated by recoil. AppliedRecoilPitch/Yaw are the
+// offsets owned by this system, so release can remove them without restoring
+// an old view rotation or overwriting mouse input received since the shot.
+simulated function ApplyRecoilOffsetDelta(float RequestedPitch, float RequestedYaw)
+{
+    local float PreviousPitch;
+    local float NextPitch;
+    local float ActualPitch;
+    local float PreviousYaw;
+    local float NextYaw;
+    local float ActualYaw;
+    local rotator NewRotation;
+
+    PreviousPitch = class'SwatPlayerExtras'.default.AppliedRecoilPitch;
+    NextPitch = FClamp(
+        PreviousPitch + RequestedPitch,
+        0.0,
+        class'SwatPlayerExtras'.default.MaxRecoilPitch);
+    ActualPitch = NextPitch - PreviousPitch;
+
+    PreviousYaw = class'SwatPlayerExtras'.default.AppliedRecoilYaw;
+    NextYaw = FClamp(
+        PreviousYaw + RequestedYaw,
+        -class'SwatPlayerExtras'.default.MaxRecoilYaw,
+        class'SwatPlayerExtras'.default.MaxRecoilYaw);
+    ActualYaw = NextYaw - PreviousYaw;
+
+    if (ActualPitch == 0.0 && ActualYaw == 0.0)
+        return;
+
+    NewRotation = Rotation;
+
+    // Retain the engine's original absolute look-up guard. Feed any clipping
+    // back into the tracked amount so release recovery matches what was
+    // actually applied to the camera.
+    if (ActualPitch > 0.0 && NewRotation.Pitch <= 18000 && NewRotation.Pitch + ActualPitch > 18000)
+        ActualPitch = 18000 - NewRotation.Pitch;
+
+    if (ActualPitch != 0.0)
+    {
+        class'SwatPlayerExtras'.default.AppliedRecoilPitch = PreviousPitch + ActualPitch;
+        NewRotation.Pitch += ActualPitch;
+        NewRotation.Pitch = NewRotation.Pitch & 65535;
+    }
+
+    if (ActualYaw != 0.0)
+    {
+        class'SwatPlayerExtras'.default.AppliedRecoilYaw = PreviousYaw + ActualYaw;
+        NewRotation.Yaw += ActualYaw;
+        NewRotation.Yaw = NewRotation.Yaw & 65535;
+    }
+
+    SetRotation(NewRotation);
 }
 
 simulated function UpdateRecoilBack(float Time)
 {
     local float ElapsedRecoilBackTime;
     local float CurrentValue;    //value of the recoil function
+    local float TargetPitch;
+    local float TargetYaw;
     local float DeltaPitch;
     local rotator NewRotation;
 
     ElapsedRecoilBackTime = Time - RecoilStartTime;
 
+    // Semi-auto keeps the ORIGINAL recoil: direct pitch kick on the view, no
+    // offset tracking, no recovery - it settles on its own via the fore curve.
+    if (!class'SwatPlayerExtras'.default.bAutomaticRecoilActive)
+    {
+        CurrentValue = Sin(ScaleRecoilDuration(ElapsedRecoilBackTime, RecoilBackDuration)) * RecoilMagnitude;
+        DeltaPitch = CurrentValue - LastRecoilFunctionValue;
+        NewRotation = Rotation;
+        if (NewRotation.Pitch <= 18000)
+            NewRotation.Pitch = Min(NewRotation.Pitch + DeltaPitch, 18000);
+        else
+            NewRotation.Pitch += DeltaPitch;
+        SetRotation(NewRotation);
+        LastRecoilFunctionValue = CurrentValue;
+        return;
+    }
+
     CurrentValue = Sin(ScaleRecoilDuration(ElapsedRecoilBackTime, RecoilBackDuration)) * RecoilMagnitude;
 
-    DeltaPitch = CurrentValue - LastRecoilFunctionValue;
-
-    //apply delta pitch to our rotation
-    NewRotation = Rotation;
-    if (NewRotation.Pitch <= 18000)  //looking up
-        NewRotation.Pitch = Min(NewRotation.Pitch + DeltaPitch, 18000); //fix 467 - cap pitch
+    TargetPitch = class'SwatPlayerExtras'.default.RecoilShotBasePitch + CurrentValue;
+    if (class'SwatPlayerExtras'.default.bAutomaticRecoilActive && RecoilMagnitude != 0.0)
+        TargetYaw = class'SwatPlayerExtras'.default.RecoilShotBaseYaw +
+            CurrentValue / RecoilMagnitude * class'SwatPlayerExtras'.default.RecoilYawMagnitude;
     else
-        NewRotation.Pitch += DeltaPitch;
-    SetRotation(NewRotation);
+        TargetYaw = class'SwatPlayerExtras'.default.RecoilShotBaseYaw;
+
+    ApplyRecoilOffsetDelta(
+        TargetPitch - class'SwatPlayerExtras'.default.AppliedRecoilPitch,
+        TargetYaw - class'SwatPlayerExtras'.default.AppliedRecoilYaw);
 
 /*
     log("TMC T"$Pad(7, Level.TimeSeconds)
@@ -5622,22 +6090,40 @@ simulated function UpdateRecoilFore(float Time)
 {
     local float ElapsedRecoilForeTime;
     local float CurrentValue;    //value of the recoil function
+    local float TargetPitch;
+    local float TargetYaw;
     local float DeltaPitch;
     local rotator NewRotation;
 
     ElapsedRecoilForeTime = Time - RecoilStartTime - RecoilBackDuration;
 
+    // Semi-auto: original direct recovery on the fore curve.
+    if (!class'SwatPlayerExtras'.default.bAutomaticRecoilActive)
+    {
+        CurrentValue = Cos(ScaleRecoilDuration(ElapsedRecoilForeTime, RecoilForeDuration)) * RecoilMagnitude;
+        DeltaPitch = CurrentValue - LastRecoilFunctionValue;
+        NewRotation = Rotation;
+        if (NewRotation.Pitch <= 18000)
+            NewRotation.Pitch = Min(NewRotation.Pitch + DeltaPitch, 18000);
+        else
+            NewRotation.Pitch += DeltaPitch;
+        SetRotation(NewRotation);
+        LastRecoilFunctionValue = CurrentValue;
+        return;
+    }
+
     CurrentValue = Cos(ScaleRecoilDuration(ElapsedRecoilForeTime, RecoilForeDuration)) * RecoilMagnitude;
 
-    DeltaPitch = CurrentValue - LastRecoilFunctionValue;
-
-    //apply delta pitch to our rotation
-    NewRotation = Rotation;
-    if (NewRotation.Pitch <= 18000)  //looking up
-        NewRotation.Pitch = Min(NewRotation.Pitch + DeltaPitch, 18000); //fix 467 - cap pitch
+    TargetPitch = class'SwatPlayerExtras'.default.RecoilShotBasePitch + CurrentValue;
+    if (class'SwatPlayerExtras'.default.bAutomaticRecoilActive && RecoilMagnitude != 0.0)
+        TargetYaw = class'SwatPlayerExtras'.default.RecoilShotBaseYaw +
+            CurrentValue / RecoilMagnitude * class'SwatPlayerExtras'.default.RecoilYawMagnitude;
     else
-        NewRotation.Pitch += DeltaPitch;
-    SetRotation(NewRotation);
+        TargetYaw = class'SwatPlayerExtras'.default.RecoilShotBaseYaw;
+
+    ApplyRecoilOffsetDelta(
+        TargetPitch - class'SwatPlayerExtras'.default.AppliedRecoilPitch,
+        TargetYaw - class'SwatPlayerExtras'.default.AppliedRecoilYaw);
 
 /*
     log("TMC T"$Pad(7, Level.TimeSeconds)
@@ -5656,17 +6142,45 @@ simulated function UpdateRecoilFore(float Time)
 //scales (ElapsedTime / Duration) on the range [0, Pi/2]
 simulated function float ScaleRecoilDuration(float ElapsedTime, float Duration)
 {
-    return HALF_PI * ElapsedTime / Duration;
+    if (Duration <= 0.0)
+        return HALF_PI;
+
+    return HALF_PI * FClamp(ElapsedTime / Duration, 0.0, 1.0);
 }
 
 function AddRecoil(float inRecoilBackDuration, float inRecoilForeDuration, float inRecoilMagnitude, optional float AutoFireRecoilMagnitudeIncrement, optional int AutoFireShotIndex)
 {
+    local FiredWeapon ActiveWeapon;
+    local bool bAutomatic;
+    local float HorizontalFraction;
+    local float YawMagnitude;
+
 #if !IG_SWAT_DISABLE_VISUAL_DEBUGGING // ckline: prevent cheating in network games
     if (!DebugShouldRecoil) return;
 #endif
 
-    //we're starting a new recoil
-    //it doesn't matter if there's already a recoil in effect... we're just starting over from where we are
+    if (self != Level.GetLocalPlayerController())
+        return;
+
+    if (Pawn != None)
+        ActiveWeapon = FiredWeapon(Pawn.GetActiveItem());
+    // The new accumulating/recovery recoil applies to AUTO and BURST only.
+    // Semi-auto keeps the original single-shot behaviour.
+    bAutomatic = ActiveWeapon != None &&
+        (ActiveWeapon.GetCurrentFireMode() == FireMode_Auto ||
+         ActiveWeapon.GetCurrentFireMode() == FireMode_Burst ||
+         ActiveWeapon.GetCurrentFireMode() == FireMode_Single);
+
+    // Preserve the artificial offset already on screen. This makes rapid
+    // semi-auto taps and a new trigger pull during recovery continuous instead
+    // of finishing the previous curve in one frame and grabbing the camera.
+    CancelRecoilRecovery();
+    class'SwatPlayerExtras'.default.RecoilPawn = SwatPawn(Pawn);
+    class'SwatPlayerExtras'.default.bAutomaticRecoilActive = bAutomatic;
+    class'SwatPlayerExtras'.default.RecoilShotBasePitch =
+        class'SwatPlayerExtras'.default.AppliedRecoilPitch;
+    class'SwatPlayerExtras'.default.RecoilShotBaseYaw =
+        class'SwatPlayerExtras'.default.AppliedRecoilYaw;
 
     RecoilStartTime = Level.TimeSeconds;
     RecoilBackDuration = inRecoilBackDuration;
@@ -5674,7 +6188,63 @@ function AddRecoil(float inRecoilBackDuration, float inRecoilForeDuration, float
     RecoilMagnitude = inRecoilMagnitude + AutoFireRecoilMagnitudeIncrement * AutoFireShotIndex;
     LastRecoilFunctionValue = 0;
 
+    // Return time follows the current weapon's own fore-duration. Zoomed fire,
+    // heavy weapons, and light weapons therefore keep distinct settling rates.
+    class'SwatPlayerExtras'.default.RecoilRecoveryDuration = FClamp(
+        inRecoilForeDuration * 0.75 + 0.08,
+        class'SwatPlayerExtras'.default.MinRecoilRecoveryDuration,
+        class'SwatPlayerExtras'.default.MaxRecoilRecoveryDuration);
+
+    HorizontalFraction = class'SwatPlayerExtras'.default.HorizontalRecoilMinFraction +
+        FRand() * (class'SwatPlayerExtras'.default.HorizontalRecoilMaxFraction -
+        class'SwatPlayerExtras'.default.HorizontalRecoilMinFraction);
+    YawMagnitude = FClamp(
+        Abs(RecoilMagnitude) * HorizontalFraction,
+        0.0,
+        class'SwatPlayerExtras'.default.MaxRecoilYaw);
+
+    // Bias toward changing sides so a spray visibly weaves left/right instead
+    // of randomly walking in one direction for a long run.
+    if (class'SwatPlayerExtras'.default.RecoilYawDirection == 0)
+    {
+        if (FRand() < 0.5)
+            class'SwatPlayerExtras'.default.RecoilYawDirection = -1;
+        else
+            class'SwatPlayerExtras'.default.RecoilYawDirection = 1;
+    }
+    else if (FRand() < 0.70)
+    {
+        class'SwatPlayerExtras'.default.RecoilYawDirection *= -1;
+    }
+
+    class'SwatPlayerExtras'.default.RecoilYawMagnitude =
+        YawMagnitude * class'SwatPlayerExtras'.default.RecoilYawDirection;
+
     Recoiling = true;
+}
+
+// Release-time reset for automatic fire. Remove only the offsets generated by
+// recoil; the current mouse-driven rotation remains intact.
+simulated function FinishAutomaticRecoil()
+{
+    if (class'SwatPlayerExtras'.default.bRecoilRecovering)
+        return;
+
+    if (!class'SwatPlayerExtras'.default.bAutomaticRecoilActive &&
+        class'SwatPlayerExtras'.default.AppliedRecoilPitch == 0.0 &&
+        class'SwatPlayerExtras'.default.AppliedRecoilYaw == 0.0)
+        return;
+
+    // Release can arrive after a long frame skipped over the end of the back
+    // phase. Sample the exact per-weapon peak before beginning recovery.
+    if (Recoiling &&
+        Level.TimeSeconds >= RecoilStartTime + RecoilBackDuration)
+        UpdateRecoilBack(RecoilStartTime + RecoilBackDuration);
+
+    class'SwatPlayerExtras'.default.bAutomaticRecoilActive = false;
+    LastRecoilFunctionValue = 0.0;
+    Recoiling = false;
+    BeginRecoilRecovery();
 }
 
 native simulated event float GetLookAroundSpeed();
@@ -5790,7 +6360,7 @@ simulated function bool IsReloadingActiveItem()
 // Returns true when the player is allowed to start (or keep) aiming.
 simulated function bool CanZoomNow()
 {
-	return !bBlockZoomWhileReloading || !IsReloadingActiveItem();
+	return !class'SwatPlayerExtras'.default.bBlockZoomWhileReloading || !IsReloadingActiveItem();
 }
 
 // Drops any active aim. Used when a reload starts while the player is aiming.
@@ -6274,10 +6844,65 @@ exec function ToggleFlashlight()
     SwatPawn(Pawn).ToggleDesiredFlashlightState();
 }
 
-// Toggle the player's NVG
+// N cycles power plus the four NVG looks:
+// off -> green DLL -> silver/gray thermal -> green/yellow/red fusion -> AI -> off.
 exec function ToggleNVG()
 {
-    SwatPawn(Pawn).ToggleDesiredNVGState();
+    local SwatPawn PlayerPawn;
+
+    PlayerPawn = SwatPawn(Pawn);
+    if (PlayerPawn == None)
+        return;
+
+    if (!PlayerPawn.GetNightvisionState())
+    {
+        class'SwatPlayerExtras'.default.NVGMode = 0;
+        class'SwatPlayerExtras'.default.bNVGThermalFusion = false;
+        PlayerPawn.ToggleDesiredNVGState();
+        return;
+    }
+
+	// ADVBase (advanced helmet) locks its thermal mode: N just toggles off.
+	if (class'SwatPlayerExtras'.default.bNVGModeLocked)
+	{
+		class'SwatPlayerExtras'.default.bNVGModeLocked = false;
+		PlayerPawn.ToggleDesiredNVGState();
+		return;
+	}
+
+	// Only the three imaging modes (green / blue-white / thermal) cycle;
+	// mode 3 (AI brackets) is disabled for now.
+	if (class'SwatPlayerExtras'.default.NVGMode < 2)
+	{
+		class'SwatPlayerExtras'.default.NVGMode++;
+		class'SwatPlayerExtras'.default.bNVGThermalFusion =
+			class'SwatPlayerExtras'.default.NVGMode == 1 ||
+			class'SwatPlayerExtras'.default.NVGMode == 2;
+		RefreshCameraEffects(SwatPlayer(Pawn));
+		return;
+    }
+
+    class'SwatPlayerExtras'.default.NVGMode = 0; 
+    class'SwatPlayerExtras'.default.bNVGThermalFusion = false;
+    PlayerPawn.ToggleDesiredNVGState();
+}
+
+// Cycle the four night-vision looks without touching the NVG on/off state:
+// 0 green DLL -> 1 silver/gray -> 2 green/yellow/red -> 3 AI outlines.
+exec function ToggleNVGMode()
+{
+	if (class'SwatPlayerExtras'.default.NVGMode >= 3)
+		class'SwatPlayerExtras'.default.NVGMode = 0;
+    else
+        class'SwatPlayerExtras'.default.NVGMode++;
+
+	// Keep old configs and any external HUD/script callers coherent.
+	class'SwatPlayerExtras'.default.bNVGThermalFusion =
+		class'SwatPlayerExtras'.default.NVGMode == 1 ||
+		class'SwatPlayerExtras'.default.NVGMode == 2;
+
+    if (SwatPlayer(Pawn) != None)
+        RefreshCameraEffects(SwatPlayer(Pawn));
 }
 
 exec function ToggleNVGLightUP()
@@ -6726,13 +7351,13 @@ function HandleWalking()
 		// decision changes. Otherwise ADS never slows the pawn down for anyone but
 		// the listen server host.
 		if ( Level.NetMode != NM_Standalone && Role < ROLE_Authority
-			&& ShouldBeWalking != LastReplicatedWalking )
+			&& ShouldBeWalking != class'SwatPlayerExtras'.default.LastReplicatedWalking )
 		{
 			theWalkPawn = SwatPawn(Pawn);
 			if ( theWalkPawn != None )
 			{
 				theWalkPawn.ServerSetWalking( ShouldBeWalking );
-				LastReplicatedWalking = ShouldBeWalking;
+				class'SwatPlayerExtras'.default.LastReplicatedWalking = ShouldBeWalking;
 			}
 		}
 
@@ -7375,5 +8000,4 @@ defaultproperties
 	
 	bBattleRoomControl=1
 	bBattleRoomRotation=1
-    bBlockZoomWhileReloading=true
 }

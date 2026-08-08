@@ -38,6 +38,7 @@ var private float			TimeToStopTryingToAttack;
 var private FiredWeapon		OtherWeapon;		// currently unequipped weapon
 
 var private float			StartActionTime;
+var private float WaitStartTime;
 var private int             ShotsFired;
 
 // config
@@ -221,8 +222,13 @@ latent function AttackTarget()
 	}
 
     ISwatAI(m_pawn).UnLockAim();
-	
-	LatentAimAtActor(Target);
+
+	// Short aim timeout: while a player QE-peeks the target keeps moving and the
+	// native aim animation never fully converges. Without a MaxWaitTime this
+	// would block forever and the suspect would stare without ever reaching the
+	// fire decision. 0.5s is enough to point the gun, then the wait-loop below
+	// re-aims and the fire gate (AnimCanAim || CanHit || CanShoot) opens.
+	LatentAimAtActor(Target, 0.5);
 	
     // @HACK: See comments in ISwatAI::LockAim for more info.
     ISwatAI(m_pawn).LockAim();
@@ -233,55 +239,78 @@ latent function AttackTarget()
 		CurrentWeapon.AIInterrupt();
 	}
 
-  // wait until we can hit the target (make sure the target is still conscious too!)
-  while(!bSuppressiveFire && !m_Pawn.CanHitTarget(Target) && !m_Pawn.CanShootTarget(Target) &&((TargetPawn == None) || class'Pawn'.static.checkConscious(TargetPawn)))
-  {		
-		if (m_Pawn.logTyrion)
-			log(m_Pawn.Name $ " is waiting to be able to hit target " $ TargetPawn);
-		
-		if (Level.TimeSeconds >= TimeToStopTryingToAttack || //we cant hold forever.... 
-		    FiredWeapon(m_Pawn.GetActiveItem()) == None )  //...imagine shoot without a gun...
-		{
+	  // wait until we can hit/shoot the target (target must stay conscious)
+	  // CanShootTarget covers QE peeks; native CanHit alone is too strict on MP.
+	  // AnimCanAimAtDesiredActor must also break the wait: it is what makes the
+	  // suspect visually aim, and matches the fire gate below.
+	  WaitStartTime = Level.TimeSeconds;
+	  while(!bSuppressiveFire && !m_Pawn.CanHitTarget(Target) && !m_Pawn.CanShootTarget(Target)
+		&& !ISwatAI(m_pawn).AnimCanAimAtDesiredActor(Target)
+		&& ((TargetPawn == None) || class'Pawn'.static.checkConscious(TargetPawn)))
+	  {		
 			if (m_Pawn.logTyrion)
-				log(self.Name $ " ran out of time to attack.  failing!");
+				log(m_Pawn.Name $ " is waiting to be able to hit target " $ TargetPawn);
 
-			instantFail(ACT_TIME_LIMIT_EXCEEDED);
-		}
-		
-    yield();
-  }
+			// Keep re-aiming while waiting so we don't freeze in a dead aim pose.
+			if (ISwatAI(m_pawn).AnimCanAimAtDesiredActor(Target))
+				ISwatAI(m_Pawn).SetUpperBodyAnimBehavior(kUBAB_AimWeapon, kUBABCI_AttackTargetAction);
 
-  // if we can aim at the target
-  if (ISwatAI(m_pawn).AnimCanAimAtDesiredActor(Target))
-  {
-		// make sure the correct aim behavior is set (in case it got unset when we couldn't aim at the desired target)
-		ISwatAI(m_Pawn).SetUpperBodyAnimBehavior(kUBAB_AimWeapon, kUBABCI_AttackTargetAction);
+			// Suspects: do not hard-stare for the full MaximumTimeToWaitToAttack.
+			// Fail sooner so EngageOfficer can reselect MoveToAttack / TakeCover+Lean
+			// instead of giving players free QE peek windows.
+			if (m_Pawn.IsA('SwatEnemy') && ((Level.TimeSeconds - WaitStartTime) > 2.5))
+			{
+				if (m_Pawn.logTyrion)
+					log(self.Name $ " aborting stagnant aim to reselect tactics");
+				instantFail(ACT_TIME_LIMIT_EXCEEDED);
+			}
+			
+			if (Level.TimeSeconds >= TimeToStopTryingToAttack || //we cant hold forever.... 
+			    FiredWeapon(m_Pawn.GetActiveItem()) == None )  //...imagine shoot without a gun...
+			{
+				if (m_Pawn.logTyrion)
+					log(self.Name $ " ran out of time to attack.  failing!");
 
-		if (bHavePerfectAim)
-			CurrentWeapon.SetPerfectAimNextShot();
+				instantFail(ACT_TIME_LIMIT_EXCEEDED);
+			}
+			
+	    yield();
+	  }
+
+	  // Fire when we have an aim lock OR a valid shoot line.
+	  // Previously AnimCanAim failure after a successful CanHit/CanShoot wait meant
+	  // the AI could stare without ever calling ShootWeaponAt.
+	  if (ISwatAI(m_pawn).AnimCanAimAtDesiredActor(Target) ||
+	      m_Pawn.CanHitTarget(Target) ||
+	      m_Pawn.CanShootTarget(Target))
+	  {
+			// make sure the correct aim behavior is set
+			ISwatAI(m_Pawn).SetUpperBodyAnimBehavior(kUBAB_AimWeapon, kUBABCI_AttackTargetAction);
+
+			if (bHavePerfectAim)
+				CurrentWeapon.SetPerfectAimNextShot();
 
 			AimAndFireAtTarget(CurrentWeapon);
 
 
-		if (ShouldSucceed())
-		{
-			instantSucceed();
-		}
-		else
-		{
-			// wait until we can use the weapon again
-			sleep(ISwatAI(m_Pawn).GetTimeToWaitBetweenFiring(CurrentWeapon));
-		}
-  }
-  else if (ISwatAI(m_pawn).AnimIsWeaponAimSet())
-  {
-      // if the weapon is currently aiming, but we can't hit the target, turn off upper body animation
-	  // Don't. This might add a delay that gives suspects the upper hand.
-		ISwatAI(m_Pawn).SetUpperBodyAnimBehavior(kUBAB_AimWeapon, kUBABCI_AttackTargetAction);
-  }
+			if (ShouldSucceed())
+			{
+				instantSucceed();
+			}
+			else
+			{
+				// wait until we can use the weapon again
+				sleep(ISwatAI(m_Pawn).GetTimeToWaitBetweenFiring(CurrentWeapon));
+			}
+	  }
+	  else if (ISwatAI(m_pawn).AnimIsWeaponAimSet())
+	  {
+	      // keep weapon aim up if already aiming
+			ISwatAI(m_Pawn).SetUpperBodyAnimBehavior(kUBAB_AimWeapon, kUBABCI_AttackTargetAction);
+	  }
 
-  // @HACK: See comments in ISwatAI::UnlockAim for more info.
-  ISwatAI(m_pawn).UnlockAim();
+	  // @HACK: See comments in ISwatAI::UnlockAim for more info.
+	  ISwatAI(m_pawn).UnlockAim();
 }
 
 latent function WildGunnerAttackTarget()
@@ -613,3 +642,4 @@ defaultproperties
     satisfiesGoal = class'AttackTargetGoal'
     MaxRangeForLessLethal = 512.0f
 }
+
